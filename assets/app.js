@@ -222,6 +222,8 @@
     anim.forEach(function (n) {
       list.appendChild(card(n, {
         stage: n.fm.stadiya || STAGES[0],
+        /* готовый ролик виден прямо в списке — за ним сюда и приходят */
+        tag: n.fm.video ? "видео" : "",
         fname: n.fm.fail || fileName(n.path)
       }));
     });
@@ -332,15 +334,18 @@
 
     main.appendChild(backButton());
 
-    /* Ссылка наружу — отдельной кнопкой: по самой карточке уходить со страницы
-       нельзя, иначе описание сайта не прочитать. */
-    if (note.fm.ssylka) {
-      var out = el("a", "ext", "Открыть сайт ↗");
-      out.href = note.fm.ssylka;
+    /* Ссылки наружу — отдельными кнопками: по самой карточке уходить со страницы
+       нельзя, иначе описания не прочитать. Готовый ролик лежит не в репозитории,
+       а на Диске или видеохостинге — сюда попадает только адрес. */
+    [["ssylka", "Открыть сайт ↗"], ["video", "Смотреть ролик ↗"]].forEach(function (f) {
+      var url = note.fm[f[0]];
+      if (!url) return;
+      var out = el("a", "ext", f[1]);
+      out.href = url;
       out.target = "_blank";
       out.rel = "noopener";
       main.appendChild(out);
-    }
+    });
 
     var box = el("article", "note");
     main.appendChild(box);
