@@ -10,31 +10,29 @@
   var CFG = null;       /* config.json */
   var BY_SLUG = {};     /* имя файла без расширения → заметка */
   var BACK = {};        /* путь → кто на него ссылается */
-  var VIEW = "priyomy";
+  var VIEW = "proekty";
   var V = "";           /* метка сборки в адресах данных */
 
-  /* Цвет папки. Список закреплён, а не выведен из хеша имени: цвет ничего не
-     значит сам по себе, но прыгать при переименовании он не должен. */
+  /* Стадии производства ролика по порядку: класс берётся по месту в списке,
+     чтобы цвет не приходилось задавать в двух местах. */
+  var STAGES = ["не начат", "программируется",
+                "озвучивается и монтируется", "готов", "выложен"];
+
+  /* Цвет раздела. Список закреплён, а не выведен из хеша имени: цвет ничего
+     не значит сам по себе, но прыгать при переименовании он не должен. */
   var SECTION = {
-    "physics/priyomy": "var(--s1)",
-    "physics/zadachi": "var(--s3)",
-    "physics": "var(--s3)",
-    "tex": "var(--s5)",
-    "manim": "var(--s2)",
+    "physics": "var(--s1)",
+    "math": "var(--s5)",
     "ml": "var(--s6)",
-    "algo": "var(--s4)",
-    "web": "var(--s7)"
+    "manim": "var(--s2)",
+    "web": "var(--s7)",
+    "tex": "var(--s4)",
+    "algo": "var(--s3)"
   };
 
   function sectionColor(folder) {
-    var f = folder || "";
-    while (f) {
-      if (SECTION[f]) return SECTION[f];
-      var cut = f.lastIndexOf("/");
-      if (cut < 0) break;
-      f = f.slice(0, cut);
-    }
-    return "var(--s8)";
+    var root = String(folder || "").split("/")[0];
+    return SECTION[root] || "var(--s8)";
   }
 
   function el(tag, cls, text) {
@@ -44,12 +42,18 @@
     return n;
   }
 
+  function noteAt(path) {
+    for (var i = 0; i < DATA.notes.length; i++) {
+      if (DATA.notes[i].path === path) return DATA.notes[i];
+    }
+    return null;
+  }
+
   /* ── разбор markdown ─────────────────────────────────────
 
      Порядок здесь важнее самого разбора. Формулы и код вынимаются из текста
      ДО marked: иначе `_` внутри $a_1$ становится курсивом, а `*` — списком,
-     и формула разваливается ещё до того, как её увидит KaTeX. Приём стандартный
-     — подменить кусок заглушкой, а после разбора вернуть на место. */
+     и формула разваливается ещё до того, как её увидит KaTeX. */
 
   function splitCode(src) {
     /* Ограждённые блоки и код в строке отдаются marked нетронутыми: внутри них
@@ -70,15 +74,15 @@
   }
 
   function wikiLinks(text) {
-    /* [[имя]] и [[имя|подпись]]. Имя разрешается по файлу без расширения —
-       так же, как оно пишется в заметках. Не нашлось — ссылка остаётся, но
+    /* [[имя]] и [[имя|подпись]]. Имя разрешается по файлу без расширения — так
+       же, как оно пишется в заметках. Не нашлось — ссылка остаётся, но
        помечается: видно, куда база растёт. */
     return text.replace(/\[\[([^\]|]+?)(?:\|([^\]]+?))?\]\]/g, function (_, name, label) {
       var key = name.trim();
       var note = BY_SLUG[key];
-      var text2 = (label || key).trim();
-      if (!note) return "[" + text2 + "](#/missing 'заметки пока нет')";
-      return "[" + text2 + "](#/n/" + encodeURI(note.path) + ")";
+      var shown = (label || key).trim();
+      if (!note) return "[" + shown + "](#/missing)";
+      return "[" + shown + "](#/n/" + encodeURI(note.path) + ")";
     });
   }
 
@@ -102,11 +106,12 @@
 
     host.querySelectorAll('a[href="#/missing"]').forEach(function (a) {
       a.className = "missing";
+      a.title = "заметки пока нет";
       a.removeAttribute("href");
     });
 
-    /* Широкое прокручивается внутри себя: горизонтальной полосы у страницы
-       быть не должно, иначе на телефоне уезжает вся вёрстка. */
+    /* Широкое прокручивается внутри себя: горизонтальной полосы у страницы быть
+       не должно, иначе на телефоне уезжает вся вёрстка. */
     host.querySelectorAll("table").forEach(function (t) {
       var box = el("div", "scroll-x");
       t.parentNode.insertBefore(box, t);
@@ -114,132 +119,194 @@
     });
   }
 
-  /* ── списки ──────────────────────────────────────────── */
+  /* ── сборка блоков ───────────────────────────────────── */
 
-  function card(note, extra) {
+  function block(main, title, tone, note) {
+    var box = el("section", "block");
+    var head = el("div", "block-head " + tone);
+    head.appendChild(el("h2", null, title));
+    if (note) head.appendChild(el("span", "block-note right", note));
+    box.appendChild(head);
+    var list = el("div", "list");
+    box.appendChild(list);
+    main.appendChild(box);
+    return list;
+  }
+
+  function fileName(path) {
+    return String(path).split("/").pop();
+  }
+
+  function card(note, opts) {
+    opts = opts || {};
     var a = el("a", "card");
     a.href = "#/n/" + encodeURI(note.path);
     a.style.setProperty("--sec", sectionColor(note.folder));
 
     var top = el("div", "card-top");
-    if (extra && extra.count != null) top.appendChild(el("span", "count", String(extra.count)));
+    if (opts.count != null) top.appendChild(el("span", "count", String(opts.count)));
     top.appendChild(el("span", "card-title", note.title));
-    if (extra && extra.tag) top.appendChild(el("span", "tag", extra.tag));
+    if (opts.stage != null) {
+      var i = STAGES.indexOf(opts.stage);
+      top.appendChild(el("span", "stage stage-" + (i < 0 ? 0 : i), opts.stage));
+    }
+    if (opts.tag) top.appendChild(el("span", "tag", opts.tag));
+    /* Имя файла в knowledge стоит на каждой карточке: по нему заметку находят
+       в репозитории, не гадая, как она там называется. */
+    top.appendChild(el("span", "fname", opts.fname || fileName(note.path)));
     a.appendChild(top);
 
-    if (extra && extra.note) a.appendChild(el("div", "card-note", extra.note));
+    if (opts.note) a.appendChild(el("div", "card-note", opts.note));
     return a;
   }
 
-  function empty(text) {
-    return el("div", "empty", text);
+  function styleCard(list, path, text) {
+    var n = noteAt(path);
+    if (!n) return;
+    list.appendChild(card(n, { note: text, tag: "стиль" }));
   }
 
-  function viewPriyomy(main) {
-    /* Главный список базы: порядок по числу встреч. Наверху то, что попадается
-       чаще всего, — то есть то, что важно помнить. */
-    var items = DATA.notes.filter(function (n) { return n.fm.type === "priyom"; });
-    if (!items.length) {
-      main.appendChild(empty("Приёмов пока нет."));
-      return;
-    }
-    items.sort(function (a, b) {
-      return (b.fm.vstrech || 1) - (a.fm.vstrech || 1) || a.title.localeCompare(b.title, "ru");
-    });
-    var list = el("div", "list");
-    items.forEach(function (n) {
+  function empty(list, text) {
+    list.appendChild(el("div", "empty", text));
+  }
+
+  /* ── вкладка «Проекты» ───────────────────────────────── */
+
+  function byVid(vid) {
+    return DATA.notes.filter(function (n) { return n.fm.vid === vid; })
+      .sort(function (a, b) { return a.title.localeCompare(b.title, "ru"); });
+  }
+
+  function viewProekty(main) {
+    /* Анимации. Кроме названия — имя файла со сценами и стадия производства:
+       по списку должно быть видно, что снято, а что ещё только пишется. */
+    var anim = byVid("animatsiya");
+    var list = block(main, "Анимации", "warm", "вертикаль 9:16");
+    anim.forEach(function (n) {
       list.appendChild(card(n, {
-        count: n.fm.vstrech || 1,
-        tag: n.fm.razdel || "",
-        note: (BACK[n.path] || []).length
-          ? "задач: " + BACK[n.path].length
-          : "ни одной связанной задачи"
+        stage: n.fm.stadiya || STAGES[0],
+        fname: n.fm.fail || fileName(n.path)
       }));
     });
-    main.appendChild(list);
+    styleCard(list, "manim/style.md", "палитра, темп, сборка формул, концовка");
+    if (!anim.length) empty(list, "Роликов пока нет.");
+
+    /* Сайты. Ссылка ведёт наружу, поэтому открывается отдельной кнопкой внутри
+       заметки, а не по самой карточке: иначе описание не прочитать. */
+    var sites = byVid("sait");
+    list = block(main, "Сайты", "cold", "GitHub Pages, без сборки");
+    sites.forEach(function (n) {
+      list.appendChild(card(n, { note: n.fm.repo || "" }));
+    });
+    styleCard(list, "web/style.md", "подложка, стекло, цвет, движение");
+    if (!sites.length) empty(list, "Сайтов пока нет.");
+
+    /* TeX. Список берётся прямо из файлов: исходник и собранный PDF рядом. */
+    list = block(main, "Конспекты в TeX", "sheet", "исходник и PDF рядом");
+    (DATA.tex || []).forEach(function (d) {
+      var a = el("a", "card");
+      a.href = d.pdf ? "#/f/" + encodeURI(d.pdf) : "#/";
+      a.style.setProperty("--sec", sectionColor("tex"));
+      var top = el("div", "card-top");
+      top.appendChild(el("span", "card-title", d.title));
+      if (d.pdf) top.appendChild(el("span", "tag", "PDF"));
+      top.appendChild(el("span", "fname", d.tex));
+      a.appendChild(top);
+      list.appendChild(a);
+    });
+    styleCard(list, "tex/style.md", "преамбула, макросы, рисунки, правила набора");
+    if (!(DATA.tex || []).length) empty(list, "Документов пока нет.");
   }
 
-  function viewZadachi(main) {
-    var items = DATA.notes.filter(function (n) { return n.fm.type === "zadacha"; });
-    if (!items.length) {
-      main.appendChild(empty("Разборов пока нет."));
-      return;
-    }
-    items.sort(function (a, b) { return (a.fm.nomer || 0) - (b.fm.nomer || 0); });
-    var list = el("div", "list");
-    items.forEach(function (n) {
+  /* ── предметные вкладки ──────────────────────────────── */
+
+  /* Физика, математика и ИИ устроены одинаково: список задач и список приёмов.
+     Различает их только папка, поэтому вид один на три вкладки. */
+  function viewSubject(main, root, label) {
+    var mine = DATA.notes.filter(function (n) {
+      return n.folder === root || n.folder.indexOf(root + "/") === 0;
+    });
+
+    var zad = mine.filter(function (n) { return n.fm.type === "zadacha"; })
+      .sort(function (a, b) { return (a.fm.nomer || 0) - (b.fm.nomer || 0); });
+
+    var list = block(main, "Задачи", "ans", zad.length ? "разобрано: " + zad.length : "");
+    zad.forEach(function (n) {
       list.appendChild(card(n, {
         tag: n.fm.razdel || "",
         note: n.fm.slozhnost ? "сложность " + n.fm.slozhnost : ""
       }));
     });
-    main.appendChild(list);
-  }
+    if (!zad.length) empty(list, "Разборов пока нет.");
 
-  function viewVse(main) {
-    /* Всё, что опубликовано, включая PDF: они и есть готовые конспекты. */
-    var all = DATA.notes.concat(DATA.files);
-    if (!all.length) {
-      main.appendChild(empty("Пока пусто."));
-      return;
-    }
-    var groups = {};
-    all.forEach(function (n) { (groups[n.folder] = groups[n.folder] || []).push(n); });
+    /* Приёмы по числу встреч: наверху то, что попадается чаще всего, — то есть
+       то, что важно помнить. */
+    var pri = mine.filter(function (n) { return n.fm.type === "priyom"; })
+      .sort(function (a, b) {
+        return (b.fm.vstrech || 1) - (a.fm.vstrech || 1) ||
+               a.title.localeCompare(b.title, "ru");
+      });
 
-    Object.keys(groups).sort().forEach(function (folder) {
-      var head = el("div", "group-head", folder || "корень");
-      head.style.setProperty("--sec", sectionColor(folder));
-      main.appendChild(head);
-
-      var list = el("div", "list");
-      groups[folder]
-        .sort(function (a, b) { return a.title.localeCompare(b.title, "ru"); })
-        .forEach(function (n) {
-          if (n.kind === "pdf") {
-            var a = el("a", "card");
-            a.href = "#/f/" + encodeURI(n.path);
-            a.style.setProperty("--sec", sectionColor(n.folder));
-            var top = el("div", "card-top");
-            top.appendChild(el("span", "card-title", n.title));
-            top.appendChild(el("span", "tag", "PDF"));
-            a.appendChild(top);
-            list.appendChild(a);
-          } else {
-            list.appendChild(card(n, { tag: n.fm.type || "" }));
-          }
-        });
-      main.appendChild(list);
+    list = block(main, "Приёмы", "moss", pri.length ? "по числу встреч" : "");
+    pri.forEach(function (n) {
+      var links = (BACK[n.path] || []).length;
+      list.appendChild(card(n, {
+        count: n.fm.vstrech || 1,
+        tag: n.fm.razdel || "",
+        note: links ? "задач: " + links : "ни одной связанной задачи"
+      }));
     });
+    if (!pri.length) empty(list, "Приёмов пока нет.");
+
+    /* Всё прочее в разделе — конспекты, описание сборника, правила. */
+    var rest = mine.filter(function (n) {
+      return n.fm.type !== "zadacha" && n.fm.type !== "priyom";
+    }).sort(function (a, b) { return a.title.localeCompare(b.title, "ru"); });
+
+    /* Заголовок здесь тихий, а не плашкой: плашка держится на редкости, и три
+       штуки на экран — уже предел. Это служебный хвост раздела, он и не должен
+       спорить за внимание с задачами и приёмами. */
+    if (rest.length) {
+      list = block(main, "Ещё в разделе " + label, "quiet", "");
+      rest.forEach(function (n) { list.appendChild(card(n, {})); });
+    }
   }
 
   /* ── заметка ─────────────────────────────────────────── */
 
-  var META_FIELDS = [
-    ["razdel", ""],
-    ["vstrech", "встреч: "],
-    ["nomer", "№"],
-    ["slozhnost", "сложность "],
-    ["sbornik", ""],
-    ["tema", ""],
-    ["istochnik", "источник: "],
-    ["data", ""]
+  var META = [
+    ["razdel", ""], ["vstrech", "встреч: "], ["nomer", "№"],
+    ["slozhnost", "сложность "], ["sbornik", ""], ["stadiya", ""],
+    ["tema", ""], ["istochnik", "источник: "], ["data", ""]
   ];
 
   function viewNote(main, path) {
-    var note = DATA.notes.filter(function (n) { return n.path === path; })[0];
-    if (!note) { main.appendChild(empty("Такой заметки нет.")); return; }
+    var note = noteAt(path);
+    if (!note) { main.appendChild(el("div", "empty", "Такой заметки нет.")); return; }
 
     main.appendChild(backButton());
+
+    /* Ссылка наружу — отдельной кнопкой: по самой карточке уходить со страницы
+       нельзя, иначе описание сайта не прочитать. */
+    if (note.fm.ssylka) {
+      var out = el("a", "ext", "Открыть сайт ↗");
+      out.href = note.fm.ssylka;
+      out.target = "_blank";
+      out.rel = "noopener";
+      main.appendChild(out);
+    }
 
     var box = el("article", "note");
     main.appendChild(box);
 
     var meta = el("div", "meta");
-    META_FIELDS.forEach(function (f) {
+    META.forEach(function (f) {
       var v = note.fm[f[0]];
-      if (v === undefined || v === null || v === "" ) return;
+      if (v === undefined || v === null || v === "") return;
       meta.appendChild(el("span", "chip", f[1] + v));
     });
+    /* Имя файла — тоже поле шапки: заметку ищут в knowledge по нему. */
+    meta.appendChild(el("span", "chip mono", note.fm.fail || note.path));
 
     fetch("data/notes/" + encodeURI(path) + V)
       .then(function (r) { return r.ok ? r.text() : Promise.reject(r.status); })
@@ -250,18 +317,14 @@
         /* Заголовок берём из самого текста, если он там есть: дублировать его
            над заметкой значит показать одно и то же дважды. */
         var h1 = body.querySelector("h1");
-        if (h1) {
-          box.appendChild(h1);
-        } else {
-          box.appendChild(el("h1", null, note.title));
-        }
-        if (meta.children.length) box.appendChild(meta);
+        box.appendChild(h1 || el("h1", null, note.title));
+        box.appendChild(meta);
         box.appendChild(body);
         renderBacklinks(main, note);
       })
       .catch(function () {
         box.appendChild(el("h1", null, note.title));
-        box.appendChild(empty("Файл не открылся."));
+        box.appendChild(el("div", "empty", "Файл не открылся."));
       });
   }
 
@@ -274,7 +337,7 @@
     box.appendChild(el("h2", null, "Ссылаются сюда"));
     var list = el("div", "list");
     from.forEach(function (p) {
-      var n = DATA.notes.filter(function (x) { return x.path === p; })[0];
+      var n = noteAt(p);
       if (n) list.appendChild(card(n, { tag: n.fm.type || "" }));
     });
     box.appendChild(list);
@@ -283,13 +346,12 @@
 
   function viewFile(main, path) {
     main.appendChild(backButton());
-    var name = path.split("/").pop();
+    var name = fileName(path);
 
-    var a = el("a", "back", "Открыть " + name);
+    var a = el("a", "ext", "Открыть " + name + " ↗");
     a.href = "data/notes/" + encodeURI(path) + V;
     a.target = "_blank";
     a.rel = "noopener";
-    a.style.marginBottom = "14px";
     main.appendChild(a);
 
     /* Показывает браузер сам: своя читалка PDF была бы хуже встроенной. */
@@ -309,32 +371,151 @@
     return src.replace(/^﻿?---\r?\n[\s\S]*?\r?\n---\r?\n?/, "");
   }
 
-  /* ── маршрутизация ───────────────────────────────────── */
+  /* ── указатель вкладок ───────────────────────────────── */
 
-  function route() {
+  /* Указатель один на всю полосу и переезжает с вкладки на вкладку. Положение
+     берётся по месту самой вкладки, поэтому верно при любой ширине экрана
+     и любой длине подписей. Координата — в системе содержимого полосы, вместе
+     с её прокруткой, чтобы указатель ехал заодно с ней. */
+  var thumbReady = false;
+
+  function moveThumb() {
+    var tabs = document.querySelector(".tabs");
+    if (!tabs) return;
+    var active = tabs.querySelector('.tab[aria-selected="true"]');
+    if (!active) return;
+
+    var t = tabs.getBoundingClientRect();
+    var a = active.getBoundingClientRect();
+    var edge = parseFloat(getComputedStyle(tabs).borderLeftWidth) || 0;
+
+    if (!thumbReady) tabs.classList.add("no-anim");
+    tabs.style.setProperty("--thumb-x", (a.left - t.left - edge + tabs.scrollLeft) + "px");
+    tabs.style.setProperty("--thumb-w", a.width + "px");
+    if (!thumbReady) {
+      void tabs.offsetWidth;
+      tabs.classList.remove("no-anim");
+      thumbReady = true;
+    }
+
+    /* Вкладок может быть больше, чем помещается: подвозим выбранную к краю,
+       чтобы указатель не уезжал за пределы видимого. */
+    var pad = 12;
+    if (a.left < t.left + pad) {
+      tabs.scrollBy({ left: a.left - t.left - pad - 8, behavior: "smooth" });
+    } else if (a.right > t.right - pad) {
+      tabs.scrollBy({ left: a.right - t.right + pad + 8, behavior: "smooth" });
+    }
+  }
+
+  /* ── смена экрана ────────────────────────────────────── */
+
+  /* Куда уходит старое содержимое и откуда приходит новое. Смысл в направлении:
+     открыли заметку — она приходит снизу, будто шагнули вглубь; вернулись
+     в список — он опускается сверху, тем же путём назад; сменили вкладку —
+     движение нейтральное, соседний экран не глубже и не выше. Величины
+     намеренно маленькие: это подсказка о направлении, а не переезд. */
+  var OUT_DY = { tab: "-4px", open: "-6px", back: "6px" };
+  var IN_DY = { tab: "8px", open: "12px", back: "-9px" };
+
+  var swapToken = 0;
+  var enterBound = false;
+
+  function bindEnter(main) {
+    if (enterBound) return;
+    enterBound = true;
+    /* Класс держится только на время движения: оставленный навсегда, он держал
+       бы отдельный слой отрисовки под весь экран. Чужое движение всплывает сюда
+       же изнутри, поэтому проверяем, что доиграло именно наше. */
+    main.addEventListener("animationend", function (e) {
+      if (e.target === main) main.classList.remove("entering");
+    });
+  }
+
+  /* Класс снимается и ставится заново в один заход: без этого повторная смена
+     на тот же экран не переиграла бы анимацию. Обращение к offsetWidth нужно
+     затем, чтобы браузер заметил снятие и счёл постановку новой анимацией. */
+  function enter(main, dy) {
+    bindEnter(main);
+    main.style.setProperty("--in-dy", dy);
+    main.classList.remove("entering");
+    void main.offsetWidth;
+    main.classList.add("entering");
+  }
+
+  /* Содержимое сначала уходит, и только потом подменяется. Метка нужна на
+     случай двух быстрых нажатий подряд: рисует только последнее. */
+  function swap(mode) {
+    var main = document.getElementById("main");
+    var mine = ++swapToken;
+    main.style.setProperty("--out-dy", OUT_DY[mode]);
+    main.classList.remove("entering");
+    main.classList.add("leaving");
+    setTimeout(function () {
+      if (mine !== swapToken) return;
+      /* Прыжок к началу делаем на погасшем экране: его не видно. */
+      window.scrollTo(0, 0);
+      main.classList.remove("leaving");
+      paint();
+      enter(main, IN_DY[mode]);
+    }, 80);
+  }
+
+  /* ── отрисовка и маршруты ────────────────────────────── */
+
+  function paint() {
     var main = document.getElementById("main");
     main.innerHTML = "";
     var hash = decodeURI(location.hash.replace(/^#/, ""));
 
-    if (hash.indexOf("/n/") === 0) { viewNote(main, hash.slice(3)); return; }
-    if (hash.indexOf("/f/") === 0) { viewFile(main, hash.slice(3)); return; }
+    if (hash.indexOf("/n/") === 0) return viewNote(main, hash.slice(3));
+    if (hash.indexOf("/f/") === 0) return viewFile(main, hash.slice(3));
 
-    if (VIEW === "zadachi") viewZadachi(main);
-    else if (VIEW === "vse") viewVse(main);
-    else viewPriyomy(main);
+    if (VIEW === "physics") return viewSubject(main, "physics", "«Физика»");
+    if (VIEW === "math") return viewSubject(main, "math", "«Математика»");
+    if (VIEW === "ml") return viewSubject(main, "ml", "«ИИ»");
+    return viewProekty(main);
+  }
+
+  function isDetail(hash) {
+    return hash.indexOf("#/n/") === 0 || hash.indexOf("#/f/") === 0;
+  }
+
+  var lastHash = location.hash;
+
+  function onHashChange() {
+    var was = isDetail(lastHash), now = isDetail(location.hash);
+    lastHash = location.hash;
+    swap(now && !was ? "open" : (!now && was ? "back" : "tab"));
   }
 
   function bindTabs() {
     document.getElementById("tabs").addEventListener("click", function (e) {
       var btn = e.target.closest(".tab");
-      if (!btn) return;
+      if (!btn || btn.getAttribute("aria-selected") === "true") return;
       VIEW = btn.dataset.view;
       document.querySelectorAll(".tab").forEach(function (t) {
         t.setAttribute("aria-selected", String(t === btn));
       });
-      if (location.hash && location.hash !== "#/") location.hash = "#/";
-      else route();
+      moveThumb();
+      /* Смена вкладки из карточки возвращает в список: адрес меняется, и всё
+         остальное доделает обработчик хеша. */
+      if (isDetail(location.hash)) { location.hash = "#/"; return; }
+      swap("tab");
     });
+  }
+
+  /* Отклик на касание. Класс ставится на pointerdown, а не через :active:
+     браузер придерживает :active, пока не убедится, что палец не поехал
+     прокручивать, и на быстром тапе состояние не успевает появиться. */
+  function enableTapFeedback() {
+    document.addEventListener("pointerdown", function (e) {
+      var node = e.target.closest && e.target.closest(".tab, .chip, a.card, a.back, a.ext");
+      if (!node) return;
+      node.classList.remove("tap");
+      void node.offsetWidth;
+      node.classList.add("tap");
+    }, { passive: true });
   }
 
   /* ── запуск ──────────────────────────────────────────── */
@@ -354,15 +535,15 @@
 
   function indexAll() {
     DATA.notes.forEach(function (n) {
-      var slug = n.path.split("/").pop().replace(/\.md$/, "");
+      var slug = fileName(n.path).replace(/\.md$/, "");
       /* При совпадении имён выигрывает более короткий путь: правило то же, что
-         и в вики-ссылках, — имя разрешается в ближайший подходящий файл. */
+         и в вики-ссылках — имя разрешается в ближайший подходящий файл. */
       if (!BY_SLUG[slug] || n.path.length < BY_SLUG[slug].path.length) BY_SLUG[slug] = n;
     });
     DATA.notes.forEach(function (n) {
       (n.links || []).forEach(function (name) {
         var target = BY_SLUG[name];
-        if (!target) return;
+        if (!target || target.path === n.path) return;
         (BACK[target.path] = BACK[target.path] || []).push(n.path);
       });
     });
@@ -370,7 +551,7 @@
 
   /* Порядок нарочно последовательный, а не Promise.all. Конфиг — единственное,
      что берётся мимо кэша; из него приходит метка сборки, и всё остальное
-     запрашивается уже с меткой в адресе. Промах кэша тогда гарантирован самим
+     запрашивается уже с меткой в адресе. Промах кэша тогда обеспечен самим
      адресом, а не просьбой к браузеру: просьбу он вправе истолковать по-своему,
      и первая же проверка это показала — индекс пришёл старым при свежей метке. */
   fetch("data/config.json", { cache: "no-store" })
@@ -382,18 +563,27 @@
       return fetch("data/index.json" + V).then(function (r) { return r.json(); });
     })
     .then(function (idx) {
-    if (!idx) return;
-    DATA = idx;
-    if (CFG.subtitle) document.getElementById("subtitle").textContent = CFG.subtitle;
-    DATA.notes = DATA.notes || [];
-    DATA.files = DATA.files || [];
-    indexAll();
-    bindTabs();
-    window.addEventListener("hashchange", route);
-    route();
-  }).catch(function () {
-    document.getElementById("main").appendChild(
-      el("div", "empty", "Данные не загрузились.")
-    );
-  });
+      if (!idx) return;
+      DATA = idx;
+      DATA.notes = DATA.notes || [];
+      DATA.files = DATA.files || [];
+      DATA.tex = DATA.tex || [];
+      if (CFG.subtitle) document.getElementById("subtitle").textContent = CFG.subtitle;
+      indexAll();
+      bindTabs();
+      enableTapFeedback();
+      window.addEventListener("hashchange", onHashChange);
+      /* При повороте экрана вкладки меняют ширину — указатель должен успеть. */
+      window.addEventListener("resize", moveThumb);
+      paint();
+      moveThumb();
+      /* Пока своя гарнитура не пришла, подписи набраны запасной и меряются
+         короче: указатель встал бы уже вкладки и обрезал бы ей текст. */
+      if (document.fonts && document.fonts.ready) document.fonts.ready.then(moveThumb);
+    })
+    .catch(function () {
+      document.getElementById("main").appendChild(
+        el("div", "empty", "Данные не загрузились.")
+      );
+    });
 })();

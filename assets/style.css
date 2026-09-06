@@ -1,7 +1,7 @@
 /* Хранилище — оформление.
-   Палитра, подложка и стекло взяты из «Кондуита» без переизобретения: это один
-   дом-стиль на два сайта, и расходиться им незачем. Отсюда же принцип — светлая
-   и тёмная темы заданы отдельными наборами шагов, а не автоматической инверсией. */
+   Палитра, подложка, стекло и движение взяты из «Кондуита» без переизобретения:
+   это один дом-стиль на два сайта, и расходиться им незачем. Отсюда же принцип —
+   светлая и тёмная темы заданы отдельными наборами шагов, а не инверсией. */
 
 :root {
   color-scheme: light dark;
@@ -43,8 +43,7 @@
      и графит. Ни один не сидит на чистом спектральном тоне: у краски тон всегда
      чуть сбит в сторону, оттого она и выглядит краской.
 
-     Здесь ими различаются папки. Цвет ничего не значит сам по себе — он только
-     отличает раздел от раздела. */
+     Цвет ничего не значит сам по себе — он только отличает раздел от раздела. */
   --s1: #1f5673;   /* берлинская лазурь */
   --s2: #b4442c;   /* киноварь */
   --s3: #2d6a45;   /* бутылочная зелень */
@@ -89,14 +88,30 @@
   --btn-near: rgba(16, 16, 44, 0.10);
   --btn-far: rgba(16, 16, 44, 0.30);
 
-  /* Плотная плашка: единственный вывернутый блок на странице. Здесь — счётчик
-     встреч у приёма. Приём работает, только пока таких блоков мало. */
+  /* Плотные плашки. Единственные вывернутые блоки: белый текст на цвете там, где
+     всё остальное — чернила по светлому. Заливка плотная нарочно, 0.82 против
+     0.6 у панели: сквозь неё подложка почти не видна, и плашка читается как
+     предмет, а не как окно. Стеклом её оставляют косой блик и светлая грань;
+     пятно второго цвета из угла и есть то, что отличает её от простой краски.
+
+     Приём работает, только пока таких блоков мало. Здесь они разрешены ровно
+     в одном месте — заголовки блоков, — и новое появляется вместо старого. */
   --solid-edge: rgba(255, 255, 255, 0.26);
+  --solid-dim: rgba(255, 255, 255, 0.70);
   --cold-bg: rgba(38, 30, 110, 0.82);
   --cold-glow: rgba(120, 200, 255, 0.50);
+  --warm-bg: rgba(122, 38, 26, 0.82);
+  --warm-glow: rgba(255, 196, 120, 0.48);
+  --sheet-bg: rgba(15, 76, 92, 0.94);
+  --sheet-glow: rgba(120, 220, 235, 0.44);
+  --ans-bg: rgba(52, 34, 96, 0.94);
+  --ans-glow: rgba(190, 160, 255, 0.40);
+  --moss-bg: rgba(22, 62, 40, 0.94);
+  --moss-glow: rgba(150, 225, 165, 0.40);
 }
 
-/* Тёмная тема — свой набор шагов под тёмную подложку, а не инверсия светлой. */
+/* Тёмная тема — свой набор шагов под тёмную подложку, а не инверсия светлой.
+   Пока страница объявляла «только светлая», браузер затемнял её сам. */
 @media (prefers-color-scheme: dark) {
   :root {
     --surface: #15151c;
@@ -143,9 +158,20 @@
     --btn-near: rgba(0, 0, 0, 0.40);
     --btn-far: rgba(0, 0, 0, 0.70);
 
+    /* На тёмной подложке плашка светлее, а не темнее: тёмное на тёмном
+       пропадает. Прозрачность выше — под ней есть что показать. */
     --solid-edge: rgba(255, 255, 255, 0.20);
+    --solid-dim: rgba(255, 255, 255, 0.66);
     --cold-bg: rgba(58, 48, 142, 0.74);
     --cold-glow: rgba(120, 200, 255, 0.34);
+    --warm-bg: rgba(140, 54, 38, 0.74);
+    --warm-glow: rgba(255, 196, 120, 0.32);
+    --sheet-bg: rgba(20, 88, 106, 0.90);
+    --sheet-glow: rgba(120, 220, 235, 0.30);
+    --ans-bg: rgba(64, 44, 116, 0.88);
+    --ans-glow: rgba(190, 160, 255, 0.30);
+    --moss-bg: rgba(28, 78, 52, 0.90);
+    --moss-glow: rgba(150, 225, 165, 0.30);
   }
 }
 
@@ -154,7 +180,9 @@
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
-button, .tab, .chip {
+/* Синий прямоугольник при касании складывается из подсветки самого касания и
+   выделения текста внутри кнопки. Гасим обе, но рамку для клавиатуры оставляем. */
+button, .tab, .chip, a.card, a.back {
   -webkit-user-select: none;
   user-select: none;
   -webkit-touch-callout: none;
@@ -165,8 +193,8 @@ button, .tab, .chip {
 html, body { margin: 0; padding: 0; }
 
 html {
-  /* Место под полосу прокрутки держим всегда: без этого короткая страница
-     теряет полосу, окно становится шире на её толщину, и всё дёргается вбок. */
+  /* Место под полосу прокрутки держим всегда: без этого короткая вкладка теряет
+     полосу, окно становится шире на её толщину, и страница дёргается вбок. */
   scrollbar-gutter: stable;
 }
 
@@ -242,31 +270,29 @@ body {
   font-family: var(--font-display);
   font-size: 34px;
   font-weight: 600;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.015em;
   line-height: 1;
   margin: 0;
   color: inherit;
   text-decoration: none;
 }
 
-.brand-sub {
-  color: var(--ink-muted);
-  font-size: 13px;
-}
+.brand-sub { color: var(--ink-muted); font-size: 13px; }
 
 /* ── вкладки ───────────────────────────────────────────── */
 
-/* Стекло — только здесь и на плавающих панелях: под ними проезжает содержимое,
-   там эффект и виден. На карточках его нет — размытие под длинным списком
-   стоит плавности прокрутки. */
+/* Стекло — только здесь: под полосой проезжает содержимое, там эффект и виден.
+   На карточках его нет — размытие под длинным списком стоит плавности
+   прокрутки, а платить пришлось бы на каждом кадре. */
 .tabs {
   position: sticky;
   top: 0;
   z-index: 20;
   display: flex;
-  gap: 6px;
-  padding: 8px;
+  gap: 2px;
+  padding: 4px;
   margin-bottom: 20px;
+  border: 1px solid var(--border);
   border-radius: 999px;
   background: var(--pane);
   -webkit-backdrop-filter: var(--pane-blur);
@@ -275,67 +301,179 @@ body {
     inset 0 1px 0 var(--pane-edge),
     inset 0 -1px 0 var(--pane-edge-low),
     var(--shadow-1);
+  overflow-x: auto;
+  scrollbar-width: none;
 }
 
+.tabs::-webkit-scrollbar { display: none; }
+
+/* Указатель один на всю полосу и переезжает с вкладки на вкладку, а не
+   загорается на каждой отдельно. Положение и ширину ему задаёт скрипт — по месту
+   самой вкладки, поэтому он верен при любой ширине экрана и любой длине подписей.
+
+   Пока ширина не задана, указателя попросту нет: он не выскакивает из угла при
+   первой отрисовке. */
+.tabs::before {
+  content: "";
+  position: absolute;
+  top: 4px;
+  bottom: 4px;
+  left: 0;
+  width: var(--thumb-w, 0);
+  transform: translateX(var(--thumb-x, 0));
+  border-radius: 999px;
+  background: var(--ink);
+  pointer-events: none;
+  transition: transform .38s cubic-bezier(.22, .8, .24, 1),
+              width .38s cubic-bezier(.22, .8, .24, 1);
+}
+
+/* первая установка — без переезда: указателю неоткуда ехать */
+.tabs.no-anim::before { transition: none; }
+
 .tab {
-  flex: 1;
-  min-height: var(--tap);
-  padding: 0 14px;
+  position: relative;
+  z-index: 1;
+  flex: 1 0 auto;
+  min-height: 36px;
+  padding: 8px 18px;
+  appearance: none;
   border: 0;
   border-radius: 999px;
-  background: transparent;
-  color: var(--ink-2);
+  background: none;
+  color: var(--ink-muted);
   font: inherit;
   font-weight: 500;
+  white-space: nowrap;
   cursor: pointer;
 }
 
-.tab:hover { background: var(--quiet); }
+.tab:hover { color: var(--ink-2); }
+.tab:focus-visible { outline: 2px solid var(--s1); outline-offset: -2px; }
 
-.tab[aria-selected="true"] {
-  background: var(--ink);
-  color: var(--ink-inv);
+/* Заливку выбранной вкладки рисует указатель, самой вкладке остаётся цвет. */
+.tab[aria-selected="true"] { color: var(--ink-inv); }
+
+/* ── блоки ─────────────────────────────────────────────── */
+
+.block { margin-bottom: 26px; }
+
+/* Заголовок блока — плотная плашка. Заливка приходит двумя переменными, поэтому
+   плашку можно направить в любой цвет, не трогая правило. */
+.block-head {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  margin-bottom: 10px;
+  padding: 11px 16px;
+  border: 1px solid var(--solid-edge);
+  border-radius: var(--radius-sm);
+  background-color: var(--solid-bg, var(--cold-bg));
+  background-image:
+    linear-gradient(142deg, rgba(255, 255, 255, 0.18), rgba(255, 255, 255, 0) 46%);
+  box-shadow: var(--shadow-2), inset 0 1px 0 var(--solid-edge);
+  color: #fff;
 }
 
-/* ── карточки списка ───────────────────────────────────── */
+/* Пятно уходит под содержимое отрицательным слоем: поднимать текст поверх него
+   не нужно, а так он и не перекрывается. */
+.block-head::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: -58%;
+  right: -14%;
+  width: 66%;
+  padding-bottom: 66%;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--solid-glow, var(--cold-glow)), transparent 68%);
+  pointer-events: none;
+}
 
-.list { display: grid; gap: 10px; }
+.block-head h2 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 17px;
+  font-weight: 640;
+  letter-spacing: -0.01em;
+}
 
+/* Подписи на плашке — приглушённый белый, а не серый: серый по цветному
+   читается грязью. */
+.block-note { color: var(--solid-dim); font-size: 12.5px; }
+.block-note.right { margin-left: auto; }
+
+/* Тихий заголовок — для служебных блоков. Плашка держится на редкости: если ею
+   помечать и хвост раздела, приём перестаёт работать на всём экране. */
+.block-head.quiet {
+  padding: 0 2px 2px;
+  border: 0;
+  border-radius: 0;
+  background: none;
+  box-shadow: none;
+  color: var(--ink-muted);
+}
+
+.block-head.quiet::after { content: none; }
+.block-head.quiet h2 { font-size: 13px; font-weight: 600; letter-spacing: 0.02em; }
+
+.cold  { --solid-bg: var(--cold-bg);  --solid-glow: var(--cold-glow); }
+.warm  { --solid-bg: var(--warm-bg);  --solid-glow: var(--warm-glow); }
+.sheet { --solid-bg: var(--sheet-bg); --solid-glow: var(--sheet-glow); }
+.ans   { --solid-bg: var(--ans-bg);   --solid-glow: var(--ans-glow); }
+.moss  { --solid-bg: var(--moss-bg);  --solid-glow: var(--moss-glow); }
+
+/* ── карточки ──────────────────────────────────────────── */
+
+.list { display: grid; gap: 8px; }
+
+/* Панель матового стекла: полупрозрачная заливка, косой блик, светлая грань
+   поверху (она и читается как толщина) и мягкая тень под низом. Заливка и блик
+   заданы порознь — подкраска меняет только цвет, блик остаётся на месте. */
 .card {
   display: block;
-  padding: 14px 16px;
+  padding: 13px 16px;
+  background-color: var(--pane);
+  background-image: linear-gradient(147deg, var(--sheen), transparent 44%);
+  border: 1px solid var(--border);
   border-radius: var(--radius);
-  background: var(--pane-2);
   box-shadow:
+    var(--shadow-1),
     inset 0 1px 0 var(--pane-edge),
-    inset 0 -1px 0 var(--pane-edge-low),
-    var(--shadow-1);
+    inset 0 -1px 0 var(--pane-edge-low);
   color: inherit;
   text-decoration: none;
 }
 
-.card:hover { background: var(--surface); }
+.card:hover { border-color: var(--border-strong); }
 
 .card-top {
   display: flex;
   align-items: baseline;
-  gap: 10px;
+  gap: 9px;
 }
 
 .card-title {
   font-weight: 600;
-  font-size: 16px;
+  font-size: 15.5px;
   flex: 1;
   min-width: 0;
 }
 
-.card-note {
-  margin-top: 4px;
+/* Имя файла в knowledge. Моноширинным и приглушённо: это адрес, а не заголовок,
+   но найти файл по нему нужно уметь с одного взгляда. */
+.fname {
+  font-family: var(--font-mono);
+  font-size: 11.5px;
   color: var(--ink-muted);
-  font-size: 13px;
+  white-space: nowrap;
 }
 
-/* Метка папки: цвет только отличает раздел от раздела. */
+.card-note { margin-top: 3px; color: var(--ink-muted); font-size: 13px; }
+
+/* Метка раздела: цвет только отличает раздел от раздела. */
 .tag {
   font-size: 12px;
   font-weight: 600;
@@ -343,54 +481,61 @@ body {
   white-space: nowrap;
 }
 
-/* Счётчик встреч. Единственный вывернутый блок в списке — плотная заливка со
-   светом из угла, тем и отличается от простой краски. Он здесь главное число:
-   приём, встреченный пятнадцать раз, важнее всех соседей. */
+/* Счётчик встреч — главное число в списке приёмов: встреченный пятнадцать раз
+   важнее всех соседей. Обводкой, а не заливкой: плотных плашек на экране уже
+   столько, сколько их терпит приём. */
 .count {
-  min-width: 30px;
-  padding: 2px 9px;
+  min-width: 28px;
+  padding: 1px 8px;
+  border: 1px solid var(--border-strong);
   border-radius: 999px;
-  background:
-    radial-gradient(120% 140% at 100% 0%, var(--cold-glow), transparent 62%),
-    var(--cold-bg);
-  box-shadow: inset 0 1px 0 var(--solid-edge);
-  color: #fff;
-  font-size: 13px;
-  font-weight: 600;
+  font-size: 12.5px;
+  font-weight: 640;
   font-variant-numeric: tabular-nums;
   text-align: center;
 }
 
-.group-head {
-  margin: 22px 0 8px;
-  padding-left: 4px;
-  color: var(--sec, var(--ink-muted));
-  font-size: 13px;
+/* Стадия ролика. Пять состояний, цвет из того же набора красок. */
+.stage {
+  padding: 2px 9px;
+  border: 1px solid currentColor;
+  border-radius: 999px;
+  color: var(--stage, var(--s8));
+  font-size: 11.5px;
   font-weight: 600;
-  letter-spacing: 0.02em;
+  white-space: nowrap;
 }
 
+.stage-0 { --stage: var(--s8); }   /* не начат */
+.stage-1 { --stage: var(--s1); }   /* программируется */
+.stage-2 { --stage: var(--s4); }   /* озвучивается и монтируется */
+.stage-3 { --stage: var(--s3); }   /* готов */
+.stage-4 { --stage: var(--s5); }   /* выложен */
+
 .empty {
-  padding: 28px 16px;
+  padding: 22px 16px;
   border-radius: var(--radius);
   background: var(--wash);
   color: var(--ink-muted);
   text-align: center;
+  font-size: 14px;
 }
 
 /* ── заметка ───────────────────────────────────────────── */
 
 .note {
   padding: 22px 24px 28px;
+  background-color: var(--pane);
+  background-image: linear-gradient(147deg, var(--sheen), transparent 44%);
+  border: 1px solid var(--border);
   border-radius: var(--radius);
-  background: var(--pane-2);
   box-shadow:
+    var(--shadow-1),
     inset 0 1px 0 var(--pane-edge),
-    inset 0 -1px 0 var(--pane-edge-low),
-    var(--shadow-1);
+    inset 0 -1px 0 var(--pane-edge-low);
 }
 
-.note h1 { font-size: 26px; line-height: 1.2; margin: 0 0 16px; }
+.note h1 { font-size: 26px; line-height: 1.2; margin: 0 0 16px; letter-spacing: -0.015em; }
 .note h2 { font-size: 19px; margin: 28px 0 8px; }
 .note h3 { font-size: 16px; margin: 22px 0 6px; }
 .note p, .note li { font-size: 15.5px; line-height: 1.62; }
@@ -401,10 +546,7 @@ body {
 .note a:hover { text-decoration-color: currentColor; }
 
 /* Ссылка на заметку, которой ещё нет. Не ошибка: так видно, куда база растёт. */
-.note a.missing {
-  color: var(--ink-muted);
-  text-decoration-style: dashed;
-}
+.note a.missing { color: var(--ink-muted); text-decoration-style: dashed; }
 
 .note code {
   padding: 1px 5px;
@@ -440,12 +582,7 @@ body {
 .note .katex-display { overflow-x: auto; overflow-y: hidden; padding: 2px 0; }
 
 /* Шапка заметки: поля фронтматтера в одну строку пилюлями. */
-.meta {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-  margin: -6px 0 18px;
-}
+.meta { display: flex; flex-wrap: wrap; gap: 6px; margin: -6px 0 18px; }
 
 .chip {
   padding: 3px 10px;
@@ -454,6 +591,8 @@ body {
   color: var(--ink-2);
   font-size: 12px;
 }
+
+.chip.mono { font-family: var(--font-mono); font-size: 11.5px; }
 
 /* ── обратные ссылки ───────────────────────────────────── */
 
@@ -468,9 +607,9 @@ body {
   letter-spacing: 0.02em;
 }
 
-/* ── кнопка «назад» ────────────────────────────────────── */
+/* ── кнопки ────────────────────────────────────────────── */
 
-.back {
+.back, .ext {
   display: inline-flex;
   align-items: center;
   gap: 6px;
@@ -493,7 +632,8 @@ body {
   cursor: pointer;
 }
 
-.back:hover { background: var(--glass-on); }
+.back:hover, .ext:hover { background: var(--glass-on); }
+.ext { margin-right: 8px; }
 
 /* ── PDF ───────────────────────────────────────────────── */
 
@@ -508,14 +648,80 @@ body {
   box-shadow: var(--shadow-1);
 }
 
+/* ── движение ──────────────────────────────────────────── */
+
+/* Смена экрана. Содержимое уходит и приходит целиком, одним слоем: и уход, и
+   приход — это одна прозрачность и один сдвиг на всём #main сразу. Поэлементное
+   появление отсюда убрано нарочно — на длинном списке оно читается не как
+   оживление, а как отрисовка на глазах. Шапка и полоса вкладок в движении
+   не участвуют: они остаются на месте, пока под ними меняется содержимое.
+
+   Уход короткий и с разгоном, приход длиннее и с торможением: тогда смена
+   читается как одно движение вперёд, а не как две одинаковые половины.
+
+   Направление сдвига задаёт скрипт: открытие заметки, возврат из неё и смена
+   вкладки двигаются по-разному, но правило на всех одно. */
+#main.leaving {
+  opacity: 0;
+  transform: translateY(var(--out-dy, 0));
+  transition: opacity .08s ease-in, transform .08s ease-in;
+}
+
+@keyframes screenIn {
+  from { opacity: 0; transform: translateY(var(--in-dy, 8px)); }
+  to { opacity: 1; transform: none; }
+}
+
+#main.entering { animation: screenIn .26s cubic-bezier(.22, .8, .24, 1) both; }
+
+/* Карточки — данные, а не кнопки: подъёма под курсором у них нет, чтобы
+   не звали нажать сильнее, чем нужно. */
+.card { transition: border-color .16s ease; }
+
+/* Отклик на касание. На телефоне подсветка касания погашена нарочно, поэтому
+   без этого кнопки кажутся мёртвыми: нажал — и ничего. Сжатие берём
+   преобразованием, оно не трогает разметку и ничего не сдвигает вокруг. */
+.tab, .chip, .back, .ext {
+  transition: background-color .14s ease, color .14s ease,
+              border-color .14s ease, opacity .14s ease;
+}
+
+/* Класс ставится на нажатие из скрипта, анимация доигрывает сама. Через :active
+   на телефоне это не работает: браузер придерживает состояние, пока не убедится,
+   что палец не поехал прокручивать. */
+@keyframes tap {
+  0% { transform: scale(.92); }
+  100% { transform: scale(1); }
+}
+
+/* На карточке во всю ширину сжатие выглядит рывком — она отзывается подсветкой. */
+@keyframes tapCard {
+  0% { background-color: var(--quiet-on); }
+  100% { background-color: var(--pane); }
+}
+
+/* Класс продублирован нарочно: иначе первые полсекунды после смены раздела
+   отклик глушился бы анимацией входа, у которой вес селектора выше. */
+.tap.tap { animation: tap .19s cubic-bezier(.2, .8, .3, 1); }
+a.card.tap.tap { animation: tapCard .4s ease-out; }
+
+/* Движение выключается системной настройкой — она не про красоту. */
+@media (prefers-reduced-motion: reduce) {
+  .tabs::before { transition: none; }
+  #main.leaving { transition: none; }
+  #main.entering { animation: none; }
+  .tap.tap, a.card.tap.tap { animation: none; }
+}
+
 @media (max-width: 640px) {
   .wrap { padding: 0 12px 48px; }
   .brand { font-size: 27px; }
+  /* Подпись в шапке переносится и делает шапку двухэтажной. Она поясняет,
+     а не называет, — на телефоне ею можно пожертвовать. */
+  .brand-sub { display: none; }
+  .tab { padding: 8px 14px; }
   .note { padding: 18px 16px 22px; }
   .note h1 { font-size: 22px; }
-  /* Подпись в шапке на узком экране переносится и делает шапку двухэтажной.
-     Она поясняет, а не называет, — на телефоне ею можно пожертвовать. */
-  .brand-sub { display: none; }
   /* Встроенная читалка PDF на телефоне тесная и не листается как надо —
      там честнее открыть файл целиком. */
   .pdf { display: none; }

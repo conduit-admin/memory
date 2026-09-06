@@ -17,19 +17,17 @@
    "links": []
   },
   {
-   "path": "tex/README.md",
-   "folder": "tex",
-   "title": "LaTeX",
+   "path": "math/README.md",
+   "folder": "math",
+   "title": "Математика",
    "fm": {},
    "links": []
   },
   {
-   "path": "tex/style.md",
-   "folder": "tex",
-   "title": "Дом-стиль конспектов",
-   "fm": {
-    "type": "style"
-   },
+   "path": "ml/README.md",
+   "folder": "ml",
+   "title": "ML и программирование",
+   "fm": {},
    "links": []
   },
   {
@@ -49,23 +47,117 @@
    "links": []
   },
   {
-   "path": "ml/README.md",
-   "folder": "ml",
-   "title": "ML и программирование",
-   "fm": {},
+   "path": "manim/projects/inertia.md",
+   "folder": "manim/projects",
+   "title": "Момент инерции",
+   "fm": {
+    "type": "proekt",
+    "vid": "animatsiya",
+    "fail": "inertia.py",
+    "stadiya": "программируется"
+   },
    "links": []
   },
   {
-   "path": "algo/README.md",
-   "folder": "algo",
-   "title": "Алгоритмы",
-   "fm": {},
+   "path": "manim/projects/planar.md",
+   "folder": "manim/projects",
+   "title": "Планарные графы",
+   "fm": {
+    "type": "proekt",
+    "vid": "animatsiya",
+    "fail": "planar.py",
+    "stadiya": "программируется"
+   },
+   "links": []
+  },
+  {
+   "path": "manim/projects/rotating-liquid.md",
+   "folder": "manim/projects",
+   "title": "Вращающаяся жидкость",
+   "fm": {
+    "type": "proekt",
+    "vid": "animatsiya",
+    "fail": "rotating_liquid.py",
+    "stadiya": "программируется"
+   },
+   "links": []
+  },
+  {
+   "path": "manim/projects/squared-rectangle.md",
+   "folder": "manim/projects",
+   "title": "Разрезание на квадраты",
+   "fm": {
+    "type": "proekt",
+    "vid": "animatsiya",
+    "fail": "squared_rectangle.py",
+    "stadiya": "программируется"
+   },
    "links": []
   },
   {
    "path": "web/README.md",
    "folder": "web",
    "title": "Веб",
+   "fm": {},
+   "links": []
+  },
+  {
+   "path": "web/style.md",
+   "folder": "web",
+   "title": "Дом-стиль сайтов",
+   "fm": {
+    "type": "style",
+    "tema": "дом-стиль сайтов",
+    "istochnik": "conduit-26, conduit-city-26"
+   },
+   "links": []
+  },
+  {
+   "path": "web/projects/conduit-26.md",
+   "folder": "web/projects",
+   "title": "Кондуит",
+   "fm": {
+    "type": "proekt",
+    "vid": "sait",
+    "repo": "conduit-admin/conduit-26",
+    "ssylka": "https://conduit-admin.github.io/conduit-26/"
+   },
+   "links": []
+  },
+  {
+   "path": "web/projects/conduit-city-26.md",
+   "folder": "web/projects",
+   "title": "Кондуит кружка",
+   "fm": {
+    "type": "proekt",
+    "vid": "sait",
+    "repo": "conduit-admin/conduit-city-26",
+    "ssylka": "https://conduit-admin.github.io/conduit-city-26/"
+   },
+   "links": [
+    "style"
+   ]
+  },
+  {
+   "path": "tex/README.md",
+   "folder": "tex",
+   "title": "LaTeX",
+   "fm": {},
+   "links": []
+  },
+  {
+   "path": "tex/style.md",
+   "folder": "tex",
+   "title": "Дом-стиль конспектов",
+   "fm": {
+    "type": "style"
+   },
+   "links": []
+  },
+  {
+   "path": "algo/README.md",
+   "folder": "algo",
+   "title": "Алгоритмы",
    "fm": {},
    "links": []
   }
@@ -94,6 +186,28 @@
    "folder": "tex/documents",
    "title": "taylor",
    "kind": "pdf"
+  }
+ ],
+ "tex": [
+  {
+   "title": "Задача о курсоре",
+   "tex": "cursor.tex",
+   "pdf": "tex/documents/cursor.pdf"
+  },
+  {
+   "title": "Формальные степенные ряды и производящие функции",
+   "tex": "genfunc.tex",
+   "pdf": "tex/documents/genfunc.pdf"
+  },
+  {
+   "title": "Интегралы и первообразные",
+   "tex": "integrals.tex",
+   "pdf": "tex/documents/integrals.pdf"
+  },
+  {
+   "title": "Формула Тейлора, ряды и прочие пределы",
+   "tex": "taylor.tex",
+   "pdf": "tex/documents/taylor.pdf"
   }
  ]
 }

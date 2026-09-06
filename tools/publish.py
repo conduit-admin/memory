@@ -24,13 +24,15 @@ KNOWLEDGE = pathlib.Path(sys.argv[1] if len(sys.argv) > 1
 # Белый список: что вообще может уехать наружу.
 INCLUDE = [
     "physics/**/*.md",
-    "tex/documents/*.md",
-    "tex/documents/*.pdf",
-    "tex/*.md",
-    "manim/*.md",
+    "math/**/*.md",
     "ml/**/*.md",
-    "algo/*.md",
+    "manim/*.md",
+    "manim/projects/*.md",
     "web/*.md",
+    "web/projects/*.md",
+    "tex/*.md",
+    "tex/documents/*.pdf",
+    "algo/*.md",
     "assets/**/*",
 ]
 
@@ -100,6 +102,53 @@ def title_of(fm, body, path):
     return path.stem
 
 
+def tex_title(path):
+    """Название конспекта из титульного блока.
+
+    Команды \\title в этих документах нет: титул набран вручную — центрированный
+    блок, где название разбито на строки, и у каждой строки свой размер шрифта.
+    Поэтому берём текст всех кусков после \\bfseries внутри первого титульного
+    блока и склеиваем. Не нашлось — вернём пусто, и подписью станет имя файла.
+    """
+    src = path.read_text(encoding="utf-8", errors="replace")
+    start = src.find(r"\begin{document}")
+    if start < 0:
+        return ""
+
+    body = src[start:]
+    end = min((body.find(m) for m in (r"\end{titlepage}", r"\end{center}",
+                                      r"\section") if body.find(m) > 0),
+              default=len(body))
+    parts = re.findall(r"\\bfseries\s+([^}\\]+)", body[:end])
+    return " ".join(p.strip() for p in parts if p.strip())[:80]
+
+
+def tex_documents():
+    """Список конспектов: исходник и собранный PDF рядом.
+
+    Берётся прямо из папки, а не из заметок: заводить карточку на каждый документ
+    значило бы держать в двух местах то, что и так видно в файлах.
+    """
+    src = KNOWLEDGE / "tex" / "documents"
+    if not src.is_dir():
+        return []
+
+    out = []
+    for tex in sorted(src.glob("*.tex")):
+        # рисунки подключаются в основной документ, отдельным конспектом не являются
+        if tex.stem.endswith("_figs") or tex.stem == "template":
+            continue
+        rel_pdf = "tex/documents/%s.pdf" % tex.stem
+        out.append({
+            "title": tex_title(tex) or tex.stem,
+            "tex": tex.name,
+            # PDF показывается, только если он собран и не изъят белым списком
+            "pdf": rel_pdf if (tex.with_suffix(".pdf").exists()
+                               and rel_pdf not in EXCLUDE) else "",
+        })
+    return out
+
+
 def collect():
     seen, notes, files = set(), [], []
     for pattern in INCLUDE:
@@ -158,10 +207,12 @@ def main():
     out.mkdir(parents=True)          # knowledge должно исчезнуть и здесь
 
     notes, files = collect()
+    tex = tex_documents()
     build = datetime.now().strftime("%Y%m%d%H%M")
 
     (HERE / "data" / "index.json").write_text(
-        json.dumps({"notes": notes, "files": files}, ensure_ascii=False, indent=1),
+        json.dumps({"notes": notes, "files": files, "tex": tex},
+                   ensure_ascii=False, indent=1),
         encoding="utf-8", newline="\n")
 
     config = {
@@ -177,8 +228,8 @@ def main():
     stamp_html(build)
 
     linked = sum(len(n["links"]) for n in notes)
-    print("сборка %s: заметок %d, PDF %d, вики-ссылок %d"
-          % (build, len(notes), len(files), linked))
+    print("сборка %s: заметок %d, PDF %d, конспектов TeX %d, вики-ссылок %d"
+          % (build, len(notes), len(files), len(tex), linked))
     if notes and not linked:
         print("связей между заметками нет — обратные ссылки будут пустыми")
 
