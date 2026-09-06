@@ -1,0 +1,99 @@
+{
+ "notes": [
+  {
+   "path": "physics/README.md",
+   "folder": "physics",
+   "title": "Физика: нарешка",
+   "fm": {},
+   "links": []
+  },
+  {
+   "path": "physics/sbornik.md",
+   "folder": "physics",
+   "title": "Сборник",
+   "fm": {
+    "type": "meta"
+   },
+   "links": []
+  },
+  {
+   "path": "tex/README.md",
+   "folder": "tex",
+   "title": "LaTeX",
+   "fm": {},
+   "links": []
+  },
+  {
+   "path": "tex/style.md",
+   "folder": "tex",
+   "title": "Дом-стиль конспектов",
+   "fm": {
+    "type": "style"
+   },
+   "links": []
+  },
+  {
+   "path": "manim/README.md",
+   "folder": "manim",
+   "title": "Анимации",
+   "fm": {},
+   "links": []
+  },
+  {
+   "path": "manim/style.md",
+   "folder": "manim",
+   "title": "Стиль анимаций",
+   "fm": {
+    "type": "style"
+   },
+   "links": []
+  },
+  {
+   "path": "ml/README.md",
+   "folder": "ml",
+   "title": "ML и программирование",
+   "fm": {},
+   "links": []
+  },
+  {
+   "path": "algo/README.md",
+   "folder": "algo",
+   "title": "Алгоритмы",
+   "fm": {},
+   "links": []
+  },
+  {
+   "path": "web/README.md",
+   "folder": "web",
+   "title": "Веб",
+   "fm": {},
+   "links": []
+  }
+ ],
+ "files": [
+  {
+   "path": "tex/documents/cursor.pdf",
+   "folder": "tex/documents",
+   "title": "cursor",
+   "kind": "pdf"
+  },
+  {
+   "path": "tex/documents/genfunc.pdf",
+   "folder": "tex/documents",
+   "title": "genfunc",
+   "kind": "pdf"
+  },
+  {
+   "path": "tex/documents/integrals.pdf",
+   "folder": "tex/documents",
+   "title": "integrals",
+   "kind": "pdf"
+  },
+  {
+   "path": "tex/documents/taylor.pdf",
+   "folder": "tex/documents",
+   "title": "taylor",
+   "kind": "pdf"
+  }
+ ]
+}

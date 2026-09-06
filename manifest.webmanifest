@@ -1,0 +1,10 @@
+{
+  "name": "Хранилище знаний",
+  "short_name": "Хранилище",
+  "lang": "ru",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#e4e7f2",
+  "theme_color": "#e4e7f2"
+}

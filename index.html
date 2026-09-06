@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#e4e7f2" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#06060b" media="(prefers-color-scheme: dark)">
+<link rel="manifest" href="manifest.webmanifest">
+<title>Хранилище</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231f5673'/%3E%3Cpath d='M9 8h11a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H9z' fill='none' stroke='%23fcfcfb' stroke-width='2.6' stroke-linejoin='round'/%3E%3Cpath d='M9 8v18' stroke='%23fcfcfb' stroke-width='2.6' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="preload" href="assets/fonts/golos-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/style.css?v=202609061812">
+
+<!-- Единственное, что тянется со стороны: разбор markdown и вёрстка формул.
+     Писать это руками — недели работы и свои же ошибки. Версии закреплены;
+     когда дойдут руки, оба файла кладутся в assets/ и внешних запросов
+     не остаётся вовсе. -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/marked/12.0.2/marked.min.js"></script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js"></script>
+
+<meta name="build" content="202609061812">
+</head>
+<body>
+<div class="wrap">
+  <header class="topbar">
+    <a class="brand" href="#/">Хранилище</a>
+    <span class="brand-sub" id="subtitle"></span>
+  </header>
+
+  <nav class="tabs" id="tabs">
+    <button class="tab" type="button" data-view="priyomy" aria-selected="true">Приёмы</button>
+    <button class="tab" type="button" data-view="zadachi" aria-selected="false">Задачи</button>
+    <button class="tab" type="button" data-view="vse" aria-selected="false">Всё</button>
+  </nav>
+
+  <main id="main"></main>
+</div>
+<script defer src="assets/app.js?v=202609061812"></script>
+</body>
+</html>
