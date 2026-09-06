@@ -701,17 +701,15 @@ body {
 .back:hover, .ext:hover { background: var(--glass-on); }
 .ext { margin-right: 8px; }
 
-/* ── PDF ───────────────────────────────────────────────── */
-
-/* Показывает браузер сам — своей встроенной читалкой, которая на телефоне
-   удобнее любой самодельной. */
-.pdf {
-  width: 100%;
-  height: min(80vh, 900px);
-  border: 0;
-  border-radius: var(--radius);
-  background: var(--surface);
-  box-shadow: var(--shadow-1);
+/* Кнопка к документу. Крупнее обычной: на странице PDF она главное и почти
+   единственное действие, и попасть в неё пальцем надо с первого раза. */
+.ext.big {
+  min-height: 46px;
+  margin: 18px 0 0;
+  padding: 0 22px;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--ink);
 }
 
 /* ── движение ──────────────────────────────────────────── */
@@ -794,7 +792,4 @@ a.card.tap.tap { animation: tapCard .4s ease-out; }
   .tab { padding: 8px 11px; font-size: 14px; }
   .note { padding: 18px 16px 22px; }
   .note h1 { font-size: 22px; }
-  /* Встроенная читалка PDF на телефоне тесная и не листается как надо —
-     там честнее открыть файл целиком. */
-  .pdf { display: none; }
 }

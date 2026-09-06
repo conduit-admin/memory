@@ -350,14 +350,6 @@
     var box = el("article", "note");
     main.appendChild(box);
 
-    /* Заголовок известен из индекса, поэтому показываем его сразу, а на месте
-       текста — бегущие полосы. Пустая панель, пока едет файл, читается
-       как зависание, хотя всё работает. */
-    box.appendChild(el("h1", null, note.title));
-    var wait = el("div", "skeleton");
-    for (var k = 0; k < 4; k++) wait.appendChild(el("span", "skel-row"));
-    box.appendChild(wait);
-
     var meta = el("div", "meta");
     META.forEach(function (f) {
       var v = note.fm[f[0]];
@@ -367,26 +359,35 @@
     /* Имя файла — тоже поле шапки: заметку ищут в knowledge по нему. */
     meta.appendChild(el("span", "chip mono", note.fm.fail || note.path));
 
-    fetch("data/notes/" + encodeURI(path) + V)
-      .then(function (r) { return r.ok ? r.text() : Promise.reject(r.status); })
-      .then(function (src) {
-        var body = el("div");
-        renderMarkdown(stripFrontmatter(src), body);
+    function fill(src) {
+      var body = el("div");
+      renderMarkdown(stripFrontmatter(src), body);
+      box.innerHTML = "";
+      /* Заголовок берём из самого текста, если он там есть: дублировать его
+         над заметкой значит показать одно и то же дважды. */
+      var h1 = body.querySelector("h1");
+      box.appendChild(h1 || el("h1", null, note.title));
+      box.appendChild(meta);
+      box.appendChild(body);
+      renderBacklinks(main, note);
+    }
 
-        box.innerHTML = "";
-        /* Заголовок берём из самого текста, если он там есть: дублировать его
-           над заметкой значит показать одно и то же дважды. */
-        var h1 = body.querySelector("h1");
-        box.appendChild(h1 || el("h1", null, note.title));
-        box.appendChild(meta);
-        box.appendChild(body);
-        renderBacklinks(main, note);
-      })
-      .catch(function () {
-        box.innerHTML = "";
-        box.appendChild(el("h1", null, note.title));
-        box.appendChild(el("div", "empty", "Файл не открылся."));
-      });
+    /* Текст обычно уже лежит в памяти: его запросили до начала перехода.
+       Тогда рисуем сразу, без единого кадра пустоты — даже каркас показать
+       не успеваем, и его тут быть не должно. */
+    if (SRC[path] != null) return fill(SRC[path]);
+
+    /* Не успел приехать — значит, сеть медленная, и каркас уместен. */
+    box.appendChild(el("h1", null, note.title));
+    var wait = el("div", "skeleton");
+    for (var k = 0; k < 4; k++) wait.appendChild(el("span", "skel-row"));
+    box.appendChild(wait);
+
+    loadNote(path).then(fill).catch(function () {
+      box.innerHTML = "";
+      box.appendChild(el("h1", null, note.title));
+      box.appendChild(el("div", "empty", "Файл не открылся."));
+    });
   }
 
   function renderBacklinks(main, note) {
@@ -405,21 +406,56 @@
     main.appendChild(box);
   }
 
+  /* Страница документа. Встроенного просмотра нет нарочно: рамка с чужой
+     читалкой внутри стеклянной вёрстки выглядит заплатой, а на телефоне ещё
+     и листается хуже, чем тот же файл, открытый целиком. Поэтому здесь —
+     короткая справка о документе и кнопка. */
   function viewFile(main, path) {
     main.appendChild(backButton());
+
+    var doc = (DATA.tex || []).filter(function (d) { return d.pdf === path; })[0];
+    var meta = (DATA.files || []).filter(function (f) { return f.path === path; })[0] || {};
     var name = fileName(path);
 
-    var a = el("a", "ext", "Открыть " + name + " ↗");
+    var box = el("article", "note");
+    box.appendChild(el("h1", null, doc ? doc.title : meta.title || name));
+
+    var chips = el("div", "meta");
+    if (meta.pages) chips.appendChild(el("span", "chip", meta.pages + " " + plural(
+      meta.pages, "страница", "страницы", "страниц")));
+    if (meta.size) chips.appendChild(el("span", "chip", Math.round(meta.size / 1024) + " КБ"));
+    if (doc) chips.appendChild(el("span", "chip mono", doc.tex));
+    chips.appendChild(el("span", "chip mono", path));
+    box.appendChild(chips);
+
+    /* Если документ входит в проект, его правила лежат в README рядом —
+       это единственное осмысленное описание, которое здесь есть. */
+    var readme = doc && doc.group
+      ? noteAt("tex/documents/" + doc.group + "/README.md") : null;
+    if (readme) {
+      var p = el("p");
+      p.appendChild(document.createTextNode("Часть проекта «"));
+      var link = el("a", null, readme.title);
+      link.href = "#/n/" + encodeURI(readme.path);
+      p.appendChild(link);
+      p.appendChild(document.createTextNode("» — там устройство и правила."));
+      box.appendChild(p);
+    }
+
+    var a = el("a", "ext big", "Открыть PDF ↗");
     a.href = "data/notes/" + encodeURI(path) + V;
     a.target = "_blank";
     a.rel = "noopener";
-    main.appendChild(a);
+    box.appendChild(a);
 
-    /* Показывает браузер сам: своя читалка PDF была бы хуже встроенной. */
-    var frame = el("iframe", "pdf");
-    frame.src = "data/notes/" + encodeURI(path) + V;
-    frame.title = name;
-    main.appendChild(frame);
+    main.appendChild(box);
+  }
+
+  function plural(n, one, few, many) {
+    var a = Math.abs(n) % 100, b = a % 10;
+    if (a > 10 && a < 20) return many;
+    if (b > 1 && b < 5) return few;
+    return b === 1 ? one : many;
   }
 
   function backButton() {
@@ -504,9 +540,42 @@
     main.classList.add("entering");
   }
 
+  /* Текст заметок держим в памяти: второй раз к той же заметке — уже без сети. */
+  var SRC = {};
+
+  function loadNote(path) {
+    if (SRC[path] != null) return Promise.resolve(SRC[path]);
+    return fetch("data/notes/" + encodeURI(path) + V)
+      .then(function (r) { return r.ok ? r.text() : Promise.reject(r.status); })
+      .then(function (t) { SRC[path] = t; return t; });
+  }
+
+  function pendingPath() {
+    var hash = decodeURI(location.hash.replace(/^#/, ""));
+    return hash.indexOf("/n/") === 0 ? hash.slice(3) : "";
+  }
+
   /* Содержимое сначала уходит, и только потом подменяется. Метка нужна на
-     случай двух быстрых нажатий подряд: рисует только последнее. */
+     случай двух быстрых нажатий подряд: рисует только последнее.
+
+     Файл заметки запрашивается ДО того, как начнётся движение: пока он едет,
+     на экране остаётся прежнее содержимое, и переход играет уже с готовым
+     текстом. Иначе получалось обидно — красивый переход, а под ним пустая
+     панель, которая только потом наполняется. Ждём не дольше четверти секунды:
+     на медленной сети честнее показать каркас, чем держать старый экран. */
   function swap(mode) {
+    var path = pendingPath();
+    var ready = path
+      ? Promise.race([loadNote(path).catch(function () {}), after(250)])
+      : Promise.resolve();
+    ready.then(function () { runSwap(mode); });
+  }
+
+  function after(ms) {
+    return new Promise(function (ok) { setTimeout(ok, ms); });
+  }
+
+  function runSwap(mode) {
     var main = document.getElementById("main");
     var mine = ++swapToken;
     main.style.setProperty("--out-dy", OUT_DY[mode]);

@@ -31,22 +31,6 @@
    "links": []
   },
   {
-   "path": "manim/README.md",
-   "folder": "manim",
-   "title": "Анимации",
-   "fm": {},
-   "links": []
-  },
-  {
-   "path": "manim/style.md",
-   "folder": "manim",
-   "title": "Стиль анимаций",
-   "fm": {
-    "type": "style"
-   },
-   "links": []
-  },
-  {
    "path": "manim/projects/inertia.md",
    "folder": "manim/projects",
    "title": "Момент инерции",
@@ -95,20 +79,18 @@
    "links": []
   },
   {
-   "path": "web/README.md",
-   "folder": "web",
-   "title": "Веб",
+   "path": "manim/README.md",
+   "folder": "manim",
+   "title": "Анимации",
    "fm": {},
    "links": []
   },
   {
-   "path": "web/style.md",
-   "folder": "web",
-   "title": "Дом-стиль сайтов",
+   "path": "manim/style.md",
+   "folder": "manim",
+   "title": "Стили анимаций",
    "fm": {
-    "type": "style",
-    "tema": "дом-стиль сайтов",
-    "istochnik": "conduit-26, conduit-city-26"
+    "type": "style"
    },
    "links": []
   },
@@ -139,18 +121,34 @@
    ]
   },
   {
-   "path": "tex/README.md",
-   "folder": "tex",
-   "title": "LaTeX",
+   "path": "web/projects/memory.md",
+   "folder": "web/projects",
+   "title": "Хранилище",
+   "fm": {
+    "type": "proekt",
+    "vid": "sait",
+    "repo": "conduit-admin/memory",
+    "ssylka": "https://conduit-admin.github.io/memory/"
+   },
+   "links": [
+    "style"
+   ]
+  },
+  {
+   "path": "web/README.md",
+   "folder": "web",
+   "title": "Веб",
    "fm": {},
    "links": []
   },
   {
-   "path": "tex/style.md",
-   "folder": "tex",
-   "title": "Дом-стиль конспектов",
+   "path": "web/style.md",
+   "folder": "web",
+   "title": "Стили сайтов",
    "fm": {
-    "type": "style"
+    "type": "style",
+    "tema": "стили сайтов",
+    "istochnik": "conduit-26, conduit-city-26"
    },
    "links": []
   },
@@ -160,6 +158,22 @@
    "title": "Зачёт: ответы на вопросы",
    "fm": {},
    "links": []
+  },
+  {
+   "path": "tex/README.md",
+   "folder": "tex",
+   "title": "LaTeX",
+   "fm": {},
+   "links": []
+  },
+  {
+   "path": "tex/style.md",
+   "folder": "tex",
+   "title": "Стили конспектов",
+   "fm": {
+    "type": "style"
+   },
+   "links": []
   }
  ],
  "files": [
@@ -167,31 +181,41 @@
    "path": "tex/documents/cursor.pdf",
    "folder": "tex/documents",
    "title": "cursor",
-   "kind": "pdf"
+   "kind": "pdf",
+   "pages": 7,
+   "size": 291071
   },
   {
    "path": "tex/documents/zachet/genfunc.pdf",
    "folder": "tex/documents/zachet",
    "title": "genfunc",
-   "kind": "pdf"
+   "kind": "pdf",
+   "pages": 9,
+   "size": 376820
   },
   {
    "path": "tex/documents/zachet/integrals.pdf",
    "folder": "tex/documents/zachet",
    "title": "integrals",
-   "kind": "pdf"
+   "kind": "pdf",
+   "pages": 18,
+   "size": 414671
   },
   {
    "path": "tex/documents/zachet/matchings.pdf",
    "folder": "tex/documents/zachet",
    "title": "matchings",
-   "kind": "pdf"
+   "kind": "pdf",
+   "pages": 8,
+   "size": 307419
   },
   {
    "path": "tex/documents/zachet/taylor.pdf",
    "folder": "tex/documents/zachet",
    "title": "taylor",
-   "kind": "pdf"
+   "kind": "pdf",
+   "pages": 10,
+   "size": 399348
   }
  ],
  "tex": [

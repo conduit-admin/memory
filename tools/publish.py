@@ -27,30 +27,48 @@ KNOWLEDGE = pathlib.Path(sys.argv[1] if len(sys.argv) > 1
                          else r"C:\Users\Admin\Desktop\knowledge")
 
 # Белый список: что вообще может уехать наружу.
+# Шаблоны идут вглубь нарочно. Плоский список уже подвёл однажды: зачётные работы
+# переехали в `tex/documents/zachet/`, и три опубликованных документа молча
+# исчезли с сайта — шаблон смотрел только в саму `documents`.
+#
+# Правило теперь такое: раздел перечисляется здесь один раз и целиком, а новая
+# подпапка внутри него работает сама, без единой правки кода. Новый раздел
+# верхнего уровня по-прежнему требует строки — это и есть остаток защиты
+# от того, чтобы что-то уехало наружу молча.
 INCLUDE = [
     "physics/**/*.md",
     "math/**/*.md",
     "ml/**/*.md",
-    "manim/*.md",
-    "manim/projects/*.md",
-    "web/*.md",
-    "web/projects/*.md",
-    "tex/*.md",
-    # со звёздочками вглубь: конспекты разложены по подпапкам-проектам
-    # (`documents/zachet/`), и плоский шаблон их не видел
-    "tex/documents/**/*.md",
-    "tex/documents/**/*.pdf",
+    "manim/**/*.md",
+    "web/**/*.md",
+    "tex/**/*.md",
+    "tex/**/*.pdf",
     "assets/**/*",
 ]
 
 # algo/ наружу не идёт: это архив решённого, а не то, что читают с телефона.
 # Приём из решения, оказавшийся общим, попадает на сайт через базу приёмов.
 
+# Не публикуется намеренно. Список нужен не только сборке: без него отчёт о том,
+# что не попало на сайт, каждый раз показывал бы одни и те же семь строк — а
+# предупреждение, которое горит всегда, читать перестают. Здесь всё, про что уже
+# решено «наружу не идёт», и тогда непустой отчёт означает настоящую пропажу.
+EXCLUDE_DIRS = (
+    "tex/drafts",     # черновики, вытесненные чистовиком
+    "tex/notes",      # планы работ, а не работы
+    "tex/reference",  # чужие материалы, см. EXCLUDE
+    "templates",      # заготовки для новых заметок, читать их незачем
+    "publish",        # как устроена публикация — служебное
+    "algo",           # архив решённого; приёмы оттуда идут через базу приёмов
+)
+
 # Изъятия внутри белого списка — по конкретной причине у каждого.
 EXCLUDE = {
     # Конспект в соавторстве: публикация делает публичной и чужую часть.
     # Снять запрет можно только после разговора с соавтором.
     "tex/reference/veroyatnost.pdf",
+    # README самого репозитория — про его устройство, а не про знания.
+    "README.md",
 }
 
 # Служебное и черновое наружу не идёт вовсе — этого нет и в белом списке,
@@ -112,6 +130,20 @@ def title_of(fm, body, path):
     return path.stem
 
 
+def pdf_pages(path):
+    """Сколько страниц в PDF.
+
+    Считаем объекты страниц прямо в файле. Способ грубый: если PDF сжат в объектные
+    потоки, объекты в тексте не видны и счёт даст ноль. Для latexmk этого хватает,
+    а ноль на странице просто не показывается — врать числом хуже, чем молчать.
+    """
+    try:
+        raw = path.read_bytes()
+    except OSError:
+        return 0
+    return len(re.findall(rb"/Type\s*/Page[^s]", raw))
+
+
 def tex_title(path):
     """Название конспекта из титульного блока.
 
@@ -164,6 +196,11 @@ def tex_documents():
     return out
 
 
+def skipped(rel):
+    """Файл под шаблон попал, но публиковать его не надо."""
+    return rel in EXCLUDE or rel.startswith(tuple(d + "/" for d in EXCLUDE_DIRS))
+
+
 def collect():
     seen, notes, files = set(), [], []
     for pattern in INCLUDE:
@@ -171,7 +208,7 @@ def collect():
             if not src.is_file():
                 continue
             rel = src.relative_to(KNOWLEDGE).as_posix()
-            if rel in EXCLUDE or rel in seen:
+            if skipped(rel) or rel in seen:
                 continue
             seen.add(rel)
 
@@ -197,8 +234,33 @@ def collect():
                     "folder": folder,
                     "title": src.stem,
                     "kind": "pdf",
+                    "pages": pdf_pages(src),
+                    "size": src.stat().st_size,
                 })
-    return notes, files
+    return notes, files, seen
+
+
+def unpublished(seen):
+    """Файлы зоны владельца, не попавшие ни под один шаблон.
+
+    Нужно затем, чтобы «на сайте этого нет» перестало быть тихой пропажей.
+    Раздел, забытый в белом списке, ничем себя не выдаёт: сайт просто не
+    показывает содержимое, и заметить это можно только случайно.
+    """
+    out = []
+    for src in sorted(KNOWLEDGE.rglob("*")):
+        if not src.is_file():
+            continue
+        rel = src.relative_to(KNOWLEDGE).as_posix()
+        # служебная зона и внутренности git наружу не идут по устройству
+        if rel.startswith((".claude/", ".git/", ".idea/")):
+            continue
+        if src.suffix.lower() not in (".md", ".pdf"):
+            continue
+        if rel in seen or skipped(rel):
+            continue
+        out.append(rel)
+    return out
 
 
 def stamp_html(build):
@@ -221,7 +283,7 @@ def main():
         shutil.rmtree(out)          # копия целиком перестраивается: удалённое в
     out.mkdir(parents=True)          # knowledge должно исчезнуть и здесь
 
-    notes, files = collect()
+    notes, files, seen = collect()
     tex = tex_documents()
     build = datetime.now().strftime("%Y%m%d%H%M")
 
@@ -247,6 +309,17 @@ def main():
           % (build, len(notes), len(files), len(tex), linked))
     if notes and not linked:
         print("связей между заметками нет — обратные ссылки будут пустыми")
+
+    # Содержимое есть, а на сайте его нет — это должно быть видно сразу,
+    # а не выясняться через месяц.
+    lost = unpublished(seen)
+    if lost:
+        print("\nне попало на сайт (%d):" % len(lost))
+        for rel in lost[:20]:
+            print("   " + rel)
+        if len(lost) > 20:
+            print("   ... и ещё %d" % (len(lost) - 20))
+        print("если это должно публиковаться — нужен шаблон в INCLUDE")
 
 
 if __name__ == "__main__":
