@@ -27,6 +27,18 @@
    "links": []
   },
   {
+   "path": "math/serii.md",
+   "folder": "math",
+   "title": "Серии матцентра",
+   "fm": {
+    "type": "meta",
+    "istochnik": "матцентр",
+    "vsego": 18,
+    "resheno": 6
+   },
+   "links": []
+  },
+  {
    "path": "ml/README.md",
    "folder": "ml",
    "title": "ML и программирование",
