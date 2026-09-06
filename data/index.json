@@ -12,7 +12,10 @@
    "folder": "physics",
    "title": "Сборник",
    "fm": {
-    "type": "meta"
+    "type": "meta",
+    "sbornik": "МОШ",
+    "vsego": 147,
+    "resheno": 71
    },
    "links": []
   },
