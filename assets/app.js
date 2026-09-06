@@ -121,16 +121,33 @@
 
   /* ── сборка блоков ───────────────────────────────────── */
 
-  function block(main, title, tone, note) {
+  /* На плашке только название. Пояснения оттуда убраны: они удлиняли строку —
+     на узком экране плашка вылезала за край, — а сказать что-то важное всё
+     равно не успевали. */
+  function block(main, title, tone) {
     var box = el("section", "block");
     var head = el("div", "block-head " + tone);
     head.appendChild(el("h2", null, title));
-    if (note) head.appendChild(el("span", "block-note right", note));
     box.appendChild(head);
     var list = el("div", "list");
     box.appendChild(list);
     main.appendChild(box);
     return list;
+  }
+
+  /* Подзаголовок внутри блока — для групп конспектов. Тихий, потому что плашек
+     на экране уже столько, сколько их терпит приём. Ссылка на описание группы
+     стоит прямо в нём: отдельной карточкой README повторял бы этот же заголовок
+     строкой ниже. */
+  function subhead(list, text, href) {
+    var row = el("div", "subhead");
+    row.appendChild(el("span", null, text));
+    if (href) {
+      var a = el("a", "subhead-link", "правила →");
+      a.href = href;
+      row.appendChild(a);
+    }
+    list.appendChild(row);
   }
 
   function fileName(path) {
@@ -146,17 +163,37 @@
     var top = el("div", "card-top");
     if (opts.count != null) top.appendChild(el("span", "count", String(opts.count)));
     top.appendChild(el("span", "card-title", note.title));
+
+    /* Метки и имя файла лежат в одной обойме: перенесясь на узком экране, они
+       уходят вниз вместе и остаются прижатыми вправо, а не рассыпаются
+       по краям строки. */
+    var meta = el("div", "card-meta");
     if (opts.stage != null) {
       var i = STAGES.indexOf(opts.stage);
-      top.appendChild(el("span", "stage stage-" + (i < 0 ? 0 : i), opts.stage));
+      meta.appendChild(el("span", "stage stage-" + (i < 0 ? 0 : i), opts.stage));
     }
-    if (opts.tag) top.appendChild(el("span", "tag", opts.tag));
+    if (opts.tag) meta.appendChild(el("span", "tag", opts.tag));
     /* Имя файла в knowledge стоит на каждой карточке: по нему заметку находят
        в репозитории, не гадая, как она там называется. */
-    top.appendChild(el("span", "fname", opts.fname || fileName(note.path)));
+    meta.appendChild(el("span", "fname", opts.fname || fileName(note.path)));
+    top.appendChild(meta);
     a.appendChild(top);
 
     if (opts.note) a.appendChild(el("div", "card-note", opts.note));
+    return a;
+  }
+
+  function texCard(d) {
+    var a = el("a", "card");
+    a.href = d.pdf ? "#/f/" + encodeURI(d.pdf) : "#/";
+    a.style.setProperty("--sec", sectionColor("tex"));
+    var top = el("div", "card-top");
+    top.appendChild(el("span", "card-title", d.title));
+    var meta = el("div", "card-meta");
+    if (d.pdf) meta.appendChild(el("span", "tag", "PDF"));
+    meta.appendChild(el("span", "fname", d.tex));
+    top.appendChild(meta);
+    a.appendChild(top);
     return a;
   }
 
@@ -181,7 +218,7 @@
     /* Анимации. Кроме названия — имя файла со сценами и стадия производства:
        по списку должно быть видно, что снято, а что ещё только пишется. */
     var anim = byVid("animatsiya");
-    var list = block(main, "Анимации", "warm", "вертикаль 9:16");
+    var list = block(main, "Анимации", "warm");
     anim.forEach(function (n) {
       list.appendChild(card(n, {
         stage: n.fm.stadiya || STAGES[0],
@@ -194,28 +231,37 @@
     /* Сайты. Ссылка ведёт наружу, поэтому открывается отдельной кнопкой внутри
        заметки, а не по самой карточке: иначе описание не прочитать. */
     var sites = byVid("sait");
-    list = block(main, "Сайты", "cold", "GitHub Pages, без сборки");
+    list = block(main, "Сайты", "cold");
     sites.forEach(function (n) {
       list.appendChild(card(n, { note: n.fm.repo || "" }));
     });
     styleCard(list, "web/style.md", "подложка, стекло, цвет, движение");
     if (!sites.length) empty(list, "Сайтов пока нет.");
 
-    /* TeX. Список берётся прямо из файлов: исходник и собранный PDF рядом. */
-    list = block(main, "Конспекты в TeX", "sheet", "исходник и PDF рядом");
-    (DATA.tex || []).forEach(function (d) {
-      var a = el("a", "card");
-      a.href = d.pdf ? "#/f/" + encodeURI(d.pdf) : "#/";
-      a.style.setProperty("--sec", sectionColor("tex"));
-      var top = el("div", "card-top");
-      top.appendChild(el("span", "card-title", d.title));
-      if (d.pdf) top.appendChild(el("span", "tag", "PDF"));
-      top.appendChild(el("span", "fname", d.tex));
-      a.appendChild(top);
-      list.appendChild(a);
+    /* TeX. Список берётся прямо из файлов: исходник и собранный PDF рядом.
+       Конспекты собираются в подпапки-проекты — зачёт, например, — и каждая
+       такая папка идёт своей группой со своим README вместо заголовка. */
+    var docs = DATA.tex || [];
+    list = block(main, "Конспекты в TeX", "sheet");
+
+    var groups = [""];
+    docs.forEach(function (d) {
+      if (d.group && groups.indexOf(d.group) < 0) groups.push(d.group);
     });
+
+    groups.forEach(function (g) {
+      var mine = docs.filter(function (d) { return (d.group || "") === g; });
+      if (!mine.length) return;
+      if (g) {
+        var readme = noteAt("tex/documents/" + g + "/README.md");
+        subhead(list, readme ? readme.title : g,
+                readme ? "#/n/" + encodeURI(readme.path) : "");
+      }
+      mine.forEach(function (d) { list.appendChild(texCard(d)); });
+    });
+
     styleCard(list, "tex/style.md", "преамбула, макросы, рисунки, правила набора");
-    if (!(DATA.tex || []).length) empty(list, "Документов пока нет.");
+    if (!docs.length) empty(list, "Документов пока нет.");
   }
 
   /* ── предметные вкладки ──────────────────────────────── */
@@ -230,7 +276,7 @@
     var zad = mine.filter(function (n) { return n.fm.type === "zadacha"; })
       .sort(function (a, b) { return (a.fm.nomer || 0) - (b.fm.nomer || 0); });
 
-    var list = block(main, "Задачи", "ans", zad.length ? "разобрано: " + zad.length : "");
+    var list = block(main, "Задачи", "ans");
     zad.forEach(function (n) {
       list.appendChild(card(n, {
         tag: n.fm.razdel || "",
@@ -247,7 +293,7 @@
                a.title.localeCompare(b.title, "ru");
       });
 
-    list = block(main, "Приёмы", "moss", pri.length ? "по числу встреч" : "");
+    list = block(main, "Приёмы", "moss");
     pri.forEach(function (n) {
       var links = (BACK[n.path] || []).length;
       list.appendChild(card(n, {
@@ -267,7 +313,7 @@
        штуки на экран — уже предел. Это служебный хвост раздела, он и не должен
        спорить за внимание с задачами и приёмами. */
     if (rest.length) {
-      list = block(main, "Ещё в разделе " + label, "quiet", "");
+      list = block(main, "Ещё в разделе " + label, "quiet");
       rest.forEach(function (n) { list.appendChild(card(n, {})); });
     }
   }
@@ -299,6 +345,14 @@
     var box = el("article", "note");
     main.appendChild(box);
 
+    /* Заголовок известен из индекса, поэтому показываем его сразу, а на месте
+       текста — бегущие полосы. Пустая панель, пока едет файл, читается
+       как зависание, хотя всё работает. */
+    box.appendChild(el("h1", null, note.title));
+    var wait = el("div", "skeleton");
+    for (var k = 0; k < 4; k++) wait.appendChild(el("span", "skel-row"));
+    box.appendChild(wait);
+
     var meta = el("div", "meta");
     META.forEach(function (f) {
       var v = note.fm[f[0]];
@@ -314,6 +368,7 @@
         var body = el("div");
         renderMarkdown(stripFrontmatter(src), body);
 
+        box.innerHTML = "";
         /* Заголовок берём из самого текста, если он там есть: дублировать его
            над заметкой значит показать одно и то же дважды. */
         var h1 = body.querySelector("h1");
@@ -323,6 +378,7 @@
         renderBacklinks(main, note);
       })
       .catch(function () {
+        box.innerHTML = "";
         box.appendChild(el("h1", null, note.title));
         box.appendChild(el("div", "empty", "Файл не открылся."));
       });

@@ -17,6 +17,11 @@ import shutil
 import sys
 from datetime import datetime
 
+# Консоль здесь в кодировке Windows: без этого русский вывод в лучшем случае
+# нечитаем, а в худшем роняет скрипт с UnicodeEncodeError.
+if hasattr(sys.stdout, "reconfigure"):
+    sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+
 HERE = pathlib.Path(__file__).resolve().parent.parent
 KNOWLEDGE = pathlib.Path(sys.argv[1] if len(sys.argv) > 1
                          else r"C:\Users\Admin\Desktop\knowledge")
@@ -31,7 +36,10 @@ INCLUDE = [
     "web/*.md",
     "web/projects/*.md",
     "tex/*.md",
-    "tex/documents/*.pdf",
+    # со звёздочками вглубь: конспекты разложены по подпапкам-проектам
+    # (`documents/zachet/`), и плоский шаблон их не видел
+    "tex/documents/**/*.md",
+    "tex/documents/**/*.pdf",
     "assets/**/*",
 ]
 
@@ -136,14 +144,19 @@ def tex_documents():
         return []
 
     out = []
-    for tex in sorted(src.glob("*.tex")):
+    # вглубь: конспекты собираются в подпапки-проекты, и каждая такая папка —
+    # своя группа в списке, со своим README вместо заголовка
+    for tex in sorted(src.rglob("*.tex")):
         # рисунки подключаются в основной документ, отдельным конспектом не являются
         if tex.stem.endswith("_figs") or tex.stem == "template":
             continue
-        rel_pdf = "tex/documents/%s.pdf" % tex.stem
+        rel = tex.relative_to(KNOWLEDGE).as_posix()
+        group = tex.parent.relative_to(src).as_posix()
+        rel_pdf = rel[:-4] + ".pdf"
         out.append({
             "title": tex_title(tex) or tex.stem,
             "tex": tex.name,
+            "group": "" if group == "." else group,
             # PDF показывается, только если он собран и не изъят белым списком
             "pdf": rel_pdf if (tex.with_suffix(".pdf").exists()
                                and rel_pdf not in EXCLUDE) else "",

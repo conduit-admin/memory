@@ -153,6 +153,13 @@
     "type": "style"
    },
    "links": []
+  },
+  {
+   "path": "tex/documents/zachet/README.md",
+   "folder": "tex/documents/zachet",
+   "title": "Зачёт: ответы на вопросы",
+   "fm": {},
+   "links": []
   }
  ],
  "files": [
@@ -163,20 +170,26 @@
    "kind": "pdf"
   },
   {
-   "path": "tex/documents/genfunc.pdf",
-   "folder": "tex/documents",
+   "path": "tex/documents/zachet/genfunc.pdf",
+   "folder": "tex/documents/zachet",
    "title": "genfunc",
    "kind": "pdf"
   },
   {
-   "path": "tex/documents/integrals.pdf",
-   "folder": "tex/documents",
+   "path": "tex/documents/zachet/integrals.pdf",
+   "folder": "tex/documents/zachet",
    "title": "integrals",
    "kind": "pdf"
   },
   {
-   "path": "tex/documents/taylor.pdf",
-   "folder": "tex/documents",
+   "path": "tex/documents/zachet/matchings.pdf",
+   "folder": "tex/documents/zachet",
+   "title": "matchings",
+   "kind": "pdf"
+  },
+  {
+   "path": "tex/documents/zachet/taylor.pdf",
+   "folder": "tex/documents/zachet",
    "title": "taylor",
    "kind": "pdf"
   }
@@ -185,22 +198,32 @@
   {
    "title": "Задача о курсоре",
    "tex": "cursor.tex",
+   "group": "",
    "pdf": "tex/documents/cursor.pdf"
   },
   {
    "title": "Формальные степенные ряды и производящие функции",
    "tex": "genfunc.tex",
-   "pdf": "tex/documents/genfunc.pdf"
+   "group": "zachet",
+   "pdf": "tex/documents/zachet/genfunc.pdf"
   },
   {
    "title": "Интегралы и первообразные",
    "tex": "integrals.tex",
-   "pdf": "tex/documents/integrals.pdf"
+   "group": "zachet",
+   "pdf": "tex/documents/zachet/integrals.pdf"
+  },
+  {
+   "title": "Паросочетания",
+   "tex": "matchings.tex",
+   "group": "zachet",
+   "pdf": "tex/documents/zachet/matchings.pdf"
   },
   {
    "title": "Формула Тейлора, ряды и прочие пределы",
    "tex": "taylor.tex",
-   "pdf": "tex/documents/taylor.pdf"
+   "group": "zachet",
+   "pdf": "tex/documents/zachet/taylor.pdf"
   }
  ]
 }
