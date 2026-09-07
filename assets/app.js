@@ -119,6 +119,53 @@
     });
   }
 
+  /* ── разбивка заметки на блоки ───────────────────────────
+
+     Разбор задачи — не сплошной текст: условие, идея, решение и то, где всё
+     сломалось, читаются по-разному и ищутся по-разному. Поэтому каждый раздел
+     второго уровня становится отдельным блоком с цветной линией слева.
+
+     Цвет здесь ровно то же, что и везде на сайте: он отличает одно от другого
+     и ничего не значит сам по себе. Панелей внутри панели не заводим — вложенное
+     стекло выглядит коробкой в коробке; хватает линии и заголовка.
+
+     Названия разделов заданы списком, а не угаданы: у задачи и у приёма они
+     разные, но роль совпадает — «Суть» приёма это то же место, что «Ключевая
+     идея» задачи. Незнакомый заголовок получает нейтральный блок, поэтому
+     новый раздел в шаблоне не требует правки кода. */
+  var SECTION_KIND = {
+    "условие": "cond",
+    "триггер": "cond",
+    "ключевая идея": "idea",
+    "суть": "idea",
+    "решение": "sol",
+    "пример": "sol",
+    "проблемы": "prob",
+    "где застрял": "prob",
+    "моя ошибка": "prob",
+    "границы применимости": "prob",
+    "типичная ошибка": "prob",
+    "приёмы": "links",
+    "связанные": "links",
+    "задачи": "links"
+  };
+
+  function groupSections(host) {
+    var kids = Array.prototype.slice.call(host.childNodes);
+    var current = null;
+    kids.forEach(function (node) {
+      if (node.nodeType === 1 && node.tagName === "H2") {
+        var key = node.textContent.trim().toLowerCase();
+        current = el("section", "blk blk-" + (SECTION_KIND[key] || "plain"));
+        host.insertBefore(current, node);
+        current.appendChild(node);
+        return;
+      }
+      /* Всё до первого заголовка — вводный текст, он остаётся как есть. */
+      if (current) current.appendChild(node);
+    });
+  }
+
   /* ── сборка блоков ───────────────────────────────────── */
 
   /* На плашке только название. Пояснения оттуда убраны: они удлиняли строку —
@@ -173,9 +220,14 @@
       meta.appendChild(el("span", "stage stage-" + (i < 0 ? 0 : i), opts.stage));
     }
     if (opts.tag) meta.appendChild(el("span", "tag", opts.tag));
-    /* Имя файла в knowledge стоит на каждой карточке: по нему заметку находят
-       в репозитории, не гадая, как она там называется. */
-    meta.appendChild(el("span", "fname", opts.fname || fileName(note.path)));
+    /* Имя файла показываем только там, где его не угадать по названию: слаг
+       приёма — транслитерация русского заголовка, и найти файл без подписи
+       трудно. У разбора задачи имя собрано из сборника и номера, то есть
+       «Задача 4.14» и есть `sbornik-0414.md` — вторая подпись только сорит
+       и вдобавок распирает карточку на телефоне. */
+    if (note.fm.type !== "zadacha") {
+      meta.appendChild(el("span", "fname", opts.fname || fileName(note.path)));
+    }
     top.appendChild(meta);
     a.appendChild(top);
 
@@ -356,8 +408,11 @@
       if (v === undefined || v === null || v === "") return;
       meta.appendChild(el("span", "chip", f[1] + v));
     });
-    /* Имя файла — тоже поле шапки: заметку ищут в knowledge по нему. */
-    meta.appendChild(el("span", "chip mono", note.fm.fail || note.path));
+    /* Путь в knowledge — тоже поле шапки, по нему заметку ищут в репозитории.
+       У разбора задачи он выводится из номера, поэтому не показывается. */
+    if (note.fm.type !== "zadacha") {
+      meta.appendChild(el("span", "chip mono", note.fm.fail || note.path));
+    }
 
     function fill(src) {
       var body = el("div");
@@ -368,6 +423,7 @@
       var h1 = body.querySelector("h1");
       box.appendChild(h1 || el("h1", null, note.title));
       box.appendChild(meta);
+      groupSections(body);
       box.appendChild(body);
       renderBacklinks(main, note);
     }
