@@ -1,6 +1,34 @@
 {
  "notes": [
   {
+   "path": "physics/priyomy/kachestvennyy-vopros-vmesto-vykladok.md",
+   "folder": "physics/priyomy",
+   "title": "Неберущаяся формула — признак не того вопроса",
+   "fm": {
+    "type": "priyom",
+    "razdel": "общее",
+    "vstrech": 1,
+    "data": "2026-09-07"
+   },
+   "links": [
+    "sbornik-0414"
+   ]
+  },
+  {
+   "path": "physics/priyomy/pvo-na-perpendikulyarnoy-grani.md",
+   "folder": "physics/priyomy",
+   "title": "Полное внутреннее отражение на перпендикулярной грани",
+   "fm": {
+    "type": "priyom",
+    "razdel": "Волны. Оптика. Кванты",
+    "vstrech": 1,
+    "data": "2026-09-07"
+   },
+   "links": [
+    "sbornik-0414"
+   ]
+  },
+  {
    "path": "physics/README.md",
    "folder": "physics",
    "title": "Физика: нарешка",
@@ -15,9 +43,32 @@
     "type": "meta",
     "sbornik": "МОШ",
     "vsego": 147,
-    "resheno": 71
+    "resheno": 72
    },
    "links": []
+  },
+  {
+   "path": "physics/zadachi/sbornik-0414.md",
+   "folder": "physics/zadachi",
+   "title": "Задача 4.14",
+   "fm": {
+    "type": "zadacha",
+    "sbornik": "МОШ",
+    "nomer": "4.14",
+    "razdel": "Волны. Оптика. Кванты",
+    "slozhnost": "средне",
+    "data": "2026-09-07",
+    "istochnik": "своё, с подсказкой",
+    "status": "разобрана",
+    "priyomy": [
+     "pvo-na-perpendikulyarnoy-grani",
+     "kachestvennyy-vopros-vmesto-vykladok"
+    ]
+   },
+   "links": [
+    "kachestvennyy-vopros-vmesto-vykladok",
+    "pvo-na-perpendikulyarnoy-grani"
+   ]
   },
   {
    "path": "math/README.md",
