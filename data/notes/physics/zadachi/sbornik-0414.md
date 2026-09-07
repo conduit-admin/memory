@@ -5,7 +5,6 @@ nomer: 4.14
 razdel: Волны. Оптика. Кванты
 slozhnost: средне
 data: 2026-09-07
-istochnik: своё, с подсказкой
 status: разобрана
 priyomy: [pvo-na-perpendikulyarnoy-grani, kachestvennyy-vopros-vmesto-vykladok]
 ---

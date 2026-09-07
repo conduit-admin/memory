@@ -89,7 +89,6 @@
     "razdel": "Электричество и магнетизм",
     "slozhnost": "средне",
     "data": "2026-09-07",
-    "istochnik": "своё, ошибка найдена в разборе",
     "status": "разобрана",
     "priyomy": [
      "masshtabnoe-preobrazovanie-uravneniya",
@@ -113,7 +112,6 @@
     "razdel": "Волны. Оптика. Кванты",
     "slozhnost": "средне",
     "data": "2026-09-07",
-    "istochnik": "своё, с подсказкой",
     "status": "разобрана",
     "priyomy": [
      "pvo-na-perpendikulyarnoy-grani",

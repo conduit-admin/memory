@@ -5,7 +5,6 @@ nomer: 3.5
 razdel: Электричество и магнетизм
 slozhnost: средне
 data: 2026-09-07
-istochnik: своё, ошибка найдена в разборе
 status: разобрана
 priyomy: [masshtabnoe-preobrazovanie-uravneniya, kachestvennyy-vopros-vmesto-vykladok]
 ---
