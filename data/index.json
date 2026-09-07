@@ -1,6 +1,20 @@
 {
  "notes": [
   {
+   "path": "physics/priyomy/element-dugi.md",
+   "folder": "physics/priyomy",
+   "title": "Элемент дуги: масса и натяжение линейны по углу",
+   "fm": {
+    "type": "priyom",
+    "razdel": "Механика",
+    "vstrech": 1,
+    "data": "2026-09-07"
+   },
+   "links": [
+    "sbornik-0182"
+   ]
+  },
+  {
    "path": "physics/priyomy/kachestvennyy-vopros-vmesto-vykladok.md",
    "folder": "physics/priyomy",
    "title": "Неберущаяся формула — признак не того вопроса",
@@ -58,9 +72,29 @@
     "type": "meta",
     "sbornik": "МОШ",
     "vsego": 543,
-    "resheno": 74
+    "resheno": 75
    },
    "links": []
+  },
+  {
+   "path": "physics/zadachi/sbornik-0182.md",
+   "folder": "physics/zadachi",
+   "title": "Задача 1.82",
+   "fm": {
+    "type": "zadacha",
+    "sbornik": "МОШ",
+    "nomer": "1.82",
+    "razdel": "Механика",
+    "slozhnost": "легко",
+    "data": "2026-09-07",
+    "status": "разобрана",
+    "priyomy": [
+     "element-dugi"
+    ]
+   },
+   "links": [
+    "element-dugi"
+   ]
   },
   {
    "path": "physics/zadachi/sbornik-0219.md",
