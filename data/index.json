@@ -58,7 +58,23 @@
     "type": "meta",
     "sbornik": "МОШ",
     "vsego": 147,
-    "resheno": 73
+    "resheno": 74
+   },
+   "links": []
+  },
+  {
+   "path": "physics/zadachi/sbornik-0219.md",
+   "folder": "physics/zadachi",
+   "title": "Задача 2.19",
+   "fm": {
+    "type": "zadacha",
+    "sbornik": "МОШ",
+    "nomer": "2.19",
+    "razdel": "Молекулярная физика",
+    "slozhnost": "средне",
+    "data": "2026-09-07",
+    "status": "разобрана",
+    "priyomy": []
    },
    "links": []
   },
