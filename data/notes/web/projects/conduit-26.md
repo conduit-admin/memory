@@ -3,6 +3,7 @@ type: proekt
 vid: sait
 repo: conduit-admin/conduit-26
 ssylka: https://conduit-admin.github.io/conduit-26/
+redaktor: https://conduit-admin.github.io/conduit-26/edit.html
 ---
 
 # Кондуит
