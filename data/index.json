@@ -7,11 +7,26 @@
    "fm": {
     "type": "priyom",
     "razdel": "общее",
+    "vstrech": 2,
+    "data": "2026-09-07"
+   },
+   "links": [
+    "sbornik-0305",
+    "sbornik-0414"
+   ]
+  },
+  {
+   "path": "physics/priyomy/masshtabnoe-preobrazovanie-uravneniya.md",
+   "folder": "physics/priyomy",
+   "title": "Масштабное преобразование уравнения движения",
+   "fm": {
+    "type": "priyom",
+    "razdel": "общее",
     "vstrech": 1,
     "data": "2026-09-07"
    },
    "links": [
-    "sbornik-0414"
+    "sbornik-0305"
    ]
   },
   {
@@ -43,9 +58,33 @@
     "type": "meta",
     "sbornik": "МОШ",
     "vsego": 147,
-    "resheno": 72
+    "resheno": 73
    },
    "links": []
+  },
+  {
+   "path": "physics/zadachi/sbornik-0305.md",
+   "folder": "physics/zadachi",
+   "title": "Задача 3.5",
+   "fm": {
+    "type": "zadacha",
+    "sbornik": "МОШ",
+    "nomer": "3.5",
+    "razdel": "Электричество и магнетизм",
+    "slozhnost": "средне",
+    "data": "2026-09-07",
+    "istochnik": "своё, ошибка найдена в разборе",
+    "status": "разобрана",
+    "priyomy": [
+     "masshtabnoe-preobrazovanie-uravneniya",
+     "kachestvennyy-vopros-vmesto-vykladok"
+    ]
+   },
+   "links": [
+    "kachestvennyy-vopros-vmesto-vykladok",
+    "masshtabnoe-preobrazovanie-uravneniya",
+    "sbornik-0414"
+   ]
   },
   {
    "path": "physics/zadachi/sbornik-0414.md",
@@ -67,7 +106,8 @@
    },
    "links": [
     "kachestvennyy-vopros-vmesto-vykladok",
-    "pvo-na-perpendikulyarnoy-grani"
+    "pvo-na-perpendikulyarnoy-grani",
+    "sbornik-0305"
    ]
   },
   {

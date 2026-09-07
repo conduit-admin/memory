@@ -64,4 +64,4 @@ priyomy: [pvo-na-perpendikulyarnoy-grani, kachestvennyy-vopros-vmesto-vykladok]
 
 ## Связанные
 
-Пока нет — это первый разбор в базе.
+- [[sbornik-0305]] — там неберущееся уравнение тоже оказалось не тем вопросом
