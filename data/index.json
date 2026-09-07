@@ -306,6 +306,14 @@
    "size": 291071
   },
   {
+   "path": "tex/documents/zachet/digraph.pdf",
+   "folder": "tex/documents/zachet",
+   "title": "digraph",
+   "kind": "pdf",
+   "pages": 4,
+   "size": 209381
+  },
+  {
    "path": "tex/documents/zachet/genfunc.pdf",
    "folder": "tex/documents/zachet",
    "title": "genfunc",
@@ -344,6 +352,12 @@
    "tex": "cursor.tex",
    "group": "",
    "pdf": "tex/documents/cursor.pdf"
+  },
+  {
+   "title": "Орграфы",
+   "tex": "digraph.tex",
+   "group": "zachet",
+   "pdf": "tex/documents/zachet/digraph.pdf"
   },
   {
    "title": "Формальные степенные ряды и производящие функции",
