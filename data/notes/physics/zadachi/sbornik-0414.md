@@ -6,7 +6,7 @@ razdel: Волны. Оптика. Кванты
 slozhnost: средне
 data: 2026-09-07
 status: разобрана
-priyomy: [pvo-na-perpendikulyarnoy-grani, kachestvennyy-vopros-vmesto-vykladok]
+priyomy: [pvo-na-perpendikulyarnoy-grani, slishkom-slozhnaya-formula]
 ---
 
 # Задача 4.14
@@ -47,7 +47,7 @@ priyomy: [pvo-na-perpendikulyarnoy-grani, kachestvennyy-vopros-vmesto-vykladok]
 ## Приёмы
 
 - [[pvo-na-perpendikulyarnoy-grani]]
-- [[kachestvennyy-vopros-vmesto-vykladok]]
+- [[slishkom-slozhnaya-formula]]
 
 ## Связанные
 

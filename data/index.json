@@ -15,21 +15,6 @@
    ]
   },
   {
-   "path": "physics/priyomy/kachestvennyy-vopros-vmesto-vykladok.md",
-   "folder": "physics/priyomy",
-   "title": "Неберущаяся формула — признак не того вопроса",
-   "fm": {
-    "type": "priyom",
-    "razdel": "общее",
-    "vstrech": 2,
-    "data": "2026-09-07"
-   },
-   "links": [
-    "sbornik-0305",
-    "sbornik-0414"
-   ]
-  },
-  {
    "path": "physics/priyomy/masshtabnoe-preobrazovanie-uravneniya.md",
    "folder": "physics/priyomy",
    "title": "Масштабное преобразование уравнения движения",
@@ -54,6 +39,21 @@
     "data": "2026-09-07"
    },
    "links": [
+    "sbornik-0414"
+   ]
+  },
+  {
+   "path": "physics/priyomy/slishkom-slozhnaya-formula.md",
+   "folder": "physics/priyomy",
+   "title": "Слишком сложная формула",
+   "fm": {
+    "type": "priyom",
+    "razdel": "общее",
+    "vstrech": 2,
+    "data": "2026-09-07"
+   },
+   "links": [
+    "sbornik-0305",
     "sbornik-0414"
    ]
   },
@@ -126,13 +126,13 @@
     "status": "разобрана",
     "priyomy": [
      "masshtabnoe-preobrazovanie-uravneniya",
-     "kachestvennyy-vopros-vmesto-vykladok"
+     "slishkom-slozhnaya-formula"
     ]
    },
    "links": [
-    "kachestvennyy-vopros-vmesto-vykladok",
     "masshtabnoe-preobrazovanie-uravneniya",
-    "sbornik-0414"
+    "sbornik-0414",
+    "slishkom-slozhnaya-formula"
    ]
   },
   {
@@ -149,13 +149,13 @@
     "status": "разобрана",
     "priyomy": [
      "pvo-na-perpendikulyarnoy-grani",
-     "kachestvennyy-vopros-vmesto-vykladok"
+     "slishkom-slozhnaya-formula"
     ]
    },
    "links": [
-    "kachestvennyy-vopros-vmesto-vykladok",
     "pvo-na-perpendikulyarnoy-grani",
-    "sbornik-0305"
+    "sbornik-0305",
+    "slishkom-slozhnaya-formula"
    ]
   },
   {

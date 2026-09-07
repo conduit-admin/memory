@@ -6,7 +6,7 @@ razdel: Электричество и магнетизм
 slozhnost: средне
 data: 2026-09-07
 status: разобрана
-priyomy: [masshtabnoe-preobrazovanie-uravneniya, kachestvennyy-vopros-vmesto-vykladok]
+priyomy: [masshtabnoe-preobrazovanie-uravneniya, slishkom-slozhnaya-formula]
 ---
 
 # Задача 3.5
@@ -46,7 +46,7 @@ $\lambda$ с $k$ — этого хватает, чтобы ответить, н�
 ## Приёмы
 
 - [[masshtabnoe-preobrazovanie-uravneniya]]
-- [[kachestvennyy-vopros-vmesto-vykladok]]
+- [[slishkom-slozhnaya-formula]]
 
 ## Связанные
 

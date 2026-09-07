@@ -136,6 +136,8 @@
      разные, но роль совпадает — «Суть» приёма это то же место, что «Ключевая
      идея» задачи. Незнакомый заголовок получает нейтральный блок, поэтому
      новый раздел в шаблоне не требует правки кода. */
+  var LEVELS = { "легко": "easy", "средне": "mid", "сложно": "hard", "гроб": "grob" };
+
   var SECTION_KIND = {
     "условие": "cond",
     "триггер": "cond",
@@ -229,6 +231,16 @@
        они ничего не говорят, а место в списке и так объясняет, что перед ним. */
     top.appendChild(meta);
     a.appendChild(top);
+
+    /* Сложность — не подпись под названием, а метка: её сравнивают по списку
+       сверху вниз, и цветная точка читается быстрее слова. Само слово
+       «сложность» не пишем, «легко» и «сложно» не нуждаются в подписи. */
+    if (opts.level) {
+      var lv = el("div", "card-lvl");
+      lv.appendChild(el("span", "chip lvl lvl-" +
+        (LEVELS[String(opts.level).toLowerCase()] || "mid"), opts.level));
+      a.appendChild(lv);
+    }
 
     if (opts.note) a.appendChild(el("div", "card-note", opts.note));
     return a;
@@ -333,7 +345,7 @@
     zad.forEach(function (n) {
       list.appendChild(card(n, {
         tag: n.fm.razdel || "",
-        note: n.fm.slozhnost ? "сложность " + n.fm.slozhnost : ""
+        level: n.fm.slozhnost || ""
       }));
     });
     if (!zad.length) empty(list, "Разборов пока нет.");
@@ -372,8 +384,6 @@
   }
 
   /* ── заметка ─────────────────────────────────────────── */
-
-  var LEVELS = { "легко": "easy", "средне": "mid", "сложно": "hard", "гроб": "grob" };
 
   var META = [
     ["razdel", ""], ["vstrech", "встреч: "], ["nomer", "№"],
