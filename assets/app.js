@@ -80,7 +80,10 @@
     return text.replace(/\[\[([^\]|]+?)(?:\|([^\]]+?))?\]\]/g, function (_, name, label) {
       var key = name.trim();
       var note = BY_SLUG[key];
-      var shown = (label || key).trim();
+      /* Без явной подписи показываем заголовок заметки, а не слаг: в тексте
+         разбора «pvo-na-perpendikulyarnoy-grani» читается как имя файла,
+         которым оно и является, а нужно название приёма. */
+      var shown = label ? label.trim() : (note ? note.title : key.trim());
       if (!note) return "[" + shown + "](#/missing)";
       return "[" + shown + "](#/n/" + encodeURI(note.path) + ")";
     });
@@ -145,9 +148,9 @@
     "моя ошибка": "prob",
     "границы применимости": "prob",
     "типичная ошибка": "prob",
-    "приёмы": "links",
-    "связанные": "links",
-    "задачи": "links"
+    "приёмы": "bare",
+    "связанные": "bare",
+    "задачи": "bare"
   };
 
   function groupSections(host) {
@@ -220,14 +223,10 @@
       meta.appendChild(el("span", "stage stage-" + (i < 0 ? 0 : i), opts.stage));
     }
     if (opts.tag) meta.appendChild(el("span", "tag", opts.tag));
-    /* Имя файла показываем только там, где его не угадать по названию: слаг
-       приёма — транслитерация русского заголовка, и найти файл без подписи
-       трудно. У разбора задачи имя собрано из сборника и номера, то есть
-       «Задача 4.14» и есть `sbornik-0414.md` — вторая подпись только сорит
-       и вдобавок распирает карточку на телефоне. */
-    if (note.fm.type !== "zadacha") {
-      meta.appendChild(el("span", "fname", opts.fname || fileName(note.path)));
-    }
+    /* Имени файла на карточке нет: слаг — это транслитерация заголовка, который
+       уже стоит рядом, и второй раз он только сорит. Тип заметки не показываем
+       тоже: «priyom» и «zadacha» — служебные слова из фронтматтера, читателю
+       они ничего не говорят, а место в списке и так объясняет, что перед ним. */
     top.appendChild(meta);
     a.appendChild(top);
 
@@ -374,10 +373,12 @@
 
   /* ── заметка ─────────────────────────────────────────── */
 
+  var LEVELS = { "легко": "easy", "средне": "mid", "сложно": "hard", "гроб": "grob" };
+
   var META = [
     ["razdel", ""], ["vstrech", "встреч: "], ["nomer", "№"],
-    ["slozhnost", "сложность "], ["sbornik", ""], ["stadiya", ""],
-    ["tema", ""], ["istochnik", "источник: "], ["data", ""]
+    ["slozhnost", ""], ["sbornik", ""], ["stadiya", ""],
+    ["tema", ""], ["data", ""]
   ];
 
   function viewNote(main, path) {
@@ -406,7 +407,12 @@
     META.forEach(function (f) {
       var v = note.fm[f[0]];
       if (v === undefined || v === null || v === "") return;
-      meta.appendChild(el("span", "chip", f[1] + v));
+      /* Сложность — не такая же пилюля, как остальные поля: её читают взглядом,
+         не вчитываясь, поэтому она берёт цвет по уровню, а слово «сложность»
+         перед ней не нужно — «средне» само себя объясняет. */
+      var cls = "chip";
+      if (f[0] === "slozhnost") cls += " lvl lvl-" + (LEVELS[String(v).toLowerCase()] || "mid");
+      meta.appendChild(el("span", cls, f[1] + v));
     });
     /* Путь в knowledge — тоже поле шапки, по нему заметку ищут в репозитории.
        У разбора задачи он выводится из номера, поэтому не показывается. */
@@ -451,14 +457,33 @@
        где он уже срабатывал. */
     var from = BACK[note.path] || [];
     if (!from.length) return;
+    var notes = [];
+    from.forEach(function (p) { var n = noteAt(p); if (n) notes.push(n); });
+    if (!notes.length) return;
+
     var box = el("section", "backlinks");
     box.appendChild(el("h2", null, "Ссылаются сюда"));
-    var list = el("div", "list");
-    from.forEach(function (p) {
-      var n = noteAt(p);
-      if (n) list.appendChild(card(n, { tag: n.fm.type || "" }));
+
+    /* Приёмы и задачи — разные вещи, и в общей куче их приходится различать
+       по метке. Проще развести списками: подпись группы говорит то же самое,
+       но один раз на всю группу, а не на каждой карточке. */
+    [["priyom", "Приёмы"], ["zadacha", "Задачи"]].forEach(function (g) {
+      var part = notes.filter(function (n) { return n.fm.type === g[0]; });
+      if (!part.length) return;
+      box.appendChild(el("h3", "backlinks-group", g[1]));
+      var list = el("div", "list");
+      part.forEach(function (n) { list.appendChild(card(n, {})); });
+      box.appendChild(list);
     });
-    box.appendChild(list);
+
+    var other = notes.filter(function (n) {
+      return n.fm.type !== "priyom" && n.fm.type !== "zadacha";
+    });
+    if (other.length) {
+      var rest = el("div", "list");
+      other.forEach(function (n) { rest.appendChild(card(n, {})); });
+      box.appendChild(rest);
+    }
     main.appendChild(box);
   }
 
