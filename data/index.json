@@ -159,6 +159,34 @@
    ]
   },
   {
+   "path": "math/priyomy/otrazhenie-dlya-summy-otrezkov.md",
+   "folder": "math/priyomy",
+   "title": "Отражение, чтобы сложить два отрезка в один",
+   "fm": {
+    "type": "priyom",
+    "razdel": "Геометрия",
+    "vstrech": 1,
+    "data": "2026-09-07"
+   },
+   "links": [
+    "seriya-02-1"
+   ]
+  },
+  {
+   "path": "math/priyomy/seredina-hordy-os-simmetrii.md",
+   "folder": "math/priyomy",
+   "title": "Середина хорды задаёт ось симметрии окружности",
+   "fm": {
+    "type": "priyom",
+    "razdel": "Геометрия",
+    "vstrech": 1,
+    "data": "2026-09-07"
+   },
+   "links": [
+    "seriya-02-1"
+   ]
+  },
+  {
    "path": "math/README.md",
    "folder": "math",
    "title": "Математика",
@@ -173,9 +201,31 @@
     "type": "meta",
     "istochnik": "матцентр",
     "vsego": 26,
-    "resheno": 6
+    "resheno": 7
    },
    "links": []
+  },
+  {
+   "path": "math/zadachi/seriya-02-1.md",
+   "folder": "math/zadachi",
+   "title": "Задача 2.1",
+   "fm": {
+    "type": "zadacha",
+    "sbornik": "Серия 2",
+    "nomer": "2.1",
+    "razdel": "Геометрия",
+    "slozhnost": "средне",
+    "data": "2026-09-07",
+    "status": "разобрана",
+    "priyomy": [
+     "otrazhenie-dlya-summy-otrezkov",
+     "seredina-hordy-os-simmetrii"
+    ]
+   },
+   "links": [
+    "otrazhenie-dlya-summy-otrezkov",
+    "seredina-hordy-os-simmetrii"
+   ]
   },
   {
    "path": "ml/README.md",
