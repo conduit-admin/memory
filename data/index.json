@@ -566,6 +566,14 @@
    "size": 307419
   },
   {
+   "path": "tex/documents/zachet/misc.pdf",
+   "folder": "tex/documents/zachet",
+   "title": "misc",
+   "kind": "pdf",
+   "pages": 2,
+   "size": 190797
+  },
+  {
    "path": "tex/documents/zachet/planar.pdf",
    "folder": "tex/documents/zachet",
    "title": "planar",
@@ -618,6 +626,12 @@
    "tex": "matchings.tex",
    "group": "zachet",
    "pdf": "tex/documents/zachet/matchings.pdf"
+  },
+  {
+   "title": "Разное",
+   "tex": "misc.tex",
+   "group": "zachet",
+   "pdf": "tex/documents/zachet/misc.pdf"
   },
   {
    "title": "Планарные графы",
