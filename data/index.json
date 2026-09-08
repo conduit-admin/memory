@@ -159,6 +159,20 @@
    ]
   },
   {
+   "path": "math/priyomy/cvet-rebra-cvet-konca.md",
+   "folder": "math/priyomy",
+   "title": "Цвет ребра — цвет его конца",
+   "fm": {
+    "type": "priyom",
+    "razdel": "Комбинаторика",
+    "vstrech": 1,
+    "data": "2026-09-08"
+   },
+   "links": [
+    "seriya-02-7"
+   ]
+  },
+  {
    "path": "math/priyomy/granichnoe-usilenie-indukcii.md",
    "folder": "math/priyomy",
    "title": "Усиление индукции условием на границе",
@@ -288,10 +302,12 @@
     "data": "2026-09-08",
     "status": "разобрана",
     "priyomy": [
-     "granichnoe-usilenie-indukcii"
+     "granichnoe-usilenie-indukcii",
+     "cvet-rebra-cvet-konca"
     ]
    },
    "links": [
+    "cvet-rebra-cvet-konca",
     "granichnoe-usilenie-indukcii"
    ]
   },

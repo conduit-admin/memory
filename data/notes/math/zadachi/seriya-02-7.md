@@ -6,7 +6,7 @@ razdel: Комбинаторика
 slozhnost: средне
 data: 2026-09-08
 status: разобрана
-priyomy: [granichnoe-usilenie-indukcii]
+priyomy: [granichnoe-usilenie-indukcii, cvet-rebra-cvet-konca]
 ---
 
 # Задача 2.7
@@ -78,6 +78,7 @@ $(3,2)$, $(1,2)$, $(3,2)$, $\ldots$ — то есть $y = 2$ всегда, а $
 ## Приёмы
 
 - [[granichnoe-usilenie-indukcii]]
+- [[cvet-rebra-cvet-konca]] — другой финал, без индукции
 
 ## Связанные
 
