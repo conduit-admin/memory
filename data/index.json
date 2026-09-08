@@ -215,6 +215,20 @@
    ]
   },
   {
+   "path": "math/priyomy/seredina-dugi-kak-centr-okruzhnosti.md",
+   "folder": "math/priyomy",
+   "title": "Середина дуги как центр вспомогательной окружности",
+   "fm": {
+    "type": "priyom",
+    "razdel": "Геометрия",
+    "vstrech": 1,
+    "data": "2026-09-09"
+   },
+   "links": [
+    "seriya-02-2"
+   ]
+  },
+  {
    "path": "math/priyomy/seredina-hordy-os-simmetrii.md",
    "folder": "math/priyomy",
    "title": "Середина хорды задаёт ось симметрии окружности",
@@ -226,6 +240,20 @@
    },
    "links": [
     "seriya-02-1"
+   ]
+  },
+  {
+   "path": "math/priyomy/stepen-obschey-tochki-dvuh-okruzhnostey.md",
+   "folder": "math/priyomy",
+   "title": "Степень общей точки склеивает две окружности",
+   "fm": {
+    "type": "priyom",
+    "razdel": "Геометрия",
+    "vstrech": 1,
+    "data": "2026-09-09"
+   },
+   "links": [
+    "seriya-02-2"
    ]
   },
   {
@@ -243,7 +271,7 @@
     "type": "meta",
     "istochnik": "матцентр",
     "vsego": 26,
-    "resheno": 9
+    "resheno": 10
    },
    "links": []
   },
@@ -267,6 +295,28 @@
    "links": [
     "otrazhenie-dlya-summy-otrezkov",
     "seredina-hordy-os-simmetrii"
+   ]
+  },
+  {
+   "path": "math/zadachi/seriya-02-2.md",
+   "folder": "math/zadachi",
+   "title": "Задача 2.2",
+   "fm": {
+    "type": "zadacha",
+    "sbornik": "Серия 2",
+    "nomer": "2.2",
+    "razdel": "Геометрия",
+    "slozhnost": "средне",
+    "data": "2026-09-09",
+    "status": "разобрана",
+    "priyomy": [
+     "seredina-dugi-kak-centr-okruzhnosti",
+     "stepen-obschey-tochki-dvuh-okruzhnostey"
+    ]
+   },
+   "links": [
+    "seredina-dugi-kak-centr-okruzhnosti",
+    "stepen-obschey-tochki-dvuh-okruzhnostey"
    ]
   },
   {
