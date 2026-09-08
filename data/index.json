@@ -173,6 +173,35 @@
    ]
   },
   {
+   "path": "math/priyomy/perehod-k-nedostache.md",
+   "folder": "math/priyomy",
+   "title": "Переход к недостаче",
+   "fm": {
+    "type": "priyom",
+    "razdel": "Комбинаторика",
+    "vstrech": 1,
+    "data": "2026-09-07"
+   },
+   "links": [
+    "seriya-02-6"
+   ]
+  },
+  {
+   "path": "math/priyomy/podschet-obektov-protiv-znacheniy.md",
+   "folder": "math/priyomy",
+   "title": "Объектов меньше, чем значений, которые они обязаны покрыть",
+   "fm": {
+    "type": "priyom",
+    "razdel": "Комбинаторика",
+    "vstrech": 1,
+    "data": "2026-09-07"
+   },
+   "links": [
+    "seriya-02-6",
+    "suzhenie-diapazona-dlya-podscheta"
+   ]
+  },
+  {
    "path": "math/priyomy/seredina-hordy-os-simmetrii.md",
    "folder": "math/priyomy",
    "title": "Середина хорды задаёт ось симметрии окружности",
@@ -184,6 +213,20 @@
    },
    "links": [
     "seriya-02-1"
+   ]
+  },
+  {
+   "path": "math/priyomy/suzhenie-diapazona-dlya-podscheta.md",
+   "folder": "math/priyomy",
+   "title": "Считать не все объекты, а только крайние",
+   "fm": {
+    "type": "priyom",
+    "razdel": "Комбинаторика",
+    "vstrech": 1,
+    "data": "2026-09-07"
+   },
+   "links": [
+    "seriya-02-6"
    ]
   },
   {
@@ -201,7 +244,7 @@
     "type": "meta",
     "istochnik": "матцентр",
     "vsego": 26,
-    "resheno": 7
+    "resheno": 8
    },
    "links": []
   },
@@ -225,6 +268,30 @@
    "links": [
     "otrazhenie-dlya-summy-otrezkov",
     "seredina-hordy-os-simmetrii"
+   ]
+  },
+  {
+   "path": "math/zadachi/seriya-02-6.md",
+   "folder": "math/zadachi",
+   "title": "Задача 2.6",
+   "fm": {
+    "type": "zadacha",
+    "sbornik": "Серия 2",
+    "nomer": "2.6",
+    "razdel": "Комбинаторика",
+    "slozhnost": "сложно",
+    "data": "2026-09-07",
+    "status": "разобрана",
+    "priyomy": [
+     "podschet-obektov-protiv-znacheniy",
+     "suzhenie-diapazona-dlya-podscheta",
+     "perehod-k-nedostache"
+    ]
+   },
+   "links": [
+    "perehod-k-nedostache",
+    "podschet-obektov-protiv-znacheniy",
+    "suzhenie-diapazona-dlya-podscheta"
    ]
   },
   {
