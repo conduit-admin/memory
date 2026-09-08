@@ -484,6 +484,14 @@
    "size": 209381
   },
   {
+   "path": "tex/documents/zachet/flows.pdf",
+   "folder": "tex/documents/zachet",
+   "title": "flows",
+   "kind": "pdf",
+   "pages": 10,
+   "size": 343641
+  },
+  {
    "path": "tex/documents/zachet/genfunc.pdf",
    "folder": "tex/documents/zachet",
    "title": "genfunc",
@@ -528,6 +536,12 @@
    "tex": "digraph.tex",
    "group": "zachet",
    "pdf": "tex/documents/zachet/digraph.pdf"
+  },
+  {
+   "title": "Сети и потоки",
+   "tex": "flows.tex",
+   "group": "zachet",
+   "pdf": "tex/documents/zachet/flows.pdf"
   },
   {
    "title": "Формальные степенные ряды и производящие функции",
