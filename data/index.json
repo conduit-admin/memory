@@ -516,6 +516,14 @@
    "size": 307419
   },
   {
+   "path": "tex/documents/zachet/planar.pdf",
+   "folder": "tex/documents/zachet",
+   "title": "planar",
+   "kind": "pdf",
+   "pages": 6,
+   "size": 231481
+  },
+  {
    "path": "tex/documents/zachet/taylor.pdf",
    "folder": "tex/documents/zachet",
    "title": "taylor",
@@ -560,6 +568,12 @@
    "tex": "matchings.tex",
    "group": "zachet",
    "pdf": "tex/documents/zachet/matchings.pdf"
+  },
+  {
+   "title": "Планарные графы",
+   "tex": "planar.tex",
+   "group": "zachet",
+   "pdf": "tex/documents/zachet/planar.pdf"
   },
   {
    "title": "Формула Тейлора, ряды и прочие пределы",
