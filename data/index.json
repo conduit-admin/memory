@@ -187,6 +187,20 @@
    ]
   },
   {
+   "path": "math/priyomy/operator-ubivayuschiy-slagaemye.md",
+   "folder": "math/priyomy",
+   "title": "Оператор, убивающий слагаемые",
+   "fm": {
+    "type": "priyom",
+    "razdel": "Алгебра",
+    "vstrech": 1,
+    "data": "2026-09-09"
+   },
+   "links": [
+    "seriya-02-3"
+   ]
+  },
+  {
    "path": "math/priyomy/otrazhenie-dlya-summy-otrezkov.md",
    "folder": "math/priyomy",
    "title": "Отражение, чтобы сложить два отрезка в один",
@@ -271,7 +285,7 @@
     "type": "meta",
     "istochnik": "матцентр",
     "vsego": 25,
-    "resheno": 10
+    "resheno": 11
    },
    "links": []
   },
@@ -317,6 +331,26 @@
    "links": [
     "seredina-dugi-kak-centr-okruzhnosti",
     "stepen-obschey-tochki-dvuh-okruzhnostey"
+   ]
+  },
+  {
+   "path": "math/zadachi/seriya-02-3.md",
+   "folder": "math/zadachi",
+   "title": "Задача 2.3",
+   "fm": {
+    "type": "zadacha",
+    "sbornik": "Серия 2",
+    "nomer": "2.3",
+    "razdel": "Алгебра",
+    "slozhnost": "легко",
+    "data": "2026-09-09",
+    "status": "разобрана",
+    "priyomy": [
+     "operator-ubivayuschiy-slagaemye"
+    ]
+   },
+   "links": [
+    "operator-ubivayuschiy-slagaemye"
    ]
   },
   {
