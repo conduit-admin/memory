@@ -560,6 +560,14 @@
    "size": 291071
   },
   {
+   "path": "tex/documents/oscillations.pdf",
+   "folder": "tex/documents",
+   "title": "oscillations",
+   "kind": "pdf",
+   "pages": 5,
+   "size": 279248
+  },
+  {
    "path": "tex/documents/zachet/digraph.pdf",
    "folder": "tex/documents/zachet",
    "title": "digraph",
@@ -630,6 +638,12 @@
    "tex": "cursor.tex",
    "group": "",
    "pdf": "tex/documents/cursor.pdf"
+  },
+  {
+   "title": "Колебательное движение",
+   "tex": "oscillations.tex",
+   "group": "",
+   "pdf": "tex/documents/oscillations.pdf"
   },
   {
    "title": "Орграфы",
