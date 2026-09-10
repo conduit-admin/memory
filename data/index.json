@@ -593,6 +593,14 @@
    "size": 209381
   },
   {
+   "path": "tex/documents/zachet/edgecoloring.pdf",
+   "folder": "tex/documents/zachet",
+   "title": "edgecoloring",
+   "kind": "pdf",
+   "pages": 5,
+   "size": 248793
+  },
+  {
    "path": "tex/documents/zachet/flows.pdf",
    "folder": "tex/documents/zachet",
    "title": "flows",
@@ -699,6 +707,12 @@
    "tex": "digraph.tex",
    "group": "zachet",
    "pdf": "tex/documents/zachet/digraph.pdf"
+  },
+  {
+   "title": "Раскраски рёбер",
+   "tex": "edgecoloring.tex",
+   "group": "zachet",
+   "pdf": "tex/documents/zachet/edgecoloring.pdf"
   },
   {
    "title": "Сети и потоки",
