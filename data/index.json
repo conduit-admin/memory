@@ -641,6 +641,22 @@
    "size": 211427
   },
   {
+   "path": "tex/documents/zachet/probability.pdf",
+   "folder": "tex/documents/zachet",
+   "title": "probability",
+   "kind": "pdf",
+   "pages": 13,
+   "size": 385617
+  },
+  {
+   "path": "tex/documents/zachet/probability_figs.pdf",
+   "folder": "tex/documents/zachet",
+   "title": "probability_figs",
+   "kind": "pdf",
+   "pages": 9,
+   "size": 86090
+  },
+  {
    "path": "tex/documents/zachet/scalar.pdf",
    "folder": "tex/documents/zachet",
    "title": "scalar",
@@ -719,6 +735,12 @@
    "tex": "planar.tex",
    "group": "zachet",
    "pdf": "tex/documents/zachet/planar.pdf"
+  },
+  {
+   "title": "Дискретная вероятность",
+   "tex": "probability.tex",
+   "group": "zachet",
+   "pdf": "tex/documents/zachet/probability.pdf"
   },
   {
    "title": "Скалярное произведение",
