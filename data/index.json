@@ -1,6 +1,20 @@
 {
  "notes": [
   {
+   "path": "physics/priyomy/chastota-iz-maksimumov.md",
+   "folder": "physics/priyomy",
+   "title": "Частота из пары максимумов",
+   "fm": {
+    "type": "priyom",
+    "razdel": "Механика",
+    "vstrech": 1,
+    "data": "2026-09-10"
+   },
+   "links": [
+    "kolebanie-po-mgnovennym-x-v-a"
+   ]
+  },
+  {
    "path": "physics/priyomy/element-dugi.md",
    "folder": "physics/priyomy",
    "title": "Элемент дуги: масса и натяжение линейны по углу",
@@ -13,6 +27,30 @@
    "links": [
     "sbornik-0182"
    ]
+  },
+  {
+   "path": "physics/priyomy/energiya-cherez-fazu.md",
+   "folder": "physics/priyomy",
+   "title": "Энергия через фазу",
+   "fm": {
+    "type": "priyom",
+    "razdel": "Механика",
+    "vstrech": 1,
+    "data": "2026-09-10"
+   },
+   "links": []
+  },
+  {
+   "path": "physics/priyomy/kolebanie-po-mgnovennym-x-v-a.md",
+   "folder": "physics/priyomy",
+   "title": "Колебание по мгновенным $x$, $v$, $a$",
+   "fm": {
+    "type": "priyom",
+    "razdel": "Механика",
+    "vstrech": 1,
+    "data": "2026-09-10"
+   },
+   "links": []
   },
   {
    "path": "physics/priyomy/masshtabnoe-preobrazovanie-uravneniya.md",
@@ -29,6 +67,18 @@
    ]
   },
   {
+   "path": "physics/priyomy/put-po-monotonnym-uchastkam.md",
+   "folder": "physics/priyomy",
+   "title": "Путь по монотонным участкам",
+   "fm": {
+    "type": "priyom",
+    "razdel": "Механика",
+    "vstrech": 1,
+    "data": "2026-09-10"
+   },
+   "links": []
+  },
+  {
    "path": "physics/priyomy/pvo-na-perpendikulyarnoy-grani.md",
    "folder": "physics/priyomy",
    "title": "Полное внутреннее отражение на перпендикулярной грани",
@@ -41,6 +91,18 @@
    "links": [
     "sbornik-0414"
    ]
+  },
+  {
+   "path": "physics/priyomy/sinus-ili-kosinus.md",
+   "folder": "physics/priyomy",
+   "title": "Синус или косинус",
+   "fm": {
+    "type": "priyom",
+    "razdel": "Механика",
+    "vstrech": 1,
+    "data": "2026-09-10"
+   },
+   "links": []
   },
   {
    "path": "physics/priyomy/slishkom-slozhnaya-formula.md",
