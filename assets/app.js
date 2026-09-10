@@ -260,10 +260,22 @@
     return a;
   }
 
-  function styleCard(list, path, text) {
-    var n = noteAt(path);
-    if (!n) return;
-    list.appendChild(card(n, { note: text, tag: "стиль" }));
+  /* Стили раздела — все заметки с `type: style` внутри его папки, а не один
+     файл по прописанному пути. Прежде путь был зашит, и это уже подвело:
+     файлы назывались одинаково, `style.md`, и вики-ссылка `[[style]]`
+     из карточек сайтов вела на стиль анимаций. Теперь у каждого стиля своё
+     имя и свой файл в `styles/`, а второй стиль в разделе появится на сайте
+     без единой правки здесь. Краткая строка под названием — поле `kratko`. */
+  function styleCards(list, root) {
+    DATA.notes
+      .filter(function (n) {
+        return n.fm.type === "style" &&
+               (n.folder === root || n.folder.indexOf(root + "/") === 0);
+      })
+      .sort(function (a, b) { return a.title.localeCompare(b.title, "ru"); })
+      .forEach(function (n) {
+        list.appendChild(card(n, { note: n.fm.kratko || "", tag: "стиль" }));
+      });
   }
 
   function empty(list, text) {
@@ -290,7 +302,7 @@
         fname: n.fm.fail || fileName(n.path)
       }));
     });
-    styleCard(list, "manim/style.md", "палитра, темп, сборка формул, концовка");
+    styleCards(list, "manim");
     if (!anim.length) empty(list, "Роликов пока нет.");
 
     /* Сайты. Ссылка ведёт наружу, поэтому открывается отдельной кнопкой внутри
@@ -300,7 +312,7 @@
     sites.forEach(function (n) {
       list.appendChild(card(n, { note: n.fm.repo || "" }));
     });
-    styleCard(list, "web/style.md", "подложка, стекло, цвет, движение");
+    styleCards(list, "web");
     if (!sites.length) empty(list, "Сайтов пока нет.");
 
     /* TeX. Список берётся прямо из файлов: исходник и собранный PDF рядом.
@@ -325,7 +337,7 @@
       mine.forEach(function (d) { list.appendChild(texCard(d)); });
     });
 
-    styleCard(list, "tex/style.md", "преамбула, макросы, рисунки, правила набора");
+    styleCards(list, "tex");
     if (!docs.length) empty(list, "Документов пока нет.");
   }
 

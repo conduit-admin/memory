@@ -458,11 +458,12 @@
    "links": []
   },
   {
-   "path": "manim/style.md",
-   "folder": "manim",
-   "title": "Стили анимаций",
+   "path": "manim/styles/vertikal.md",
+   "folder": "manim/styles",
+   "title": "Вертикаль",
    "fm": {
-    "type": "style"
+    "type": "style",
+    "kratko": "вертикаль 9:16, чёрный фон, палитра на ролик, темп константой"
    },
    "links": []
   },
@@ -491,7 +492,7 @@
     "redaktor": "https://conduit-admin.github.io/conduit-city-26/edit.html"
    },
    "links": [
-    "style"
+    "tetrad"
    ]
   },
   {
@@ -505,7 +506,7 @@
     "ssylka": "https://conduit-admin.github.io/memory/"
    },
    "links": [
-    "style"
+    "tetrad"
    ]
   },
   {
@@ -516,13 +517,12 @@
    "links": []
   },
   {
-   "path": "web/style.md",
-   "folder": "web",
-   "title": "Стили сайтов",
+   "path": "web/styles/tetrad.md",
+   "folder": "web/styles",
+   "title": "Тетрадь",
    "fm": {
     "type": "style",
-    "tema": "стили сайтов",
-    "istochnik": "conduit-26, conduit-city-26"
+    "kratko": "клетка под матовым стеклом, восемь красок, движение по направлению"
    },
    "links": []
   },
@@ -541,11 +541,12 @@
    "links": []
   },
   {
-   "path": "tex/style.md",
-   "folder": "tex",
-   "title": "Стили конспектов",
+   "path": "tex/styles/headline.md",
+   "folder": "tex/styles",
+   "title": "Хедлайн",
    "fm": {
-    "type": "style"
+    "type": "style",
+    "kratko": "цветные заголовки блоков, абзацный набор без нумерации, TikZ"
    },
    "links": []
   }
