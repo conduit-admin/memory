@@ -641,12 +641,28 @@
    "size": 211427
   },
   {
+   "path": "tex/documents/zachet/scalar.pdf",
+   "folder": "tex/documents/zachet",
+   "title": "scalar",
+   "kind": "pdf",
+   "pages": 9,
+   "size": 321004
+  },
+  {
    "path": "tex/documents/zachet/taylor.pdf",
    "folder": "tex/documents/zachet",
    "title": "taylor",
    "kind": "pdf",
    "pages": 10,
    "size": 399348
+  },
+  {
+   "path": "tex/documents/zachet/voprosy.pdf",
+   "folder": "tex/documents/zachet",
+   "title": "voprosy",
+   "kind": "pdf",
+   "pages": 0,
+   "size": 160715
   }
  ],
  "tex": [
@@ -703,6 +719,12 @@
    "tex": "planar.tex",
    "group": "zachet",
    "pdf": "tex/documents/zachet/planar.pdf"
+  },
+  {
+   "title": "Скалярное произведение",
+   "tex": "scalar.tex",
+   "group": "zachet",
+   "pdf": "tex/documents/zachet/scalar.pdf"
   },
   {
    "title": "Формула Тейлора, ряды и прочие пределы",
