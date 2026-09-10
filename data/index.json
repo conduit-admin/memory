@@ -492,7 +492,7 @@
     "redaktor": "https://conduit-admin.github.io/conduit-city-26/edit.html"
    },
    "links": [
-    "tetrad"
+    "steklo"
    ]
   },
   {
@@ -506,7 +506,7 @@
     "ssylka": "https://conduit-admin.github.io/memory/"
    },
    "links": [
-    "tetrad"
+    "steklo"
    ]
   },
   {
@@ -517,12 +517,12 @@
    "links": []
   },
   {
-   "path": "web/styles/tetrad.md",
+   "path": "web/styles/steklo.md",
    "folder": "web/styles",
-   "title": "Тетрадь",
+   "title": "Стекло",
    "fm": {
     "type": "style",
-    "kratko": "клетка под матовым стеклом, восемь красок, движение по направлению"
+    "kratko": "матовое стекло над клеткой, восемь красок, движение по направлению"
    },
    "links": []
   },
@@ -541,12 +541,12 @@
    "links": []
   },
   {
-   "path": "tex/styles/headline.md",
+   "path": "tex/styles/cvetnoy.md",
    "folder": "tex/styles",
-   "title": "Хедлайн",
+   "title": "Цветной",
    "fm": {
     "type": "style",
-    "kratko": "цветные заголовки блоков, абзацный набор без нумерации, TikZ"
+    "kratko": "для экрана, не для печати — цвет несёт роль, рисунки в TikZ"
    },
    "links": []
   }
