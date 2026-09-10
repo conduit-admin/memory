@@ -285,7 +285,7 @@
     "type": "meta",
     "istochnik": "матцентр",
     "vsego": 32,
-    "resheno": 11
+    "resheno": 12
    },
    "links": []
   },
@@ -394,6 +394,22 @@
     "cvet-rebra-cvet-konca",
     "granichnoe-usilenie-indukcii"
    ]
+  },
+  {
+   "path": "math/zadachi/seriya-03-4.md",
+   "folder": "math/zadachi",
+   "title": "Задача 3.4",
+   "fm": {
+    "type": "zadacha",
+    "sbornik": "Серия 3",
+    "nomer": "3.4",
+    "razdel": "Алгебра",
+    "slozhnost": "легко",
+    "data": "2026-09-10",
+    "status": "разобрана",
+    "priyomy": []
+   },
+   "links": []
   },
   {
    "path": "ml/README.md",
