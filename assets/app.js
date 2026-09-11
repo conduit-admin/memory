@@ -89,14 +89,7 @@
     });
   }
 
-  function renderMarkdown(src, host) {
-    var math = [];
-    var parts = splitCode(src);
-    for (var i = 0; i < parts.length; i += 2) {
-      parts[i] = wikiLinks(extractMath(parts[i], math));
-    }
-    host.innerHTML = marked.parse(parts.join(""), { breaks: false, gfm: true });
-
+  function renderMath(host, math) {
     host.querySelectorAll("span.math").forEach(function (node) {
       var m = math[+node.dataset.i];
       try {
@@ -106,6 +99,28 @@
         node.textContent = "$" + m.tex + "$";
       }
     });
+  }
+
+  /* Одна строка markdown без абзаца вокруг — для подписей, собранных из ячеек
+     таблицы: формулы и код в них те же, что и в тексте заметки. */
+  function renderInline(src, host) {
+    var math = [];
+    var parts = splitCode(src);
+    for (var i = 0; i < parts.length; i += 2) {
+      parts[i] = extractMath(parts[i], math);
+    }
+    host.innerHTML = marked.parseInline(parts.join(""), { breaks: false, gfm: true });
+    renderMath(host, math);
+  }
+
+  function renderMarkdown(src, host) {
+    var math = [];
+    var parts = splitCode(src);
+    for (var i = 0; i < parts.length; i += 2) {
+      parts[i] = wikiLinks(extractMath(parts[i], math));
+    }
+    host.innerHTML = marked.parse(parts.join(""), { breaks: false, gfm: true });
+    renderMath(host, math);
 
     host.querySelectorAll('a[href="#/missing"]').forEach(function (a) {
       a.className = "missing";
@@ -395,6 +410,157 @@
     }
   }
 
+  /* ── зачёт ───────────────────────────────────────────────
+
+     Вкладка на один файл. Список вопросов лежит в math/zachet.md таблицами —
+     так он читается и с телефона прямо из репозитория, — а здесь та же таблица
+     разбирается в чек-лист: по подтемам, с отметкой, что уже рассказано по
+     памяти, и ссылкой на документ с ответом. Источник один; отметка ставится
+     только в файле, страница её лишь показывает. */
+
+  var ZACHET = "math/zachet.md";
+  var ZACHET_DOCS = "tex/documents/zachet/";
+  var ZACHET_TONES = ["cold", "warm", "sheet", "ans", "moss"];
+
+  function cells(line) {
+    return line.replace(/^\s*\|/, "").replace(/\|\s*$/, "").split("|")
+      .map(function (c) { return c.trim(); });
+  }
+
+  /* Из файла нужны две таблицы: сводная даёт названия подтем по номеру, а
+     таблицы под заголовками третьего уровня — сами вопросы. Всё остальное
+     в файле — текст для человека, страница его не трогает. */
+  function parseZachet(src) {
+    var names = {}, parts = [], part = null;
+    stripFrontmatter(src).split("\n").forEach(function (line) {
+      var h = /^###\s+(.+)$/.exec(line);
+      if (h) { part = { title: h[1].trim(), rows: [] }; parts.push(part); return; }
+      if (line.charAt(0) !== "|") return;
+      var c = cells(line);
+      var sub = /^(\d+\.\d+)\s+(.+)$/.exec(c[0]);
+      if (sub && !part) { names[sub[1]] = sub[2]; return; }
+      var q = /^(\d+\.\d+)\.\d+$/.exec(c[0]);
+      if (!q || !part) return;
+      var doc = /`([^`]+)`\s*(§\S+)?/.exec(c[2] || "");
+      var done = (c[3] || "").replace(/—|-/g, "").trim();
+      part.rows.push({
+        num: c[0], sub: q[1], text: c[1],
+        doc: doc ? doc[1] : null, par: doc && doc[2] ? doc[2] : "",
+        done: done || null
+      });
+    });
+    return { names: names, parts: parts };
+  }
+
+  function daysLeft(iso) {
+    var m = /^(\d{4})-(\d{2})-(\d{2})/.exec(String(iso));
+    if (!m) return null;
+    var now = new Date();
+    var today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+    var then = new Date(+m[1], +m[2] - 1, +m[3]);
+    return Math.round((then - today) / 86400000);
+  }
+
+  function viewZachet(main) {
+    var note = noteAt(ZACHET);
+    if (!note) { main.appendChild(el("div", "empty", "Списка вопросов пока нет.")); return; }
+    if (SRC[ZACHET] != null) return paintZachet(main, note, parseZachet(SRC[ZACHET]));
+
+    var wait = el("div", "skeleton");
+    for (var k = 0; k < 4; k++) wait.appendChild(el("span", "skel-row"));
+    main.appendChild(wait);
+    var mine = swapToken;
+    loadNote(ZACHET).then(function (src) {
+      /* Пока файл ехал, могли уйти на другую вкладку — тогда рисовать некуда. */
+      if (mine !== swapToken || VIEW !== "zachet" || isDetail(location.hash)) return;
+      main.innerHTML = "";
+      paintZachet(main, note, parseZachet(src));
+    }).catch(function () {
+      main.innerHTML = "";
+      main.appendChild(el("div", "empty", "Файл не открылся."));
+    });
+  }
+
+  function paintZachet(main, note, data) {
+    var all = 0, done = 0;
+    data.parts.forEach(function (p) {
+      p.rows.forEach(function (r) { all++; if (r.done) done++; });
+    });
+
+    /* Сводка: два числа и срок. Число — главное на экране, срок — рядом. */
+    var sum = el("div", "zsum");
+    var big = el("div", "zsum-num");
+    big.appendChild(el("span", done ? "zsum-done" : "", String(done)));
+    big.appendChild(el("span", "zsum-all", " / " + all));
+    sum.appendChild(big);
+
+    var left = note.fm.data ? daysLeft(note.fm.data) : null;
+    var when = left == null ? "рассказано по памяти"
+      : left > 0 ? "до зачёта " + left + " " + plural(left, "день", "дня", "дней")
+      : left === 0 ? "зачёт сегодня" : "зачёт прошёл";
+    sum.appendChild(el("div", "zsum-note", when));
+
+    var links = el("div", "zsum-links");
+    var q = el("a", null, "список вопросов");
+    q.href = "#/f/" + encodeURI(ZACHET_DOCS + "voprosy.pdf");
+    links.appendChild(q);
+    var t = el("a", null, "таблица");
+    t.href = "#/n/" + encodeURI(ZACHET);
+    links.appendChild(t);
+    sum.appendChild(links);
+    main.appendChild(sum);
+
+    var pdfs = {};
+    (DATA.files || []).forEach(function (f) { pdfs[f.path] = true; });
+
+    data.parts.forEach(function (part, pi) {
+      var list = block(main, part.title, ZACHET_TONES[pi % ZACHET_TONES.length]);
+
+      /* Подтема — панель, вопросы — строки в ней. Порядок как в файле. */
+      var groups = [], byCode = {};
+      part.rows.forEach(function (r) {
+        if (!byCode[r.sub]) { byCode[r.sub] = { code: r.sub, rows: [] }; groups.push(byCode[r.sub]); }
+        byCode[r.sub].rows.push(r);
+      });
+
+      groups.forEach(function (g) {
+        var box = el("div", "zgroup");
+        var head = el("div", "zhead");
+        head.appendChild(el("span", "zcode", g.code));
+        head.appendChild(el("span", null, data.names[g.code] || ""));
+        var have = g.rows.filter(function (r) { return r.done; }).length;
+        head.appendChild(el("span", "zcnt" + (have === g.rows.length ? " full" : ""),
+          have + " / " + g.rows.length));
+        box.appendChild(head);
+
+        g.rows.forEach(function (r) {
+          var pdf = r.doc ? ZACHET_DOCS + r.doc + ".pdf" : null;
+          var row;
+          if (pdf && pdfs[pdf]) {
+            row = el("a", "zrow");
+            row.href = "#/f/" + encodeURI(pdf);
+          } else {
+            row = el("div", "zrow" + (r.doc ? "" : " none"));
+          }
+          if (r.done) row.classList.add("done");
+
+          row.appendChild(el("span", "zmark"));
+          row.appendChild(el("span", "znum", r.num));
+          var text = el("span", "ztext");
+          renderInline(r.text, text);
+          row.appendChild(text);
+
+          var side = el("span", "zside");
+          if (r.done) side.appendChild(el("span", "zdate", r.done));
+          if (r.doc) side.appendChild(el("span", "zdoc", r.doc + (r.par ? " " + r.par : "")));
+          if (side.childNodes.length) row.appendChild(side);
+          box.appendChild(row);
+        });
+        list.appendChild(box);
+      });
+    });
+  }
+
   /* ── заметка ─────────────────────────────────────────── */
 
   var META = [
@@ -661,7 +827,9 @@
 
   function pendingPath() {
     var hash = decodeURI(location.hash.replace(/^#/, ""));
-    return hash.indexOf("/n/") === 0 ? hash.slice(3) : "";
+    if (hash.indexOf("/n/") === 0) return hash.slice(3);
+    /* Вкладка зачёта тоже рисуется из файла — его тянем до перехода. */
+    return VIEW === "zachet" ? ZACHET : "";
   }
 
   /* Содержимое сначала уходит, и только потом подменяется. Метка нужна на
@@ -712,6 +880,7 @@
 
     if (VIEW === "physics") return viewSubject(main, "physics", "«Физика»");
     if (VIEW === "math") return viewSubject(main, "math", "«Математика»");
+    if (VIEW === "zachet") return viewZachet(main);
     if (VIEW === "ml") return viewSubject(main, "ml", "«ИИ»");
     return viewProekty(main);
   }
