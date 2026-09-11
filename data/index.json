@@ -173,6 +173,20 @@
    ]
   },
   {
+   "path": "math/priyomy/diskretnaya-nepreryvnost.md",
+   "folder": "math/priyomy",
+   "title": "Дискретная непрерывность",
+   "fm": {
+    "type": "priyom",
+    "razdel": "Комбинаторика",
+    "vstrech": 1,
+    "data": "2026-09-11"
+   },
+   "links": [
+    "seriya-03-5"
+   ]
+  },
+  {
    "path": "math/priyomy/granichnoe-usilenie-indukcii.md",
    "folder": "math/priyomy",
    "title": "Усиление индукции условием на границе",
@@ -423,9 +437,13 @@
     "slozhnost": "легко",
     "data": "2026-09-11",
     "status": "разобрана",
-    "priyomy": []
+    "priyomy": [
+     "diskretnaya-nepreryvnost"
+    ]
    },
-   "links": []
+   "links": [
+    "diskretnaya-nepreryvnost"
+   ]
   },
   {
    "path": "ml/README.md",

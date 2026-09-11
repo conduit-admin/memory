@@ -6,7 +6,7 @@ razdel: Комбинаторика
 slozhnost: легко
 data: 2026-09-11
 status: разобрана
-priyomy: []
+priyomy: [diskretnaya-nepreryvnost]
 ---
 
 # Задача 3.5
@@ -44,7 +44,7 @@ $a_1 b_1 + \cdots + a_{1000} b_{1000} = 0$.
 
 ## Приёмы
 
-Нет.
+- [[diskretnaya-nepreryvnost]]
 
 ## Связанные
 
