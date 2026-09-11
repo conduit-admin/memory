@@ -299,7 +299,7 @@
     "type": "meta",
     "istochnik": "матцентр",
     "vsego": 32,
-    "resheno": 13
+    "resheno": 14
    },
    "links": []
   },
@@ -444,6 +444,22 @@
    "links": [
     "diskretnaya-nepreryvnost"
    ]
+  },
+  {
+   "path": "math/zadachi/seriya-03-7.md",
+   "folder": "math/zadachi",
+   "title": "Задача 3.7",
+   "fm": {
+    "type": "zadacha",
+    "sbornik": "Серия 3",
+    "nomer": "3.7",
+    "razdel": "Комбинаторика",
+    "slozhnost": "",
+    "data": "2026-09-11",
+    "status": "разобрана",
+    "priyomy": []
+   },
+   "links": []
   },
   {
    "path": "ml/README.md",
