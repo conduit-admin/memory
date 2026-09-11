@@ -304,6 +304,18 @@
    "links": []
   },
   {
+   "path": "math/zachet.md",
+   "folder": "math",
+   "title": "Зачёт 26 сентября",
+   "fm": {
+    "type": "meta",
+    "vsego": 147,
+    "napisano": 61,
+    "vyucheno": 0
+   },
+   "links": []
+  },
+  {
    "path": "math/zadachi/seriya-02-1.md",
    "folder": "math/zadachi",
    "title": "Задача 2.1",
