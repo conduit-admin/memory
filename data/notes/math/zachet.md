@@ -1,5 +1,6 @@
 ---
 type: meta
+data: 2026-09-26
 vsego: 147
 napisano: 61
 vyucheno: 0
