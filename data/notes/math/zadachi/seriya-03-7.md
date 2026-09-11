@@ -3,7 +3,7 @@ type: zadacha
 sbornik: Серия 3
 nomer: 3.7
 razdel: Комбинаторика
-slozhnost:
+slozhnost: средне
 data: 2026-09-11
 status: разобрана
 priyomy: []
