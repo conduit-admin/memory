@@ -200,9 +200,26 @@ def tex_documents():
     return out
 
 
+def hidden(rel):
+    """В пути есть папка или файл, чьё имя начинается с точки.
+
+    Точка в начале имени по соглашению означает служебное: `.venv` рабочего
+    окружения, `.claude`, `.gitkeep`. Публиковать такое незачем никогда,
+    поэтому правило общее, а не список конкретных имён.
+
+    Отсекать приходится здесь, потому что `pathlib.glob` скрытые имена
+    не пропускает — в отличие от шелла, он заходит и в `.venv`, и матчит
+    `.gitkeep`. Без этой проверки белый список перестаёт быть белым: шаблон
+    `manim/**/*.md` увёл на витрину 18 файлов LICENSE из `manim/.venv`, и
+    от публикации их спас только `.gitignore` витрины — то есть случайность.
+    """
+    return any(part.startswith(".") for part in rel.split("/"))
+
+
 def skipped(rel):
     """Файл под шаблон попал, но публиковать его не надо."""
-    return rel in EXCLUDE or rel.startswith(tuple(d + "/" for d in EXCLUDE_DIRS))
+    return (rel in EXCLUDE or hidden(rel)
+            or rel.startswith(tuple(d + "/" for d in EXCLUDE_DIRS)))
 
 
 def collect():
@@ -256,9 +273,9 @@ def unpublished(seen):
         if not src.is_file():
             continue
         rel = src.relative_to(KNOWLEDGE).as_posix()
-        # служебная зона и внутренности git наружу не идут по устройству
-        if rel.startswith((".claude/", ".git/", ".idea/")):
-            continue
+        # служебная зона (`.claude/`, `.git/`, `.idea/`) отсеивается общим
+        # правилом точки в `skipped()` ниже — отдельного списка имён тут нет
+        # нарочно: два списка одного и того же расходятся.
         if src.suffix.lower() not in (".md", ".pdf"):
             continue
         if rel in seen or skipped(rel):
