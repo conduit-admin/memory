@@ -201,6 +201,20 @@
    ]
   },
   {
+   "path": "math/priyomy/krivye-na-koncentricheskih-sferah.md",
+   "folder": "math/priyomy",
+   "title": "Расстояние между кривыми на концентрических сферах",
+   "fm": {
+    "type": "priyom",
+    "razdel": "Геометрия",
+    "vstrech": 1,
+    "data": "2026-09-12"
+   },
+   "links": [
+    "seriya-03-2"
+   ]
+  },
+  {
    "path": "math/priyomy/operator-ubivayuschiy-slagaemye.md",
    "folder": "math/priyomy",
    "title": "Оператор, убивающий слагаемые",
@@ -299,7 +313,7 @@
     "type": "meta",
     "istochnik": "матцентр",
     "vsego": 32,
-    "resheno": 15
+    "resheno": 16
    },
    "links": []
   },
@@ -420,6 +434,26 @@
    "links": [
     "cvet-rebra-cvet-konca",
     "granichnoe-usilenie-indukcii"
+   ]
+  },
+  {
+   "path": "math/zadachi/seriya-03-2.md",
+   "folder": "math/zadachi",
+   "title": "Задача 3.2",
+   "fm": {
+    "type": "zadacha",
+    "sbornik": "Серия 3",
+    "nomer": "3.2",
+    "razdel": "Геометрия",
+    "slozhnost": "средне",
+    "data": "2026-09-12",
+    "status": "разобрана",
+    "priyomy": [
+     "krivye-na-koncentricheskih-sferah"
+    ]
+   },
+   "links": [
+    "krivye-na-koncentricheskih-sferah"
    ]
   },
   {
