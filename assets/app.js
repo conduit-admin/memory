@@ -9,6 +9,7 @@
   var DATA = null;      /* index.json */
   var CFG = null;       /* config.json */
   var BY_SLUG = {};     /* имя файла без расширения → заметка */
+  var BY_FILE = {};     /* имя файла без расширения → приложенный файл */
   var BACK = {};        /* путь → кто на него ссылается */
   var VIEW = "proekty";
   var V = "";           /* метка сборки в адресах данных */
@@ -80,12 +81,18 @@
     return text.replace(/\[\[([^\]|]+?)(?:\|([^\]]+?))?\]\]/g, function (_, name, label) {
       var key = name.trim();
       var note = BY_SLUG[key];
+      /* Не заметка — может быть приложенный файл: PDF лежит рядом с заметками
+         и линкуется тем же `[[имя]]`. Иначе каждый новый задачник или листок
+         требовал бы правки кода, а сайт обязан справляться с ними сам. */
+      var file = note ? null : BY_FILE[key];
       /* Без явной подписи показываем заголовок заметки, а не слаг: в тексте
          разбора «pvo-na-perpendikulyarnoy-grani» читается как имя файла,
          которым оно и является, а нужно название приёма. */
-      var shown = label ? label.trim() : (note ? note.title : key.trim());
-      if (!note) return "[" + shown + "](#/missing)";
-      return "[" + shown + "](#/n/" + encodeURI(note.path) + ")";
+      var shown = label ? label.trim()
+        : (note ? note.title : (file ? file.title : key.trim()));
+      if (note) return "[" + shown + "](#/n/" + encodeURI(note.path) + ")";
+      if (file) return "[" + shown + "](#/f/" + encodeURI(file.path) + ")";
+      return "[" + shown + "](#/missing)";
     });
   }
 
@@ -947,6 +954,12 @@
       /* При совпадении имён выигрывает более короткий путь: правило то же, что
          и в вики-ссылках — имя разрешается в ближайший подходящий файл. */
       if (!BY_SLUG[slug] || n.path.length < BY_SLUG[slug].path.length) BY_SLUG[slug] = n;
+    });
+    /* Приложенные файлы — отдельным списком: заметка с тем же именем всегда
+       выигрывает, потому что читают её, а файл к ней приложен. */
+    (DATA.files || []).forEach(function (f) {
+      var slug = fileName(f.path).replace(/\.[^.]+$/, "");
+      if (!BY_FILE[slug] || f.path.length < BY_FILE[slug].path.length) BY_FILE[slug] = f;
     });
     DATA.notes.forEach(function (n) {
       (n.links || []).forEach(function (name) {

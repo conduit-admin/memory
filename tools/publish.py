@@ -38,6 +38,7 @@ KNOWLEDGE = pathlib.Path(sys.argv[1] if len(sys.argv) > 1
 INCLUDE = [
     "physics/**/*.md",
     "math/**/*.md",
+    "math/**/*.pdf",
     "ml/**/*.md",
     "manim/**/*.md",
     "web/**/*.md",
