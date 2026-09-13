@@ -108,6 +108,10 @@
   --ans-glow: rgba(190, 160, 255, 0.40);
   --moss-bg: rgba(22, 62, 40, 0.94);
   --moss-glow: rgba(150, 225, 165, 0.40);
+  --rose-bg: rgba(112, 26, 70, 0.90);
+  --rose-glow: rgba(255, 170, 205, 0.42);
+  --slate-bg: rgba(52, 58, 72, 0.92);
+  --slate-glow: rgba(200, 210, 230, 0.36);
 }
 
 /* Тёмная тема — свой набор шагов под тёмную подложку, а не инверсия светлой.
@@ -172,6 +176,10 @@
     --ans-glow: rgba(190, 160, 255, 0.30);
     --moss-bg: rgba(28, 78, 52, 0.90);
     --moss-glow: rgba(150, 225, 165, 0.30);
+    --rose-bg: rgba(132, 40, 88, 0.86);
+    --rose-glow: rgba(255, 170, 205, 0.30);
+    --slate-bg: rgba(68, 76, 94, 0.86);
+    --slate-glow: rgba(200, 210, 230, 0.26);
   }
 }
 
@@ -444,6 +452,8 @@ body {
 .sheet { --solid-bg: var(--sheet-bg); --solid-glow: var(--sheet-glow); }
 .ans   { --solid-bg: var(--ans-bg);   --solid-glow: var(--ans-glow); }
 .moss  { --solid-bg: var(--moss-bg);  --solid-glow: var(--moss-glow); }
+.rose  { --solid-bg: var(--rose-bg);  --solid-glow: var(--rose-glow); }
+.slate { --solid-bg: var(--slate-bg); --solid-glow: var(--slate-glow); }
 
 /* ── карточки ──────────────────────────────────────────── */
 

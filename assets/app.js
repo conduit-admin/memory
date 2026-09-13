@@ -284,21 +284,19 @@
     return a;
   }
 
-  /* Стили раздела — все заметки с `type: style` внутри его папки, а не один
-     файл по прописанному пути. Прежде путь был зашит, и это уже подвело:
-     файлы назывались одинаково, `style.md`, и вики-ссылка `[[style]]`
-     из карточек сайтов вела на стиль анимаций. Теперь у каждого стиля своё
-     имя и свой файл в `styles/`, а второй стиль в разделе появится на сайте
-     без единой правки здесь. Краткая строка под названием — поле `kratko`. */
-  function styleCards(list, root) {
+  /* Стили — все заметки с `type: style`, из какой бы папки они ни были,
+     одним блоком. Прежде каждый стиль лежал в конце своего проекта, и путь
+     к нему был зашит; это подвело — файлы назывались одинаково, `style.md`,
+     и вики-ссылка `[[style]]` из карточек сайтов вела на стиль анимаций.
+     Теперь у каждого стиля своё имя и свой файл в `styles/`, новый появится
+     здесь без правки кода, а цвет полосы говорит, к какому проекту он
+     относится. Краткая строка под названием — поле `kratko`. */
+  function styleCards(list) {
     DATA.notes
-      .filter(function (n) {
-        return n.fm.type === "style" &&
-               (n.folder === root || n.folder.indexOf(root + "/") === 0);
-      })
+      .filter(function (n) { return n.fm.type === "style"; })
       .sort(function (a, b) { return a.title.localeCompare(b.title, "ru"); })
       .forEach(function (n) {
-        list.appendChild(card(n, { note: n.fm.kratko || "", tag: "стиль" }));
+        list.appendChild(card(n, { note: n.fm.kratko || "" }));
       });
   }
 
@@ -326,7 +324,6 @@
         fname: n.fm.fail || fileName(n.path)
       }));
     });
-    styleCards(list, "manim");
     if (!anim.length) empty(list, "Роликов пока нет.");
 
     /* Сайты. Ссылка ведёт наружу, поэтому открывается отдельной кнопкой внутри
@@ -336,32 +333,30 @@
     sites.forEach(function (n) {
       list.appendChild(card(n, { note: n.fm.repo || "" }));
     });
-    styleCards(list, "web");
     if (!sites.length) empty(list, "Сайтов пока нет.");
 
     /* Документы TeX. Список берётся прямо из файлов: исходник и собранный PDF
        рядом. Группа документа — его папка, и три из них показаны своими
        блоками: зачёт, листки репетиторства и всё остальное — статьи.
        Новая подпапка в tex/documents/ попадает в статьи своей группой,
-       со своим README вместо заголовка, без правки кода. */
+       со своим README вместо заголовка, без правки кода.
+
+       Тона блоков все разные — соседние плашки одного оттенка сливаются,
+       и шесть блоков на вкладке требуют шести красок. */
     var docs = DATA.tex || [];
 
-    function texBlock(title, tone, root, pick) {
+    function texBlock(title, tone, pick) {
       var mine = docs.filter(pick);
       var list = block(main, title, tone);
-      /* README группы — единственное осмысленное описание проекта; идёт
-         строкой с ссылкой, а не карточкой, чтобы не повторять заголовок. */
-      var readme = root ? noteAt(root + "/README.md") : null;
-      if (readme) subhead(list, readme.title, "#/n/" + encodeURI(readme.path));
       mine.forEach(function (d) { list.appendChild(texCard(d)); });
       return list;
     }
 
-    list = texBlock("Зачёт", "ans", "tex/documents/zachet",
+    list = texBlock("Зачёт", "sheet",
       function (d) { return d.group === "zachet"; });
     if (!list.childNodes.length) empty(list, "Документов пока нет.");
 
-    list = texBlock("Репетиторство", "moss", "",
+    list = texBlock("Репетиторство", "moss",
       function (d) { return d.group === "tutoring"; });
     if (!list.childNodes.length) empty(list, "Листков пока нет.");
 
@@ -370,7 +365,7 @@
     var rest = docs.filter(function (d) {
       return d.group !== "zachet" && d.group !== "tutoring";
     });
-    list = block(main, "Статьи", "sheet");
+    list = block(main, "Статьи", "rose");
     var groups = [""];
     rest.forEach(function (d) {
       if (d.group && groups.indexOf(d.group) < 0) groups.push(d.group);
@@ -385,8 +380,13 @@
       }
       mine.forEach(function (d) { list.appendChild(texCard(d)); });
     });
-    styleCards(list, "tex");
     if (!rest.length) empty(list, "Статей пока нет.");
+
+    /* Стили всех проектов — своим блоком в конце: это справочник,
+       а не работы, и в списках работ он только мешался. */
+    list = block(main, "Стили", "slate");
+    styleCards(list);
+    if (!list.childNodes.length) empty(list, "Стилей пока нет.");
   }
 
   /* ── предметные вкладки ──────────────────────────────── */
