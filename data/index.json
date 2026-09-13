@@ -736,7 +736,7 @@
    "title": "analysis-misc",
    "kind": "pdf",
    "pages": 5,
-   "size": 254772
+   "size": 262258
   },
   {
    "path": "tex/documents/zachet/digraph.pdf",
@@ -792,7 +792,7 @@
    "title": "misc",
    "kind": "pdf",
    "pages": 2,
-   "size": 190797
+   "size": 197205
   },
   {
    "path": "tex/documents/zachet/numbers-misc.pdf",
@@ -865,7 +865,7 @@
    "pdf": "tex/documents/oscillations.pdf"
   },
   {
-   "title": "Разное",
+   "title": "Математический анализ и неравенства. Разное",
    "tex": "analysis-misc.tex",
    "group": "zachet",
    "pdf": "tex/documents/zachet/analysis-misc.pdf"
@@ -907,7 +907,7 @@
    "pdf": "tex/documents/zachet/matchings.pdf"
   },
   {
-   "title": "Разное",
+   "title": "Теория графов. Разное",
    "tex": "misc.tex",
    "group": "zachet",
    "pdf": "tex/documents/zachet/misc.pdf"
