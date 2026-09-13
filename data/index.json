@@ -325,7 +325,7 @@
     "type": "meta",
     "data": "2026-09-26",
     "vsego": 147,
-    "napisano": 61,
+    "napisano": 63,
     "vyucheno": 14
    },
    "links": []
@@ -712,6 +712,14 @@
    "size": 339969
   },
   {
+   "path": "tex/documents/zachet/analysis-misc.pdf",
+   "folder": "tex/documents/zachet",
+   "title": "analysis-misc",
+   "kind": "pdf",
+   "pages": 5,
+   "size": 254772
+  },
+  {
    "path": "tex/documents/zachet/digraph.pdf",
    "folder": "tex/documents/zachet",
    "title": "digraph",
@@ -828,6 +836,12 @@
    "tex": "oscillations.tex",
    "group": "",
    "pdf": "tex/documents/oscillations.pdf"
+  },
+  {
+   "title": "Разное",
+   "tex": "analysis-misc.tex",
+   "group": "zachet",
+   "pdf": "tex/documents/zachet/analysis-misc.pdf"
   },
   {
    "title": "Орграфы",
