@@ -849,6 +849,22 @@
    "kind": "pdf",
    "pages": 0,
    "size": 160715
+  },
+  {
+   "path": "tutoring/listki/probnoe-fiztekh-10-razbor.pdf",
+   "folder": "tutoring/listki",
+   "title": "probnoe-fiztekh-10-razbor",
+   "kind": "pdf",
+   "pages": 6,
+   "size": 252250
+  },
+  {
+   "path": "tutoring/listki/probnoe-fiztekh-10.pdf",
+   "folder": "tutoring/listki",
+   "title": "probnoe-fiztekh-10",
+   "kind": "pdf",
+   "pages": 4,
+   "size": 161133
   }
  ],
  "tex": [
@@ -941,6 +957,18 @@
    "tex": "taylor.tex",
    "group": "zachet",
    "pdf": "tex/documents/zachet/taylor.pdf"
+  },
+  {
+   "title": "Пробное занятие: Физтех",
+   "tex": "probnoe-fiztekh-10.tex",
+   "group": "tutoring",
+   "pdf": "tutoring/listki/probnoe-fiztekh-10.pdf"
+  },
+  {
+   "title": "Разбор: Физтех",
+   "tex": "probnoe-fiztekh-10-razbor.tex",
+   "group": "tutoring",
+   "pdf": "tutoring/listki/probnoe-fiztekh-10-razbor.pdf"
   }
  ]
 }
