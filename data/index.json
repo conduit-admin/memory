@@ -735,8 +735,8 @@
    "folder": "tex/documents/zachet",
    "title": "algebra-misc",
    "kind": "pdf",
-   "pages": 7,
-   "size": 292204
+   "pages": 8,
+   "size": 295070
   },
   {
    "path": "tex/documents/zachet/analysis-misc.pdf",
@@ -776,7 +776,7 @@
    "title": "genfunc",
    "kind": "pdf",
    "pages": 9,
-   "size": 376820
+   "size": 378094
   },
   {
    "path": "tex/documents/zachet/graphs-misc.pdf",
