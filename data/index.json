@@ -303,7 +303,10 @@
    "folder": "math",
    "title": "Математика",
    "fm": {},
-   "links": []
+   "links": [
+    "gorod-10",
+    "lager-10"
+   ]
   },
   {
    "path": "math/serii.md",
@@ -695,6 +698,22 @@
   }
  ],
  "files": [
+  {
+   "path": "math/zadachniki/gorod-10.pdf",
+   "folder": "math/zadachniki",
+   "title": "gorod-10",
+   "kind": "pdf",
+   "pages": 0,
+   "size": 491772
+  },
+  {
+   "path": "math/zadachniki/lager-10.pdf",
+   "folder": "math/zadachniki",
+   "title": "lager-10",
+   "kind": "pdf",
+   "pages": 0,
+   "size": 325713
+  },
   {
    "path": "tex/documents/cursor.pdf",
    "folder": "tex/documents",
