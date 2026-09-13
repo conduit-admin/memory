@@ -28,6 +28,7 @@
     "manim": "var(--s2)",
     "web": "var(--s7)",
     "tex": "var(--s4)",
+    "tutoring": "var(--s8)",
     "algo": "var(--s3)"
   };
 
@@ -271,7 +272,8 @@
   function texCard(d) {
     var a = el("a", "card");
     a.href = d.pdf ? "#/f/" + encodeURI(d.pdf) : "#/";
-    a.style.setProperty("--sec", sectionColor("tex"));
+    /* Листки репетиторства лежат не в tex/ — и цвет у них свой. */
+    a.style.setProperty("--sec", sectionColor(d.group === "tutoring" ? "tutoring" : "tex"));
     var top = el("div", "card-top");
     top.appendChild(el("span", "card-title", d.title));
     var meta = el("div", "card-meta");
@@ -337,19 +339,44 @@
     styleCards(list, "web");
     if (!sites.length) empty(list, "Сайтов пока нет.");
 
-    /* TeX. Список берётся прямо из файлов: исходник и собранный PDF рядом.
-       Конспекты собираются в подпапки-проекты — зачёт, например, — и каждая
-       такая папка идёт своей группой со своим README вместо заголовка. */
+    /* Документы TeX. Список берётся прямо из файлов: исходник и собранный PDF
+       рядом. Группа документа — его папка, и три из них показаны своими
+       блоками: зачёт, листки репетиторства и всё остальное — статьи.
+       Новая подпапка в tex/documents/ попадает в статьи своей группой,
+       со своим README вместо заголовка, без правки кода. */
     var docs = DATA.tex || [];
-    list = block(main, "Конспекты в TeX", "sheet");
 
+    function texBlock(title, tone, root, pick) {
+      var mine = docs.filter(pick);
+      var list = block(main, title, tone);
+      /* README группы — единственное осмысленное описание проекта; идёт
+         строкой с ссылкой, а не карточкой, чтобы не повторять заголовок. */
+      var readme = root ? noteAt(root + "/README.md") : null;
+      if (readme) subhead(list, readme.title, "#/n/" + encodeURI(readme.path));
+      mine.forEach(function (d) { list.appendChild(texCard(d)); });
+      return list;
+    }
+
+    list = texBlock("Зачёт", "ans", "tex/documents/zachet",
+      function (d) { return d.group === "zachet"; });
+    if (!list.childNodes.length) empty(list, "Документов пока нет.");
+
+    list = texBlock("Репетиторство", "moss", "",
+      function (d) { return d.group === "tutoring"; });
+    if (!list.childNodes.length) empty(list, "Листков пока нет.");
+
+    /* Статьи: документы из корня tex/documents/ и любые другие его подпапки,
+       каждая своей группой. */
+    var rest = docs.filter(function (d) {
+      return d.group !== "zachet" && d.group !== "tutoring";
+    });
+    list = block(main, "Статьи", "sheet");
     var groups = [""];
-    docs.forEach(function (d) {
+    rest.forEach(function (d) {
       if (d.group && groups.indexOf(d.group) < 0) groups.push(d.group);
     });
-
     groups.forEach(function (g) {
-      var mine = docs.filter(function (d) { return (d.group || "") === g; });
+      var mine = rest.filter(function (d) { return (d.group || "") === g; });
       if (!mine.length) return;
       if (g) {
         var readme = noteAt("tex/documents/" + g + "/README.md");
@@ -358,9 +385,8 @@
       }
       mine.forEach(function (d) { list.appendChild(texCard(d)); });
     });
-
     styleCards(list, "tex");
-    if (!docs.length) empty(list, "Документов пока нет.");
+    if (!rest.length) empty(list, "Статей пока нет.");
   }
 
   /* ── предметные вкладки ──────────────────────────────── */

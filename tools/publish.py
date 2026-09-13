@@ -44,6 +44,9 @@ INCLUDE = [
     "web/**/*.md",
     "tex/**/*.md",
     "tex/**/*.pdf",
+    # из репетиторства наружу идут только собранные листки — проект
+    # «Репетиторство» во вкладке проектов; markdown оттуда см. PRIVATE_MD
+    "tutoring/listki/*.pdf",
     "assets/**/*",
 ]
 
@@ -55,14 +58,28 @@ INCLUDE = [
 # предупреждение, которое горит всегда, читать перестают. Здесь всё, про что уже
 # решено «наружу не идёт», и тогда непустой отчёт означает настоящую пропажу.
 EXCLUDE_DIRS = (
-    "tex/drafts",     # черновики, вытесненные чистовиком
-    "tex/notes",      # планы работ, а не работы
-    "tex/reference",  # чужие материалы, см. EXCLUDE
-    "templates",      # заготовки для новых заметок, читать их незачем
-    "publish",        # как устроена публикация — служебное
-    "algo",           # архив решённого; приёмы оттуда идут через базу приёмов
-    "math/serii",     # условия серий: материалы кружка, а не свои
-    "repetitorstvo",  # занятия и ученики: чужие имена, витрина публичная
+    "tex/drafts",         # черновики, вытесненные чистовиком
+    "tex/notes",          # планы работ, а не работы
+    "tex/reference",      # чужие материалы, см. EXCLUDE
+    "templates",          # заготовки для новых заметок, читать их незачем
+    "publish",            # как устроена публикация — служебное
+    "algo",               # архив решённого; приёмы оттуда идут через базу приёмов
+    "math/serii",         # условия серий: материалы кружка, а не свои
+    "tutoring/ucheniki",  # карточки учеников: чужие имена, витрина публичная
+    "tutoring/zanyatiya", # планы и отчёты занятий — про конкретного ученика
+    "tutoring/olimpiady", # разбор формата олимпиады — рабочие заметки
+)
+
+# Папки, из которых наружу идут только PDF: их markdown — рабочие записи
+# (методика, курс, диагностика в `-otvety.md`), а не то, что читают с сайта.
+PRIVATE_MD = (
+    "tutoring",
+)
+
+# Файл с таким суффиксом в имени не публикуется ни в каком виде: это ответы
+# и диагностика для преподавателя, даже если однажды соберутся в PDF.
+PRIVATE_SUFFIX = (
+    "-otvety",
 )
 
 # Изъятия внутри белого списка — по конкретной причине у каждого.
@@ -171,34 +188,48 @@ def tex_title(path):
     return " ".join(p.strip() for p in parts if p.strip())[:80]
 
 
-def tex_documents():
-    """Список конспектов: исходник и собранный PDF рядом.
+# Откуда берутся документы TeX и под какой группой они идут в списке проектов.
+# Группа — имя подпапки внутри корня; у второго корня она задана явно,
+# чтобы листки не смешивались с конспектами.
+TEX_ROOTS = (
+    ("tex/documents", ""),
+    ("tutoring/listki", "tutoring"),
+)
 
-    Берётся прямо из папки, а не из заметок: заводить карточку на каждый документ
+
+def tex_documents():
+    """Список документов: исходник и собранный PDF рядом.
+
+    Берётся прямо из папок, а не из заметок: заводить карточку на каждый документ
     значило бы держать в двух местах то, что и так видно в файлах.
     """
-    src = KNOWLEDGE / "tex" / "documents"
-    if not src.is_dir():
-        return []
-
     out = []
-    # вглубь: конспекты собираются в подпапки-проекты, и каждая такая папка —
-    # своя группа в списке, со своим README вместо заголовка
-    for tex in sorted(src.rglob("*.tex")):
-        # рисунки подключаются в основной документ, отдельным конспектом не являются
-        if tex.stem.endswith("_figs") or tex.stem == "template":
+    for root, fixed in TEX_ROOTS:
+        src = KNOWLEDGE / root
+        if not src.is_dir():
             continue
-        rel = tex.relative_to(KNOWLEDGE).as_posix()
-        group = tex.parent.relative_to(src).as_posix()
-        rel_pdf = rel[:-4] + ".pdf"
-        out.append({
-            "title": tex_title(tex) or tex.stem,
-            "tex": tex.name,
-            "group": "" if group == "." else group,
-            # PDF показывается, только если он собран и не изъят белым списком
-            "pdf": rel_pdf if (tex.with_suffix(".pdf").exists()
-                               and rel_pdf not in EXCLUDE) else "",
-        })
+        # вглубь: конспекты собираются в подпапки-проекты, и каждая такая папка —
+        # своя группа в списке, со своим README вместо заголовка
+        # порядок по имени без расширения: так листок идёт раньше своего
+        # разбора («…-10» короче «…-10-razbor»), а с расширением было бы
+        # наоборот — дефис сортируется раньше точки
+        for tex in sorted(src.rglob("*.tex"),
+                          key=lambda p: (p.parent.as_posix(), p.stem)):
+            # рисунки подключаются в основной документ, отдельным конспектом не являются
+            if tex.stem.endswith("_figs") or tex.stem == "template":
+                continue
+            rel = tex.relative_to(KNOWLEDGE).as_posix()
+            sub = tex.parent.relative_to(src).as_posix()
+            group = fixed or ("" if sub == "." else sub)
+            rel_pdf = rel[:-4] + ".pdf"
+            out.append({
+                "title": tex_title(tex) or tex.stem,
+                "tex": tex.name,
+                "group": group,
+                # PDF показывается, только если он собран и не изъят белым списком
+                "pdf": rel_pdf if (tex.with_suffix(".pdf").exists()
+                                   and not skipped(rel_pdf)) else "",
+            })
     return out
 
 
@@ -220,8 +251,12 @@ def hidden(rel):
 
 def skipped(rel):
     """Файл под шаблон попал, но публиковать его не надо."""
+    p = pathlib.PurePosixPath(rel)
     return (rel in EXCLUDE or hidden(rel)
-            or rel.startswith(tuple(d + "/" for d in EXCLUDE_DIRS)))
+            or rel.startswith(tuple(d + "/" for d in EXCLUDE_DIRS))
+            or (p.suffix == ".md"
+                and rel.startswith(tuple(d + "/" for d in PRIVATE_MD)))
+            or p.stem.endswith(PRIVATE_SUFFIX))
 
 
 def collect():
