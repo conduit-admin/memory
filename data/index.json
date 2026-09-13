@@ -731,6 +731,14 @@
    "size": 339969
   },
   {
+   "path": "tex/documents/zachet/algebra-misc.pdf",
+   "folder": "tex/documents/zachet",
+   "title": "algebra-misc",
+   "kind": "pdf",
+   "pages": 7,
+   "size": 292831
+  },
+  {
    "path": "tex/documents/zachet/analysis-misc.pdf",
    "folder": "tex/documents/zachet",
    "title": "analysis-misc",
@@ -771,6 +779,14 @@
    "size": 376820
   },
   {
+   "path": "tex/documents/zachet/graphs-misc.pdf",
+   "folder": "tex/documents/zachet",
+   "title": "graphs-misc",
+   "kind": "pdf",
+   "pages": 2,
+   "size": 197205
+  },
+  {
    "path": "tex/documents/zachet/integrals.pdf",
    "folder": "tex/documents/zachet",
    "title": "integrals",
@@ -785,22 +801,6 @@
    "kind": "pdf",
    "pages": 8,
    "size": 307419
-  },
-  {
-   "path": "tex/documents/zachet/misc.pdf",
-   "folder": "tex/documents/zachet",
-   "title": "misc",
-   "kind": "pdf",
-   "pages": 2,
-   "size": 197205
-  },
-  {
-   "path": "tex/documents/zachet/numbers-misc.pdf",
-   "folder": "tex/documents/zachet",
-   "title": "numbers-misc",
-   "kind": "pdf",
-   "pages": 7,
-   "size": 292831
   },
   {
    "path": "tex/documents/zachet/planar.pdf",
@@ -865,6 +865,12 @@
    "pdf": "tex/documents/oscillations.pdf"
   },
   {
+   "title": "Разная теория чисел",
+   "tex": "algebra-misc.tex",
+   "group": "zachet",
+   "pdf": "tex/documents/zachet/algebra-misc.pdf"
+  },
+  {
    "title": "Математический анализ и неравенства. Разное",
    "tex": "analysis-misc.tex",
    "group": "zachet",
@@ -895,6 +901,12 @@
    "pdf": "tex/documents/zachet/genfunc.pdf"
   },
   {
+   "title": "Теория графов. Разное",
+   "tex": "graphs-misc.tex",
+   "group": "zachet",
+   "pdf": "tex/documents/zachet/graphs-misc.pdf"
+  },
+  {
    "title": "Интегралы и первообразные",
    "tex": "integrals.tex",
    "group": "zachet",
@@ -905,18 +917,6 @@
    "tex": "matchings.tex",
    "group": "zachet",
    "pdf": "tex/documents/zachet/matchings.pdf"
-  },
-  {
-   "title": "Теория графов. Разное",
-   "tex": "misc.tex",
-   "group": "zachet",
-   "pdf": "tex/documents/zachet/misc.pdf"
-  },
-  {
-   "title": "Разная теория чисел",
-   "tex": "numbers-misc.tex",
-   "group": "zachet",
-   "pdf": "tex/documents/zachet/numbers-misc.pdf"
   },
   {
    "title": "Планарные графы",
