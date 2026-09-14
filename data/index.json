@@ -328,7 +328,7 @@
     "type": "meta",
     "data": "2026-09-26",
     "vsego": 147,
-    "napisano": 108,
+    "napisano": 111,
     "vyucheno": 23
    },
    "links": []
@@ -763,6 +763,14 @@
    "size": 262242
   },
   {
+   "path": "tex/documents/zachet/bonds.pdf",
+   "folder": "tex/documents/zachet",
+   "title": "bonds",
+   "kind": "pdf",
+   "pages": 8,
+   "size": 300196
+  },
+  {
    "path": "tex/documents/zachet/digraph.pdf",
    "folder": "tex/documents/zachet",
    "title": "digraph",
@@ -955,6 +963,12 @@
    "tex": "analysis-misc.tex",
    "group": "zachet",
    "pdf": "tex/documents/zachet/analysis-misc.pdf"
+  },
+  {
+   "title": "Разрезы и бонды",
+   "tex": "bonds.tex",
+   "group": "zachet",
+   "pdf": "tex/documents/zachet/bonds.pdf"
   },
   {
    "title": "Орграфы",
