@@ -3,7 +3,7 @@ type: zadacha
 sbornik: Серия 4
 nomer: 4.3
 razdel: Алгебра
-slozhnost:
+slozhnost: средне
 data: 2026-09-14
 status: разобрана
 priyomy: []
