@@ -328,7 +328,7 @@
     "type": "meta",
     "data": "2026-09-26",
     "vsego": 147,
-    "napisano": 104,
+    "napisano": 108,
     "vyucheno": 23
    },
    "links": []
@@ -867,6 +867,14 @@
    "size": 86090
   },
   {
+   "path": "tex/documents/zachet/recurrence.pdf",
+   "folder": "tex/documents/zachet",
+   "title": "recurrence",
+   "kind": "pdf",
+   "pages": 5,
+   "size": 269786
+  },
+  {
    "path": "tex/documents/zachet/scalar.pdf",
    "folder": "tex/documents/zachet",
    "title": "scalar",
@@ -1015,6 +1023,12 @@
    "tex": "probability.tex",
    "group": "zachet",
    "pdf": "tex/documents/zachet/probability.pdf"
+  },
+  {
+   "title": "Линейные рекуррентные соотношения",
+   "tex": "recurrence.tex",
+   "group": "zachet",
+   "pdf": "tex/documents/zachet/recurrence.pdf"
   },
   {
    "title": "Скалярное произведение",
