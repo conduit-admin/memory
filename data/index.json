@@ -328,7 +328,7 @@
     "type": "meta",
     "data": "2026-09-26",
     "vsego": 147,
-    "napisano": 69,
+    "napisano": 74,
     "vyucheno": 23
    },
    "links": []
@@ -771,6 +771,14 @@
    "size": 343641
   },
   {
+   "path": "tex/documents/zachet/gauss.pdf",
+   "folder": "tex/documents/zachet",
+   "title": "gauss",
+   "kind": "pdf",
+   "pages": 10,
+   "size": 378950
+  },
+  {
    "path": "tex/documents/zachet/genfunc.pdf",
    "folder": "tex/documents/zachet",
    "title": "genfunc",
@@ -909,6 +917,12 @@
    "tex": "flows.tex",
    "group": "zachet",
    "pdf": "tex/documents/zachet/flows.pdf"
+  },
+  {
+   "title": "Гауссовы числа",
+   "tex": "gauss.tex",
+   "group": "zachet",
+   "pdf": "tex/documents/zachet/gauss.pdf"
   },
   {
    "title": "Формальные степенные ряды и производящие функции",
