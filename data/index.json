@@ -328,7 +328,7 @@
     "type": "meta",
     "data": "2026-09-26",
     "vsego": 147,
-    "napisano": 74,
+    "napisano": 80,
     "vyucheno": 23
    },
    "links": []
@@ -795,6 +795,14 @@
    "size": 197205
   },
   {
+   "path": "tex/documents/zachet/homomorphism.pdf",
+   "folder": "tex/documents/zachet",
+   "title": "homomorphism",
+   "kind": "pdf",
+   "pages": 7,
+   "size": 255641
+  },
+  {
    "path": "tex/documents/zachet/integrals.pdf",
    "folder": "tex/documents/zachet",
    "title": "integrals",
@@ -935,6 +943,12 @@
    "tex": "graphs-misc.tex",
    "group": "zachet",
    "pdf": "tex/documents/zachet/graphs-misc.pdf"
+  },
+  {
+   "title": "Гомоморфизм колец",
+   "tex": "homomorphism.tex",
+   "group": "zachet",
+   "pdf": "tex/documents/zachet/homomorphism.pdf"
   },
   {
    "title": "Интегралы и первообразные",
