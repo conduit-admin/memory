@@ -328,7 +328,7 @@
     "type": "meta",
     "data": "2026-09-26",
     "vsego": 147,
-    "napisano": 87,
+    "napisano": 99,
     "vyucheno": 23
    },
    "links": []
@@ -763,6 +763,14 @@
    "size": 249385
   },
   {
+   "path": "tex/documents/zachet/factorial.pdf",
+   "folder": "tex/documents/zachet",
+   "title": "factorial",
+   "kind": "pdf",
+   "pages": 12,
+   "size": 331129
+  },
+  {
    "path": "tex/documents/zachet/flows.pdf",
    "folder": "tex/documents/zachet",
    "title": "flows",
@@ -927,6 +935,12 @@
    "tex": "edgecoloring.tex",
    "group": "zachet",
    "pdf": "tex/documents/zachet/edgecoloring.pdf"
+  },
+  {
+   "title": "Факториальные и евклидовы кольца",
+   "tex": "factorial.tex",
+   "group": "zachet",
+   "pdf": "tex/documents/zachet/factorial.pdf"
   },
   {
    "title": "Сети и потоки",
