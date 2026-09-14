@@ -768,7 +768,7 @@
    "title": "bonds",
    "kind": "pdf",
    "pages": 8,
-   "size": 300196
+   "size": 300305
   },
   {
    "path": "tex/documents/zachet/digraph.pdf",
@@ -824,7 +824,7 @@
    "title": "genfunc",
    "kind": "pdf",
    "pages": 9,
-   "size": 378094
+   "size": 378040
   },
   {
    "path": "tex/documents/zachet/graphs-misc.pdf",
@@ -896,7 +896,7 @@
    "title": "recurrence",
    "kind": "pdf",
    "pages": 5,
-   "size": 269785
+   "size": 269872
   },
   {
    "path": "tex/documents/zachet/scalar.pdf",
