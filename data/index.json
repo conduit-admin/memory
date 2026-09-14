@@ -784,7 +784,7 @@
    "title": "fractions",
    "kind": "pdf",
    "pages": 7,
-   "size": 295818
+   "size": 295814
   },
   {
    "path": "tex/documents/zachet/gauss.pdf",
@@ -872,7 +872,7 @@
    "title": "recurrence",
    "kind": "pdf",
    "pages": 5,
-   "size": 269786
+   "size": 269784
   },
   {
    "path": "tex/documents/zachet/scalar.pdf",
@@ -965,7 +965,7 @@
    "pdf": "tex/documents/zachet/flows.pdf"
   },
   {
-   "title": "Поля частных. Дробно-рациональные функции",
+   "title": "Поля частных.",
    "tex": "fractions.tex",
    "group": "zachet",
    "pdf": "tex/documents/zachet/fractions.pdf"
@@ -1025,7 +1025,7 @@
    "pdf": "tex/documents/zachet/probability.pdf"
   },
   {
-   "title": "Линейные рекуррентные соотношения",
+   "title": "Линейные",
    "tex": "recurrence.tex",
    "group": "zachet",
    "pdf": "tex/documents/zachet/recurrence.pdf"
