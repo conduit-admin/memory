@@ -316,7 +316,7 @@
     "type": "meta",
     "istochnik": "матцентр",
     "vsego": 39,
-    "resheno": 16
+    "resheno": 17
    },
    "links": []
   },
@@ -522,6 +522,22 @@
     "razdel": "Комбинаторика",
     "slozhnost": "средне",
     "data": "2026-09-11",
+    "status": "разобрана",
+    "priyomy": []
+   },
+   "links": []
+  },
+  {
+   "path": "math/zadachi/seriya-04-3.md",
+   "folder": "math/zadachi",
+   "title": "Задача 4.3",
+   "fm": {
+    "type": "zadacha",
+    "sbornik": "Серия 4",
+    "nomer": "4.3",
+    "razdel": "Алгебра",
+    "slozhnost": "",
+    "data": "2026-09-14",
     "status": "разобрана",
     "priyomy": []
    },
@@ -872,7 +888,7 @@
    "title": "recurrence",
    "kind": "pdf",
    "pages": 5,
-   "size": 269785
+   "size": 269783
   },
   {
    "path": "tex/documents/zachet/scalar.pdf",
