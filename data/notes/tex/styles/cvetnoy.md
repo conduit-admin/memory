@@ -163,7 +163,7 @@ $\displaystyle I_n = \frac{n-1}{n}\,I_{n-2}$.
   \thispagestyle{empty}
   \vspace*{\fill}
   \begin{center}
-    \fontsize{40}{54}\selectfont\bfseries
+    \fontsize{40}{48}\selectfont\bfseries
     Формула Тейлора,\\ ряды и прочие пределы
   \end{center}
   \vspace*{\fill}
