@@ -328,7 +328,7 @@
     "type": "meta",
     "data": "2026-09-26",
     "vsego": 147,
-    "napisano": 120,
+    "napisano": 123,
     "vyucheno": 23
    },
    "links": []
@@ -911,6 +911,14 @@
    "size": 300216
   },
   {
+   "path": "tex/documents/zachet/combinatorics-misc.pdf",
+   "folder": "tex/documents/zachet",
+   "title": "combinatorics-misc",
+   "kind": "pdf",
+   "pages": 5,
+   "size": 273964
+  },
+  {
    "path": "tex/documents/zachet/digraph.pdf",
    "folder": "tex/documents/zachet",
    "title": "digraph",
@@ -1115,6 +1123,12 @@
    "tex": "bonds.tex",
    "group": "zachet",
    "pdf": "tex/documents/zachet/bonds.pdf"
+  },
+  {
+   "title": "Комбинаторика",
+   "tex": "combinatorics-misc.tex",
+   "group": "zachet",
+   "pdf": "tex/documents/zachet/combinatorics-misc.pdf"
   },
   {
    "title": "Орграфы",
