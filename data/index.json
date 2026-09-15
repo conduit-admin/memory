@@ -551,6 +551,100 @@
    "links": []
   },
   {
+   "path": "manim/kanal/idei.md",
+   "folder": "manim/kanal",
+   "title": "Банк тем",
+   "fm": {
+    "type": "plan"
+   },
+   "links": [
+    "diskretnaya-nepreryvnost",
+    "element-dugi",
+    "masshtabnoe-preobrazovanie-uravneniya",
+    "otrazhenie-dlya-summy-otrezkov",
+    "pvo-na-perpendikulyarnoy-grani",
+    "stepen-obschey-tochki-dvuh-okruzhnostey"
+   ]
+  },
+  {
+   "path": "manim/kanal/konvencii.md",
+   "folder": "manim/kanal",
+   "title": "Конвенции канала",
+   "fm": {
+    "type": "plan"
+   },
+   "links": [
+    "montazh",
+    "ochered"
+   ]
+  },
+  {
+   "path": "manim/kanal/montazh.md",
+   "folder": "manim/kanal",
+   "title": "Монтаж",
+   "fm": {
+    "type": "style",
+    "kratko": "постпродакшен: склейка сцен, цель 40-60 секунд, ни одной статичной паузы"
+   },
+   "links": [
+    "konvencii",
+    "ochered",
+    "vertikal"
+   ]
+  },
+  {
+   "path": "manim/kanal/ochered.md",
+   "folder": "manim/kanal",
+   "title": "Очередь выпуска",
+   "fm": {
+    "type": "plan"
+   },
+   "links": [
+    "konvencii",
+    "montazh"
+   ]
+  },
+  {
+   "path": "manim/kanal/ozvuchka/parabolid-zhidkosti.md",
+   "folder": "manim/kanal/ozvuchka",
+   "title": "Озвучка: параболоид жидкости",
+   "fm": {
+    "type": "plan",
+    "rolik": "Параболоид жидкости",
+    "fail": "rotating_liquid.py",
+    "snyato": "1:10",
+    "cel": "0:58"
+   },
+   "links": []
+  },
+  {
+   "path": "manim/kanal/README.md",
+   "folder": "manim/kanal",
+   "title": "Канал",
+   "fm": {
+    "type": "plan"
+   },
+   "links": [
+    "idei",
+    "konvencii",
+    "montazh",
+    "ochered",
+    "vertikal"
+   ]
+  },
+  {
+   "path": "manim/projects/inertia-peresborka.md",
+   "folder": "manim/projects",
+   "title": "Момент инерции — пересборка",
+   "fm": {
+    "type": "zametki",
+    "proekt": "inertia",
+    "fail": "inertia.py",
+    "data": "2026-09-14"
+   },
+   "links": []
+  },
+  {
    "path": "manim/projects/inertia.md",
    "folder": "manim/projects",
    "title": "Момент инерции",
@@ -563,14 +657,52 @@
    "links": []
   },
   {
+   "path": "manim/projects/orthocentric.md",
+   "folder": "manim/projects",
+   "title": "Ортоцентрические тетраэдры",
+   "fm": {
+    "type": "proekt",
+    "vid": "animatsiya",
+    "fail": "утерян",
+    "stadiya": "готов",
+    "video": "",
+    "data": "2026-09-14"
+   },
+   "links": []
+  },
+  {
+   "path": "manim/projects/planar-peresborka.md",
+   "folder": "manim/projects",
+   "title": "Раскраска в 5 цветов — пересборка",
+   "fm": {
+    "type": "zametki",
+    "proekt": "planar",
+    "fail": "planar.py",
+    "data": "2026-09-14"
+   },
+   "links": []
+  },
+  {
    "path": "manim/projects/planar.md",
    "folder": "manim/projects",
-   "title": "Планарные графы",
+   "title": "Раскраска в 5 цветов",
    "fm": {
     "type": "proekt",
     "vid": "animatsiya",
     "fail": "planar.py",
     "stadiya": "программируется"
+   },
+   "links": []
+  },
+  {
+   "path": "manim/projects/rotating-liquid-peresborka.md",
+   "folder": "manim/projects",
+   "title": "Параболоид жидкости — пересборка",
+   "fm": {
+    "type": "zametki",
+    "proekt": "rotating-liquid",
+    "fail": "rotating_liquid.py",
+    "data": "2026-09-14"
    },
    "links": []
   },
@@ -768,7 +900,7 @@
    "title": "bonds",
    "kind": "pdf",
    "pages": 8,
-   "size": 300305
+   "size": 300216
   },
   {
    "path": "tex/documents/zachet/digraph.pdf",

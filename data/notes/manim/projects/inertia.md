@@ -14,3 +14,5 @@ stadiya: программируется
 - `LagrangeJacobiShort` — теорема Лагранжа: $\sum m_i \overrightarrow{GA_i} = \vec 0$,
   и момент через попарные расстояния;
 - `InequalityMomentShort` — неравенство на момент.
+
+Ролик пересобирается под короткий формат: план — в [`inertia-peresborka.md`](inertia-peresborka.md).
