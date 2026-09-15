@@ -328,7 +328,7 @@
     "type": "meta",
     "data": "2026-09-26",
     "vsego": 147,
-    "napisano": 111,
+    "napisano": 120,
     "vyucheno": 23
    },
    "links": []
@@ -895,6 +895,14 @@
    "size": 262242
   },
   {
+   "path": "tex/documents/zachet/barycentric.pdf",
+   "folder": "tex/documents/zachet",
+   "title": "barycentric",
+   "kind": "pdf",
+   "pages": 17,
+   "size": 365033
+  },
+  {
    "path": "tex/documents/zachet/bonds.pdf",
    "folder": "tex/documents/zachet",
    "title": "bonds",
@@ -1095,6 +1103,12 @@
    "tex": "analysis-misc.tex",
    "group": "zachet",
    "pdf": "tex/documents/zachet/analysis-misc.pdf"
+  },
+  {
+   "title": "Барицентрические",
+   "tex": "barycentric.tex",
+   "group": "zachet",
+   "pdf": "tex/documents/zachet/barycentric.pdf"
   },
   {
    "title": "Разрезы и бонды",
