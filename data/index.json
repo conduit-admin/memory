@@ -900,7 +900,7 @@
    "title": "barycentric",
    "kind": "pdf",
    "pages": 17,
-   "size": 365033
+   "size": 358744
   },
   {
    "path": "tex/documents/zachet/bonds.pdf",
@@ -908,7 +908,7 @@
    "title": "bonds",
    "kind": "pdf",
    "pages": 8,
-   "size": 305153
+   "size": 305315
   },
   {
    "path": "tex/documents/zachet/combinatorics-misc.pdf",
@@ -924,7 +924,7 @@
    "title": "connectivity",
    "kind": "pdf",
    "pages": 9,
-   "size": 316728
+   "size": 316726
   },
   {
    "path": "tex/documents/zachet/digraph.pdf",
@@ -940,7 +940,7 @@
    "title": "edgecoloring",
    "kind": "pdf",
    "pages": 5,
-   "size": 249385
+   "size": 249383
   },
   {
    "path": "tex/documents/zachet/factorial.pdf",
@@ -1012,7 +1012,7 @@
    "title": "involutions",
    "kind": "pdf",
    "pages": 8,
-   "size": 249374
+   "size": 241511
   },
   {
    "path": "tex/documents/zachet/matchings.pdf",
