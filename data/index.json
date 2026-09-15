@@ -328,7 +328,7 @@
     "type": "meta",
     "data": "2026-09-26",
     "vsego": 147,
-    "napisano": 127,
+    "napisano": 128,
     "vyucheno": 23
    },
    "links": []
@@ -923,8 +923,8 @@
    "folder": "tex/documents/zachet",
    "title": "connectivity",
    "kind": "pdf",
-   "pages": 8,
-   "size": 305068
+   "pages": 9,
+   "size": 316728
   },
   {
    "path": "tex/documents/zachet/digraph.pdf",
