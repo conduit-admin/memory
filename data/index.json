@@ -900,7 +900,7 @@
    "title": "barycentric",
    "kind": "pdf",
    "pages": 17,
-   "size": 358744
+   "size": 358715
   },
   {
    "path": "tex/documents/zachet/bonds.pdf",
@@ -1012,7 +1012,7 @@
    "title": "involutions",
    "kind": "pdf",
    "pages": 8,
-   "size": 241511
+   "size": 241516
   },
   {
    "path": "tex/documents/zachet/matchings.pdf",
@@ -1109,10 +1109,16 @@
    "pdf": "tex/documents/oscillations.pdf"
   },
   {
-   "title": "Разная теория чисел",
-   "tex": "algebra-misc.tex",
+   "title": "Интегралы и первообразные",
+   "tex": "integrals.tex",
    "group": "zachet",
-   "pdf": "tex/documents/zachet/algebra-misc.pdf"
+   "pdf": "tex/documents/zachet/integrals.pdf"
+  },
+  {
+   "title": "Формула Тейлора, ряды и прочие пределы",
+   "tex": "taylor.tex",
+   "group": "zachet",
+   "pdf": "tex/documents/zachet/taylor.pdf"
   },
   {
    "title": "Математический анализ и неравенства. Разное",
@@ -1121,76 +1127,16 @@
    "pdf": "tex/documents/zachet/analysis-misc.pdf"
   },
   {
-   "title": "Барицентрические",
+   "title": "Проективные инволюции",
+   "tex": "involutions.tex",
+   "group": "zachet",
+   "pdf": "tex/documents/zachet/involutions.pdf"
+  },
+  {
+   "title": "Барицентрические координаты",
    "tex": "barycentric.tex",
    "group": "zachet",
    "pdf": "tex/documents/zachet/barycentric.pdf"
-  },
-  {
-   "title": "Разрезы и бонды",
-   "tex": "bonds.tex",
-   "group": "zachet",
-   "pdf": "tex/documents/zachet/bonds.pdf"
-  },
-  {
-   "title": "Комбинаторика",
-   "tex": "combinatorics-misc.tex",
-   "group": "zachet",
-   "pdf": "tex/documents/zachet/combinatorics-misc.pdf"
-  },
-  {
-   "title": "Связность",
-   "tex": "connectivity.tex",
-   "group": "zachet",
-   "pdf": "tex/documents/zachet/connectivity.pdf"
-  },
-  {
-   "title": "Орграфы",
-   "tex": "digraph.tex",
-   "group": "zachet",
-   "pdf": "tex/documents/zachet/digraph.pdf"
-  },
-  {
-   "title": "Раскраски рёбер",
-   "tex": "edgecoloring.tex",
-   "group": "zachet",
-   "pdf": "tex/documents/zachet/edgecoloring.pdf"
-  },
-  {
-   "title": "Факториальные и евклидовы кольца",
-   "tex": "factorial.tex",
-   "group": "zachet",
-   "pdf": "tex/documents/zachet/factorial.pdf"
-  },
-  {
-   "title": "Сети и потоки",
-   "tex": "flows.tex",
-   "group": "zachet",
-   "pdf": "tex/documents/zachet/flows.pdf"
-  },
-  {
-   "title": "Поля частных.",
-   "tex": "fractions.tex",
-   "group": "zachet",
-   "pdf": "tex/documents/zachet/fractions.pdf"
-  },
-  {
-   "title": "Гауссовы числа",
-   "tex": "gauss.tex",
-   "group": "zachet",
-   "pdf": "tex/documents/zachet/gauss.pdf"
-  },
-  {
-   "title": "Формальные степенные ряды и производящие функции",
-   "tex": "genfunc.tex",
-   "group": "zachet",
-   "pdf": "tex/documents/zachet/genfunc.pdf"
-  },
-  {
-   "title": "Теория графов. Разное",
-   "tex": "graphs-misc.tex",
-   "group": "zachet",
-   "pdf": "tex/documents/zachet/graphs-misc.pdf"
   },
   {
    "title": "Гомоморфизм колец",
@@ -1199,37 +1145,13 @@
    "pdf": "tex/documents/zachet/homomorphism.pdf"
   },
   {
-   "title": "Интегралы и первообразные",
-   "tex": "integrals.tex",
+   "title": "Факториальные и евклидовы кольца",
+   "tex": "factorial.tex",
    "group": "zachet",
-   "pdf": "tex/documents/zachet/integrals.pdf"
+   "pdf": "tex/documents/zachet/factorial.pdf"
   },
   {
-   "title": "Проективные инволюции",
-   "tex": "involutions.tex",
-   "group": "zachet",
-   "pdf": "tex/documents/zachet/involutions.pdf"
-  },
-  {
-   "title": "Паросочетания",
-   "tex": "matchings.tex",
-   "group": "zachet",
-   "pdf": "tex/documents/zachet/matchings.pdf"
-  },
-  {
-   "title": "Планарные графы",
-   "tex": "planar.tex",
-   "group": "zachet",
-   "pdf": "tex/documents/zachet/planar.pdf"
-  },
-  {
-   "title": "Дискретная вероятность",
-   "tex": "probability.tex",
-   "group": "zachet",
-   "pdf": "tex/documents/zachet/probability.pdf"
-  },
-  {
-   "title": "Линейные",
+   "title": "Линейные рекуррентные соотношения",
    "tex": "recurrence.tex",
    "group": "zachet",
    "pdf": "tex/documents/zachet/recurrence.pdf"
@@ -1241,10 +1163,88 @@
    "pdf": "tex/documents/zachet/scalar.pdf"
   },
   {
-   "title": "Формула Тейлора, ряды и прочие пределы",
-   "tex": "taylor.tex",
+   "title": "Поля частных. Дробно-рациональные функции",
+   "tex": "fractions.tex",
    "group": "zachet",
-   "pdf": "tex/documents/zachet/taylor.pdf"
+   "pdf": "tex/documents/zachet/fractions.pdf"
+  },
+  {
+   "title": "Гауссовы числа",
+   "tex": "gauss.tex",
+   "group": "zachet",
+   "pdf": "tex/documents/zachet/gauss.pdf"
+  },
+  {
+   "title": "Разная теория чисел",
+   "tex": "algebra-misc.tex",
+   "group": "zachet",
+   "pdf": "tex/documents/zachet/algebra-misc.pdf"
+  },
+  {
+   "title": "Формальные степенные ряды и производящие функции",
+   "tex": "genfunc.tex",
+   "group": "zachet",
+   "pdf": "tex/documents/zachet/genfunc.pdf"
+  },
+  {
+   "title": "Комбинаторика и теория вероятностей. Разное",
+   "tex": "combinatorics-misc.tex",
+   "group": "zachet",
+   "pdf": "tex/documents/zachet/combinatorics-misc.pdf"
+  },
+  {
+   "title": "Дискретная вероятность",
+   "tex": "probability.tex",
+   "group": "zachet",
+   "pdf": "tex/documents/zachet/probability.pdf"
+  },
+  {
+   "title": "Паросочетания",
+   "tex": "matchings.tex",
+   "group": "zachet",
+   "pdf": "tex/documents/zachet/matchings.pdf"
+  },
+  {
+   "title": "Сети и потоки",
+   "tex": "flows.tex",
+   "group": "zachet",
+   "pdf": "tex/documents/zachet/flows.pdf"
+  },
+  {
+   "title": "Орграфы",
+   "tex": "digraph.tex",
+   "group": "zachet",
+   "pdf": "tex/documents/zachet/digraph.pdf"
+  },
+  {
+   "title": "Связность",
+   "tex": "connectivity.tex",
+   "group": "zachet",
+   "pdf": "tex/documents/zachet/connectivity.pdf"
+  },
+  {
+   "title": "Планарные графы",
+   "tex": "planar.tex",
+   "group": "zachet",
+   "pdf": "tex/documents/zachet/planar.pdf"
+  },
+  {
+   "title": "Раскраски рёбер",
+   "tex": "edgecoloring.tex",
+   "group": "zachet",
+   "pdf": "tex/documents/zachet/edgecoloring.pdf"
+  },
+  {
+   "title": "Разрезы и бонды",
+   "tex": "bonds.tex",
+   "group": "zachet",
+   "pdf": "tex/documents/zachet/bonds.pdf"
+  },
+  {
+   "title": "Теория графов. Разное",
+   "tex": "graphs-misc.tex",
+   "group": "zachet",
+   "pdf": "tex/documents/zachet/graphs-misc.pdf"
   },
   {
    "title": "Пробное занятие: Физтех",
