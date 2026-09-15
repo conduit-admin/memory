@@ -171,9 +171,20 @@ def tex_title(path):
     """Название конспекта из титульного блока.
 
     Команды \\title в этих документах нет: титул набран вручную — центрированный
-    блок, где название разбито на строки, и у каждой строки свой размер шрифта.
-    Поэтому берём текст всех кусков после \\bfseries внутри первого титульного
-    блока и склеиваем. Не нашлось — вернём пусто, и подписью станет имя файла.
+    блок, где название стоит после \\bfseries и бывает разбито на строки.
+    Встречаются три записи одного и того же:
+
+        {\\fontsize{40}{48}\\selectfont\\bfseries Гауссовы числа}
+        {\\fontsize{40}{48}\\selectfont\\bfseries Формула Тейлора,}\\\\[0.5\\baselineskip]
+        {\\fontsize{40}{48}\\selectfont\\bfseries ряды и прочие пределы}
+        \\fontsize{40}{48}\\selectfont\\bfseries
+        Поля частных.\\\\ Дробно-рациональные\\\\ функции
+
+    Поэтому берём весь первый центрированный блок после \\begin{document},
+    выкидываем из него команды оформления и переносы строк, а название —
+    это то, что осталось. Резать по первому обратному слэшу нельзя: так
+    «Поля частных. Дробно-рациональные функции» превращалось в «Поля частных.»
+    Не нашлось — вернём пусто, и подписью станет имя файла.
     """
     src = path.read_text(encoding="utf-8", errors="replace")
     start = src.find(r"\begin{document}")
@@ -184,8 +195,36 @@ def tex_title(path):
     end = min((body.find(m) for m in (r"\end{titlepage}", r"\end{center}",
                                       r"\section") if body.find(m) > 0),
               default=len(body))
-    parts = re.findall(r"\\bfseries\s+([^}\\]+)", body[:end])
-    return " ".join(p.strip() for p in parts if p.strip())[:80]
+    block = body[:end]
+    # комментарии в титуле бывают: про интервал, про размер — это не название
+    block = re.sub(r"(?<!\\)%.*", "", block)
+    cut = block.find(r"\bfseries")
+    if cut < 0:
+        return ""
+    text = block[cut:]
+    text = re.sub(r"\\\\(\[[^\]]*\])?", " ", text)          # переносы строк
+    text = re.sub(r"\\fontsize\{[^}]*\}\{[^}]*\}", " ", text)
+    text = re.sub(r"\\[A-Za-z]+\*?(\{[^}]*\})?", " ", text)   # прочие команды
+    text = text.replace("{", " ").replace("}", " ")
+    return " ".join(text.split())[:80]
+
+
+def tex_order(path):
+    """Порядок документа в списке.
+
+    Зачётные документы подписаны в первых строках номером подтемы:
+    «%  Зачёт, подтема 5.8: …». По нему они и идут — как в списке вопросов,
+    а не по латинскому имени файла, которое читателю ничего не говорит.
+    У остальных документов номера нет, и они остаются в порядке имён.
+    """
+    try:
+        head = path.read_text(encoding="utf-8", errors="replace")[:600]
+    except OSError:
+        return (1, path.stem)
+    m = re.search(r"подтема\s+(\d+)\.(\d+)", head)
+    if m:
+        return (0, int(m.group(1)), int(m.group(2)))
+    return (1, path.stem)
 
 
 # Откуда берутся документы TeX и под какой группой они идут в списке проектов.
@@ -214,7 +253,7 @@ def tex_documents():
         # разбора («…-10» короче «…-10-razbor»), а с расширением было бы
         # наоборот — дефис сортируется раньше точки
         for tex in sorted(src.rglob("*.tex"),
-                          key=lambda p: (p.parent.as_posix(), p.stem)):
+                          key=lambda p: (p.parent.as_posix(), tex_order(p))):
             # рисунки подключаются в основной документ, отдельным конспектом не являются
             if tex.stem.endswith("_figs") or tex.stem == "template":
                 continue
