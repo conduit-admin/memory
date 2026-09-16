@@ -1255,10 +1255,16 @@
    "pdf": "tex/documents/zachet/graphs-misc.pdf"
   },
   {
-   "title": "Комбинаторика: занятие 1",
+   "title": "kombinatorika-01",
    "tex": "kombinatorika-01.tex",
    "group": "tutoring",
    "pdf": "tutoring/listki/kombinatorika-01.pdf"
+  },
+  {
+   "title": "preamble",
+   "tex": "preamble.tex",
+   "group": "tutoring",
+   "pdf": ""
   },
   {
    "title": "Пробное занятие: Физтех",
