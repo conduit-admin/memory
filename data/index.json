@@ -1079,6 +1079,14 @@
    "size": 160715
   },
   {
+   "path": "tutoring/listki/kombinatorika-01.pdf",
+   "folder": "tutoring/listki",
+   "title": "kombinatorika-01",
+   "kind": "pdf",
+   "pages": 1,
+   "size": 124642
+  },
+  {
    "path": "tutoring/listki/probnoe-fiztekh-10-razbor.pdf",
    "folder": "tutoring/listki",
    "title": "probnoe-fiztekh-10-razbor",
@@ -1245,6 +1253,12 @@
    "tex": "graphs-misc.tex",
    "group": "zachet",
    "pdf": "tex/documents/zachet/graphs-misc.pdf"
+  },
+  {
+   "title": "Комбинаторика: занятие 1",
+   "tex": "kombinatorika-01.tex",
+   "group": "tutoring",
+   "pdf": "tutoring/listki/kombinatorika-01.pdf"
   },
   {
    "title": "Пробное занятие: Физтех",
