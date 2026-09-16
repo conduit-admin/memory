@@ -1079,12 +1079,20 @@
    "size": 160715
   },
   {
-   "path": "tutoring/listki/kombinatorika-01.pdf",
+   "path": "tutoring/listki/kombinatorika-razbor.pdf",
    "folder": "tutoring/listki",
-   "title": "kombinatorika-01",
+   "title": "kombinatorika-razbor",
+   "kind": "pdf",
+   "pages": 4,
+   "size": 207354
+  },
+  {
+   "path": "tutoring/listki/kombinatorika.pdf",
+   "folder": "tutoring/listki",
+   "title": "kombinatorika",
    "kind": "pdf",
    "pages": 3,
-   "size": 174256
+   "size": 181452
   },
   {
    "path": "tutoring/listki/probnoe-fiztekh-10-razbor.pdf",
@@ -1255,14 +1263,26 @@
    "pdf": "tex/documents/zachet/graphs-misc.pdf"
   },
   {
-   "title": "kombinatorika-01",
-   "tex": "kombinatorika-01.tex",
+   "title": "kombinatorika",
+   "tex": "kombinatorika.tex",
    "group": "tutoring",
-   "pdf": "tutoring/listki/kombinatorika-01.pdf"
+   "pdf": "tutoring/listki/kombinatorika.pdf"
+  },
+  {
+   "title": "kombinatorika-razbor",
+   "tex": "kombinatorika-razbor.tex",
+   "group": "tutoring",
+   "pdf": "tutoring/listki/kombinatorika-razbor.pdf"
   },
   {
    "title": "preamble",
    "tex": "preamble.tex",
+   "group": "tutoring",
+   "pdf": ""
+  },
+  {
+   "title": "preamble-razbor",
+   "tex": "preamble-razbor.tex",
    "group": "tutoring",
    "pdf": ""
   },
