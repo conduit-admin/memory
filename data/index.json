@@ -1084,7 +1084,7 @@
    "title": "kombinatorika-razbor",
    "kind": "pdf",
    "pages": 4,
-   "size": 207354
+   "size": 207280
   },
   {
    "path": "tutoring/listki/kombinatorika.pdf",
@@ -1263,28 +1263,16 @@
    "pdf": "tex/documents/zachet/graphs-misc.pdf"
   },
   {
-   "title": "kombinatorika",
+   "title": "Комбинаторика: два правила, сочетания, дополнение",
    "tex": "kombinatorika.tex",
    "group": "tutoring",
    "pdf": "tutoring/listki/kombinatorika.pdf"
   },
   {
-   "title": "kombinatorika-razbor",
+   "title": "Разбор: комбинаторика",
    "tex": "kombinatorika-razbor.tex",
    "group": "tutoring",
    "pdf": "tutoring/listki/kombinatorika-razbor.pdf"
-  },
-  {
-   "title": "preamble",
-   "tex": "preamble.tex",
-   "group": "tutoring",
-   "pdf": ""
-  },
-  {
-   "title": "preamble-razbor",
-   "tex": "preamble-razbor.tex",
-   "group": "tutoring",
-   "pdf": ""
   },
   {
    "title": "Пробное занятие: Физтех",
