@@ -328,7 +328,7 @@
     "type": "meta",
     "data": "2026-09-26",
     "vsego": 147,
-    "napisano": 128,
+    "napisano": 133,
     "vyucheno": 43
    },
    "links": []
@@ -911,6 +911,14 @@
    "size": 305315
   },
   {
+   "path": "tex/documents/zachet/combgeom.pdf",
+   "folder": "tex/documents/zachet",
+   "title": "combgeom",
+   "kind": "pdf",
+   "pages": 8,
+   "size": 293091
+  },
+  {
    "path": "tex/documents/zachet/combinatorics-misc.pdf",
    "folder": "tex/documents/zachet",
    "title": "combinatorics-misc",
@@ -1161,6 +1169,12 @@
    "tex": "barycentric.tex",
    "group": "zachet",
    "pdf": "tex/documents/zachet/barycentric.pdf"
+  },
+  {
+   "title": "Комбинаторная геометрия",
+   "tex": "combgeom.tex",
+   "group": "zachet",
+   "pdf": "tex/documents/zachet/combgeom.pdf"
   },
   {
    "title": "Гомоморфизм колец",
