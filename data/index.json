@@ -845,6 +845,94 @@
     "kratko": "для экрана, не для печати — цвет несёт роль, рисунки в TikZ"
    },
    "links": []
+  },
+  {
+   "path": "roli/administrator.md",
+   "folder": "roli",
+   "title": "Администратор базы и сайтов",
+   "fm": {
+    "type": "rol",
+    "kratko": "администратор: связи и счётчики базы, витрина, код сайта не трогать"
+   },
+   "links": []
+  },
+  {
+   "path": "roli/fizika.md",
+   "folder": "roli",
+   "title": "Учитель физики",
+   "fm": {
+    "type": "rol",
+    "kratko": "учитель физики: сборник МОШ, условие с рисунком, дальше тишина"
+   },
+   "links": []
+  },
+  {
+   "path": "roli/kanal.md",
+   "folder": "roli",
+   "title": "Менеджер канала",
+   "fm": {
+    "type": "rol",
+    "kratko": "менеджер канала: что снимать, в каком порядке, что писать в описании"
+   },
+   "links": []
+  },
+  {
+   "path": "roli/matematika.md",
+   "folder": "roli",
+   "title": "Учитель математики",
+   "fm": {
+    "type": "rol",
+    "kratko": "учитель математики: серии матцентра и зачёт, подсказок нет"
+   },
+   "links": []
+  },
+  {
+   "path": "roli/raznoe.md",
+   "folder": "roli",
+   "title": "Разное",
+   "fm": {
+    "type": "rol",
+    "kratko": "универсальная роль: ревизия, перестройка, настройка машины"
+   },
+   "links": []
+  },
+  {
+   "path": "roli/README.md",
+   "folder": "roli",
+   "title": "Роли",
+   "fm": {
+    "type": "rol",
+    "kratko": "как устроен раздел: промпт на роль и карта папок под неё"
+   },
+   "links": [
+    "administrator",
+    "fizika",
+    "kanal",
+    "matematika",
+    "raznoe",
+    "repetitorstvo",
+    "roliki"
+   ]
+  },
+  {
+   "path": "roli/repetitorstvo.md",
+   "folder": "roli",
+   "title": "Помощник по репетиторству",
+   "fm": {
+    "type": "rol",
+    "kratko": "помощник по репетиторству: листки, ответы, тайминг; подсказывать можно"
+   },
+   "links": []
+  },
+  {
+   "path": "roli/roliki.md",
+   "folder": "roli",
+   "title": "Помощник по созданию роликов",
+   "fm": {
+    "type": "rol",
+    "kratko": "помощник по роликам: вертикаль, сорок секунд, черновик сразу мне"
+   },
+   "links": []
   }
  ],
  "files": [

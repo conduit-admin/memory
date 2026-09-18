@@ -300,6 +300,22 @@
       });
   }
 
+  /* Роли — промпты для новых сессий. Отбор по типу, а не по папке: так новый
+     файл роли появляется на вкладке сам. README раздела идёт первым — он
+     объясняет, как этим пользоваться, а остальные по алфавиту. */
+  function roleCards(list) {
+    DATA.notes
+      .filter(function (n) { return n.fm.type === "rol"; })
+      .sort(function (a, b) {
+        var ra = /README\.md$/.test(a.path), rb = /README\.md$/.test(b.path);
+        if (ra !== rb) return ra ? -1 : 1;
+        return a.title.localeCompare(b.title, "ru");
+      })
+      .forEach(function (n) {
+        list.appendChild(card(n, { note: n.fm.kratko || "" }));
+      });
+  }
+
   function empty(list, text) {
     list.appendChild(el("div", "empty", text));
   }
@@ -387,6 +403,17 @@
     list = block(main, "Стили", "slate");
     styleCards(list);
     if (!list.childNodes.length) empty(list, "Стилей пока нет.");
+  }
+
+  /* ── вкладка «Роли» ──────────────────────────────────── */
+
+  /* Своя вкладка, а не блок в конце «Проектов»: промпт копируют перед тем,
+     как завести сессию, и искать его прокруткой чужого списка — ровно то,
+     из-за чего он раньше и не находился. */
+  function viewRoli(main) {
+    var list = block(main, "Роли", "ans");
+    roleCards(list);
+    if (!list.childNodes.length) empty(list, "Ролей пока нет.");
   }
 
   /* ── предметные вкладки ──────────────────────────────── */
@@ -915,6 +942,7 @@
     if (VIEW === "math") return viewSubject(main, "math", "«Математика»");
     if (VIEW === "zachet") return viewZachet(main);
     if (VIEW === "ml") return viewSubject(main, "ml", "«ИИ»");
+    if (VIEW === "roli") return viewRoli(main);
     return viewProekty(main);
   }
 
