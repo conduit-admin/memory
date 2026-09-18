@@ -177,15 +177,17 @@ $\iff a/b \in \mathbb{Q}$.
 
 ## Рендер и сверка
 
-- venv с manim теперь в vault: `manim/.venv` (Python 3.12.0, manim 0.20.1; в `.gitignore`).
+- venv с manim лежит в самом хранилище: `manim/.venv` (manim 0.20.1; в `.gitignore`).
   Рендер из `knowledge/manim`: `.venv/Scripts/manim.exe -ql squared_rectangle.py <Scene>`
   (превью `-ql`, README проекта пишет финал `-qh`; я гнал `-qp` — надо согласовать канон).
-  Старый venv в `PycharmProjects/Animations/.venv` — дубль, для vault не нужен.
+  Команда одна на любой машине: версия Python у venv своя на каждой, но звать
+  его всё равно по этому пути.
 - `media/` в git не попадает (в `.gitignore`).
 - **Сверка кадров.** Один кадр: `manim -s ...` (последний кадр сцены). Кадр из середины:
   вырезать `ffmpeg`-ом из mp4 (`ffmpeg -ss <t> -i <mp4> -frames:v 1 out.png`), затем
-  читать PNG. ffmpeg на машине —
-  `C:\Users\Admin\AppData\Local\ffmpegio\ffmpeg-downloader\ffmpeg\bin\ffmpeg.exe`.
+  читать PNG. ffmpeg поставлен пакетом `ffmpeg-downloader` и лежит внутри профиля:
+  `%LOCALAPPDATA%\ffmpegio\ffmpeg-downloader\ffmpeg\bin\ffmpeg.exe` — путь одинаковый
+  на обеих машинах, имя профиля у них разное.
 
 ## Бэкапы
 
