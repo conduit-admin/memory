@@ -625,7 +625,7 @@
     "type": "plan",
     "rolik": "Разрезание на квадраты",
     "fail": "squared_rectangle.py",
-    "snyato": "0:59",
+    "snyato": "0:57",
     "cel": "0:40–1:00"
    },
    "links": []
@@ -739,7 +739,7 @@
     "type": "zametki",
     "proekt": "squared-rectangle",
     "fail": "squared_rectangle.py",
-    "data": "2026-09-12"
+    "data": "2026-09-18"
    },
    "links": []
   },
@@ -751,9 +751,9 @@
     "type": "proekt",
     "vid": "animatsiya",
     "fail": "squared_rectangle.py",
-    "stadiya": "программируется",
+    "stadiya": "отрендерен",
     "video": "",
-    "data": "2026-09-12"
+    "data": "2026-09-18"
    },
    "links": []
   },
