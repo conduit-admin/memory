@@ -557,14 +557,7 @@
    "fm": {
     "type": "plan"
    },
-   "links": [
-    "diskretnaya-nepreryvnost",
-    "element-dugi",
-    "masshtabnoe-preobrazovanie-uravneniya",
-    "otrazhenie-dlya-summy-otrezkov",
-    "pvo-na-perpendikulyarnoy-grani",
-    "stepen-obschey-tochki-dvuh-okruzhnostey"
-   ]
+   "links": []
   },
   {
    "path": "manim/kanal/konvencii.md",
@@ -584,11 +577,10 @@
    "title": "Монтаж",
    "fm": {
     "type": "style",
-    "kratko": "постпродакшен: склейка сцен, цель 40-60 секунд, ни одной статичной паузы"
+    "kratko": "постпродакшен: голос и саунд-дизайн поверх готового рендера; картинка не трогается"
    },
    "links": [
     "konvencii",
-    "ochered",
     "vertikal"
    ]
   },
@@ -751,7 +743,7 @@
     "type": "proekt",
     "vid": "animatsiya",
     "fail": "squared_rectangle.py",
-    "stadiya": "отрендерен",
+    "stadiya": "озвучивается и монтируется",
     "video": "",
     "data": "2026-09-18"
    },
