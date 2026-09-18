@@ -759,7 +759,9 @@
     "type": "style",
     "kratko": "вертикаль 9:16, чёрный фон, палитра на ролик, темп константой"
    },
-   "links": []
+   "links": [
+    "konvencii"
+   ]
   },
   {
    "path": "web/projects/conduit-26.md",

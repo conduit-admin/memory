@@ -205,20 +205,24 @@ label.add_updater(lambda m, d=dot, dir_vec=d_out: m.next_to(d.get_center(), dir_
 
 ## Концовка
 
-Одинаковая во всех роликах: сначала увод сцены, потом титры.
+**Титров нет.** В первых четырёх роликах последней шла сцена с надписью
+`credits: @MathDzeta` и паузой на три-четыре секунды; от неё отказались —
+она уводит ровно там, где считается досмотр. Имя канала накладывается
+в монтаже. Правило целиком — в [[konvencii]].
+
+Сцена доводится до кадра результата, и он держится полторы секунды:
 
 ```python
 annotations = [m for m in self.mobjects if m is not cross]
 self.play(*[FadeOut(m) for m in annotations], run_time=0.9)
-self.play(cross.animate(rate_func=rate_functions.rush_into)
-          .scale(0.02).shift(UP * 0.6).set_opacity(0.0), run_time=1.3)
-self.remove(cross)
-self.wait(0.6)
-
-credits_text = Text("credits: @MathDzeta", color=WHITE).scale(1.2)
-self.play(Write(credits_text), run_time=1.5)
-self.wait(3.0)
+self.wait(1.5)
 ```
+
+**Последний кадр совпадает с первым.** Ролик зациклен, поэтому увод сцены
+идёт не в пустоту, а к той же картинке, с которой ролик начался: обещание
+и результат — один кадр. Практическое следствие для кода — кадр обещания
+собирается отдельной группой объектов, и в конце на экране остаётся она же,
+а не то, что накопилось по ходу вывода.
 
 ## Комментарии и бэкапы
 
