@@ -328,7 +328,7 @@
     "type": "meta",
     "data": "2026-09-26",
     "vsego": 147,
-    "napisano": 133,
+    "napisano": 134,
     "vyucheno": 68
    },
    "links": []
@@ -1071,6 +1071,14 @@
    "size": 378040
   },
   {
+   "path": "tex/documents/zachet/geometry-misc.pdf",
+   "folder": "tex/documents/zachet",
+   "title": "geometry-misc",
+   "kind": "pdf",
+   "pages": 5,
+   "size": 177309
+  },
+  {
    "path": "tex/documents/zachet/graphs-misc.pdf",
    "folder": "tex/documents/zachet",
    "title": "graphs-misc",
@@ -1249,6 +1257,12 @@
    "tex": "barycentric.tex",
    "group": "zachet",
    "pdf": "tex/documents/zachet/barycentric.pdf"
+  },
+  {
+   "title": "Разные геометрические факты",
+   "tex": "geometry-misc.tex",
+   "group": "zachet",
+   "pdf": "tex/documents/zachet/geometry-misc.pdf"
   },
   {
    "title": "Комбинаторная геометрия",
