@@ -916,7 +916,8 @@
     "matematika",
     "raznoe",
     "repetitorstvo",
-    "roliki"
+    "roliki",
+    "tex"
    ]
   },
   {
@@ -936,6 +937,16 @@
    "fm": {
     "type": "rol",
     "kratko": "помощник по роликам: вертикаль, сорок секунд, черновик сразу мне"
+   },
+   "links": []
+  },
+  {
+   "path": "roli/tex.md",
+   "folder": "roli",
+   "title": "Помощник по TeX",
+   "fm": {
+    "type": "rol",
+    "kratko": "помощник по TeX: дом-стиль, чистовики самодостаточны, сборка с -cd"
    },
    "links": []
   }
