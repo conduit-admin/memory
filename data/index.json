@@ -597,32 +597,6 @@
    ]
   },
   {
-   "path": "manim/kanal/ozvuchka/parabolid-zhidkosti.md",
-   "folder": "manim/kanal/ozvuchka",
-   "title": "Озвучка: параболоид жидкости",
-   "fm": {
-    "type": "plan",
-    "rolik": "Параболоид жидкости",
-    "fail": "rotating_liquid.py",
-    "snyato": "1:10",
-    "cel": "0:58"
-   },
-   "links": []
-  },
-  {
-   "path": "manim/kanal/ozvuchka/squared-rectangle.md",
-   "folder": "manim/kanal/ozvuchka",
-   "title": "Озвучка: разрезание на квадраты",
-   "fm": {
-    "type": "plan",
-    "rolik": "Разрезание на квадраты",
-    "fail": "squared_rectangle.py",
-    "snyato": "0:57",
-    "cel": "0:40–1:00"
-   },
-   "links": []
-  },
-  {
    "path": "manim/kanal/README.md",
    "folder": "manim/kanal",
    "title": "Канал",

@@ -10,7 +10,7 @@ data: 2026-09-18
 Хендофф для будущих агентов: математика, устройство файла, раскадровка,
 приёмы и грабли. Карточка — `squared-rectangle.md`, стиль серии —
 `../styles/vertikal.md`, конвенции ролика — `../kanal/konvencii.md`,
-озвучка — `../kanal/ozvuchka/squared-rectangle.md`.
+озвучка — будет в `../kanal/ozvuchka/squared-rectangle.md`, текст владельца.
 
 ## Математика
 

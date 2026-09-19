@@ -34,8 +34,9 @@ data: 2026-09-18
 ## Состояние
 
 Production-рендер 18.09.2026: 1080×1920, 60 к/с, стыки и петля проверены,
-`statika.py` чисто. Дикторский текст — `../kanal/ozvuchka/squared-rectangle.md`.
-Дальше — запись голоса и монтаж по `../kanal/montazh.md`.
+`statika.py` чисто. Дикторский текст пишет владелец под этот рендер
+(`../kanal/ozvuchka/squared-rectangle.md`), дальше — запись голоса и монтаж
+по `../kanal/montazh.md`.
 
 Подробный хендофф — математика, устройство файла, приёмы и грабли — в
 [`squared-rectangle-notes.md`](squared-rectangle-notes.md).
