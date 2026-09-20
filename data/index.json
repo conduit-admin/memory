@@ -1199,6 +1199,14 @@
    "size": 181452
   },
   {
+   "path": "tutoring/listki/parametr-zanyatie-01-razbor.pdf",
+   "folder": "tutoring/listki",
+   "title": "parametr-zanyatie-01-razbor",
+   "kind": "pdf",
+   "pages": 3,
+   "size": 153781
+  },
+  {
    "path": "tutoring/listki/parametr.pdf",
    "folder": "tutoring/listki",
    "title": "parametr",
@@ -1409,6 +1417,12 @@
    "tex": "parametr.tex",
    "group": "tutoring",
    "pdf": "tutoring/listki/parametr.pdf"
+  },
+  {
+   "title": "Разбор: параметр, занятие 1",
+   "tex": "parametr-zanyatie-01-razbor.tex",
+   "group": "tutoring",
+   "pdf": "tutoring/listki/parametr-zanyatie-01-razbor.pdf"
   },
   {
    "title": "Пробное занятие: Физтех",
