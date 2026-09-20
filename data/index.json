@@ -1143,6 +1143,14 @@
    "size": 86090
   },
   {
+   "path": "tex/documents/zachet/reconstruction.pdf",
+   "folder": "tex/documents/zachet",
+   "title": "reconstruction",
+   "kind": "pdf",
+   "pages": 7,
+   "size": 365173
+  },
+  {
    "path": "tex/documents/zachet/recurrence.pdf",
    "folder": "tex/documents/zachet",
    "title": "recurrence",
@@ -1197,6 +1205,14 @@
    "kind": "pdf",
    "pages": 3,
    "size": 181452
+  },
+  {
+   "path": "tutoring/listki/parametr-dz-01.pdf",
+   "folder": "tutoring/listki",
+   "title": "parametr-dz-01",
+   "kind": "pdf",
+   "pages": 3,
+   "size": 235714
   },
   {
    "path": "tutoring/listki/parametr-zanyatie-01-razbor.pdf",
@@ -1371,6 +1387,12 @@
    "pdf": "tex/documents/zachet/connectivity.pdf"
   },
   {
+   "title": "Восстановление графов",
+   "tex": "reconstruction.tex",
+   "group": "zachet",
+   "pdf": "tex/documents/zachet/reconstruction.pdf"
+  },
+  {
    "title": "Планарные графы",
    "tex": "planar.tex",
    "group": "zachet",
@@ -1417,6 +1439,12 @@
    "tex": "parametr.tex",
    "group": "tutoring",
    "pdf": "tutoring/listki/parametr.pdf"
+  },
+  {
+   "title": "Параметр: домашняя работа 1",
+   "tex": "parametr-dz-01.tex",
+   "group": "tutoring",
+   "pdf": "tutoring/listki/parametr-dz-01.pdf"
   },
   {
    "title": "Разбор: параметр, занятие 1",
