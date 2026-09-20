@@ -1199,6 +1199,14 @@
    "size": 181452
   },
   {
+   "path": "tutoring/listki/parametr.pdf",
+   "folder": "tutoring/listki",
+   "title": "parametr",
+   "kind": "pdf",
+   "pages": 5,
+   "size": 243545
+  },
+  {
    "path": "tutoring/listki/probnoe-fiztekh-10-razbor.pdf",
    "folder": "tutoring/listki",
    "title": "probnoe-fiztekh-10-razbor",
@@ -1395,6 +1403,12 @@
    "tex": "kombinatorika-razbor.tex",
    "group": "tutoring",
    "pdf": "tutoring/listki/kombinatorika-razbor.pdf"
+  },
+  {
+   "title": "Параметр: картинка вместо перебора",
+   "tex": "parametr.tex",
+   "group": "tutoring",
+   "pdf": "tutoring/listki/parametr.pdf"
   },
   {
    "title": "Пробное занятие: Физтех",
