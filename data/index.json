@@ -328,7 +328,7 @@
     "type": "meta",
     "data": "2026-09-26",
     "vsego": 147,
-    "napisano": 134,
+    "napisano": 138,
     "vyucheno": 68
    },
    "links": []
@@ -1147,8 +1147,8 @@
    "folder": "tex/documents/zachet",
    "title": "reconstruction",
    "kind": "pdf",
-   "pages": 7,
-   "size": 365173
+   "pages": 9,
+   "size": 340613
   },
   {
    "path": "tex/documents/zachet/recurrence.pdf",
