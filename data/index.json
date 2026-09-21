@@ -328,7 +328,7 @@
     "type": "meta",
     "data": "2026-09-26",
     "vsego": 147,
-    "napisano": 138,
+    "napisano": 147,
     "vyucheno": 84
    },
    "links": []
@@ -1127,6 +1127,14 @@
    "size": 211427
   },
   {
+   "path": "tex/documents/zachet/polynomials.pdf",
+   "folder": "tex/documents/zachet",
+   "title": "polynomials",
+   "kind": "pdf",
+   "pages": 11,
+   "size": 364864
+  },
+  {
    "path": "tex/documents/zachet/probability.pdf",
    "folder": "tex/documents/zachet",
    "title": "probability",
@@ -1313,6 +1321,12 @@
    "tex": "factorial.tex",
    "group": "zachet",
    "pdf": "tex/documents/zachet/factorial.pdf"
+  },
+  {
+   "title": "Многочлены",
+   "tex": "polynomials.tex",
+   "group": "zachet",
+   "pdf": "tex/documents/zachet/polynomials.pdf"
   },
   {
    "title": "Линейные рекуррентные соотношения",
