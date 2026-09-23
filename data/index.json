@@ -1239,6 +1239,14 @@
    "size": 281864
   },
   {
+   "path": "tutoring/listki/planimetriya.pdf",
+   "folder": "tutoring/listki",
+   "title": "planimetriya",
+   "kind": "pdf",
+   "pages": 11,
+   "size": 287293
+  },
+  {
    "path": "tutoring/listki/probnoe-fiztekh-10-razbor.pdf",
    "folder": "tutoring/listki",
    "title": "probnoe-fiztekh-10-razbor",
@@ -1465,6 +1473,12 @@
    "tex": "parametr-zanyatie-01-razbor.tex",
    "group": "tutoring",
    "pdf": "tutoring/listki/parametr-zanyatie-01-razbor.pdf"
+  },
+  {
+   "title": "Планиметрия: от чертежа к числу",
+   "tex": "planimetriya.tex",
+   "group": "tutoring",
+   "pdf": "tutoring/listki/planimetriya.pdf"
   },
   {
    "title": "Пробное занятие: Физтех",
