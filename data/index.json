@@ -329,7 +329,7 @@
     "data": "2026-09-26",
     "vsego": 147,
     "napisano": 147,
-    "vyucheno": 90
+    "vyucheno": 118
    },
    "links": []
   },
@@ -1479,6 +1479,12 @@
    "tex": "planimetriya.tex",
    "group": "tutoring",
    "pdf": "tutoring/listki/planimetriya.pdf"
+  },
+  {
+   "title": "Планиметрия: от чертежа к числу~--- ответы и диагностика",
+   "tex": "planimetriya-otvety.tex",
+   "group": "tutoring",
+   "pdf": ""
   },
   {
    "title": "Пробное занятие: Физтех",
