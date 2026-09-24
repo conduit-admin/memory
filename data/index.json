@@ -612,6 +612,20 @@
    ]
   },
   {
+   "path": "manim/projects/butterfly.md",
+   "folder": "manim/projects",
+   "title": "Бабочка и ТДИ",
+   "fm": {
+    "type": "proekt",
+    "vid": "animatsiya",
+    "fail": "butterfly.py",
+    "stadiya": "программируется"
+   },
+   "links": [
+    "idei"
+   ]
+  },
+  {
    "path": "manim/projects/inertia-peresborka.md",
    "folder": "manim/projects",
    "title": "Момент инерции — пересборка",
