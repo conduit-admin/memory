@@ -329,7 +329,7 @@
     "data": "2026-09-26",
     "vsego": 147,
     "napisano": 147,
-    "vyucheno": 142
+    "vyucheno": 144
    },
    "links": []
   },
@@ -965,6 +965,14 @@
    "size": 291071
   },
   {
+   "path": "tex/documents/jordan-measure.pdf",
+   "folder": "tex/documents",
+   "title": "jordan-measure",
+   "kind": "pdf",
+   "pages": 8,
+   "size": 254182
+  },
+  {
    "path": "tex/documents/oscillations.pdf",
    "folder": "tex/documents",
    "title": "oscillations",
@@ -1283,6 +1291,12 @@
    "tex": "cursor.tex",
    "group": "",
    "pdf": "tex/documents/cursor.pdf"
+  },
+  {
+   "title": "Мера Жордана: два определения и движения",
+   "tex": "jordan-measure.tex",
+   "group": "",
+   "pdf": "tex/documents/jordan-measure.pdf"
   },
   {
    "title": "Колебательное движение",
