@@ -965,14 +965,6 @@
    "size": 291071
   },
   {
-   "path": "tex/documents/jordan-measure.pdf",
-   "folder": "tex/documents",
-   "title": "jordan-measure",
-   "kind": "pdf",
-   "pages": 8,
-   "size": 254182
-  },
-  {
    "path": "tex/documents/oscillations.pdf",
    "folder": "tex/documents",
    "title": "oscillations",
@@ -1115,6 +1107,14 @@
    "kind": "pdf",
    "pages": 7,
    "size": 255641
+  },
+  {
+   "path": "tex/documents/zachet/integrals-annotated.pdf",
+   "folder": "tex/documents/zachet",
+   "title": "integrals-annotated",
+   "kind": "pdf",
+   "pages": 18,
+   "size": 421189
   },
   {
    "path": "tex/documents/zachet/integrals.pdf",
@@ -1293,16 +1293,16 @@
    "pdf": "tex/documents/cursor.pdf"
   },
   {
-   "title": "Мера Жордана: два определения и движения",
-   "tex": "jordan-measure.tex",
-   "group": "",
-   "pdf": "tex/documents/jordan-measure.pdf"
-  },
-  {
    "title": "Колебательное движение",
    "tex": "oscillations.tex",
    "group": "",
    "pdf": "tex/documents/oscillations.pdf"
+  },
+  {
+   "title": "Интегралы и первообразные личная версия",
+   "tex": "integrals-annotated.tex",
+   "group": "zachet",
+   "pdf": "tex/documents/zachet/integrals-annotated.pdf"
   },
   {
    "title": "Интегралы и первообразные",
