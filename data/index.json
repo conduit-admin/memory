@@ -592,6 +592,7 @@
     "type": "plan"
    },
    "links": [
+    "idei",
     "konvencii",
     "montazh"
    ]
@@ -636,6 +637,18 @@
    "links": []
   },
   {
+   "path": "manim/projects/isogonal-squares-notes.md",
+   "folder": "manim/projects",
+   "title": "Квадраты на сторонах и ТДИ — заметки",
+   "fm": {
+    "type": "zametki",
+    "proekt": "isogonal-squares",
+    "fail": "isogonal_squares.py",
+    "data": "2026-09-27"
+   },
+   "links": []
+  },
+  {
    "path": "manim/projects/isogonal-squares.md",
    "folder": "manim/projects",
    "title": "Квадраты на сторонах и ТДИ",
@@ -645,7 +658,9 @@
     "fail": "isogonal_squares.py",
     "stadiya": "программируется"
    },
-   "links": []
+   "links": [
+    "isogonal-squares-notes"
+   ]
   },
   {
    "path": "manim/projects/orthocentric.md",
