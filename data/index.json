@@ -1219,12 +1219,20 @@
    "size": 153394
   },
   {
+   "path": "tutoring/listki/kombinatorika-ogranicheniya-razbor.pdf",
+   "folder": "tutoring/listki",
+   "title": "kombinatorika-ogranicheniya-razbor",
+   "kind": "pdf",
+   "pages": 3,
+   "size": 202766
+  },
+  {
    "path": "tutoring/listki/kombinatorika-ogranicheniya.pdf",
    "folder": "tutoring/listki",
    "title": "kombinatorika-ogranicheniya",
    "kind": "pdf",
    "pages": 2,
-   "size": 168971
+   "size": 168896
   },
   {
    "path": "tutoring/listki/kombinatorika-razbor.pdf",
@@ -1489,6 +1497,12 @@
    "tex": "kombinatorika-ogranicheniya.tex",
    "group": "tutoring",
    "pdf": "tutoring/listki/kombinatorika-ogranicheniya.pdf"
+  },
+  {
+   "title": "Разбор: подсчёт с ограничениями",
+   "tex": "kombinatorika-ogranicheniya-razbor.tex",
+   "group": "tutoring",
+   "pdf": "tutoring/listki/kombinatorika-ogranicheniya-razbor.pdf"
   },
   {
    "title": "Разбор: комбинаторика",
