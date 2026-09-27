@@ -1219,6 +1219,14 @@
    "size": 153394
   },
   {
+   "path": "tutoring/listki/kombinatorika-ogranicheniya-dz.pdf",
+   "folder": "tutoring/listki",
+   "title": "kombinatorika-ogranicheniya-dz",
+   "kind": "pdf",
+   "pages": 2,
+   "size": 145071
+  },
+  {
    "path": "tutoring/listki/kombinatorika-ogranicheniya-razbor.pdf",
    "folder": "tutoring/listki",
    "title": "kombinatorika-ogranicheniya-razbor",
@@ -1497,6 +1505,12 @@
    "tex": "kombinatorika-ogranicheniya.tex",
    "group": "tutoring",
    "pdf": "tutoring/listki/kombinatorika-ogranicheniya.pdf"
+  },
+  {
+   "title": "Комбинаторика: домашняя работа 2",
+   "tex": "kombinatorika-ogranicheniya-dz.tex",
+   "group": "tutoring",
+   "pdf": "tutoring/listki/kombinatorika-ogranicheniya-dz.pdf"
   },
   {
    "title": "Разбор: подсчёт с ограничениями",
