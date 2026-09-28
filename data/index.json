@@ -315,7 +315,7 @@
    "fm": {
     "type": "meta",
     "istochnik": "матцентр",
-    "vsego": 46,
+    "vsego": 54,
     "resheno": 17
    },
    "links": []
@@ -720,7 +720,7 @@
     "type": "proekt",
     "vid": "animatsiya",
     "fail": "rotating_liquid.py",
-    "stadiya": "программируется"
+    "stadiya": "озвучивается и монтируется"
    },
    "links": []
   },
