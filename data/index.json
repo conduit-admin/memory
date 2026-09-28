@@ -613,6 +613,17 @@
    ]
   },
   {
+   "path": "manim/kanal/zvuk/README.md",
+   "folder": "manim/kanal/zvuk",
+   "title": "Звук кодом",
+   "fm": {
+    "type": "plan"
+   },
+   "links": [
+    "montazh"
+   ]
+  },
+  {
    "path": "manim/projects/inertia-peresborka.md",
    "folder": "manim/projects",
    "title": "Момент инерции — пересборка",
