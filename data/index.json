@@ -636,6 +636,15 @@
    ]
   },
   {
+   "path": "manim/media/golos/proba/isogonal_squares.md",
+   "folder": "manim/media/golos/proba",
+   "title": "Проба",
+   "fm": {
+    "type": "proba"
+   },
+   "links": []
+  },
+  {
    "path": "manim/projects/inertia-peresborka.md",
    "folder": "manim/projects",
    "title": "Момент инерции — пересборка",
