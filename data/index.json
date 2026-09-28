@@ -551,6 +551,18 @@
    "links": []
   },
   {
+   "path": "manim/kanal/golos/README.md",
+   "folder": "manim/kanal/golos",
+   "title": "Запись голоса",
+   "fm": {
+    "type": "plan"
+   },
+   "links": [
+    "konvencii",
+    "montazh"
+   ]
+  },
+  {
    "path": "manim/kanal/idei.md",
    "folder": "manim/kanal",
    "title": "Банк тем",
