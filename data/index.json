@@ -1331,6 +1331,14 @@
    "kind": "pdf",
    "pages": 4,
    "size": 161133
+  },
+  {
+   "path": "tutoring/listki/probnoe-vsosh-11.pdf",
+   "folder": "tutoring/listki",
+   "title": "probnoe-vsosh-11",
+   "kind": "pdf",
+   "pages": 2,
+   "size": 124197
   }
  ],
  "tex": [
@@ -1591,6 +1599,12 @@
    "tex": "probnoe-fiztekh-10-razbor.tex",
    "group": "tutoring",
    "pdf": "tutoring/listki/probnoe-fiztekh-10-razbor.pdf"
+  },
+  {
+   "title": "Пробное занятие: ВсОШ",
+   "tex": "probnoe-vsosh-11.tex",
+   "group": "tutoring",
+   "pdf": "tutoring/listki/probnoe-vsosh-11.pdf"
   }
  ]
 }
