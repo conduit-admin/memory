@@ -1605,6 +1605,12 @@
    "tex": "probnoe-vsosh-11.tex",
    "group": "tutoring",
    "pdf": "tutoring/listki/probnoe-vsosh-11.pdf"
+  },
+  {
+   "title": "Пробное занятие: ВсОШ~--- ответы и диагностика",
+   "tex": "probnoe-vsosh-11-otvety.tex",
+   "group": "tutoring",
+   "pdf": ""
   }
  ]
 }
