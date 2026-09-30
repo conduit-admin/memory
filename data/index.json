@@ -611,6 +611,15 @@
    ]
   },
   {
+   "path": "manim/kanal/ozvuchka/rotating_liquid.md",
+   "folder": "manim/kanal/ozvuchka",
+   "title": "Параболоид жидкости",
+   "fm": {
+    "type": "ozvuchka"
+   },
+   "links": []
+  },
+  {
    "path": "manim/kanal/README.md",
    "folder": "manim/kanal",
    "title": "Канал",
