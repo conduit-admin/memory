@@ -1259,6 +1259,14 @@
    "size": 160715
   },
   {
+   "path": "tutoring/listki/kombinatorika-dz-razbor.pdf",
+   "folder": "tutoring/listki",
+   "title": "kombinatorika-dz-razbor",
+   "kind": "pdf",
+   "pages": 6,
+   "size": 231827
+  },
+  {
    "path": "tutoring/listki/kombinatorika-dz.pdf",
    "folder": "tutoring/listki",
    "title": "kombinatorika-dz",
@@ -1555,6 +1563,12 @@
    "tex": "kombinatorika-dz.tex",
    "group": "tutoring",
    "pdf": "tutoring/listki/kombinatorika-dz.pdf"
+  },
+  {
+   "title": "Разбор: комбинаторика, домашняя работа",
+   "tex": "kombinatorika-dz-razbor.tex",
+   "group": "tutoring",
+   "pdf": "tutoring/listki/kombinatorika-dz-razbor.pdf"
   },
   {
    "title": "Комбинаторика: подсчёт с ограничениями",
