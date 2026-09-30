@@ -58,6 +58,20 @@
    ]
   },
   {
+   "path": "physics/priyomy/stolb-zhidkosti-v-izognutoy-trubke.md",
+   "folder": "physics/priyomy",
+   "title": "Столб жидкости в изогнутой трубке",
+   "fm": {
+    "type": "priyom",
+    "razdel": "Механика",
+    "vstrech": 1,
+    "data": "2026-09-30"
+   },
+   "links": [
+    "sbornik-01216"
+   ]
+  },
+  {
    "path": "physics/README.md",
    "folder": "physics",
    "title": "Физика: нарешка",
@@ -72,9 +86,29 @@
     "type": "meta",
     "sbornik": "МОШ",
     "vsego": 543,
-    "resheno": 76
+    "resheno": 77
    },
    "links": []
+  },
+  {
+   "path": "physics/zadachi/sbornik-01216.md",
+   "folder": "physics/zadachi",
+   "title": "Задача 1.216",
+   "fm": {
+    "type": "zadacha",
+    "sbornik": "МОШ",
+    "nomer": "1.216",
+    "razdel": "Механика",
+    "slozhnost": "средне",
+    "data": "2026-09-30",
+    "status": "разобрана",
+    "priyomy": [
+     "stolb-zhidkosti-v-izognutoy-trubke"
+    ]
+   },
+   "links": [
+    "stolb-zhidkosti-v-izognutoy-trubke"
+   ]
   },
   {
    "path": "physics/zadachi/sbornik-0182.md",
