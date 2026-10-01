@@ -1,82 +1,24 @@
 {
  "notes": [
   {
-   "path": "physics/priyomy/element-dugi.md",
-   "folder": "physics/priyomy",
-   "title": "Элемент дуги: масса и натяжение линейны по углу",
+   "path": "physics/plan.md",
+   "folder": "physics",
+   "title": "План подготовки к Всеросу по физике",
    "fm": {
-    "type": "priyom",
-    "razdel": "Механика",
-    "vstrech": 1,
-    "data": "2026-09-07"
+    "type": "plan",
+    "kratko": "Всерос, 11 класс — модули до региона, неделя, замеры",
+    "data": "2026-10-01"
    },
-   "links": [
-    "sbornik-0182"
-   ]
-  },
-  {
-   "path": "physics/priyomy/masshtabnoe-preobrazovanie-uravneniya.md",
-   "folder": "physics/priyomy",
-   "title": "Масштабное преобразование уравнения движения",
-   "fm": {
-    "type": "priyom",
-    "razdel": "общее",
-    "vstrech": 1,
-    "data": "2026-09-07"
-   },
-   "links": [
-    "sbornik-0305"
-   ]
-  },
-  {
-   "path": "physics/priyomy/pvo-na-perpendikulyarnoy-grani.md",
-   "folder": "physics/priyomy",
-   "title": "Полное внутреннее отражение на перпендикулярной грани",
-   "fm": {
-    "type": "priyom",
-    "razdel": "Волны. Оптика. Кванты",
-    "vstrech": 1,
-    "data": "2026-09-07"
-   },
-   "links": [
-    "sbornik-0414"
-   ]
-  },
-  {
-   "path": "physics/priyomy/slishkom-slozhnaya-formula.md",
-   "folder": "physics/priyomy",
-   "title": "Слишком сложная формула",
-   "fm": {
-    "type": "priyom",
-    "razdel": "общее",
-    "vstrech": 2,
-    "data": "2026-09-07"
-   },
-   "links": [
-    "sbornik-0305",
-    "sbornik-0414"
-   ]
-  },
-  {
-   "path": "physics/priyomy/stolb-zhidkosti-v-izognutoy-trubke.md",
-   "folder": "physics/priyomy",
-   "title": "Столб жидкости в изогнутой трубке",
-   "fm": {
-    "type": "priyom",
-    "razdel": "Механика",
-    "vstrech": 1,
-    "data": "2026-09-30"
-   },
-   "links": [
-    "sbornik-01216"
-   ]
+   "links": []
   },
   {
    "path": "physics/README.md",
    "folder": "physics",
-   "title": "Физика: нарешка",
+   "title": "Физика",
    "fm": {},
-   "links": []
+   "links": [
+    "plan"
+   ]
   },
   {
    "path": "physics/sbornik.md",
@@ -86,110 +28,10 @@
     "type": "meta",
     "sbornik": "МОШ",
     "vsego": 543,
-    "resheno": 78
-   },
-   "links": []
-  },
-  {
-   "path": "physics/zadachi/sbornik-01216.md",
-   "folder": "physics/zadachi",
-   "title": "Задача 1.216",
-   "fm": {
-    "type": "zadacha",
-    "sbornik": "МОШ",
-    "nomer": "1.216",
-    "razdel": "Механика",
-    "slozhnost": "средне",
-    "data": "2026-09-30",
-    "status": "разобрана",
-    "priyomy": [
-     "stolb-zhidkosti-v-izognutoy-trubke"
-    ]
+    "resheno": 79
    },
    "links": [
-    "stolb-zhidkosti-v-izognutoy-trubke"
-   ]
-  },
-  {
-   "path": "physics/zadachi/sbornik-0182.md",
-   "folder": "physics/zadachi",
-   "title": "Задача 1.82",
-   "fm": {
-    "type": "zadacha",
-    "sbornik": "МОШ",
-    "nomer": "1.82",
-    "razdel": "Механика",
-    "slozhnost": "легко",
-    "data": "2026-09-07",
-    "status": "разобрана",
-    "priyomy": [
-     "element-dugi"
-    ]
-   },
-   "links": [
-    "element-dugi"
-   ]
-  },
-  {
-   "path": "physics/zadachi/sbornik-0219.md",
-   "folder": "physics/zadachi",
-   "title": "Задача 2.19",
-   "fm": {
-    "type": "zadacha",
-    "sbornik": "МОШ",
-    "nomer": "2.19",
-    "razdel": "Молекулярная физика",
-    "slozhnost": "средне",
-    "data": "2026-09-07",
-    "status": "разобрана",
-    "priyomy": []
-   },
-   "links": []
-  },
-  {
-   "path": "physics/zadachi/sbornik-0305.md",
-   "folder": "physics/zadachi",
-   "title": "Задача 3.5",
-   "fm": {
-    "type": "zadacha",
-    "sbornik": "МОШ",
-    "nomer": "3.5",
-    "razdel": "Электричество и магнетизм",
-    "slozhnost": "средне",
-    "data": "2026-09-07",
-    "status": "разобрана",
-    "priyomy": [
-     "masshtabnoe-preobrazovanie-uravneniya",
-     "slishkom-slozhnaya-formula"
-    ]
-   },
-   "links": [
-    "masshtabnoe-preobrazovanie-uravneniya",
-    "sbornik-0414",
-    "slishkom-slozhnaya-formula"
-   ]
-  },
-  {
-   "path": "physics/zadachi/sbornik-0414.md",
-   "folder": "physics/zadachi",
-   "title": "Задача 4.14",
-   "fm": {
-    "type": "zadacha",
-    "sbornik": "МОШ",
-    "nomer": "4.14",
-    "razdel": "Волны. Оптика. Кванты",
-    "slozhnost": "средне",
-    "data": "2026-09-07",
-    "status": "разобрана",
-    "priyomy": [
-     "pvo-na-perpendikulyarnoy-grani",
-     "slishkom-slozhnaya-formula"
-    ]
-   },
-   "links": [
-    "pvo-na-perpendikulyarnoy-grani",
-    "sbornik-0305",
-    "slishkom-slozhnaya-formula"
+    "plan"
    ]
   },
   {
@@ -944,7 +786,7 @@
    "title": "Учитель физики",
    "fm": {
     "type": "rol",
-    "kratko": "учитель физики: сборник МОШ, условие с рисунком, дальше тишина"
+    "kratko": "учитель физики: подготовка к Всеросу листками по плану, дальше тишина"
    },
    "links": []
   },
@@ -1029,6 +871,22 @@
   }
  ],
  "files": [
+  {
+   "path": "physics/listki/serii/01-elektrostatika.pdf",
+   "folder": "physics/listki/serii",
+   "title": "01-elektrostatika",
+   "kind": "pdf",
+   "pages": 2,
+   "size": 185611
+  },
+  {
+   "path": "physics/listki/teoriya/01-elektrostatika-teoriya.pdf",
+   "folder": "physics/listki/teoriya",
+   "title": "01-elektrostatika-teoriya",
+   "kind": "pdf",
+   "pages": 2,
+   "size": 160290
+  },
   {
    "path": "math/zadachniki/gorod-10.pdf",
    "folder": "math/zadachniki",
@@ -1690,6 +1548,18 @@
    "tex": "probnoe-vsosh-11-otvety.tex",
    "group": "tutoring",
    "pdf": ""
+  },
+  {
+   "title": "Серия 1. Электростатика",
+   "tex": "01-elektrostatika.tex",
+   "group": "physics/serii",
+   "pdf": "physics/listki/serii/01-elektrostatika.pdf"
+  },
+  {
+   "title": "Теория 1. Электростатика",
+   "tex": "01-elektrostatika-teoriya.tex",
+   "group": "physics/teoriya",
+   "pdf": "physics/listki/teoriya/01-elektrostatika-teoriya.pdf"
   }
  ]
 }
