@@ -272,8 +272,9 @@
   function texCard(d) {
     var a = el("a", "card");
     a.href = d.pdf ? "#/f/" + encodeURI(d.pdf) : "#/";
-    /* Листки репетиторства лежат не в tex/ — и цвет у них свой. */
-    a.style.setProperty("--sec", sectionColor(d.group === "tutoring" ? "tutoring" : "tex"));
+    /* Листки репетиторства и физики лежат не в tex/ — и цвет у них свой. */
+    a.style.setProperty("--sec", sectionColor(
+      d.group === "tutoring" ? "tutoring" : (isPhysics(d) ? "physics" : "tex")));
     var top = el("div", "card-top");
     top.appendChild(el("span", "card-title", d.title));
     var meta = el("div", "card-meta");
@@ -379,7 +380,7 @@
     /* Статьи: документы из корня tex/documents/ и любые другие его подпапки,
        каждая своей группой. */
     var rest = docs.filter(function (d) {
-      return d.group !== "zachet" && d.group !== "tutoring";
+      return d.group !== "zachet" && d.group !== "tutoring" && !isPhysics(d);
     });
     list = block(main, "Статьи", "rose");
     var groups = [""];
@@ -416,10 +417,61 @@
     if (!list.childNodes.length) empty(list, "Ролей пока нет.");
   }
 
+  /* ── вкладка «Физика» ────────────────────────────────── */
+
+  /* С октября 2026 физика ведётся листками, а не базой разборов и приёмов:
+     прежние разборы и приёмы лежат в physics/arhiv/ и на сайт не идут.
+     Наверху план обучения — заметки раздела с `type: plan`, — ниже листки
+     блоками по подпапкам physics/listki/. Четыре известные подпапки идут
+     в своём порядке и со своими названиями; любая новая появится следом
+     отдельным блоком, с заголовком из своего README или по имени папки. */
+
+  var PHYS_GROUPS = [
+    ["serii", "Серии", "ans"],
+    ["razbory", "Разборы", "moss"],
+    ["eksperiment", "Эксперимент", "warm"],
+    ["teoriya", "Теория", "cold"]
+  ];
+
+  function isPhysics(d) {
+    return d.group === "physics" || String(d.group).indexOf("physics/") === 0;
+  }
+
+  function viewPhysics(main) {
+    var plan = DATA.notes.filter(function (n) {
+      return n.folder === "physics" && n.fm.type === "plan";
+    }).sort(function (a, b) { return a.title.localeCompare(b.title, "ru"); });
+    var list = block(main, "План обучения", "sheet");
+    plan.forEach(function (n) { list.appendChild(card(n, { note: n.fm.kratko || "" })); });
+    if (!plan.length) empty(list, "Плана пока нет.");
+
+    var docs = (DATA.tex || []).filter(isPhysics);
+    var known = PHYS_GROUPS.map(function (g) { return g[0]; });
+
+    PHYS_GROUPS.forEach(function (g) {
+      var mine = docs.filter(function (d) { return d.group === "physics/" + g[0]; });
+      list = block(main, g[1], g[2]);
+      mine.forEach(function (d) { list.appendChild(texCard(d)); });
+      if (!mine.length) empty(list, "Листков пока нет.");
+    });
+
+    var extra = [];
+    docs.forEach(function (d) {
+      var sub = d.group.replace(/^physics\/?/, "");
+      if (known.indexOf(sub) < 0 && extra.indexOf(sub) < 0) extra.push(sub);
+    });
+    extra.forEach(function (sub) {
+      var readme = noteAt("physics/listki/" + (sub ? sub + "/" : "") + "README.md");
+      list = block(main, readme ? readme.title : (sub || "Листки"), "slate");
+      docs.filter(function (d) { return d.group.replace(/^physics\/?/, "") === sub; })
+        .forEach(function (d) { list.appendChild(texCard(d)); });
+    });
+  }
+
   /* ── предметные вкладки ──────────────────────────────── */
 
-  /* Физика, математика и ИИ устроены одинаково: список задач и список приёмов.
-     Различает их только папка, поэтому вид один на три вкладки. */
+  /* Математика и ИИ устроены одинаково: список задач и список приёмов.
+     Различает их только папка, поэтому вид один на обе вкладки. */
   function viewSubject(main, root, label) {
     var mine = DATA.notes.filter(function (n) {
       return n.folder === root || n.folder.indexOf(root + "/") === 0;
@@ -938,7 +990,7 @@
     if (hash.indexOf("/n/") === 0) return viewNote(main, hash.slice(3));
     if (hash.indexOf("/f/") === 0) return viewFile(main, hash.slice(3));
 
-    if (VIEW === "physics") return viewSubject(main, "physics", "«Физика»");
+    if (VIEW === "physics") return viewPhysics(main);
     if (VIEW === "math") return viewSubject(main, "math", "«Математика»");
     if (VIEW === "zachet") return viewZachet(main);
     if (VIEW === "ml") return viewSubject(main, "ml", "«ИИ»");

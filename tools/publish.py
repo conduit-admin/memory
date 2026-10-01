@@ -37,6 +37,9 @@ KNOWLEDGE = pathlib.Path(sys.argv[1] if len(sys.argv) > 1
 # от того, чтобы что-то уехало наружу молча.
 INCLUDE = [
     "physics/**/*.md",
+    # с октября 2026 физика ведётся листками: серии, разборы к ним, эксперимент,
+    # теория — PDF из подпапок `physics/listki/`, вкладка «Физика»
+    "physics/listki/**/*.pdf",
     "math/**/*.md",
     "math/**/*.pdf",
     "ml/**/*.md",
@@ -68,6 +71,7 @@ EXCLUDE_DIRS = (
     "publish",            # как устроена публикация — служебное
     "algo",               # архив решённого; приёмы оттуда идут через базу приёмов
     "math/serii",         # условия серий: материалы кружка, а не свои
+    "physics/arhiv",      # разборы и приёмы по прежней схеме, до 2026-10-01
     "tutoring/ucheniki",  # карточки учеников: чужие имена, витрина публичная
     "tutoring/zanyatiya", # планы и отчёты занятий — про конкретного ученика
     "tutoring/olimpiady", # разбор формата олимпиады — рабочие заметки
@@ -231,12 +235,16 @@ def tex_order(path):
     return (1, path.stem)
 
 
-# Откуда берутся документы TeX и под какой группой они идут в списке проектов.
-# Группа — имя подпапки внутри корня; у второго корня она задана явно,
-# чтобы листки не смешивались с конспектами.
+# Откуда берутся документы TeX и под какой группой они идут.
+# Группа — имя подпапки внутри корня; у листков репетиторства она задана явно,
+# чтобы листки не смешивались с конспектами. У листков физики группа — подпапка
+# с приставкой раздела: `physics/serii`, `physics/teoriya`. Приставка нужна, чтобы
+# их подпапки не путались с одноимёнными в `tex/documents/`, а новая подпапка
+# появлялась на вкладке «Физика» своим блоком без правки кода.
 TEX_ROOTS = (
-    ("tex/documents", ""),
-    ("tutoring/listki", "tutoring"),
+    ("tex/documents", "", ""),
+    ("tutoring/listki", "tutoring", ""),
+    ("physics/listki", "", "physics/"),
 )
 
 
@@ -247,7 +255,7 @@ def tex_documents():
     значило бы держать в двух местах то, что и так видно в файлах.
     """
     out = []
-    for root, fixed in TEX_ROOTS:
+    for root, fixed, prefix in TEX_ROOTS:
         src = KNOWLEDGE / root
         if not src.is_dir():
             continue
@@ -263,7 +271,7 @@ def tex_documents():
                 continue
             rel = tex.relative_to(KNOWLEDGE).as_posix()
             sub = tex.parent.relative_to(src).as_posix()
-            group = fixed or ("" if sub == "." else sub)
+            group = fixed or (prefix.rstrip("/") if sub == "." else prefix + sub)
             rel_pdf = rel[:-4] + ".pdf"
             out.append({
                 "title": tex_title(tex) or tex.stem,
