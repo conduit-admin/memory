@@ -531,6 +531,20 @@
    "links": []
   },
   {
+   "path": "manim/projects/broken-stick.md",
+   "folder": "manim/projects",
+   "title": "Палочка на n кусков",
+   "fm": {
+    "type": "proekt",
+    "vid": "animatsiya",
+    "fail": "broken_stick.py",
+    "stadiya": "программируется",
+    "video": "",
+    "data": "2026-10-01"
+   },
+   "links": []
+  },
+  {
    "path": "manim/projects/inertia-peresborka.md",
    "folder": "manim/projects",
    "title": "Момент инерции — пересборка",
