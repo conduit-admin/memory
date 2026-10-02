@@ -545,6 +545,14 @@
  ],
  "files": [
   {
+   "path": "physics/listki/razbory/01-elektrostatika-razbor.pdf",
+   "folder": "physics/listki/razbory",
+   "title": "01-elektrostatika-razbor",
+   "kind": "pdf",
+   "pages": 4,
+   "size": 260755
+  },
+  {
    "path": "physics/listki/serii/01-elektrostatika.pdf",
    "folder": "physics/listki/serii",
    "title": "01-elektrostatika",
@@ -1285,6 +1293,12 @@
    "tex": "probnoe-vsosh-11-otvety.tex",
    "group": "tutoring",
    "pdf": ""
+  },
+  {
+   "title": "Разбор серии 1. Электростатика",
+   "tex": "01-elektrostatika-razbor.tex",
+   "group": "physics/razbory",
+   "pdf": "physics/listki/razbory/01-elektrostatika-razbor.pdf"
   },
   {
    "title": "Серия 1. Электростатика",
