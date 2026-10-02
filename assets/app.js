@@ -542,67 +542,22 @@
     });
   }
 
-  /* ── предметные вкладки ──────────────────────────────── */
+  /* ── вкладка «ИИ» ────────────────────────────────────── */
 
-  /* Вкладка «ИИ»: список задач и список приёмов. Вид общий и берёт папку
-     параметром — так когда-то были устроены и физика с математикой. */
-  function viewSubject(main, root, label) {
+  /* Конспекты и описание раздела — все заметки из ml/, по названию. Задач
+     и приёмов здесь больше нет: с октября 2026 эта схема снята везде. */
+  function viewMl(main) {
     var mine = DATA.notes.filter(function (n) {
-      return n.folder === root || n.folder.indexOf(root + "/") === 0;
-    });
-
-    var zad = mine.filter(function (n) { return n.fm.type === "zadacha"; })
-      .sort(function (a, b) { return (a.fm.nomer || 0) - (b.fm.nomer || 0); });
-
-    var list = block(main, "Задачи", "ans");
-    zad.forEach(function (n) {
-      list.appendChild(card(n, {
-        tag: n.fm.razdel || "",
-        level: n.fm.slozhnost || ""
-      }));
-    });
-    if (!zad.length) empty(list, "Разборов пока нет.");
-
-    /* Приёмы по числу встреч: наверху то, что попадается чаще всего, — то есть
-       то, что важно помнить. */
-    var pri = mine.filter(function (n) { return n.fm.type === "priyom"; })
-      .sort(function (a, b) {
-        return (b.fm.vstrech || 1) - (a.fm.vstrech || 1) ||
-               a.title.localeCompare(b.title, "ru");
-      });
-
-    list = block(main, "Приёмы", "moss");
-    pri.forEach(function (n) {
-      var links = (BACK[n.path] || []).length;
-      list.appendChild(card(n, {
-        count: n.fm.vstrech || 1,
-        tag: n.fm.razdel || "",
-        note: links ? "задач: " + links : "ни одной связанной задачи"
-      }));
-    });
-    if (!pri.length) empty(list, "Приёмов пока нет.");
-
-    /* Всё прочее в разделе — конспекты, описание сборника, правила. */
-    var rest = mine.filter(function (n) {
-      return n.fm.type !== "zadacha" && n.fm.type !== "priyom";
+      return n.folder === "ml" || n.folder.indexOf("ml/") === 0;
     }).sort(function (a, b) { return a.title.localeCompare(b.title, "ru"); });
-
-    /* Заголовок здесь тихий, а не плашкой: плашка держится на редкости, и три
-       штуки на экран — уже предел. Это служебный хвост раздела, он и не должен
-       спорить за внимание с задачами и приёмами. */
-    if (rest.length) {
-      list = block(main, "Ещё в разделе " + label, "quiet");
-      rest.forEach(function (n) { list.appendChild(card(n, {})); });
-    }
+    var list = block(main, "Конспекты", "cold");
+    mine.forEach(function (n) { list.appendChild(card(n, {})); });
+    if (!mine.length) empty(list, "Конспектов пока нет.");
   }
 
   /* ── заметка ─────────────────────────────────────────── */
 
-  var META = [
-    ["razdel", ""], ["vstrech", "встреч: "], ["nomer", "№"],
-    ["slozhnost", ""], ["sbornik", ""], ["stadiya", ""],
-    ["tema", ""], ["data", ""]
-  ];
+  var META = [["sbornik", ""], ["stadiya", ""], ["tema", ""], ["data", ""]];
 
   function viewNote(main, path) {
     var note = noteAt(path);
@@ -636,18 +591,10 @@
     META.forEach(function (f) {
       var v = note.fm[f[0]];
       if (v === undefined || v === null || v === "") return;
-      /* Сложность — не такая же пилюля, как остальные поля: её читают взглядом,
-         не вчитываясь, поэтому она берёт цвет по уровню, а слово «сложность»
-         перед ней не нужно — «средне» само себя объясняет. */
-      var cls = "chip";
-      if (f[0] === "slozhnost") cls += " lvl lvl-" + (LEVELS[String(v).toLowerCase()] || "mid");
-      meta.appendChild(el("span", cls, f[1] + v));
+      meta.appendChild(el("span", "chip", f[1] + v));
     });
-    /* Путь в knowledge — тоже поле шапки, по нему заметку ищут в репозитории.
-       У разбора задачи он выводится из номера, поэтому не показывается. */
-    if (note.fm.type !== "zadacha") {
-      meta.appendChild(el("span", "chip mono", note.fm.fail || note.path));
-    }
+    /* Путь в knowledge — тоже поле шапки, по нему заметку ищут в репозитории. */
+    meta.appendChild(el("span", "chip mono", note.fm.fail || note.path));
 
     function fill(src) {
       var body = el("div");
@@ -682,37 +629,16 @@
   }
 
   function renderBacklinks(main, note) {
-    /* Ради этого всё и затевалось: приём ценен не текстом, а тем, что видно,
-       где он уже срабатывал. */
     var from = BACK[note.path] || [];
-    if (!from.length) return;
     var notes = [];
     from.forEach(function (p) { var n = noteAt(p); if (n) notes.push(n); });
     if (!notes.length) return;
 
     var box = el("section", "backlinks");
     box.appendChild(el("h2", null, "Ссылаются сюда"));
-
-    /* Приёмы и задачи — разные вещи, и в общей куче их приходится различать
-       по метке. Проще развести списками: подпись группы говорит то же самое,
-       но один раз на всю группу, а не на каждой карточке. */
-    [["priyom", "Приёмы"], ["zadacha", "Задачи"]].forEach(function (g) {
-      var part = notes.filter(function (n) { return n.fm.type === g[0]; });
-      if (!part.length) return;
-      box.appendChild(el("h3", "backlinks-group", g[1]));
-      var list = el("div", "list");
-      part.forEach(function (n) { list.appendChild(card(n, {})); });
-      box.appendChild(list);
-    });
-
-    var other = notes.filter(function (n) {
-      return n.fm.type !== "priyom" && n.fm.type !== "zadacha";
-    });
-    if (other.length) {
-      var rest = el("div", "list");
-      other.forEach(function (n) { rest.appendChild(card(n, {})); });
-      box.appendChild(rest);
-    }
+    var list = el("div", "list");
+    notes.forEach(function (n) { list.appendChild(card(n, {})); });
+    box.appendChild(list);
     main.appendChild(box);
   }
 
@@ -916,7 +842,7 @@
 
     if (VIEW === "physics") return viewPhysics(main);
     if (VIEW === "math") return viewMath(main);
-    if (VIEW === "ml") return viewSubject(main, "ml", "«ИИ»");
+    if (VIEW === "ml") return viewMl(main);
     if (VIEW === "roli") return viewRoli(main);
     return viewProekty(main);
   }
