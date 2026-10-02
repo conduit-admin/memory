@@ -16,8 +16,7 @@ tex/styles/cvetnoy.md и преамбулы tutoring/preamble-*.tex.
 
 Каждый ответ считать, а не вспоминать. Тайминг обязан сходиться
 с заявленной длительностью. Листок — всегда пара файлов: условия
-и -otvety. Приёмы не дублировать: они живут в math/priyomy/
-и physics/priyomy/, карточка ученика только ссылается.
+и -otvety. Приёмы ученика — в его карточке, со статусом.
 ```
 
 ## Что читать
@@ -26,8 +25,6 @@ tex/styles/cvetnoy.md и преамбулы tutoring/preamble-*.tex.
 в `olimpiady/`, готовые листки в `listki/` как образец. Шаблоны —
 `templates/listok.md`, `templates/listok-otvety.md`, `templates/uchenik.md`,
 `templates/zanyatie.md`. Вёрстка — `tex/styles/cvetnoy.md`.
-
-Базы приёмов обоих предметов — на чтение и на ссылки, не на копирование.
 
 ## Что не читать
 

@@ -35,146 +35,6 @@
    ]
   },
   {
-   "path": "math/priyomy/cvet-rebra-cvet-konca.md",
-   "folder": "math/priyomy",
-   "title": "Цвет ребра — цвет его конца",
-   "fm": {
-    "type": "priyom",
-    "razdel": "Комбинаторика",
-    "vstrech": 1,
-    "data": "2026-09-08"
-   },
-   "links": [
-    "seriya-02-7"
-   ]
-  },
-  {
-   "path": "math/priyomy/diskretnaya-nepreryvnost.md",
-   "folder": "math/priyomy",
-   "title": "Дискретная непрерывность",
-   "fm": {
-    "type": "priyom",
-    "razdel": "Комбинаторика",
-    "vstrech": 1,
-    "data": "2026-09-11"
-   },
-   "links": [
-    "seriya-03-5"
-   ]
-  },
-  {
-   "path": "math/priyomy/granichnoe-usilenie-indukcii.md",
-   "folder": "math/priyomy",
-   "title": "Усиление индукции условием на границе",
-   "fm": {
-    "type": "priyom",
-    "razdel": "Комбинаторика",
-    "vstrech": 1,
-    "data": "2026-09-08"
-   },
-   "links": [
-    "seriya-02-7"
-   ]
-  },
-  {
-   "path": "math/priyomy/krivye-na-koncentricheskih-sferah.md",
-   "folder": "math/priyomy",
-   "title": "Расстояние между кривыми на концентрических сферах",
-   "fm": {
-    "type": "priyom",
-    "razdel": "Геометрия",
-    "vstrech": 1,
-    "data": "2026-09-12"
-   },
-   "links": [
-    "seriya-03-2"
-   ]
-  },
-  {
-   "path": "math/priyomy/operator-ubivayuschiy-slagaemye.md",
-   "folder": "math/priyomy",
-   "title": "Оператор, убивающий слагаемые",
-   "fm": {
-    "type": "priyom",
-    "razdel": "Алгебра",
-    "vstrech": 1,
-    "data": "2026-09-09"
-   },
-   "links": [
-    "seriya-02-3"
-   ]
-  },
-  {
-   "path": "math/priyomy/otrazhenie-dlya-summy-otrezkov.md",
-   "folder": "math/priyomy",
-   "title": "Отражение, чтобы сложить два отрезка в один",
-   "fm": {
-    "type": "priyom",
-    "razdel": "Геометрия",
-    "vstrech": 1,
-    "data": "2026-09-07"
-   },
-   "links": [
-    "seriya-02-1"
-   ]
-  },
-  {
-   "path": "math/priyomy/podschet-obektov-protiv-znacheniy.md",
-   "folder": "math/priyomy",
-   "title": "Объектов меньше, чем значений, которые они обязаны покрыть",
-   "fm": {
-    "type": "priyom",
-    "razdel": "Комбинаторика",
-    "vstrech": 1,
-    "data": "2026-09-07"
-   },
-   "links": [
-    "seriya-02-6"
-   ]
-  },
-  {
-   "path": "math/priyomy/seredina-dugi-kak-centr-okruzhnosti.md",
-   "folder": "math/priyomy",
-   "title": "Середина дуги как центр вспомогательной окружности",
-   "fm": {
-    "type": "priyom",
-    "razdel": "Геометрия",
-    "vstrech": 1,
-    "data": "2026-09-09"
-   },
-   "links": [
-    "seriya-02-2"
-   ]
-  },
-  {
-   "path": "math/priyomy/seredina-hordy-os-simmetrii.md",
-   "folder": "math/priyomy",
-   "title": "Середина хорды задаёт ось симметрии окружности",
-   "fm": {
-    "type": "priyom",
-    "razdel": "Геометрия",
-    "vstrech": 1,
-    "data": "2026-09-07"
-   },
-   "links": [
-    "seriya-02-1"
-   ]
-  },
-  {
-   "path": "math/priyomy/stepen-obschey-tochki-dvuh-okruzhnostey.md",
-   "folder": "math/priyomy",
-   "title": "Степень общей точки склеивает две окружности",
-   "fm": {
-    "type": "priyom",
-    "razdel": "Геометрия",
-    "vstrech": 1,
-    "data": "2026-09-09"
-   },
-   "links": [
-    "seriya-02-2"
-   ]
-  },
-  {
    "path": "math/README.md",
    "folder": "math",
    "title": "Математика",
@@ -191,8 +51,8 @@
    "fm": {
     "type": "meta",
     "istochnik": "матцентр",
-    "vsego": 54,
-    "resheno": 17
+    "vsego": 62,
+    "resheno": 39
    },
    "links": []
   },
@@ -206,216 +66,6 @@
     "vsego": 147,
     "napisano": 147,
     "vyucheno": 144
-   },
-   "links": []
-  },
-  {
-   "path": "math/zadachi/seriya-02-1.md",
-   "folder": "math/zadachi",
-   "title": "Задача 2.1",
-   "fm": {
-    "type": "zadacha",
-    "sbornik": "Серия 2",
-    "nomer": "2.1",
-    "razdel": "Геометрия",
-    "slozhnost": "средне",
-    "data": "2026-09-07",
-    "status": "разобрана",
-    "priyomy": [
-     "otrazhenie-dlya-summy-otrezkov",
-     "seredina-hordy-os-simmetrii"
-    ]
-   },
-   "links": [
-    "otrazhenie-dlya-summy-otrezkov",
-    "seredina-hordy-os-simmetrii"
-   ]
-  },
-  {
-   "path": "math/zadachi/seriya-02-2.md",
-   "folder": "math/zadachi",
-   "title": "Задача 2.2",
-   "fm": {
-    "type": "zadacha",
-    "sbornik": "Серия 2",
-    "nomer": "2.2",
-    "razdel": "Геометрия",
-    "slozhnost": "средне",
-    "data": "2026-09-09",
-    "status": "разобрана",
-    "priyomy": [
-     "seredina-dugi-kak-centr-okruzhnosti",
-     "stepen-obschey-tochki-dvuh-okruzhnostey"
-    ]
-   },
-   "links": [
-    "seredina-dugi-kak-centr-okruzhnosti",
-    "stepen-obschey-tochki-dvuh-okruzhnostey"
-   ]
-  },
-  {
-   "path": "math/zadachi/seriya-02-3.md",
-   "folder": "math/zadachi",
-   "title": "Задача 2.3",
-   "fm": {
-    "type": "zadacha",
-    "sbornik": "Серия 2",
-    "nomer": "2.3",
-    "razdel": "Алгебра",
-    "slozhnost": "легко",
-    "data": "2026-09-09",
-    "status": "разобрана",
-    "priyomy": [
-     "operator-ubivayuschiy-slagaemye"
-    ]
-   },
-   "links": [
-    "operator-ubivayuschiy-slagaemye"
-   ]
-  },
-  {
-   "path": "math/zadachi/seriya-02-6.md",
-   "folder": "math/zadachi",
-   "title": "Задача 2.6",
-   "fm": {
-    "type": "zadacha",
-    "sbornik": "Серия 2",
-    "nomer": "2.6",
-    "razdel": "Комбинаторика",
-    "slozhnost": "сложно",
-    "data": "2026-09-07",
-    "status": "разобрана",
-    "priyomy": [
-     "podschet-obektov-protiv-znacheniy"
-    ]
-   },
-   "links": [
-    "podschet-obektov-protiv-znacheniy"
-   ]
-  },
-  {
-   "path": "math/zadachi/seriya-02-7.md",
-   "folder": "math/zadachi",
-   "title": "Задача 2.7",
-   "fm": {
-    "type": "zadacha",
-    "sbornik": "Серия 2",
-    "nomer": "2.7",
-    "razdel": "Комбинаторика",
-    "slozhnost": "средне",
-    "data": "2026-09-08",
-    "status": "разобрана",
-    "priyomy": [
-     "granichnoe-usilenie-indukcii",
-     "cvet-rebra-cvet-konca"
-    ]
-   },
-   "links": [
-    "cvet-rebra-cvet-konca",
-    "granichnoe-usilenie-indukcii"
-   ]
-  },
-  {
-   "path": "math/zadachi/seriya-03-2.md",
-   "folder": "math/zadachi",
-   "title": "Задача 3.2",
-   "fm": {
-    "type": "zadacha",
-    "sbornik": "Серия 3",
-    "nomer": "3.2",
-    "razdel": "Геометрия",
-    "slozhnost": "средне",
-    "data": "2026-09-12",
-    "status": "разобрана",
-    "priyomy": [
-     "krivye-na-koncentricheskih-sferah"
-    ]
-   },
-   "links": [
-    "krivye-na-koncentricheskih-sferah"
-   ]
-  },
-  {
-   "path": "math/zadachi/seriya-03-3.md",
-   "folder": "math/zadachi",
-   "title": "Задача 3.3",
-   "fm": {
-    "type": "zadacha",
-    "sbornik": "Серия 3",
-    "nomer": "3.3",
-    "razdel": "Алгебра",
-    "slozhnost": "легко",
-    "data": "2026-09-11",
-    "status": "разобрана",
-    "priyomy": []
-   },
-   "links": []
-  },
-  {
-   "path": "math/zadachi/seriya-03-4.md",
-   "folder": "math/zadachi",
-   "title": "Задача 3.4",
-   "fm": {
-    "type": "zadacha",
-    "sbornik": "Серия 3",
-    "nomer": "3.4",
-    "razdel": "Алгебра",
-    "slozhnost": "легко",
-    "data": "2026-09-10",
-    "status": "разобрана",
-    "priyomy": []
-   },
-   "links": []
-  },
-  {
-   "path": "math/zadachi/seriya-03-5.md",
-   "folder": "math/zadachi",
-   "title": "Задача 3.5",
-   "fm": {
-    "type": "zadacha",
-    "sbornik": "Серия 3",
-    "nomer": "3.5",
-    "razdel": "Комбинаторика",
-    "slozhnost": "легко",
-    "data": "2026-09-11",
-    "status": "разобрана",
-    "priyomy": [
-     "diskretnaya-nepreryvnost"
-    ]
-   },
-   "links": [
-    "diskretnaya-nepreryvnost"
-   ]
-  },
-  {
-   "path": "math/zadachi/seriya-03-7.md",
-   "folder": "math/zadachi",
-   "title": "Задача 3.7",
-   "fm": {
-    "type": "zadacha",
-    "sbornik": "Серия 3",
-    "nomer": "3.7",
-    "razdel": "Комбинаторика",
-    "slozhnost": "средне",
-    "data": "2026-09-11",
-    "status": "разобрана",
-    "priyomy": []
-   },
-   "links": []
-  },
-  {
-   "path": "math/zadachi/seriya-04-3.md",
-   "folder": "math/zadachi",
-   "title": "Задача 4.3",
-   "fm": {
-    "type": "zadacha",
-    "sbornik": "Серия 4",
-    "nomer": "4.3",
-    "razdel": "Алгебра",
-    "slozhnost": "средне",
-    "data": "2026-09-14",
-    "status": "разобрана",
-    "priyomy": []
    },
    "links": []
   },
@@ -790,7 +440,7 @@
    "title": "Администратор базы и сайтов",
    "fm": {
     "type": "rol",
-    "kratko": "администратор: связи и счётчики базы, витрина, код сайта не трогать"
+    "kratko": "администратор: связи базы, витрина, код сайта не трогать"
    },
    "links": []
   },
@@ -900,6 +550,70 @@
    "kind": "pdf",
    "pages": 2,
    "size": 160290
+  },
+  {
+   "path": "math/serii/grobariy.pdf",
+   "folder": "math/serii",
+   "title": "grobariy",
+   "kind": "pdf",
+   "pages": 0,
+   "size": 131943
+  },
+  {
+   "path": "math/serii/seriya-01.pdf",
+   "folder": "math/serii",
+   "title": "seriya-01",
+   "kind": "pdf",
+   "pages": 0,
+   "size": 122449
+  },
+  {
+   "path": "math/serii/seriya-02.pdf",
+   "folder": "math/serii",
+   "title": "seriya-02",
+   "kind": "pdf",
+   "pages": 0,
+   "size": 106348
+  },
+  {
+   "path": "math/serii/seriya-03.pdf",
+   "folder": "math/serii",
+   "title": "seriya-03",
+   "kind": "pdf",
+   "pages": 0,
+   "size": 101490
+  },
+  {
+   "path": "math/serii/seriya-04.pdf",
+   "folder": "math/serii",
+   "title": "seriya-04",
+   "kind": "pdf",
+   "pages": 0,
+   "size": 112177
+  },
+  {
+   "path": "math/serii/seriya-05.pdf",
+   "folder": "math/serii",
+   "title": "seriya-05",
+   "kind": "pdf",
+   "pages": 0,
+   "size": 114928
+  },
+  {
+   "path": "math/serii/seriya-06.pdf",
+   "folder": "math/serii",
+   "title": "seriya-06",
+   "kind": "pdf",
+   "pages": 0,
+   "size": 105199
+  },
+  {
+   "path": "math/serii/seriya-07.pdf",
+   "folder": "math/serii",
+   "title": "seriya-07",
+   "kind": "pdf",
+   "pages": 0,
+   "size": 134342
   },
   {
    "path": "math/zadachniki/gorod-10.pdf",
