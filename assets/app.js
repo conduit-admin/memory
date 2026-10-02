@@ -159,8 +159,6 @@
      разные, но роль совпадает — «Суть» приёма это то же место, что «Ключевая
      идея» задачи. Незнакомый заголовок получает нейтральный блок, поэтому
      новый раздел в шаблоне не требует правки кода. */
-  var LEVELS = { "легко": "easy", "средне": "mid", "сложно": "hard", "гроб": "grob" };
-
   var SECTION_KIND = {
     "условие": "cond",
     "триггер": "cond",
@@ -236,7 +234,6 @@
     a.style.setProperty("--sec", sectionColor(note.folder));
 
     var top = el("div", "card-top");
-    if (opts.count != null) top.appendChild(el("span", "count", String(opts.count)));
     top.appendChild(el("span", "card-title", note.title));
 
     /* Метки и имя файла лежат в одной обойме: перенесясь на узком экране, они
@@ -250,20 +247,10 @@
     if (opts.tag) meta.appendChild(el("span", "tag", opts.tag));
     /* Имени файла на карточке нет: слаг — это транслитерация заголовка, который
        уже стоит рядом, и второй раз он только сорит. Тип заметки не показываем
-       тоже: «priyom» и «zadacha» — служебные слова из фронтматтера, читателю
-       они ничего не говорят, а место в списке и так объясняет, что перед ним. */
+       тоже: это служебное слово из фронтматтера, читателю оно ничего не
+       говорит, а место в списке и так объясняет, что перед ним. */
     top.appendChild(meta);
     a.appendChild(top);
-
-    /* Сложность — не подпись под названием, а метка: её сравнивают по списку
-       сверху вниз, и цветная точка читается быстрее слова. Само слово
-       «сложность» не пишем, «легко» и «сложно» не нуждаются в подписи. */
-    if (opts.level) {
-      var lv = el("div", "card-lvl");
-      lv.appendChild(el("span", "chip lvl lvl-" +
-        (LEVELS[String(opts.level).toLowerCase()] || "mid"), opts.level));
-      a.appendChild(lv);
-    }
 
     if (opts.note) a.appendChild(el("div", "card-note", opts.note));
     return a;
