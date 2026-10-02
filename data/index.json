@@ -137,6 +137,15 @@
    ]
   },
   {
+   "path": "manim/kanal/ozvuchka/broken_stick.md",
+   "folder": "manim/kanal/ozvuchka",
+   "title": "Палочка на n кусков",
+   "fm": {
+    "type": "ozvuchka"
+   },
+   "links": []
+  },
+  {
    "path": "manim/kanal/ozvuchka/rotating_liquid.md",
    "folder": "manim/kanal/ozvuchka",
    "title": "Параболоид жидкости",
@@ -188,7 +197,7 @@
     "type": "proekt",
     "vid": "animatsiya",
     "fail": "broken_stick.py",
-    "stadiya": "программируется",
+    "stadiya": "озвучивается",
     "video": "",
     "data": "2026-10-01"
    },
