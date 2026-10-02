@@ -468,6 +468,93 @@
     });
   }
 
+  /* ── вкладка «Математика» ────────────────────────────── */
+
+  /* С октября 2026 математика — серии матцентра и отметки о решённом, без
+     разборов и приёмов (они в math/arhiv/ и на сайт не идут). Всё берётся из
+     двух таблиц math/serii.md: «Прогресс» даёт наборы, даты и имя листка,
+     «Задачи» — номера и отметки. Обе пишет синхронизация с кондуитом, поэтому
+     новая серия появляется здесь сама. Свежая серия наверху: смотрят её. */
+
+  var SERII = "math/serii.md";
+
+  /* Строки таблицы, у которой первая колонка шапки называется `first`. */
+  function mdRows(src, first) {
+    var out = [], on = false;
+    src.split("\n").forEach(function (line) {
+      if (line.charAt(0) !== "|") { on = false; return; }
+      var cells = line.replace(/^\||\|\s*$/g, "").split("|")
+        .map(function (c) { return c.trim(); });
+      if (cells[0] === first) { on = true; return; }
+      if (on && !/^-+$/.test(cells[0])) out.push(cells);
+    });
+    return out;
+  }
+
+  function isExercise(t) { return /\(упр\)/.test(t[3] || ""); }
+
+  /* Карточка набора: листок по нажатию, даты, счёт и задачи кружками.
+     Решённая залита цветом раздела, упражнение обведено пунктиром. */
+  function setCard(r, tasks) {
+    var name = r[0], file = r[6];
+    var path = file && file !== "—" ? "math/serii/" + file : "";
+    var has = path && DATA.files.some(function (f) { return f.path === path; });
+    var a = el(has ? "a" : "div", "card");
+    if (has) a.href = "#/f/" + encodeURI(path);
+    a.style.setProperty("--sec", sectionColor("math"));
+
+    var mine = tasks.filter(function (t) { return t[1] === name; });
+    var counted = mine.filter(function (t) { return !isExercise(t); });
+    var done = counted.filter(function (t) { return t[4] === "да"; }).length;
+
+    var top = el("div", "card-top");
+    top.appendChild(el("span", "card-title", name));
+    var meta = el("div", "card-meta");
+    meta.appendChild(el("span", "tag", done + " из " + counted.length));
+    top.appendChild(meta);
+    a.appendChild(top);
+
+    var dates = [];
+    if (r[4] && r[4] !== "—") dates.push("выдана " + r[4]);
+    if (r[5] && r[5] !== "—") dates.push("занятие " + r[5]);
+    if (dates.length) a.appendChild(el("div", "card-note", dates.join(" · ")));
+
+    var marks = el("div", "marks");
+    mine.forEach(function (t) {
+      var on = t[4] === "да";
+      var m = el("span", "mark" + (on ? " on" : "") + (isExercise(t) ? " ex" : ""),
+        t[0].replace(/^\d+\./, ""));
+      m.title = t[3].replace(/ \(упр\)$/, "") + (on ? " · решена" : "");
+      marks.appendChild(m);
+    });
+    if (mine.length) a.appendChild(marks);
+    return a;
+  }
+
+  function fillMath(host, src) {
+    var sets = mdRows(src, "Набор").filter(function (r) { return r[0].indexOf("**") !== 0; });
+    var tasks = mdRows(src, "№");
+    var series = sets.filter(function (r) { return /^Серия/.test(r[0]); }).reverse();
+
+    var list = block(host, "Серии", "ans");
+    series.forEach(function (r) { list.appendChild(setCard(r, tasks)); });
+    if (!series.length) empty(list, "Серий пока нет.");
+
+    /* Всё, что не серия, — гробарий и что появится ещё, — своим блоком. */
+    sets.filter(function (r) { return !/^Серия/.test(r[0]); }).forEach(function (r) {
+      block(host, r[0], "slate").appendChild(setCard(r, tasks));
+    });
+  }
+
+  function viewMath(main) {
+    if (SRC[SERII] != null) return fillMath(main, SRC[SERII]);
+    var host = el("div");
+    main.appendChild(host);
+    loadNote(SERII).then(function (src) { fillMath(host, src); }).catch(function () {
+      empty(block(host, "Серии", "ans"), "Таблица серий не загрузилась.");
+    });
+  }
+
   /* ── предметные вкладки ──────────────────────────────── */
 
   /* Вкладка «ИИ»: список задач и список приёмов. Вид общий и берёт папку
@@ -786,9 +873,12 @@
       .then(function (t) { SRC[path] = t; return t; });
   }
 
+  /* Вкладка «Математика» тоже читает заметку — таблицы серий, и её стоит
+     подтянуть заранее так же, как открываемую заметку. */
   function pendingPath() {
     var hash = decodeURI(location.hash.replace(/^#/, ""));
-    return hash.indexOf("/n/") === 0 ? hash.slice(3) : "";
+    if (hash.indexOf("/n/") === 0) return hash.slice(3);
+    return VIEW === "math" && !isDetail(location.hash) ? SERII : "";
   }
 
   /* Содержимое сначала уходит, и только потом подменяется. Метка нужна на
@@ -838,6 +928,7 @@
     if (hash.indexOf("/f/") === 0) return viewFile(main, hash.slice(3));
 
     if (VIEW === "physics") return viewPhysics(main);
+    if (VIEW === "math") return viewMath(main);
     if (VIEW === "ml") return viewSubject(main, "ml", "«ИИ»");
     if (VIEW === "roli") return viewRoli(main);
     return viewProekty(main);

@@ -574,6 +574,31 @@ body {
   text-align: center;
 }
 
+/* Задачи серии на вкладке «Математика». Нерешённая — тихой обводкой, решённая —
+   цветом раздела с лёгкой подкраской: разница должна читаться с одного взгляда
+   по всей серии сразу. Упражнение — пунктиром, в счёт оно не идёт. */
+.marks { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 8px; }
+
+.mark {
+  min-width: 30px;
+  padding: 2px 7px;
+  border: 1px solid var(--border-strong);
+  border-radius: 999px;
+  color: var(--ink-muted);
+  font-size: 12px;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  text-align: center;
+}
+
+.mark.on {
+  color: var(--sec, var(--s5));
+  border-color: currentColor;
+  background: color-mix(in srgb, currentColor 14%, transparent);
+}
+
+.mark.ex { border-style: dashed; }
+
 /* Стадия ролика. Пять состояний, цвет из того же набора красок. */
 .stage {
   padding: 2px 9px;
