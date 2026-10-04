@@ -1017,6 +1017,14 @@
    "size": 124197
   },
   {
+   "path": "tutoring/listki/sravneniya-dz.pdf",
+   "folder": "tutoring/listki",
+   "title": "sravneniya-dz",
+   "kind": "pdf",
+   "pages": 2,
+   "size": 162728
+  },
+  {
    "path": "tutoring/listki/sravneniya-razbor.pdf",
    "folder": "tutoring/listki",
    "title": "sravneniya-razbor",
@@ -1315,6 +1323,12 @@
    "tex": "sravneniya.tex",
    "group": "tutoring",
    "pdf": "tutoring/listki/sravneniya.pdf"
+  },
+  {
+   "title": "Сравнения по модулю: домашняя работа",
+   "tex": "sravneniya-dz.tex",
+   "group": "tutoring",
+   "pdf": "tutoring/listki/sravneniya-dz.pdf"
   },
   {
    "title": "Разбор: сравнения по модулю",
