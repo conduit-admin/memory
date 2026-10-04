@@ -166,7 +166,21 @@
     "konvencii",
     "montazh",
     "ochered",
-    "vertikal"
+    "vertikal",
+    "youtube"
+   ]
+  },
+  {
+   "path": "manim/kanal/youtube.md",
+   "folder": "manim/kanal",
+   "title": "YouTube: канал и настройки",
+   "fm": {
+    "type": "plan",
+    "kratko": "как завести канал на YouTube и что выставлять при каждой загрузке"
+   },
+   "links": [
+    "konvencii",
+    "ochered"
    ]
   },
   {
