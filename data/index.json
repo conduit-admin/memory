@@ -1015,6 +1015,14 @@
    "kind": "pdf",
    "pages": 2,
    "size": 124197
+  },
+  {
+   "path": "tutoring/listki/sravneniya.pdf",
+   "folder": "tutoring/listki",
+   "title": "sravneniya",
+   "kind": "pdf",
+   "pages": 2,
+   "size": 155389
   }
  ],
  "tex": [
@@ -1293,6 +1301,12 @@
    "tex": "probnoe-vsosh-11-otvety.tex",
    "group": "tutoring",
    "pdf": ""
+  },
+  {
+   "title": "Сравнения по модулю",
+   "tex": "sravneniya.tex",
+   "group": "tutoring",
+   "pdf": "tutoring/listki/sravneniya.pdf"
   },
   {
    "title": "Серия 1. Точечные заряды",
