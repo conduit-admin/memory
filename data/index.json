@@ -1,19 +1,12 @@
 {
  "notes": [
   {
-   "path": "physics/listki/raznoboy/README.md",
-   "folder": "physics/listki/raznoboy",
-   "title": "Разнобой",
-   "fm": {},
-   "links": []
-  },
-  {
    "path": "physics/plan.md",
    "folder": "physics",
    "title": "План подготовки к Всеросу по физике",
    "fm": {
     "type": "plan",
-    "kratko": "Всерос, 11 класс — темы малыми порциями, чередование, упор на разнобой",
+    "kratko": "Всерос, 11 класс — две серии в неделю, сдача решений, разбор после сдачи",
     "data": "2026-10-04"
    },
    "links": []
@@ -552,76 +545,20 @@
  ],
  "files": [
   {
-   "path": "physics/listki/razbory/elektrostatika-1-razbor.pdf",
-   "folder": "physics/listki/razbory",
-   "title": "elektrostatika-1-razbor",
-   "kind": "pdf",
-   "pages": 1,
-   "size": 182302
-  },
-  {
-   "path": "physics/listki/razbory/elektrostatika-2-razbor.pdf",
-   "folder": "physics/listki/razbory",
-   "title": "elektrostatika-2-razbor",
-   "kind": "pdf",
-   "pages": 2,
-   "size": 196609
-  },
-  {
-   "path": "physics/listki/razbory/elektrostatika-3-razbor.pdf",
-   "folder": "physics/listki/razbory",
-   "title": "elektrostatika-3-razbor",
-   "kind": "pdf",
-   "pages": 2,
-   "size": 200572
-  },
-  {
-   "path": "physics/listki/razbory/raznoboy-01-razbor.pdf",
-   "folder": "physics/listki/razbory",
-   "title": "raznoboy-01-razbor",
-   "kind": "pdf",
-   "pages": 1,
-   "size": 173794
-  },
-  {
-   "path": "physics/listki/raznoboy/raznoboy-01.pdf",
-   "folder": "physics/listki/raznoboy",
-   "title": "raznoboy-01",
-   "kind": "pdf",
-   "pages": 1,
-   "size": 128031
-  },
-  {
-   "path": "physics/listki/serii/elektrostatika-1.pdf",
+   "path": "physics/listki/serii/seriya-01.pdf",
    "folder": "physics/listki/serii",
-   "title": "elektrostatika-1",
+   "title": "seriya-01",
    "kind": "pdf",
    "pages": 2,
-   "size": 147784
-  },
-  {
-   "path": "physics/listki/serii/elektrostatika-2.pdf",
-   "folder": "physics/listki/serii",
-   "title": "elektrostatika-2",
-   "kind": "pdf",
-   "pages": 2,
-   "size": 133103
-  },
-  {
-   "path": "physics/listki/serii/elektrostatika-3.pdf",
-   "folder": "physics/listki/serii",
-   "title": "elektrostatika-3",
-   "kind": "pdf",
-   "pages": 2,
-   "size": 184027
+   "size": 148072
   },
   {
    "path": "physics/listki/teoriya/elektrostatika-teoriya.pdf",
    "folder": "physics/listki/teoriya",
    "title": "elektrostatika-teoriya",
    "kind": "pdf",
-   "pages": 3,
-   "size": 176496
+   "pages": 1,
+   "size": 143047
   },
   {
    "path": "math/serii/grobariy.pdf",
@@ -1358,52 +1295,10 @@
    "pdf": ""
   },
   {
-   "title": "Разбор: Электростатика 1",
-   "tex": "elektrostatika-1-razbor.tex",
-   "group": "physics/razbory",
-   "pdf": "physics/listki/razbory/elektrostatika-1-razbor.pdf"
-  },
-  {
-   "title": "Разбор: Электростатика 2",
-   "tex": "elektrostatika-2-razbor.tex",
-   "group": "physics/razbory",
-   "pdf": "physics/listki/razbory/elektrostatika-2-razbor.pdf"
-  },
-  {
-   "title": "Разбор: Электростатика 3",
-   "tex": "elektrostatika-3-razbor.tex",
-   "group": "physics/razbory",
-   "pdf": "physics/listki/razbory/elektrostatika-3-razbor.pdf"
-  },
-  {
-   "title": "Разбор: Разнобой 1",
-   "tex": "raznoboy-01-razbor.tex",
-   "group": "physics/razbory",
-   "pdf": "physics/listki/razbory/raznoboy-01-razbor.pdf"
-  },
-  {
-   "title": "Разнобой 1",
-   "tex": "raznoboy-01.tex",
-   "group": "physics/raznoboy",
-   "pdf": "physics/listki/raznoboy/raznoboy-01.pdf"
-  },
-  {
-   "title": "Электростатика 1",
-   "tex": "elektrostatika-1.tex",
+   "title": "Серия 1. Точечные заряды",
+   "tex": "seriya-01.tex",
    "group": "physics/serii",
-   "pdf": "physics/listki/serii/elektrostatika-1.pdf"
-  },
-  {
-   "title": "Электростатика 2",
-   "tex": "elektrostatika-2.tex",
-   "group": "physics/serii",
-   "pdf": "physics/listki/serii/elektrostatika-2.pdf"
-  },
-  {
-   "title": "Электростатика 3",
-   "tex": "elektrostatika-3.tex",
-   "group": "physics/serii",
-   "pdf": "physics/listki/serii/elektrostatika-3.pdf"
+   "pdf": "physics/listki/serii/seriya-01.pdf"
   },
   {
    "title": "Теория: электростатика",
