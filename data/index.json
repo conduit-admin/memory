@@ -166,7 +166,20 @@
     "konvencii",
     "montazh",
     "ochered",
+    "telegram",
     "vertikal",
+    "youtube"
+   ]
+  },
+  {
+   "path": "manim/kanal/telegram.md",
+   "folder": "manim/kanal",
+   "title": "Telegram: канал и посты",
+   "fm": {
+    "type": "plan",
+    "kratko": "как завести Telegram-канал и что публиковать к каждому ролику"
+   },
+   "links": [
     "youtube"
    ]
   },
