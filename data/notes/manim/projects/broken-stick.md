@@ -2,7 +2,7 @@
 type: proekt
 vid: animatsiya
 fail: broken_stick.py
-stadiya: озвучивается
+stadiya: озвучивается и монтируется
 video:
 data: 2026-10-01
 ---

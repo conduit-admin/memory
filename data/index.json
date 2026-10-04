@@ -51,8 +51,8 @@
    "fm": {
     "type": "meta",
     "istochnik": "матцентр",
-    "vsego": 62,
-    "resheno": 39
+    "vsego": 70,
+    "resheno": 46
    },
    "links": []
   },
@@ -197,7 +197,7 @@
     "type": "proekt",
     "vid": "animatsiya",
     "fail": "broken_stick.py",
-    "stadiya": "озвучивается",
+    "stadiya": "озвучивается и монтируется",
     "video": "",
     "data": "2026-10-01"
    },
@@ -574,7 +574,7 @@
    "title": "grobariy",
    "kind": "pdf",
    "pages": 0,
-   "size": 131943
+   "size": 151402
   },
   {
    "path": "math/serii/seriya-01.pdf",
@@ -631,6 +631,14 @@
    "kind": "pdf",
    "pages": 0,
    "size": 134342
+  },
+  {
+   "path": "math/serii/seriya-08.pdf",
+   "folder": "math/serii",
+   "title": "seriya-08",
+   "kind": "pdf",
+   "pages": 0,
+   "size": 92251
   },
   {
    "path": "math/zadachniki/gorod-10.pdf",
