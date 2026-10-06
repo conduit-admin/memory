@@ -450,6 +450,13 @@
    "links": []
   },
   {
+   "path": "tex/documents/kanal/README.md",
+   "folder": "tex/documents/kanal",
+   "title": "Разборы к роликам",
+   "fm": {},
+   "links": []
+  },
+  {
    "path": "tex/documents/zachet/README.md",
    "folder": "tex/documents/zachet",
    "title": "Зачёт: ответы на вопросы",
@@ -685,6 +692,14 @@
    "kind": "pdf",
    "pages": 7,
    "size": 291071
+  },
+  {
+   "path": "tex/documents/kanal/rotating-liquid.pdf",
+   "folder": "tex/documents/kanal",
+   "title": "rotating-liquid",
+   "kind": "pdf",
+   "pages": 6,
+   "size": 200507
   },
   {
    "path": "tex/documents/oscillations.pdf",
@@ -1083,6 +1098,12 @@
    "tex": "oscillations.tex",
    "group": "",
    "pdf": "tex/documents/oscillations.pdf"
+  },
+  {
+   "title": "Вращение жидкости",
+   "tex": "rotating-liquid.tex",
+   "group": "kanal",
+   "pdf": "tex/documents/kanal/rotating-liquid.pdf"
   },
   {
    "title": "Интегралы и первообразные личная версия",
