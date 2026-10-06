@@ -607,7 +607,8 @@
    "title": "seriya-01",
    "kind": "pdf",
    "pages": 2,
-   "size": 168124
+   "size": 168124,
+   "date": "2026-10-04"
   },
   {
    "path": "physics/listki/teoriya/elektrostatika-teoriya.pdf",
@@ -615,7 +616,8 @@
    "title": "elektrostatika-teoriya",
    "kind": "pdf",
    "pages": 1,
-   "size": 143047
+   "size": 143047,
+   "date": "2026-10-04"
   },
   {
    "path": "math/serii/grobariy.pdf",
@@ -623,7 +625,8 @@
    "title": "grobariy",
    "kind": "pdf",
    "pages": 0,
-   "size": 151402
+   "size": 151402,
+   "date": "2026-10-04"
   },
   {
    "path": "math/serii/seriya-01.pdf",
@@ -631,7 +634,8 @@
    "title": "seriya-01",
    "kind": "pdf",
    "pages": 0,
-   "size": 122449
+   "size": 122449,
+   "date": "2026-09-07"
   },
   {
    "path": "math/serii/seriya-02.pdf",
@@ -639,7 +643,8 @@
    "title": "seriya-02",
    "kind": "pdf",
    "pages": 0,
-   "size": 106348
+   "size": 106348,
+   "date": "2026-09-09"
   },
   {
    "path": "math/serii/seriya-03.pdf",
@@ -647,7 +652,8 @@
    "title": "seriya-03",
    "kind": "pdf",
    "pages": 0,
-   "size": 101490
+   "size": 101490,
+   "date": "2026-09-10"
   },
   {
    "path": "math/serii/seriya-04.pdf",
@@ -655,7 +661,8 @@
    "title": "seriya-04",
    "kind": "pdf",
    "pages": 0,
-   "size": 112177
+   "size": 112177,
+   "date": "2026-09-13"
   },
   {
    "path": "math/serii/seriya-05.pdf",
@@ -663,7 +670,8 @@
    "title": "seriya-05",
    "kind": "pdf",
    "pages": 0,
-   "size": 114928
+   "size": 114928,
+   "date": "2026-09-27"
   },
   {
    "path": "math/serii/seriya-06.pdf",
@@ -671,7 +679,8 @@
    "title": "seriya-06",
    "kind": "pdf",
    "pages": 0,
-   "size": 105199
+   "size": 105199,
+   "date": "2026-09-28"
   },
   {
    "path": "math/serii/seriya-07.pdf",
@@ -679,7 +688,8 @@
    "title": "seriya-07",
    "kind": "pdf",
    "pages": 0,
-   "size": 134342
+   "size": 134342,
+   "date": "2026-10-02"
   },
   {
    "path": "math/serii/seriya-08.pdf",
@@ -687,7 +697,8 @@
    "title": "seriya-08",
    "kind": "pdf",
    "pages": 0,
-   "size": 100298
+   "size": 100298,
+   "date": "2026-10-04"
   },
   {
    "path": "math/zadachniki/gorod-10.pdf",
@@ -695,7 +706,8 @@
    "title": "gorod-10",
    "kind": "pdf",
    "pages": 0,
-   "size": 491772
+   "size": 491772,
+   "date": "2026-09-13"
   },
   {
    "path": "math/zadachniki/lager-10.pdf",
@@ -703,7 +715,8 @@
    "title": "lager-10",
    "kind": "pdf",
    "pages": 0,
-   "size": 325713
+   "size": 325713,
+   "date": "2026-09-13"
   },
   {
    "path": "tex/documents/cursor.pdf",
@@ -711,7 +724,8 @@
    "title": "cursor",
    "kind": "pdf",
    "pages": 7,
-   "size": 291071
+   "size": 291071,
+   "date": "2026-09-06"
   },
   {
    "path": "tex/documents/kanal/rotating-liquid.pdf",
@@ -719,7 +733,8 @@
    "title": "rotating-liquid",
    "kind": "pdf",
    "pages": 6,
-   "size": 236346
+   "size": 236346,
+   "date": "2026-10-06"
   },
   {
    "path": "tex/documents/ml/lineynye-modeli.pdf",
@@ -727,7 +742,8 @@
    "title": "lineynye-modeli",
    "kind": "pdf",
    "pages": 11,
-   "size": 282087
+   "size": 282087,
+   "date": "2026-10-07"
   },
   {
    "path": "tex/documents/ml/numpy-pandas.pdf",
@@ -735,7 +751,8 @@
    "title": "numpy-pandas",
    "kind": "pdf",
    "pages": 9,
-   "size": 312998
+   "size": 312998,
+   "date": "2026-10-07"
   },
   {
    "path": "tex/documents/oscillations.pdf",
@@ -743,7 +760,8 @@
    "title": "oscillations",
    "kind": "pdf",
    "pages": 9,
-   "size": 339969
+   "size": 339969,
+   "date": "2026-09-10"
   },
   {
    "path": "tex/documents/zachet/algebra-misc.pdf",
@@ -751,7 +769,8 @@
    "title": "algebra-misc",
    "kind": "pdf",
    "pages": 8,
-   "size": 295070
+   "size": 295070,
+   "date": "2026-09-13"
   },
   {
    "path": "tex/documents/zachet/analysis-misc.pdf",
@@ -759,7 +778,8 @@
    "title": "analysis-misc",
    "kind": "pdf",
    "pages": 5,
-   "size": 262242
+   "size": 262242,
+   "date": "2026-09-13"
   },
   {
    "path": "tex/documents/zachet/barycentric.pdf",
@@ -767,7 +787,8 @@
    "title": "barycentric",
    "kind": "pdf",
    "pages": 17,
-   "size": 358715
+   "size": 358715,
+   "date": "2026-09-15"
   },
   {
    "path": "tex/documents/zachet/bonds.pdf",
@@ -775,7 +796,8 @@
    "title": "bonds",
    "kind": "pdf",
    "pages": 8,
-   "size": 305315
+   "size": 305315,
+   "date": "2026-09-15"
   },
   {
    "path": "tex/documents/zachet/combgeom.pdf",
@@ -783,7 +805,8 @@
    "title": "combgeom",
    "kind": "pdf",
    "pages": 8,
-   "size": 293091
+   "size": 293091,
+   "date": "2026-09-17"
   },
   {
    "path": "tex/documents/zachet/combinatorics-misc.pdf",
@@ -791,7 +814,8 @@
    "title": "combinatorics-misc",
    "kind": "pdf",
    "pages": 5,
-   "size": 267187
+   "size": 267187,
+   "date": "2026-09-15"
   },
   {
    "path": "tex/documents/zachet/connectivity.pdf",
@@ -799,7 +823,8 @@
    "title": "connectivity",
    "kind": "pdf",
    "pages": 9,
-   "size": 316726
+   "size": 316726,
+   "date": "2026-09-15"
   },
   {
    "path": "tex/documents/zachet/digraph.pdf",
@@ -807,7 +832,8 @@
    "title": "digraph",
    "kind": "pdf",
    "pages": 4,
-   "size": 209381
+   "size": 209381,
+   "date": "2026-09-07"
   },
   {
    "path": "tex/documents/zachet/edgecoloring.pdf",
@@ -815,7 +841,8 @@
    "title": "edgecoloring",
    "kind": "pdf",
    "pages": 5,
-   "size": 249383
+   "size": 249383,
+   "date": "2026-09-15"
   },
   {
    "path": "tex/documents/zachet/factorial.pdf",
@@ -823,7 +850,8 @@
    "title": "factorial",
    "kind": "pdf",
    "pages": 12,
-   "size": 331129
+   "size": 331129,
+   "date": "2026-09-14"
   },
   {
    "path": "tex/documents/zachet/flows.pdf",
@@ -831,7 +859,8 @@
    "title": "flows",
    "kind": "pdf",
    "pages": 10,
-   "size": 343641
+   "size": 343641,
+   "date": "2026-09-08"
   },
   {
    "path": "tex/documents/zachet/fractions.pdf",
@@ -839,7 +868,8 @@
    "title": "fractions",
    "kind": "pdf",
    "pages": 7,
-   "size": 295814
+   "size": 295814,
+   "date": "2026-09-14"
   },
   {
    "path": "tex/documents/zachet/gauss.pdf",
@@ -847,7 +877,8 @@
    "title": "gauss",
    "kind": "pdf",
    "pages": 9,
-   "size": 346858
+   "size": 346858,
+   "date": "2026-09-14"
   },
   {
    "path": "tex/documents/zachet/genfunc.pdf",
@@ -855,7 +886,8 @@
    "title": "genfunc",
    "kind": "pdf",
    "pages": 9,
-   "size": 378040
+   "size": 378040,
+   "date": "2026-09-19"
   },
   {
    "path": "tex/documents/zachet/geometry-misc.pdf",
@@ -863,7 +895,8 @@
    "title": "geometry-misc",
    "kind": "pdf",
    "pages": 4,
-   "size": 218376
+   "size": 218376,
+   "date": "2026-09-21"
   },
   {
    "path": "tex/documents/zachet/graphs-misc.pdf",
@@ -871,7 +904,8 @@
    "title": "graphs-misc",
    "kind": "pdf",
    "pages": 2,
-   "size": 197205
+   "size": 197205,
+   "date": "2026-09-13"
   },
   {
    "path": "tex/documents/zachet/homomorphism.pdf",
@@ -879,7 +913,8 @@
    "title": "homomorphism",
    "kind": "pdf",
    "pages": 7,
-   "size": 255641
+   "size": 255641,
+   "date": "2026-09-14"
   },
   {
    "path": "tex/documents/zachet/integrals-annotated.pdf",
@@ -887,7 +922,8 @@
    "title": "integrals-annotated",
    "kind": "pdf",
    "pages": 18,
-   "size": 421189
+   "size": 421189,
+   "date": "2026-09-25"
   },
   {
    "path": "tex/documents/zachet/integrals.pdf",
@@ -895,7 +931,8 @@
    "title": "integrals",
    "kind": "pdf",
    "pages": 18,
-   "size": 414671
+   "size": 414671,
+   "date": "2026-09-07"
   },
   {
    "path": "tex/documents/zachet/involutions.pdf",
@@ -903,7 +940,8 @@
    "title": "involutions",
    "kind": "pdf",
    "pages": 8,
-   "size": 241516
+   "size": 241516,
+   "date": "2026-09-15"
   },
   {
    "path": "tex/documents/zachet/matchings.pdf",
@@ -911,7 +949,8 @@
    "title": "matchings",
    "kind": "pdf",
    "pages": 8,
-   "size": 307419
+   "size": 307419,
+   "date": "2026-09-07"
   },
   {
    "path": "tex/documents/zachet/planar.pdf",
@@ -919,7 +958,8 @@
    "title": "planar",
    "kind": "pdf",
    "pages": 6,
-   "size": 211427
+   "size": 211427,
+   "date": "2026-09-09"
   },
   {
    "path": "tex/documents/zachet/polynomials.pdf",
@@ -927,7 +967,8 @@
    "title": "polynomials",
    "kind": "pdf",
    "pages": 11,
-   "size": 364864
+   "size": 364864,
+   "date": "2026-09-21"
   },
   {
    "path": "tex/documents/zachet/probability.pdf",
@@ -935,7 +976,8 @@
    "title": "probability",
    "kind": "pdf",
    "pages": 13,
-   "size": 385617
+   "size": 385617,
+   "date": "2026-09-10"
   },
   {
    "path": "tex/documents/zachet/probability_figs.pdf",
@@ -943,7 +985,8 @@
    "title": "probability_figs",
    "kind": "pdf",
    "pages": 9,
-   "size": 86090
+   "size": 86090,
+   "date": "2026-09-10"
   },
   {
    "path": "tex/documents/zachet/reconstruction.pdf",
@@ -951,7 +994,8 @@
    "title": "reconstruction",
    "kind": "pdf",
    "pages": 8,
-   "size": 325903
+   "size": 325903,
+   "date": "2026-09-20"
   },
   {
    "path": "tex/documents/zachet/recurrence.pdf",
@@ -959,7 +1003,8 @@
    "title": "recurrence",
    "kind": "pdf",
    "pages": 5,
-   "size": 269872
+   "size": 269872,
+   "date": "2026-09-14"
   },
   {
    "path": "tex/documents/zachet/scalar.pdf",
@@ -967,7 +1012,8 @@
    "title": "scalar",
    "kind": "pdf",
    "pages": 9,
-   "size": 321004
+   "size": 321004,
+   "date": "2026-09-10"
   },
   {
    "path": "tex/documents/zachet/taylor.pdf",
@@ -975,7 +1021,8 @@
    "title": "taylor",
    "kind": "pdf",
    "pages": 10,
-   "size": 399348
+   "size": 399348,
+   "date": "2026-09-07"
   },
   {
    "path": "tex/documents/zachet/voprosy.pdf",
@@ -983,7 +1030,8 @@
    "title": "voprosy",
    "kind": "pdf",
    "pages": 0,
-   "size": 160715
+   "size": 160715,
+   "date": "2026-09-10"
   },
   {
    "path": "tutoring/listki/kombinatorika-dz-razbor.pdf",
@@ -991,7 +1039,8 @@
    "title": "kombinatorika-dz-razbor",
    "kind": "pdf",
    "pages": 6,
-   "size": 231827
+   "size": 231827,
+   "date": "2026-09-30"
   },
   {
    "path": "tutoring/listki/kombinatorika-dz.pdf",
@@ -999,7 +1048,8 @@
    "title": "kombinatorika-dz",
    "kind": "pdf",
    "pages": 3,
-   "size": 153394
+   "size": 153394,
+   "date": "2026-09-16"
   },
   {
    "path": "tutoring/listki/kombinatorika-ogranicheniya-dz.pdf",
@@ -1007,7 +1057,8 @@
    "title": "kombinatorika-ogranicheniya-dz",
    "kind": "pdf",
    "pages": 2,
-   "size": 145071
+   "size": 145071,
+   "date": "2026-09-27"
   },
   {
    "path": "tutoring/listki/kombinatorika-ogranicheniya-razbor.pdf",
@@ -1015,7 +1066,8 @@
    "title": "kombinatorika-ogranicheniya-razbor",
    "kind": "pdf",
    "pages": 3,
-   "size": 202766
+   "size": 202766,
+   "date": "2026-09-27"
   },
   {
    "path": "tutoring/listki/kombinatorika-ogranicheniya.pdf",
@@ -1023,7 +1075,8 @@
    "title": "kombinatorika-ogranicheniya",
    "kind": "pdf",
    "pages": 2,
-   "size": 168896
+   "size": 168896,
+   "date": "2026-09-27"
   },
   {
    "path": "tutoring/listki/kombinatorika-razbor.pdf",
@@ -1031,7 +1084,8 @@
    "title": "kombinatorika-razbor",
    "kind": "pdf",
    "pages": 4,
-   "size": 207280
+   "size": 207280,
+   "date": "2026-09-16"
   },
   {
    "path": "tutoring/listki/kombinatorika.pdf",
@@ -1039,7 +1093,8 @@
    "title": "kombinatorika",
    "kind": "pdf",
    "pages": 3,
-   "size": 181452
+   "size": 181452,
+   "date": "2026-09-16"
   },
   {
    "path": "tutoring/listki/parametr-dz-01.pdf",
@@ -1047,7 +1102,8 @@
    "title": "parametr-dz-01",
    "kind": "pdf",
    "pages": 3,
-   "size": 235714
+   "size": 235714,
+   "date": "2026-09-20"
   },
   {
    "path": "tutoring/listki/parametr-zanyatie-01-razbor.pdf",
@@ -1055,7 +1111,8 @@
    "title": "parametr-zanyatie-01-razbor",
    "kind": "pdf",
    "pages": 3,
-   "size": 153781
+   "size": 153781,
+   "date": "2026-09-20"
   },
   {
    "path": "tutoring/listki/parametr.pdf",
@@ -1063,7 +1120,8 @@
    "title": "parametr",
    "kind": "pdf",
    "pages": 9,
-   "size": 281864
+   "size": 281864,
+   "date": "2026-09-20"
   },
   {
    "path": "tutoring/listki/planimetriya.pdf",
@@ -1071,7 +1129,8 @@
    "title": "planimetriya",
    "kind": "pdf",
    "pages": 11,
-   "size": 287293
+   "size": 287293,
+   "date": "2026-09-23"
   },
   {
    "path": "tutoring/listki/probnoe-fiztekh-10-razbor.pdf",
@@ -1079,7 +1138,8 @@
    "title": "probnoe-fiztekh-10-razbor",
    "kind": "pdf",
    "pages": 6,
-   "size": 252250
+   "size": 252250,
+   "date": "2026-09-13"
   },
   {
    "path": "tutoring/listki/probnoe-fiztekh-10.pdf",
@@ -1087,7 +1147,8 @@
    "title": "probnoe-fiztekh-10",
    "kind": "pdf",
    "pages": 4,
-   "size": 161133
+   "size": 161133,
+   "date": "2026-09-13"
   },
   {
    "path": "tutoring/listki/probnoe-vsosh-11.pdf",
@@ -1095,7 +1156,8 @@
    "title": "probnoe-vsosh-11",
    "kind": "pdf",
    "pages": 2,
-   "size": 124197
+   "size": 124197,
+   "date": "2026-09-28"
   },
   {
    "path": "tutoring/listki/sravneniya-dz.pdf",
@@ -1103,7 +1165,8 @@
    "title": "sravneniya-dz",
    "kind": "pdf",
    "pages": 2,
-   "size": 162728
+   "size": 162728,
+   "date": "2026-10-04"
   },
   {
    "path": "tutoring/listki/sravneniya-razbor.pdf",
@@ -1111,7 +1174,8 @@
    "title": "sravneniya-razbor",
    "kind": "pdf",
    "pages": 4,
-   "size": 200961
+   "size": 200961,
+   "date": "2026-10-04"
   },
   {
    "path": "tutoring/listki/sravneniya.pdf",
@@ -1119,7 +1183,8 @@
    "title": "sravneniya",
    "kind": "pdf",
    "pages": 2,
-   "size": 155389
+   "size": 155389,
+   "date": "2026-10-04"
   },
   {
    "path": "tutoring/listki/trehchlen-razbor.pdf",
@@ -1127,7 +1192,8 @@
    "title": "trehchlen-razbor",
    "kind": "pdf",
    "pages": 9,
-   "size": 231085
+   "size": 231085,
+   "date": "2026-10-06"
   },
   {
    "path": "tutoring/listki/trehchlen.pdf",
@@ -1135,7 +1201,8 @@
    "title": "trehchlen",
    "kind": "pdf",
    "pages": 5,
-   "size": 173393
+   "size": 173393,
+   "date": "2026-10-06"
   }
  ],
  "tex": [
@@ -1161,7 +1228,8 @@
    "group": "kanal",
    "pdf": "tex/documents/kanal/rotating-liquid.pdf",
    "num": "",
-   "date": "2026-10-06"
+   "date": "2026-10-06",
+   "thumb": "data/thumbs/tex/documents/kanal/rotating-liquid.jpg"
   },
   {
    "title": "Линейные модели",
@@ -1169,7 +1237,8 @@
    "group": "ml",
    "pdf": "tex/documents/ml/lineynye-modeli.pdf",
    "num": "",
-   "date": "2026-10-07"
+   "date": "2026-10-07",
+   "thumb": "data/thumbs/tex/documents/ml/lineynye-modeli.jpg"
   },
   {
    "title": "NumPy и pandas",
@@ -1177,7 +1246,8 @@
    "group": "ml",
    "pdf": "tex/documents/ml/numpy-pandas.pdf",
    "num": "",
-   "date": "2026-10-07"
+   "date": "2026-10-07",
+   "thumb": "data/thumbs/tex/documents/ml/numpy-pandas.jpg"
   },
   {
    "title": "Интегралы и первообразные личная версия",
@@ -1561,7 +1631,8 @@
    "group": "tutoring",
    "pdf": "tutoring/listki/trehchlen.pdf",
    "num": "",
-   "date": "2026-10-06"
+   "date": "2026-10-06",
+   "thumb": "data/thumbs/tutoring/listki/trehchlen.jpg"
   },
   {
    "title": "Квадратный трёхчлен",
@@ -1569,7 +1640,8 @@
    "group": "tutoring",
    "pdf": "tutoring/listki/trehchlen-razbor.pdf",
    "num": "",
-   "date": "2026-10-06"
+   "date": "2026-10-06",
+   "thumb": "data/thumbs/tutoring/listki/trehchlen-razbor.jpg"
   },
   {
    "title": "Серия 1. Точечные заряды",
