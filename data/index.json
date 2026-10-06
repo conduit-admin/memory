@@ -70,6 +70,19 @@
    "links": []
   },
   {
+   "path": "ml/kruzhok.md",
+   "folder": "ml",
+   "title": "Кружок по ML",
+   "fm": {
+    "type": "kruzhok",
+    "kratko": "занятия кружка ML — шпаргалки и домашки"
+   },
+   "links": [
+    "lineynye-modeli",
+    "numpy-pandas"
+   ]
+  },
+  {
    "path": "ml/README.md",
    "folder": "ml",
    "title": "ML и программирование",
@@ -457,6 +470,13 @@
    "links": []
   },
   {
+   "path": "tex/documents/ml/README.md",
+   "folder": "tex/documents/ml",
+   "title": "Шпаргалки кружка ML",
+   "fm": {},
+   "links": []
+  },
+  {
    "path": "tex/documents/zachet/README.md",
    "folder": "tex/documents/zachet",
    "title": "Зачёт: ответы на вопросы",
@@ -700,6 +720,22 @@
    "kind": "pdf",
    "pages": 6,
    "size": 236346
+  },
+  {
+   "path": "tex/documents/ml/lineynye-modeli.pdf",
+   "folder": "tex/documents/ml",
+   "title": "lineynye-modeli",
+   "kind": "pdf",
+   "pages": 11,
+   "size": 282147
+  },
+  {
+   "path": "tex/documents/ml/numpy-pandas.pdf",
+   "folder": "tex/documents/ml",
+   "title": "numpy-pandas",
+   "kind": "pdf",
+   "pages": 9,
+   "size": 313004
   },
   {
    "path": "tex/documents/oscillations.pdf",
@@ -1126,6 +1162,22 @@
    "pdf": "tex/documents/kanal/rotating-liquid.pdf",
    "num": "",
    "date": "2026-10-06"
+  },
+  {
+   "title": "Линейные модели",
+   "tex": "lineynye-modeli.tex",
+   "group": "ml",
+   "pdf": "tex/documents/ml/lineynye-modeli.pdf",
+   "num": "",
+   "date": "2026-10-07"
+  },
+  {
+   "title": "NumPy и pandas",
+   "tex": "numpy-pandas.tex",
+   "group": "ml",
+   "pdf": "tex/documents/ml/numpy-pandas.pdf",
+   "num": "",
+   "date": "2026-10-07"
   },
   {
    "title": "Интегралы и первообразные личная версия",
