@@ -1107,325 +1107,440 @@
    "title": "Задача о курсоре",
    "tex": "cursor.tex",
    "group": "",
-   "pdf": "tex/documents/cursor.pdf"
+   "pdf": "tex/documents/cursor.pdf",
+   "num": "",
+   "date": "2026-09-06"
   },
   {
    "title": "Колебательное движение",
    "tex": "oscillations.tex",
    "group": "",
-   "pdf": "tex/documents/oscillations.pdf"
+   "pdf": "tex/documents/oscillations.pdf",
+   "num": "",
+   "date": "2026-09-10"
   },
   {
    "title": "Вращение жидкости",
    "tex": "rotating-liquid.tex",
    "group": "kanal",
-   "pdf": "tex/documents/kanal/rotating-liquid.pdf"
+   "pdf": "tex/documents/kanal/rotating-liquid.pdf",
+   "num": "",
+   "date": "2026-10-06"
   },
   {
    "title": "Интегралы и первообразные личная версия",
    "tex": "integrals-annotated.tex",
    "group": "zachet",
-   "pdf": "tex/documents/zachet/integrals-annotated.pdf"
+   "pdf": "tex/documents/zachet/integrals-annotated.pdf",
+   "num": "1.1",
+   "date": "2026-09-25"
   },
   {
    "title": "Интегралы и первообразные",
    "tex": "integrals.tex",
    "group": "zachet",
-   "pdf": "tex/documents/zachet/integrals.pdf"
+   "pdf": "tex/documents/zachet/integrals.pdf",
+   "num": "1.1",
+   "date": "2026-09-07"
   },
   {
    "title": "Формула Тейлора, ряды и прочие пределы",
    "tex": "taylor.tex",
    "group": "zachet",
-   "pdf": "tex/documents/zachet/taylor.pdf"
+   "pdf": "tex/documents/zachet/taylor.pdf",
+   "num": "1.2",
+   "date": "2026-09-07"
   },
   {
    "title": "Математический анализ и неравенства. Разное",
    "tex": "analysis-misc.tex",
    "group": "zachet",
-   "pdf": "tex/documents/zachet/analysis-misc.pdf"
+   "pdf": "tex/documents/zachet/analysis-misc.pdf",
+   "num": "1.3",
+   "date": "2026-09-13"
   },
   {
    "title": "Проективные инволюции",
    "tex": "involutions.tex",
    "group": "zachet",
-   "pdf": "tex/documents/zachet/involutions.pdf"
+   "pdf": "tex/documents/zachet/involutions.pdf",
+   "num": "2.1",
+   "date": "2026-09-15"
   },
   {
    "title": "Барицентрические координаты",
    "tex": "barycentric.tex",
    "group": "zachet",
-   "pdf": "tex/documents/zachet/barycentric.pdf"
+   "pdf": "tex/documents/zachet/barycentric.pdf",
+   "num": "2.2",
+   "date": "2026-09-15"
   },
   {
    "title": "Разные геометрические факты",
    "tex": "geometry-misc.tex",
    "group": "zachet",
-   "pdf": "tex/documents/zachet/geometry-misc.pdf"
+   "pdf": "tex/documents/zachet/geometry-misc.pdf",
+   "num": "2.3",
+   "date": "2026-09-21"
   },
   {
    "title": "Комбинаторная геометрия",
    "tex": "combgeom.tex",
    "group": "zachet",
-   "pdf": "tex/documents/zachet/combgeom.pdf"
+   "pdf": "tex/documents/zachet/combgeom.pdf",
+   "num": "2.4",
+   "date": "2026-09-17"
   },
   {
    "title": "Гомоморфизм колец",
    "tex": "homomorphism.tex",
    "group": "zachet",
-   "pdf": "tex/documents/zachet/homomorphism.pdf"
+   "pdf": "tex/documents/zachet/homomorphism.pdf",
+   "num": "3.1",
+   "date": "2026-09-14"
   },
   {
    "title": "Факториальные и евклидовы кольца",
    "tex": "factorial.tex",
    "group": "zachet",
-   "pdf": "tex/documents/zachet/factorial.pdf"
+   "pdf": "tex/documents/zachet/factorial.pdf",
+   "num": "3.2",
+   "date": "2026-09-14"
   },
   {
    "title": "Многочлены",
    "tex": "polynomials.tex",
    "group": "zachet",
-   "pdf": "tex/documents/zachet/polynomials.pdf"
+   "pdf": "tex/documents/zachet/polynomials.pdf",
+   "num": "3.3",
+   "date": "2026-09-21"
   },
   {
    "title": "Линейные рекуррентные соотношения",
    "tex": "recurrence.tex",
    "group": "zachet",
-   "pdf": "tex/documents/zachet/recurrence.pdf"
+   "pdf": "tex/documents/zachet/recurrence.pdf",
+   "num": "3.4",
+   "date": "2026-09-14"
   },
   {
    "title": "Скалярное произведение",
    "tex": "scalar.tex",
    "group": "zachet",
-   "pdf": "tex/documents/zachet/scalar.pdf"
+   "pdf": "tex/documents/zachet/scalar.pdf",
+   "num": "3.5",
+   "date": "2026-09-10"
   },
   {
    "title": "Поля частных. Дробно-рациональные функции",
    "tex": "fractions.tex",
    "group": "zachet",
-   "pdf": "tex/documents/zachet/fractions.pdf"
+   "pdf": "tex/documents/zachet/fractions.pdf",
+   "num": "3.6",
+   "date": "2026-09-14"
   },
   {
    "title": "Гауссовы числа",
    "tex": "gauss.tex",
    "group": "zachet",
-   "pdf": "tex/documents/zachet/gauss.pdf"
+   "pdf": "tex/documents/zachet/gauss.pdf",
+   "num": "3.7",
+   "date": "2026-09-14"
   },
   {
    "title": "Разная теория чисел",
    "tex": "algebra-misc.tex",
    "group": "zachet",
-   "pdf": "tex/documents/zachet/algebra-misc.pdf"
+   "pdf": "tex/documents/zachet/algebra-misc.pdf",
+   "num": "3.8",
+   "date": "2026-09-13"
   },
   {
    "title": "Формальные степенные ряды и производящие функции",
    "tex": "genfunc.tex",
    "group": "zachet",
-   "pdf": "tex/documents/zachet/genfunc.pdf"
+   "pdf": "tex/documents/zachet/genfunc.pdf",
+   "num": "3.9",
+   "date": "2026-09-19"
   },
   {
    "title": "Комбинаторика и теория вероятностей. Разное",
    "tex": "combinatorics-misc.tex",
    "group": "zachet",
-   "pdf": "tex/documents/zachet/combinatorics-misc.pdf"
+   "pdf": "tex/documents/zachet/combinatorics-misc.pdf",
+   "num": "4.1",
+   "date": "2026-09-15"
   },
   {
    "title": "Дискретная вероятность",
    "tex": "probability.tex",
    "group": "zachet",
-   "pdf": "tex/documents/zachet/probability.pdf"
+   "pdf": "tex/documents/zachet/probability.pdf",
+   "num": "4.2",
+   "date": "2026-09-10"
   },
   {
    "title": "Паросочетания",
    "tex": "matchings.tex",
    "group": "zachet",
-   "pdf": "tex/documents/zachet/matchings.pdf"
+   "pdf": "tex/documents/zachet/matchings.pdf",
+   "num": "5.1",
+   "date": "2026-09-07"
   },
   {
    "title": "Сети и потоки",
    "tex": "flows.tex",
    "group": "zachet",
-   "pdf": "tex/documents/zachet/flows.pdf"
+   "pdf": "tex/documents/zachet/flows.pdf",
+   "num": "5.2",
+   "date": "2026-09-08"
   },
   {
    "title": "Орграфы",
    "tex": "digraph.tex",
    "group": "zachet",
-   "pdf": "tex/documents/zachet/digraph.pdf"
+   "pdf": "tex/documents/zachet/digraph.pdf",
+   "num": "5.3",
+   "date": "2026-09-07"
   },
   {
    "title": "Связность",
    "tex": "connectivity.tex",
    "group": "zachet",
-   "pdf": "tex/documents/zachet/connectivity.pdf"
+   "pdf": "tex/documents/zachet/connectivity.pdf",
+   "num": "5.4",
+   "date": "2026-09-15"
   },
   {
    "title": "Восстановление графов",
    "tex": "reconstruction.tex",
    "group": "zachet",
-   "pdf": "tex/documents/zachet/reconstruction.pdf"
+   "pdf": "tex/documents/zachet/reconstruction.pdf",
+   "num": "5.5",
+   "date": "2026-09-20"
   },
   {
    "title": "Планарные графы",
    "tex": "planar.tex",
    "group": "zachet",
-   "pdf": "tex/documents/zachet/planar.pdf"
+   "pdf": "tex/documents/zachet/planar.pdf",
+   "num": "5.6",
+   "date": "2026-09-09"
   },
   {
    "title": "Раскраски рёбер",
    "tex": "edgecoloring.tex",
    "group": "zachet",
-   "pdf": "tex/documents/zachet/edgecoloring.pdf"
+   "pdf": "tex/documents/zachet/edgecoloring.pdf",
+   "num": "5.7",
+   "date": "2026-09-15"
   },
   {
    "title": "Разрезы и бонды",
    "tex": "bonds.tex",
    "group": "zachet",
-   "pdf": "tex/documents/zachet/bonds.pdf"
+   "pdf": "tex/documents/zachet/bonds.pdf",
+   "num": "5.8",
+   "date": "2026-09-15"
   },
   {
    "title": "Теория графов. Разное",
    "tex": "graphs-misc.tex",
    "group": "zachet",
-   "pdf": "tex/documents/zachet/graphs-misc.pdf"
+   "pdf": "tex/documents/zachet/graphs-misc.pdf",
+   "num": "5.9",
+   "date": "2026-09-13"
   },
   {
    "title": "Комбинаторика: два правила, сочетания, дополнение",
    "tex": "kombinatorika.tex",
    "group": "tutoring",
-   "pdf": "tutoring/listki/kombinatorika.pdf"
+   "pdf": "tutoring/listki/kombinatorika.pdf",
+   "num": "",
+   "date": "2026-09-16"
   },
   {
    "title": "Комбинаторика: домашняя работа",
    "tex": "kombinatorika-dz.tex",
    "group": "tutoring",
-   "pdf": "tutoring/listki/kombinatorika-dz.pdf"
+   "pdf": "tutoring/listki/kombinatorika-dz.pdf",
+   "num": "",
+   "date": "2026-09-16"
   },
   {
    "title": "Разбор: комбинаторика, домашняя работа",
    "tex": "kombinatorika-dz-razbor.tex",
    "group": "tutoring",
-   "pdf": "tutoring/listki/kombinatorika-dz-razbor.pdf"
+   "pdf": "tutoring/listki/kombinatorika-dz-razbor.pdf",
+   "num": "",
+   "date": "2026-09-30"
   },
   {
    "title": "Комбинаторика: подсчёт с ограничениями",
    "tex": "kombinatorika-ogranicheniya.tex",
    "group": "tutoring",
-   "pdf": "tutoring/listki/kombinatorika-ogranicheniya.pdf"
+   "pdf": "tutoring/listki/kombinatorika-ogranicheniya.pdf",
+   "num": "",
+   "date": "2026-09-27"
   },
   {
    "title": "Комбинаторика: домашняя работа 2",
    "tex": "kombinatorika-ogranicheniya-dz.tex",
    "group": "tutoring",
-   "pdf": "tutoring/listki/kombinatorika-ogranicheniya-dz.pdf"
+   "pdf": "tutoring/listki/kombinatorika-ogranicheniya-dz.pdf",
+   "num": "",
+   "date": "2026-09-27"
   },
   {
    "title": "Разбор: подсчёт с ограничениями",
    "tex": "kombinatorika-ogranicheniya-razbor.tex",
    "group": "tutoring",
-   "pdf": "tutoring/listki/kombinatorika-ogranicheniya-razbor.pdf"
+   "pdf": "tutoring/listki/kombinatorika-ogranicheniya-razbor.pdf",
+   "num": "",
+   "date": "2026-09-27"
   },
   {
    "title": "Разбор: комбинаторика",
    "tex": "kombinatorika-razbor.tex",
    "group": "tutoring",
-   "pdf": "tutoring/listki/kombinatorika-razbor.pdf"
+   "pdf": "tutoring/listki/kombinatorika-razbor.pdf",
+   "num": "",
+   "date": "2026-09-16"
   },
   {
    "title": "Параметр: картинка вместо перебора",
    "tex": "parametr.tex",
    "group": "tutoring",
-   "pdf": "tutoring/listki/parametr.pdf"
+   "pdf": "tutoring/listki/parametr.pdf",
+   "num": "",
+   "date": "2026-09-20"
   },
   {
    "title": "Параметр: домашняя работа 1",
    "tex": "parametr-dz-01.tex",
    "group": "tutoring",
-   "pdf": "tutoring/listki/parametr-dz-01.pdf"
+   "pdf": "tutoring/listki/parametr-dz-01.pdf",
+   "num": "",
+   "date": "2026-09-20"
   },
   {
    "title": "Разбор: параметр, занятие 1",
    "tex": "parametr-zanyatie-01-razbor.tex",
    "group": "tutoring",
-   "pdf": "tutoring/listki/parametr-zanyatie-01-razbor.pdf"
+   "pdf": "tutoring/listki/parametr-zanyatie-01-razbor.pdf",
+   "num": "",
+   "date": "2026-09-20"
   },
   {
    "title": "Планиметрия: от чертежа к числу",
    "tex": "planimetriya.tex",
    "group": "tutoring",
-   "pdf": "tutoring/listki/planimetriya.pdf"
+   "pdf": "tutoring/listki/planimetriya.pdf",
+   "num": "",
+   "date": "2026-09-23"
   },
   {
    "title": "Планиметрия: от чертежа к числу~--- ответы и диагностика",
    "tex": "planimetriya-otvety.tex",
    "group": "tutoring",
-   "pdf": ""
+   "pdf": "",
+   "num": "",
+   "date": "2026-09-23"
   },
   {
    "title": "Пробное занятие: Физтех",
    "tex": "probnoe-fiztekh-10.tex",
    "group": "tutoring",
-   "pdf": "tutoring/listki/probnoe-fiztekh-10.pdf"
+   "pdf": "tutoring/listki/probnoe-fiztekh-10.pdf",
+   "num": "",
+   "date": "2026-09-13"
   },
   {
    "title": "Разбор: Физтех",
    "tex": "probnoe-fiztekh-10-razbor.tex",
    "group": "tutoring",
-   "pdf": "tutoring/listki/probnoe-fiztekh-10-razbor.pdf"
+   "pdf": "tutoring/listki/probnoe-fiztekh-10-razbor.pdf",
+   "num": "",
+   "date": "2026-09-13"
   },
   {
    "title": "Пробное занятие: ВсОШ",
    "tex": "probnoe-vsosh-11.tex",
    "group": "tutoring",
-   "pdf": "tutoring/listki/probnoe-vsosh-11.pdf"
+   "pdf": "tutoring/listki/probnoe-vsosh-11.pdf",
+   "num": "",
+   "date": "2026-09-28"
   },
   {
    "title": "Пробное занятие: ВсОШ~--- ответы и диагностика",
    "tex": "probnoe-vsosh-11-otvety.tex",
    "group": "tutoring",
-   "pdf": ""
+   "pdf": "",
+   "num": "",
+   "date": "2026-09-28"
   },
   {
    "title": "Сравнения по модулю",
    "tex": "sravneniya.tex",
    "group": "tutoring",
-   "pdf": "tutoring/listki/sravneniya.pdf"
+   "pdf": "tutoring/listki/sravneniya.pdf",
+   "num": "",
+   "date": "2026-10-04"
   },
   {
    "title": "Сравнения по модулю: домашняя работа",
    "tex": "sravneniya-dz.tex",
    "group": "tutoring",
-   "pdf": "tutoring/listki/sravneniya-dz.pdf"
+   "pdf": "tutoring/listki/sravneniya-dz.pdf",
+   "num": "",
+   "date": "2026-10-04"
   },
   {
    "title": "Разбор: сравнения по модулю",
    "tex": "sravneniya-razbor.tex",
    "group": "tutoring",
-   "pdf": "tutoring/listki/sravneniya-razbor.pdf"
+   "pdf": "tutoring/listki/sravneniya-razbor.pdf",
+   "num": "",
+   "date": "2026-10-04"
   },
   {
    "title": "Квадратный трёхчлен",
    "tex": "trehchlen.tex",
    "group": "tutoring",
-   "pdf": "tutoring/listki/trehchlen.pdf"
+   "pdf": "tutoring/listki/trehchlen.pdf",
+   "num": "",
+   "date": "2026-10-06"
   },
   {
    "title": "Квадратный трёхчлен",
    "tex": "trehchlen-razbor.tex",
    "group": "tutoring",
-   "pdf": "tutoring/listki/trehchlen-razbor.pdf"
+   "pdf": "tutoring/listki/trehchlen-razbor.pdf",
+   "num": "",
+   "date": "2026-10-06"
   },
   {
    "title": "Серия 1. Точечные заряды",
    "tex": "seriya-01.tex",
    "group": "physics/serii",
-   "pdf": "physics/listki/serii/seriya-01.pdf"
+   "pdf": "physics/listki/serii/seriya-01.pdf",
+   "num": "",
+   "date": "2026-10-04"
   },
   {
    "title": "Теория: электростатика",
    "tex": "elektrostatika-teoriya.tex",
    "group": "physics/teoriya",
-   "pdf": "physics/listki/teoriya/elektrostatika-teoriya.pdf"
+   "pdf": "physics/listki/teoriya/elektrostatika-teoriya.pdf",
+   "num": "",
+   "date": "2026-10-04"
   }
- ]
+ ],
+ "zachet": {
+  "1": "Математический анализ и неравенства",
+  "2": "Геометрия",
+  "3": "Алгебра и теория чисел",
+  "4": "Комбинаторика и теория вероятностей",
+  "5": "Теория графов"
+ }
 }
