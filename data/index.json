@@ -699,7 +699,7 @@
    "title": "rotating-liquid",
    "kind": "pdf",
    "pages": 6,
-   "size": 236349
+   "size": 243043
   },
   {
    "path": "tex/documents/oscillations.pdf",
@@ -1091,7 +1091,7 @@
    "title": "trehchlen",
    "kind": "pdf",
    "pages": 5,
-   "size": 198454
+   "size": 201506
   }
  ],
  "tex": [
@@ -1108,7 +1108,7 @@
    "pdf": "tex/documents/oscillations.pdf"
   },
   {
-   "title": "rotating-liquid",
+   "title": "Вращение жидкости",
    "tex": "rotating-liquid.tex",
    "group": "kanal",
    "pdf": "tex/documents/kanal/rotating-liquid.pdf"
