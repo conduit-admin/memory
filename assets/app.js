@@ -340,13 +340,6 @@
     return m ? m[3] + "." + m[2] : "";
   }
 
-  function toRoman(n) {
-    var out = "";
-    [[10, "X"], [9, "IX"], [5, "V"], [4, "IV"], [1, "I"]].forEach(function (p) {
-      while (n >= p[0]) { out += p[1]; n -= p[0]; }
-    });
-    return out;
-  }
 
   function fileName(path) {
     return String(path).split("/").pop();
@@ -408,14 +401,12 @@
      в tex/, но живут во вкладке «ИИ» и красятся её цветом. */
   function docColor(d) {
     return sectionColor(d.group === "tutoring" ? "tutoring"
-      : (isPhysics(d) ? "physics" : (isMl(d) ? "ml"
-        : (d.group === "zachet" ? "math" : "tex"))));
+      : (isPhysics(d) ? "physics" : (isMl(d) ? "ml" : "tex")));
   }
 
   /* Что это за документ — одной строкой, для «Свежего» и поиска, где
      документы из всех разделов идут вперемешку и место их не объясняет. */
   function docKind(d) {
-    if (d.group === "zachet") return "Зачёт" + (d.num ? " · " + d.num : "");
     if (d.group === "tutoring") {
       return kindOf(d.tex.replace(/\.tex$/, "")).label + " · репетиторство";
     }
@@ -450,24 +441,6 @@
   function byVid(vid) {
     return DATA.notes.filter(function (n) { return n.fm.vid === vid; })
       .sort(function (a, b) { return a.title.localeCompare(b.title, "ru"); });
-  }
-
-  /* Зачёт — по разделам: номер подтемы берётся из первой строки исходника
-     («Зачёт, подтема 1.2»), название раздела — из заголовков math/zachet.md.
-     И то и другое собирает tools/publish.py, так что новый документ встаёт
-     в свой раздел сам. Документ без номера — в отдельную группу в конце. */
-  function zachetGroups(list, docs) {
-    var names = DATA.zachet || {};
-    function part(d) { return (d.num || "").split(".")[0]; }
-    var parts = [];
-    docs.forEach(function (d) { if (parts.indexOf(part(d)) < 0) parts.push(part(d)); });
-    parts.sort(function (a, b) { return (+a || 99) - (+b || 99); });
-    parts.forEach(function (k) {
-      var mine = docs.filter(function (d) { return part(d) === k; });
-      var title = k ? toRoman(+k) + ". " + (names[k] || "Раздел " + k) : "Без раздела";
-      var body = group(list, "zachet:" + k, title, files(mine.length));
-      mine.forEach(function (d) { row(body, pdfHref(d.pdf), d.title, { aside: d.num }); });
-    });
   }
 
   /* Репетиторство — по темам. Вид документа и тема читаются из имени файла,
@@ -555,7 +528,7 @@
   /* Свежее — пять последних изменённых файлов из всех разделов, наверху
      первой вкладки: открывая сайт, чаще всего ищут то, что появилось только
      что, — новую серию, новый листок. Заголовок тихий, без плашки: это
-     полка, а не раздел, и плашек на вкладке и так шесть. При равных датах
+     полка, а не раздел, и плашек на вкладке и так пять. При равных датах
      порядок как в списках. */
   var FRESH = 5;
 
@@ -638,20 +611,17 @@
     } else empty(list, "Сайтов пока нет.");
 
     /* Документы TeX. Список берётся прямо из файлов: исходник и собранный PDF
-       рядом. Группа документа — его папка, и три из них показаны своими
-       блоками: зачёт, листки репетиторства и всё остальное — статьи.
-       Документ без PDF здесь не показывается: открыть его нечем, а это
-       служебные ответы к листкам, которые наружу и не идут.
+       рядом. Группа документа — его папка: листки репетиторства — своим
+       блоком, всё остальное — статьи. Документ без PDF здесь не показывается:
+       открыть его нечем — это служебные ответы к листкам и всё, что выкладка
+       не отдаёт наружу.
 
-       Тона блоков все разные — соседние плашки одного оттенка сливаются,
-       и шесть блоков на вкладке требуют шести красок. */
+       Зачёта здесь нет с 2026-10-07: он прошёл, его документы — в архиве
+       на сайте кружка, а выкладка их больше не отдаёт (EXCLUDE_DIRS
+       в tools/publish.py).
+
+       Тона блоков все разные — соседние плашки одного оттенка сливаются. */
     var docs = (DATA.tex || []).filter(function (d) { return d.pdf; });
-
-    var zach = docs.filter(function (d) { return d.group === "zachet"; });
-    list = block(main, "Зачёт", "sheet", zach.length);
-    tocAdd(list, "Зачёт", zach.length);
-    zachetGroups(list, zach);
-    if (!zach.length) empty(list, "Документов пока нет.");
 
     var tut = docs.filter(function (d) { return d.group === "tutoring"; });
     list = block(main, "Репетиторство", "moss", tut.length);
@@ -665,8 +635,7 @@
        кода. Шпаргалки кружка ML (tex/documents/ml/) сюда не идут: они
        во вкладке «ИИ», как листки физики — во «Физике». */
     var rest = docs.filter(function (d) {
-      return d.group !== "zachet" && d.group !== "tutoring" && !isPhysics(d)
-        && !isMl(d);
+      return d.group !== "tutoring" && !isPhysics(d) && !isMl(d);
     });
     list = block(main, "Статьи", "rose", rest.length);
     tocAdd(list, "Статьи", rest.length);

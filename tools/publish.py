@@ -79,6 +79,10 @@ EXCLUDE_DIRS = (
     "tutoring/zanyatiya", # планы и отчёты занятий — про конкретного ученика
     "tutoring/olimpiady", # разбор формата олимпиады — рабочие заметки
     "shkola",             # школьные бумаги на печать, не для чтения с экрана
+    # Зачёт 26.09.2026 прошёл; его документы живут в архиве на сайте кружка
+    # (conduit-city-26, собирает .claude/meta/push-zachet.py), здесь их больше
+    # не выкладываем — владелец, 2026-10-07. Вернуть — убрать эту строку.
+    "tex/documents/zachet",
 )
 
 # Папки, из которых наружу идут только PDF: их markdown — рабочие записи
@@ -304,31 +308,6 @@ def file_date(rel, src):
     return day
 
 
-ROMAN = {"I": 1, "V": 5, "X": 10}
-
-
-def roman(s):
-    total = 0
-    for a, b in zip(s, s[1:] + " "):
-        v = ROMAN[a]
-        total += -v if ROMAN.get(b, 0) > v else v
-    return total
-
-
-def zachet_sections():
-    """Номер раздела зачёта → название, из заголовков math/zachet.md.
-
-    Заголовки там вида «### I. Математический анализ и неравенства». Новый
-    раздел появится на сайте сам, как только у него будет заголовок.
-    """
-    src = KNOWLEDGE / "math" / "zachet.md"
-    if not src.exists():
-        return {}
-    text = src.read_text(encoding="utf-8", errors="replace")
-    return {str(roman(m.group(1))): m.group(2).strip()
-            for m in re.finditer(r"^###\s+([IVX]+)\.\s+(.+)$", text, re.M)}
-
-
 def tex_documents():
     """Список документов: исходник и собранный PDF рядом.
 
@@ -551,8 +530,7 @@ def main():
     build = datetime.now().strftime("%Y%m%d%H%M")
 
     (HERE / "data" / "index.json").write_text(
-        json.dumps({"notes": notes, "files": files, "tex": tex,
-                    "zachet": zachet_sections()},
+        json.dumps({"notes": notes, "files": files, "tex": tex},
                    ensure_ascii=False, indent=1),
         encoding="utf-8", newline="\n")
 
