@@ -477,13 +477,6 @@
    "links": []
   },
   {
-   "path": "tex/documents/zachet/README.md",
-   "folder": "tex/documents/zachet",
-   "title": "Зачёт: ответы на вопросы",
-   "fm": {},
-   "links": []
-  },
-  {
    "path": "tex/README.md",
    "folder": "tex",
    "title": "LaTeX",
@@ -764,276 +757,6 @@
    "date": "2026-09-10"
   },
   {
-   "path": "tex/documents/zachet/algebra-misc.pdf",
-   "folder": "tex/documents/zachet",
-   "title": "algebra-misc",
-   "kind": "pdf",
-   "pages": 8,
-   "size": 295070,
-   "date": "2026-09-13"
-  },
-  {
-   "path": "tex/documents/zachet/analysis-misc.pdf",
-   "folder": "tex/documents/zachet",
-   "title": "analysis-misc",
-   "kind": "pdf",
-   "pages": 5,
-   "size": 262242,
-   "date": "2026-09-13"
-  },
-  {
-   "path": "tex/documents/zachet/barycentric.pdf",
-   "folder": "tex/documents/zachet",
-   "title": "barycentric",
-   "kind": "pdf",
-   "pages": 17,
-   "size": 358715,
-   "date": "2026-09-15"
-  },
-  {
-   "path": "tex/documents/zachet/bonds.pdf",
-   "folder": "tex/documents/zachet",
-   "title": "bonds",
-   "kind": "pdf",
-   "pages": 8,
-   "size": 305315,
-   "date": "2026-09-15"
-  },
-  {
-   "path": "tex/documents/zachet/combgeom.pdf",
-   "folder": "tex/documents/zachet",
-   "title": "combgeom",
-   "kind": "pdf",
-   "pages": 8,
-   "size": 293091,
-   "date": "2026-09-17"
-  },
-  {
-   "path": "tex/documents/zachet/combinatorics-misc.pdf",
-   "folder": "tex/documents/zachet",
-   "title": "combinatorics-misc",
-   "kind": "pdf",
-   "pages": 5,
-   "size": 267187,
-   "date": "2026-09-15"
-  },
-  {
-   "path": "tex/documents/zachet/connectivity.pdf",
-   "folder": "tex/documents/zachet",
-   "title": "connectivity",
-   "kind": "pdf",
-   "pages": 9,
-   "size": 316726,
-   "date": "2026-09-15"
-  },
-  {
-   "path": "tex/documents/zachet/digraph.pdf",
-   "folder": "tex/documents/zachet",
-   "title": "digraph",
-   "kind": "pdf",
-   "pages": 4,
-   "size": 209381,
-   "date": "2026-09-07"
-  },
-  {
-   "path": "tex/documents/zachet/edgecoloring.pdf",
-   "folder": "tex/documents/zachet",
-   "title": "edgecoloring",
-   "kind": "pdf",
-   "pages": 5,
-   "size": 249383,
-   "date": "2026-09-15"
-  },
-  {
-   "path": "tex/documents/zachet/factorial.pdf",
-   "folder": "tex/documents/zachet",
-   "title": "factorial",
-   "kind": "pdf",
-   "pages": 12,
-   "size": 331129,
-   "date": "2026-09-14"
-  },
-  {
-   "path": "tex/documents/zachet/flows.pdf",
-   "folder": "tex/documents/zachet",
-   "title": "flows",
-   "kind": "pdf",
-   "pages": 10,
-   "size": 343641,
-   "date": "2026-09-08"
-  },
-  {
-   "path": "tex/documents/zachet/fractions.pdf",
-   "folder": "tex/documents/zachet",
-   "title": "fractions",
-   "kind": "pdf",
-   "pages": 7,
-   "size": 295814,
-   "date": "2026-09-14"
-  },
-  {
-   "path": "tex/documents/zachet/gauss.pdf",
-   "folder": "tex/documents/zachet",
-   "title": "gauss",
-   "kind": "pdf",
-   "pages": 9,
-   "size": 346858,
-   "date": "2026-09-14"
-  },
-  {
-   "path": "tex/documents/zachet/genfunc.pdf",
-   "folder": "tex/documents/zachet",
-   "title": "genfunc",
-   "kind": "pdf",
-   "pages": 9,
-   "size": 378040,
-   "date": "2026-09-19"
-  },
-  {
-   "path": "tex/documents/zachet/geometry-misc.pdf",
-   "folder": "tex/documents/zachet",
-   "title": "geometry-misc",
-   "kind": "pdf",
-   "pages": 4,
-   "size": 218376,
-   "date": "2026-09-21"
-  },
-  {
-   "path": "tex/documents/zachet/graphs-misc.pdf",
-   "folder": "tex/documents/zachet",
-   "title": "graphs-misc",
-   "kind": "pdf",
-   "pages": 2,
-   "size": 197205,
-   "date": "2026-09-13"
-  },
-  {
-   "path": "tex/documents/zachet/homomorphism.pdf",
-   "folder": "tex/documents/zachet",
-   "title": "homomorphism",
-   "kind": "pdf",
-   "pages": 7,
-   "size": 255641,
-   "date": "2026-09-14"
-  },
-  {
-   "path": "tex/documents/zachet/integrals-annotated.pdf",
-   "folder": "tex/documents/zachet",
-   "title": "integrals-annotated",
-   "kind": "pdf",
-   "pages": 18,
-   "size": 421189,
-   "date": "2026-09-25"
-  },
-  {
-   "path": "tex/documents/zachet/integrals.pdf",
-   "folder": "tex/documents/zachet",
-   "title": "integrals",
-   "kind": "pdf",
-   "pages": 18,
-   "size": 414671,
-   "date": "2026-09-07"
-  },
-  {
-   "path": "tex/documents/zachet/involutions.pdf",
-   "folder": "tex/documents/zachet",
-   "title": "involutions",
-   "kind": "pdf",
-   "pages": 8,
-   "size": 241516,
-   "date": "2026-09-15"
-  },
-  {
-   "path": "tex/documents/zachet/matchings.pdf",
-   "folder": "tex/documents/zachet",
-   "title": "matchings",
-   "kind": "pdf",
-   "pages": 8,
-   "size": 307419,
-   "date": "2026-09-07"
-  },
-  {
-   "path": "tex/documents/zachet/planar.pdf",
-   "folder": "tex/documents/zachet",
-   "title": "planar",
-   "kind": "pdf",
-   "pages": 6,
-   "size": 211427,
-   "date": "2026-09-09"
-  },
-  {
-   "path": "tex/documents/zachet/polynomials.pdf",
-   "folder": "tex/documents/zachet",
-   "title": "polynomials",
-   "kind": "pdf",
-   "pages": 11,
-   "size": 364864,
-   "date": "2026-09-21"
-  },
-  {
-   "path": "tex/documents/zachet/probability.pdf",
-   "folder": "tex/documents/zachet",
-   "title": "probability",
-   "kind": "pdf",
-   "pages": 13,
-   "size": 385617,
-   "date": "2026-09-10"
-  },
-  {
-   "path": "tex/documents/zachet/probability_figs.pdf",
-   "folder": "tex/documents/zachet",
-   "title": "probability_figs",
-   "kind": "pdf",
-   "pages": 9,
-   "size": 86090,
-   "date": "2026-09-10"
-  },
-  {
-   "path": "tex/documents/zachet/reconstruction.pdf",
-   "folder": "tex/documents/zachet",
-   "title": "reconstruction",
-   "kind": "pdf",
-   "pages": 8,
-   "size": 325903,
-   "date": "2026-09-20"
-  },
-  {
-   "path": "tex/documents/zachet/recurrence.pdf",
-   "folder": "tex/documents/zachet",
-   "title": "recurrence",
-   "kind": "pdf",
-   "pages": 5,
-   "size": 269872,
-   "date": "2026-09-14"
-  },
-  {
-   "path": "tex/documents/zachet/scalar.pdf",
-   "folder": "tex/documents/zachet",
-   "title": "scalar",
-   "kind": "pdf",
-   "pages": 9,
-   "size": 321004,
-   "date": "2026-09-10"
-  },
-  {
-   "path": "tex/documents/zachet/taylor.pdf",
-   "folder": "tex/documents/zachet",
-   "title": "taylor",
-   "kind": "pdf",
-   "pages": 10,
-   "size": 399348,
-   "date": "2026-09-07"
-  },
-  {
-   "path": "tex/documents/zachet/voprosy.pdf",
-   "folder": "tex/documents/zachet",
-   "title": "voprosy",
-   "kind": "pdf",
-   "pages": 0,
-   "size": 160715,
-   "date": "2026-09-10"
-  },
-  {
    "path": "tutoring/listki/kombinatorika-dz-razbor.pdf",
    "folder": "tutoring/listki",
    "title": "kombinatorika-dz-razbor",
@@ -1253,7 +976,7 @@
    "title": "Интегралы и первообразные личная версия",
    "tex": "integrals-annotated.tex",
    "group": "zachet",
-   "pdf": "tex/documents/zachet/integrals-annotated.pdf",
+   "pdf": "",
    "num": "1.1",
    "date": "2026-09-25"
   },
@@ -1261,7 +984,7 @@
    "title": "Интегралы и первообразные",
    "tex": "integrals.tex",
    "group": "zachet",
-   "pdf": "tex/documents/zachet/integrals.pdf",
+   "pdf": "",
    "num": "1.1",
    "date": "2026-09-07"
   },
@@ -1269,7 +992,7 @@
    "title": "Формула Тейлора, ряды и прочие пределы",
    "tex": "taylor.tex",
    "group": "zachet",
-   "pdf": "tex/documents/zachet/taylor.pdf",
+   "pdf": "",
    "num": "1.2",
    "date": "2026-09-07"
   },
@@ -1277,7 +1000,7 @@
    "title": "Математический анализ и неравенства. Разное",
    "tex": "analysis-misc.tex",
    "group": "zachet",
-   "pdf": "tex/documents/zachet/analysis-misc.pdf",
+   "pdf": "",
    "num": "1.3",
    "date": "2026-09-13"
   },
@@ -1285,7 +1008,7 @@
    "title": "Проективные инволюции",
    "tex": "involutions.tex",
    "group": "zachet",
-   "pdf": "tex/documents/zachet/involutions.pdf",
+   "pdf": "",
    "num": "2.1",
    "date": "2026-09-15"
   },
@@ -1293,7 +1016,7 @@
    "title": "Барицентрические координаты",
    "tex": "barycentric.tex",
    "group": "zachet",
-   "pdf": "tex/documents/zachet/barycentric.pdf",
+   "pdf": "",
    "num": "2.2",
    "date": "2026-09-15"
   },
@@ -1301,7 +1024,7 @@
    "title": "Разные геометрические факты",
    "tex": "geometry-misc.tex",
    "group": "zachet",
-   "pdf": "tex/documents/zachet/geometry-misc.pdf",
+   "pdf": "",
    "num": "2.3",
    "date": "2026-09-21"
   },
@@ -1309,7 +1032,7 @@
    "title": "Комбинаторная геометрия",
    "tex": "combgeom.tex",
    "group": "zachet",
-   "pdf": "tex/documents/zachet/combgeom.pdf",
+   "pdf": "",
    "num": "2.4",
    "date": "2026-09-17"
   },
@@ -1317,7 +1040,7 @@
    "title": "Гомоморфизм колец",
    "tex": "homomorphism.tex",
    "group": "zachet",
-   "pdf": "tex/documents/zachet/homomorphism.pdf",
+   "pdf": "",
    "num": "3.1",
    "date": "2026-09-14"
   },
@@ -1325,7 +1048,7 @@
    "title": "Факториальные и евклидовы кольца",
    "tex": "factorial.tex",
    "group": "zachet",
-   "pdf": "tex/documents/zachet/factorial.pdf",
+   "pdf": "",
    "num": "3.2",
    "date": "2026-09-14"
   },
@@ -1333,7 +1056,7 @@
    "title": "Многочлены",
    "tex": "polynomials.tex",
    "group": "zachet",
-   "pdf": "tex/documents/zachet/polynomials.pdf",
+   "pdf": "",
    "num": "3.3",
    "date": "2026-09-21"
   },
@@ -1341,7 +1064,7 @@
    "title": "Линейные рекуррентные соотношения",
    "tex": "recurrence.tex",
    "group": "zachet",
-   "pdf": "tex/documents/zachet/recurrence.pdf",
+   "pdf": "",
    "num": "3.4",
    "date": "2026-09-14"
   },
@@ -1349,7 +1072,7 @@
    "title": "Скалярное произведение",
    "tex": "scalar.tex",
    "group": "zachet",
-   "pdf": "tex/documents/zachet/scalar.pdf",
+   "pdf": "",
    "num": "3.5",
    "date": "2026-09-10"
   },
@@ -1357,7 +1080,7 @@
    "title": "Поля частных. Дробно-рациональные функции",
    "tex": "fractions.tex",
    "group": "zachet",
-   "pdf": "tex/documents/zachet/fractions.pdf",
+   "pdf": "",
    "num": "3.6",
    "date": "2026-09-14"
   },
@@ -1365,7 +1088,7 @@
    "title": "Гауссовы числа",
    "tex": "gauss.tex",
    "group": "zachet",
-   "pdf": "tex/documents/zachet/gauss.pdf",
+   "pdf": "",
    "num": "3.7",
    "date": "2026-09-14"
   },
@@ -1373,7 +1096,7 @@
    "title": "Разная теория чисел",
    "tex": "algebra-misc.tex",
    "group": "zachet",
-   "pdf": "tex/documents/zachet/algebra-misc.pdf",
+   "pdf": "",
    "num": "3.8",
    "date": "2026-09-13"
   },
@@ -1381,7 +1104,7 @@
    "title": "Формальные степенные ряды и производящие функции",
    "tex": "genfunc.tex",
    "group": "zachet",
-   "pdf": "tex/documents/zachet/genfunc.pdf",
+   "pdf": "",
    "num": "3.9",
    "date": "2026-09-19"
   },
@@ -1389,7 +1112,7 @@
    "title": "Комбинаторика и теория вероятностей. Разное",
    "tex": "combinatorics-misc.tex",
    "group": "zachet",
-   "pdf": "tex/documents/zachet/combinatorics-misc.pdf",
+   "pdf": "",
    "num": "4.1",
    "date": "2026-09-15"
   },
@@ -1397,7 +1120,7 @@
    "title": "Дискретная вероятность",
    "tex": "probability.tex",
    "group": "zachet",
-   "pdf": "tex/documents/zachet/probability.pdf",
+   "pdf": "",
    "num": "4.2",
    "date": "2026-09-10"
   },
@@ -1405,7 +1128,7 @@
    "title": "Паросочетания",
    "tex": "matchings.tex",
    "group": "zachet",
-   "pdf": "tex/documents/zachet/matchings.pdf",
+   "pdf": "",
    "num": "5.1",
    "date": "2026-09-07"
   },
@@ -1413,7 +1136,7 @@
    "title": "Сети и потоки",
    "tex": "flows.tex",
    "group": "zachet",
-   "pdf": "tex/documents/zachet/flows.pdf",
+   "pdf": "",
    "num": "5.2",
    "date": "2026-09-08"
   },
@@ -1421,7 +1144,7 @@
    "title": "Орграфы",
    "tex": "digraph.tex",
    "group": "zachet",
-   "pdf": "tex/documents/zachet/digraph.pdf",
+   "pdf": "",
    "num": "5.3",
    "date": "2026-09-07"
   },
@@ -1429,7 +1152,7 @@
    "title": "Связность",
    "tex": "connectivity.tex",
    "group": "zachet",
-   "pdf": "tex/documents/zachet/connectivity.pdf",
+   "pdf": "",
    "num": "5.4",
    "date": "2026-09-15"
   },
@@ -1437,7 +1160,7 @@
    "title": "Восстановление графов",
    "tex": "reconstruction.tex",
    "group": "zachet",
-   "pdf": "tex/documents/zachet/reconstruction.pdf",
+   "pdf": "",
    "num": "5.5",
    "date": "2026-09-20"
   },
@@ -1445,7 +1168,7 @@
    "title": "Планарные графы",
    "tex": "planar.tex",
    "group": "zachet",
-   "pdf": "tex/documents/zachet/planar.pdf",
+   "pdf": "",
    "num": "5.6",
    "date": "2026-09-09"
   },
@@ -1453,7 +1176,7 @@
    "title": "Раскраски рёбер",
    "tex": "edgecoloring.tex",
    "group": "zachet",
-   "pdf": "tex/documents/zachet/edgecoloring.pdf",
+   "pdf": "",
    "num": "5.7",
    "date": "2026-09-15"
   },
@@ -1461,7 +1184,7 @@
    "title": "Разрезы и бонды",
    "tex": "bonds.tex",
    "group": "zachet",
-   "pdf": "tex/documents/zachet/bonds.pdf",
+   "pdf": "",
    "num": "5.8",
    "date": "2026-09-15"
   },
@@ -1469,7 +1192,7 @@
    "title": "Теория графов. Разное",
    "tex": "graphs-misc.tex",
    "group": "zachet",
-   "pdf": "tex/documents/zachet/graphs-misc.pdf",
+   "pdf": "",
    "num": "5.9",
    "date": "2026-09-13"
   },
@@ -1659,12 +1382,5 @@
    "num": "",
    "date": "2026-10-04"
   }
- ],
- "zachet": {
-  "1": "Математический анализ и неравенства",
-  "2": "Геометрия",
-  "3": "Алгебра и теория чисел",
-  "4": "Комбинаторика и теория вероятностей",
-  "5": "Теория графов"
- }
+ ]
 }
