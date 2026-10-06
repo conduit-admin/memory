@@ -1320,7 +1320,7 @@
   function enableTapFeedback() {
     document.addEventListener("pointerdown", function (e) {
       var node = e.target.closest &&
-        e.target.closest(".tab, .chip, a.card, a.back, a.ext, a.row, .group-head, .toc-pill");
+        e.target.closest(".tab, .chip, a.card, a.back, a.ext, a.row, .group-head, .toc-pill, a.brand");
       if (!node) return;
       node.classList.remove("tap");
       void node.offsetWidth;
