@@ -8,10 +8,15 @@
 <meta name="theme-color" content="#e4e7f2" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#06060b" media="(prefers-color-scheme: dark)">
 <link rel="manifest" href="manifest.webmanifest">
-<title>Хранилище</title>
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231f5673'/%3E%3Cpath d='M9 8h11a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H9z' fill='none' stroke='%23fcfcfb' stroke-width='2.6' stroke-linejoin='round'/%3E%3Cpath d='M9 8v18' stroke='%23fcfcfb' stroke-width='2.6' stroke-linecap='round'/%3E%3C/svg%3E">
+<title>Лучезарность</title>
+<!-- Значок вкладки — знак владельца, векторный, прямо в разметке: тот же
+     эталон manim/kanal/logo.svg. Иконки для домашнего экрана — PNG
+     в assets/icons/, нарисованы из тех же координат (2026-10-07). -->
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='50'/%3E%3Cg stroke='%23FDD17A' stroke-width='2.6'%3E%3Cline x1='50.0' y1='57.0' x2='50.0' y2='90.0'/%3E%3Cline x1='56.1' y1='53.5' x2='84.6' y2='70.0'/%3E%3Cline x1='57.0' y1='50.0' x2='80.0' y2='50.0'/%3E%3Cline x1='56.1' y1='46.5' x2='84.6' y2='30.0'/%3E%3Cline x1='53.5' y1='43.9' x2='65.0' y2='24.0'/%3E%3Cline x1='50.0' y1='43.0' x2='50.0' y2='10.0'/%3E%3Cline x1='46.5' y1='43.9' x2='35.0' y2='24.0'/%3E%3Cline x1='43.9' y1='46.5' x2='15.4' y2='30.0'/%3E%3Cline x1='43.0' y1='50.0' x2='20.0' y2='50.0'/%3E%3Cline x1='43.9' y1='53.5' x2='15.4' y2='70.0'/%3E%3C/g%3E%3Cg fill='%23fff'%3E%3Cpolygon points='50.0,50.0 61.5,76.3 73.0,89.8 67.0,73.1'/%3E%3Cpolygon points='50.0,50.0 33.0,73.1 27.0,89.8 38.5,76.3'/%3E%3Ccircle cx='50' cy='50' r='4.5'/%3E%3C/g%3E%3C/svg%3E">
+<link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-title" content="Лучезарность">
 <link rel="preload" href="assets/fonts/golos-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="assets/style.css?v=202610070102">
+<link rel="stylesheet" href="assets/style.css?v=202610070105">
 
 <!-- Единственное, что тянется со стороны: разбор markdown и вёрстка формул.
      Писать это руками — недели работы и свои же ошибки. Версии закреплены;
@@ -21,7 +26,7 @@
 <script defer src="https://cdnjs.cloudflare.com/ajax/libs/marked/12.0.2/marked.min.js"></script>
 <script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js"></script>
 
-<meta name="build" content="202610070102">
+<meta name="build" content="202610070105">
 </head>
 <body>
 <div class="wrap">
@@ -30,7 +35,7 @@
          в knowledge, перенесён как есть. Встроен в разметку, а не файлом: приходит
          вместе со страницей и не мигает пустым местом. Имя для читалки экрана —
          у ссылки, сам рисунок ей не читается. -->
-    <a class="brand" href="#/" aria-label="Хранилище">
+    <a class="brand" href="#/" aria-label="Лучезарность">
       <svg class="brand-logo" viewBox="0 0 100 100" aria-hidden="true" focusable="false">
         <circle cx="50" cy="50" r="50" fill="#000"/>
         <g stroke="#FDD17A" stroke-width="2.6">
@@ -80,6 +85,6 @@
     </div>
   </main>
 </div>
-<script defer src="assets/app.js?v=202610070102"></script>
+<script defer src="assets/app.js?v=202610070105"></script>
 </body>
 </html>
