@@ -727,7 +727,7 @@
    "title": "lineynye-modeli",
    "kind": "pdf",
    "pages": 11,
-   "size": 282147
+   "size": 282087
   },
   {
    "path": "tex/documents/ml/numpy-pandas.pdf",
@@ -735,7 +735,7 @@
    "title": "numpy-pandas",
    "kind": "pdf",
    "pages": 9,
-   "size": 313004
+   "size": 312998
   },
   {
    "path": "tex/documents/oscillations.pdf",
