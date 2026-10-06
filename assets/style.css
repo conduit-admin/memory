@@ -269,8 +269,9 @@ body {
 
 .topbar {
   display: flex;
-  align-items: baseline;
-  gap: 12px;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 12px;
   padding: 24px 0 16px;
 }
 
@@ -285,7 +286,62 @@ body {
   text-decoration: none;
 }
 
-.brand-sub { color: var(--ink-muted); font-size: 13px; }
+/* Поиск — справа от названия, тихим полем: подложка без рамки и тени, как
+   у пилюль оглавления, радиус полей 12. Высота — цель касания. Кегль 16:
+   мельче iOS на фокусе приближает страницу и не отдаёт обратно. На узком
+   экране поле занимает остаток строки, а если места нет совсем — уходит
+   под название целиком. Значок лупы нарисован рамками и берёт цвет текста,
+   поэтому верен в обеих темах без второго рисунка. */
+.search {
+  position: relative;
+  flex: 1 1 150px;
+  max-width: 300px;
+  margin: 0 0 0 auto;
+}
+
+.search::before, .search::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  color: var(--ink-muted);
+}
+
+.search::before {
+  left: 14px;
+  top: 50%;
+  width: 11px;
+  height: 11px;
+  margin-top: -8px;
+  border: 2px solid currentColor;
+  border-radius: 50%;
+}
+
+.search::after {
+  left: 25px;
+  top: 50%;
+  width: 6px;
+  height: 2px;
+  margin-top: 4px;
+  background: currentColor;
+  border-radius: 1px;
+  transform: rotate(45deg);
+}
+
+.search-input {
+  width: 100%;
+  min-height: var(--tap);
+  padding: 0 12px 0 38px;
+  border: 0;
+  border-radius: var(--radius-sm);
+  background: var(--quiet);
+  color: var(--ink);
+  font: 400 16px var(--font-ui);
+  transition: background-color .14s ease;
+}
+
+.search-input::placeholder { color: var(--ink-muted); }
+.search-input:hover, .search-input:focus { background: var(--quiet-on); }
+.search-input:focus-visible { outline: 2px solid var(--s1); outline-offset: 2px; }
 
 /* ── вкладки ───────────────────────────────────────────── */
 
@@ -613,6 +669,37 @@ body {
   border-radius: 50%;
   background: var(--dot, var(--s8));
 }
+
+/* Миниатюра первой страницы — у документов A5, где первая страница и есть
+   обложка. Бумага на любой теме белая, поэтому подложка белая, а край —
+   волосяной рамкой, не тенью: мелкому предмету объём не идёт. Радиус 4 —
+   угол листа, а не интерфейса: на прямоугольнике в три десятка пунктов
+   радиус поля 12 превращал страницу в пилюлю. */
+.thumb {
+  display: block;
+  flex: none;
+  height: auto;
+  aspect-ratio: 200 / 283;
+  border: 1px solid var(--border-strong);
+  border-radius: 4px;
+  background: #fff;
+  object-fit: cover;
+}
+
+/* В строке миниатюра встаёт на место точки и не раздувает строку: 30 на 42,
+   чуть выше двух строк подписи. */
+.row-thumb { width: 30px; }
+.row.has-thumb { padding-top: 6px; padding-bottom: 6px; }
+
+/* На карточке — слева от названия, крупнее: карточку и выбирают глазами. */
+.card.has-thumb {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.card-thumb { width: 48px; }
+.card-body { flex: 1 1 auto; min-width: 0; }
 
 .kind-u { --dot: var(--s1); }   /* урок и занятие */
 .kind-d { --dot: var(--s4); }   /* домашка */

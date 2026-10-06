@@ -265,26 +265,43 @@ def podtema(path):
     return m.group(1) if m else ""
 
 
+_DATES = None
+
+
 def git_dates():
     """Путь в knowledge → дата последнего коммита, «2026-10-06».
 
     Один проход по истории, а не вызов на каждый файл: документов под сотню,
     и сотня вызовов git заметно тормозила бы выкладку. По дате вкладка
-    «Проекты» ставит свежие темы репетиторства наверх.
+    «Проекты» ставит свежие темы репетиторства наверх и собирает «Свежее».
+    Проход один на всю сборку: даты нужны и документам, и файлам.
     """
+    global _DATES
+    if _DATES is not None:
+        return _DATES
     try:
         log = subprocess.run(
             ["git", "-C", str(KNOWLEDGE), "log", "--format=%x00%cs", "--name-only"],
             capture_output=True, text=True, encoding="utf-8", timeout=60).stdout
     except (OSError, subprocess.SubprocessError):
-        return {}
+        log = ""
     out, day = {}, ""
     for line in (log or "").splitlines():
         if line.startswith("\0"):
             day = line[1:]
         elif line and line not in out:
             out[line] = day          # история идёт от новых к старым
+    _DATES = out
     return out
+
+
+def file_date(rel, src):
+    """Дата последнего коммита файла, а если его ещё нет в истории (выкладка
+    берёт рабочее дерево) — время изменения."""
+    day = git_dates().get(rel, "")
+    if not day and src.exists():
+        day = datetime.fromtimestamp(src.stat().st_mtime).strftime("%Y-%m-%d")
+    return day
 
 
 ROMAN = {"I": 1, "V": 5, "X": 10}
@@ -356,6 +373,68 @@ def tex_documents():
     return out
 
 
+THUMBS = HERE / "data" / "thumbs"
+
+
+def page_size(src):
+    """Ширина и высота первой страницы в пунктах, по pdfinfo; нет — None."""
+    try:
+        info = subprocess.run(["pdfinfo", str(src)], capture_output=True,
+                              text=True, encoding="utf-8", errors="replace",
+                              timeout=30).stdout
+    except (OSError, subprocess.SubprocessError):
+        return None
+    m = re.search(r"Page size:\s*([\d.]+)\s*x\s*([\d.]+)", info or "")
+    return (float(m.group(1)), float(m.group(2))) if m else None
+
+
+def is_a5(size):
+    """A5 — 419,5 на 595,3 пункта. У документов этого формата первая страница —
+    титул с обложкой, и её миниатюра узнаётся с одного взгляда. У A4 первая
+    страница — текст, и в миниатюре это серый прямоугольник."""
+    return bool(size) and abs(size[0] - 419.5) < 3 and abs(size[1] - 595.3) < 3
+
+
+def make_thumbs(docs):
+    """Миниатюра первой страницы у документов A5: data/thumbs/<путь>.jpg.
+
+    Рисует pdftoppm из поставки MiKTeX — он есть на обеих машинах. Картинка
+    пересобирается, только если PDF новее её: иначе каждая выкладка гоняла бы
+    pdftoppm по всем документам и пересоздавала одинаковые файлы, которые git
+    всё равно счёл бы изменёнными. Нет pdftoppm — миниатюр нет, а сайт без них
+    работает как раньше. Миниатюра пропавшего документа удаляется.
+    """
+    if not shutil.which("pdftoppm") or not shutil.which("pdfinfo"):
+        print("pdftoppm или pdfinfo не найдены — миниатюры не обновлялись")
+        return
+    keep = set()
+    for d in docs:
+        if not d["pdf"]:
+            continue
+        src = KNOWLEDGE / d["pdf"]
+        out = THUMBS / (d["pdf"][:-4] + ".jpg")
+        fresh = out.exists() and out.stat().st_mtime >= src.stat().st_mtime
+        if not fresh:
+            if not is_a5(page_size(src)):
+                continue
+            out.parent.mkdir(parents=True, exist_ok=True)
+            # 200 пунктов в ширину: на карточке миниатюра шириной 48, на
+            # плотном экране это вчетверо, и мельче уже мыло
+            subprocess.run(["pdftoppm", "-jpeg", "-jpegopt", "quality=82",
+                            "-f", "1", "-l", "1", "-scale-to-x", "200",
+                            "-scale-to-y", "-1", "-singlefile",
+                            str(src), str(out.with_suffix(""))],
+                           capture_output=True, timeout=60)
+            if not out.exists():
+                continue
+        keep.add(out)
+        d["thumb"] = out.relative_to(HERE).as_posix()
+    if THUMBS.exists():
+        for old in THUMBS.rglob("*.jpg"):
+            if old not in keep:
+                old.unlink()
+
+
 def hidden(rel):
     """В пути есть папка или файл, чьё имя начинается с точки.
 
@@ -417,6 +496,8 @@ def collect():
                     "kind": "pdf",
                     "pages": pdf_pages(src),
                     "size": src.stat().st_size,
+                    # серии матцентра попадают в «Свежее» по этой дате
+                    "date": file_date(rel, src),
                 })
     return notes, files, seen
 
@@ -466,6 +547,7 @@ def main():
 
     notes, files, seen = collect()
     tex = tex_documents()
+    make_thumbs(tex)
     build = datetime.now().strftime("%Y%m%d%H%M")
 
     (HERE / "data" / "index.json").write_text(
@@ -474,9 +556,10 @@ def main():
                    ensure_ascii=False, indent=1),
         encoding="utf-8", newline="\n")
 
+    # Подписи под названием нет: «листки, серии, конспекты» снята владельцем
+    # 2026-10-07 — перечень устаревал быстрее, чем его правили.
     config = {
         "title": "Хранилище",
-        "subtitle": "листки, серии, конспекты",
         "noindex": True,
         "build": build,
     }
