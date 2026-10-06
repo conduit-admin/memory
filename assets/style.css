@@ -723,6 +723,102 @@ body {
 .card-thumb { width: 48px; }
 .card-body { flex: 1 1 auto; min-width: 0; }
 
+/* ── роли ─────────────────────────────────────────────── */
+
+/* Карточка роли — ссылка на файл роли и кнопка рядом, поэтому сама она
+   не ссылка, а коробка из двух целей касания. */
+.card.role {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 10px 10px 12px;
+}
+
+.role-main {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex: 1 1 auto;
+  min-width: 0;
+  min-height: var(--tap);
+  color: inherit;
+  text-decoration: none;
+  border-radius: var(--radius-sm);
+}
+
+.role-main:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
+
+/* Плитка значка — тихая подложка цвета роли, без рамки и тени: мелкому
+   предмету объём не идёт. Радиус поля, 12. */
+.role-icon {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 46px;
+  height: 46px;
+  border-radius: var(--radius-sm);
+  background: color-mix(in srgb, var(--c, var(--s8)) 15%, transparent);
+  color: var(--c, var(--s8));
+}
+
+.role-icon svg { width: 25px; height: 25px; }
+
+.role-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+/* Основа заголовка карточки (10rem) задана для строки; в столбце она стала
+   бы высотой, и между названием и описанием открылась бы пустота. */
+.role-text .card-title { flex: none; }
+.role-text .card-note { margin-top: 0; }
+
+/* Кнопка «Копировать» — тихая пилюля, как оглавление: цель касания 44.
+   Скопировано — галочка и бутылочная зелень на полторы секунды. */
+.copy {
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  min-width: var(--tap);
+  min-height: var(--tap);
+  padding: 0 14px;
+  border: 0;
+  border-radius: 999px;
+  background: var(--quiet);
+  color: var(--ink-2);
+  font: 600 13px var(--font-ui);
+  cursor: pointer;
+  transition: background-color .14s ease, color .14s ease;
+}
+
+.copy:hover { background: var(--quiet-on); color: var(--ink); }
+.copy:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
+.copy svg { width: 17px; height: 17px; flex: none; }
+.copy.done { color: var(--s3); }
+
+/* На узком экране слово прячется — длинное название роли важнее. Кнопка
+   становится круглой, имя для читалки экрана у неё задано полностью. */
+@media (max-width: 440px) {
+  .card.role .copy { padding: 0; }
+  .card.role .copy-label {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+  }
+}
+
+/* Блок кода в заметке — кнопка над ним, справа. */
+.pre-wrap { display: flex; flex-direction: column; margin: 12px 0; }
+.pre-wrap > .copy { align-self: flex-end; margin-bottom: 4px; }
+.pre-wrap > pre { margin: 0; }
+
 .kind-u { --dot: var(--s1); }   /* урок и занятие */
 .kind-d { --dot: var(--s4); }   /* домашка */
 .kind-r { --dot: var(--s3); }   /* разбор */
@@ -1161,7 +1257,7 @@ body {
 /* Класс продублирован нарочно: иначе первые полсекунды после смены раздела
    отклик глушился бы анимацией входа, у которой вес селектора выше. */
 .tap.tap { animation: tap .19s cubic-bezier(.2, .8, .3, 1); }
-a.card.tap.tap { animation: tapCard .4s ease-out; }
+.card.tap.tap { animation: tapCard .4s ease-out; }
 
 /* Строка группы и шапка группы — во всю ширину, как карточка: отзываются
    подсветкой, а не сжатием. */
@@ -1177,7 +1273,7 @@ a.row.tap.tap, .group-head.tap.tap { animation: tapRow .4s ease-out; }
   .tabs::before { transition: none; }
   #main.leaving { transition: none; }
   #main.entering { animation: none; }
-  .tap.tap, a.card.tap.tap, a.row.tap.tap, .group-head.tap.tap { animation: none; }
+  .tap.tap, .card.tap.tap, a.row.tap.tap, .group-head.tap.tap { animation: none; }
   .chev { transition: none; }
   /* Каркас остаётся, движение по нему — нет: он и без бега говорит,
      что содержимое ещё едет. */

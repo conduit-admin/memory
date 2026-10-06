@@ -149,6 +149,18 @@ def parse_frontmatter(text):
 
 
 CODE = re.compile(r"```.*?```|`[^`\n]*`", re.S)
+FENCE = re.compile(r"^```[^\n]*\n(.*?)\n```", re.S | re.M)
+
+
+def role_prompt(body):
+    """Промпт роли — первый блок кода в её файле, без заголовка и пояснений.
+
+    Кладётся в индекс, чтобы кнопка «Копировать» на вкладке «Роли» брала
+    текст сразу: копирование обязано случиться в самом нажатии, а после
+    загрузки файла браузер (Safari прежде всего) его уже не разрешает.
+    """
+    m = FENCE.search(body)
+    return m.group(1).strip("\n") if m else ""
 WIKI = re.compile(r"\[\[([^\]|]+?)(?:\|[^\]]+?)?\]\]")
 
 
@@ -460,13 +472,18 @@ def collect():
 
             if src.suffix == ".md":
                 fm, body = parse_frontmatter(src.read_text(encoding="utf-8"))
-                notes.append({
+                note = {
                     "path": rel,
                     "folder": folder,
                     "title": title_of(fm, body, src),
                     "fm": fm,
                     "links": wiki_targets(body),
-                })
+                }
+                if fm.get("type") == "rol":
+                    prompt = role_prompt(body)
+                    if prompt:
+                        note["prompt"] = prompt
+                notes.append(note)
             elif src.suffix == ".pdf":
                 files.append({
                     "path": rel,

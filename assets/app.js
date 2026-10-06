@@ -167,6 +167,18 @@
       if (isOut(a.getAttribute("href"))) outward(a);
     });
 
+    /* Над каждым блоком кода — «Копировать»: в заметках так лежат промпты
+       ролей и команды, и выделять их пальцем на телефоне мучительно.
+       Кнопка над блоком, а не поверх него: поверх она закрывала бы конец
+       первой строки. */
+    host.querySelectorAll("pre").forEach(function (pre) {
+      var wrap = el("div", "pre-wrap");
+      pre.parentNode.insertBefore(wrap, pre);
+      wrap.appendChild(copyButton(function () { return pre.innerText.replace(/\n$/, ""); },
+                                  "Скопировать блок"));
+      wrap.appendChild(pre);
+    });
+
     /* Широкое прокручивается внутри себя: горизонтальной полосы у страницы быть
        не должно, иначе на телефоне уезжает вся вёрстка. */
     host.querySelectorAll("table").forEach(function (t) {
@@ -416,20 +428,149 @@
     return readme ? readme.title : "Статья";
   }
 
-  /* Роли — промпты для новых сессий. Отбор по типу, а не по папке: так новый
-     файл роли появляется на вкладке сам. README раздела идёт первым — он
-     объясняет, как этим пользоваться, а остальные по алфавиту. */
-  function roleCards(list) {
-    DATA.notes
-      .filter(function (n) { return n.fm.type === "rol"; })
-      .sort(function (a, b) {
-        var ra = /README\.md$/.test(a.path), rb = /README\.md$/.test(b.path);
-        if (ra !== rb) return ra ? -1 : 1;
-        return a.title.localeCompare(b.title, "ru");
-      })
-      .forEach(function (n) {
-        list.appendChild(card(n, { note: n.fm.kratko || "" }));
+  /* ── значки ──────────────────────────────────────────────
+
+     Набор маленький и свой: линия 1.8 на сетке 24, скругления — как у букв
+     гарнитуры. Значок выбирается полем `znachok` во фронтматтере, цвет
+     приходит вместе с ним — краска из набора сайта. Незнакомое имя даёт
+     нейтральную точку: новая роль появится и без нового рисунка. */
+  var SVG_NS = "http://www.w3.org/2000/svg";
+
+  var ICONS = {
+    atom: { c: "var(--s1)", d: '<ellipse cx="12" cy="12" rx="10" ry="4"/>' +
+      '<ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(60 12 12)"/>' +
+      '<ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(120 12 12)"/>' +
+      '<circle cx="12" cy="12" r="1.7" fill="currentColor" stroke="none"/>' },
+    sigma: { c: "var(--s5)", d: '<path d="M17.5 5H6.5l6.5 7-6.5 7h11"/>' },
+    nodes: { c: "var(--s6)", d: '<path d="M5 7l7 0M5 7l7 10M5 17l7-10M5 17l7 0M12 7l7 5M12 17l7-5"/>' +
+      '<g fill="currentColor" stroke="none"><circle cx="5" cy="7" r="2.2"/>' +
+      '<circle cx="5" cy="17" r="2.2"/><circle cx="12" cy="7" r="2.2"/>' +
+      '<circle cx="12" cy="17" r="2.2"/><circle cx="19" cy="12" r="2.2"/></g>' },
+    board: { c: "var(--s3)", d: '<rect x="3" y="4" width="18" height="12" rx="1.6"/>' +
+      '<path d="M12 16v4M8.5 20h7M7 12l3-3 2.5 2.5L17 7"/>' },
+    page: { c: "var(--s7)", d: '<path d="M6.5 3h7.5l4.5 4.5V21h-12z"/>' +
+      '<path d="M14 3v4.5h4.5M9.5 12.5h6M9.5 16.5h6"/>' },
+    film: { c: "var(--s2)", d: '<rect x="3" y="5" width="18" height="14" rx="2.2"/>' +
+      '<path d="M10 9.2v5.6l4.8-2.8z" fill="currentColor"/>' },
+    megaphone: { c: "var(--s4)", d: '<path d="M3.5 10v4h3l7 4.5v-13l-7 4.5z"/>' +
+      '<path d="M16.5 9.5a3.5 3.5 0 0 1 0 5M19 7a7 7 0 0 1 0 10"/>' },
+    shield: { c: "var(--s8)", d: '<path d="M12 3l7 3v5.2c0 4.4-2.9 7.9-7 9.8-4.1-1.9-7-5.4-7-9.8V6z"/>' +
+      '<path d="M9 12.2l2.1 2.1L15.2 10"/>' },
+    compass: { c: "var(--s8)", d: '<circle cx="12" cy="12" r="9"/>' +
+      '<path d="M15.6 8.4l-2.1 5.1-5.1 2.1 2.1-5.1z"/>' },
+    map: { c: "var(--s8)", d: '<path d="M3 6.5l6-2.5 6 2.5 6-2.5v13.5l-6 2.5-6-2.5-6 2.5z"/>' +
+      '<path d="M9 4v13.5M15 6.5V20"/>' },
+    copy: { c: "currentColor", d: '<rect x="8.5" y="8.5" width="11.5" height="11.5" rx="2.2"/>' +
+      '<path d="M15.5 8.5V6.2a2.2 2.2 0 0 0-2.2-2.2H6.2A2.2 2.2 0 0 0 4 6.2v7.1a2.2 2.2 0 0 0 2.2 2.2h2.3"/>' },
+    check: { c: "currentColor", d: '<path d="M5 12.5l4.5 4.5L19 7.5"/>' }
+  };
+
+  function icon(name) {
+    var svg = document.createElementNS(SVG_NS, "svg");
+    svg.setAttribute("viewBox", "0 0 24 24");
+    svg.setAttribute("aria-hidden", "true");
+    svg.setAttribute("focusable", "false");
+    svg.setAttribute("fill", "none");
+    svg.setAttribute("stroke", "currentColor");
+    svg.setAttribute("stroke-width", "1.8");
+    svg.setAttribute("stroke-linecap", "round");
+    svg.setAttribute("stroke-linejoin", "round");
+    svg.innerHTML = (ICONS[name] || { d: '<circle cx="12" cy="12" r="4" fill="currentColor"/>' }).d;
+    return svg;
+  }
+
+  /* ── копирование ─────────────────────────────────────────
+
+     Буфер обмена — через Clipboard API, а где его нет (старый браузер,
+     страница не по https) — через выделенное скрытое поле. Текст обязан
+     быть под рукой в момент нажатия: после ожидания сети браузер копировать
+     уже не разрешает, поэтому промпты ролей лежат прямо в индексе. */
+  function copyText(text) {
+    function legacy() {
+      var area = el("textarea");
+      area.value = text;
+      area.setAttribute("readonly", "");
+      area.style.position = "fixed";
+      area.style.opacity = "0";
+      document.body.appendChild(area);
+      area.select();
+      var ok = false;
+      try { ok = document.execCommand("copy"); } catch (e) { ok = false; }
+      document.body.removeChild(area);
+      return ok ? Promise.resolve() : Promise.reject();
+    }
+    if (navigator.clipboard && window.isSecureContext) {
+      return navigator.clipboard.writeText(text).catch(legacy);
+    }
+    return legacy();
+  }
+
+  /* Кнопка «Копировать»: значок и слово, после нажатия — галочка
+     и «Скопировано» на полторы секунды. Слово объявляется читалке экрана.
+     На узком экране слово прячется, остаётся значок — название кнопки
+     для читалки задано отдельно и полностью. */
+  function copyButton(getText, label) {
+    var b = el("button", "copy");
+    b.type = "button";
+    b.setAttribute("aria-label", label);
+    var mark = icon("copy");
+    var word = el("span", "copy-label", "Копировать");
+    word.setAttribute("aria-live", "polite");
+    b.appendChild(mark);
+    b.appendChild(word);
+    var timer = null;
+    b.addEventListener("click", function (e) {
+      e.preventDefault();
+      e.stopPropagation();
+      copyText(getText()).then(function () {
+        b.classList.add("done");
+        b.replaceChild(icon("check"), b.firstChild);
+        word.textContent = "Скопировано";
+      }, function () {
+        word.textContent = "Не вышло";
+      }).then(function () {
+        clearTimeout(timer);
+        timer = setTimeout(function () {
+          b.classList.remove("done");
+          b.replaceChild(icon("copy"), b.firstChild);
+          word.textContent = "Копировать";
+        }, 1500);
       });
+    });
+    return b;
+  }
+
+  /* ── роли ────────────────────────────────────────────────
+
+     Карточка роли: значок в тихой плитке её цвета, название, строка
+     `kratko` и кнопка «Копировать» — за промптом сюда и приходят, и открывать
+     файл ради него не надо. Нажатие на саму карточку открывает файл роли:
+     там пояснения, что читать и почему. Отбор по типу, а не по папке:
+     новый файл роли появляется сам; порядок — поле `poryadok`. */
+  function roleCard(n) {
+    var ic = ICONS[n.fm.znachok] || { c: "var(--s8)" };
+    var box = el("div", "card role");
+    box.style.setProperty("--c", ic.c);
+    var a = el("a", "role-main");
+    a.href = "#/n/" + encodeURI(n.path);
+    var tile = el("span", "role-icon");
+    tile.appendChild(icon(n.fm.znachok));
+    a.appendChild(tile);
+    var text = el("span", "role-text");
+    text.appendChild(el("span", "card-title", n.title));
+    if (n.fm.kratko) text.appendChild(el("span", "card-note", n.fm.kratko));
+    a.appendChild(text);
+    box.appendChild(a);
+    if (n.prompt) {
+      box.appendChild(copyButton(function () { return n.prompt; },
+                                 "Скопировать промпт: " + n.title));
+    }
+    return box;
+  }
+
+  function roleOrder(n) {
+    var p = +n.fm.poryadok;
+    return isFinite(p) && p > 0 ? p : 999;
   }
 
   function empty(list, text) {
@@ -687,9 +828,20 @@
      как завести сессию, и искать его прокруткой чужого списка — ровно то,
      из-за чего он раньше и не находился. */
   function viewRoli(main) {
-    var list = block(main, "Роли", "ans");
-    roleCards(list);
-    if (!list.childNodes.length) empty(list, "Ролей пока нет.");
+    var all = DATA.notes.filter(function (n) { return n.fm.type === "rol"; });
+    var readme = all.filter(function (n) { return /README\.md$/.test(n.path); })[0];
+    var roles = all.filter(function (n) { return n !== readme; }).sort(function (a, b) {
+      return roleOrder(a) - roleOrder(b) || a.title.localeCompare(b.title, "ru");
+    });
+    var list = block(main, "Роли", "ans", roles.length);
+    roles.forEach(function (n) { list.appendChild(roleCard(n)); });
+    if (!roles.length) empty(list, "Ролей пока нет.");
+    /* Как всем этим пользоваться — тихой строкой внизу, а не первой
+       карточкой: читают это один раз, а промпты копируют каждый день. */
+    if (readme) {
+      row(panel(list), "#/n/" + encodeURI(readme.path), "Как устроены роли",
+          { aside: "→" }).classList.add("row-aux");
+    }
   }
 
   /* ── вкладка «Физика» ────────────────────────────────── */
@@ -1289,8 +1441,12 @@
   function enableTapFeedback() {
     document.addEventListener("pointerdown", function (e) {
       var node = e.target.closest &&
-        e.target.closest(".tab, .chip, a.card, a.back, a.ext, a.row, .group-head, .toc-pill, a.brand");
+        e.target.closest(".tab, .chip, a.card, a.back, a.ext, a.row, .group-head, .toc-pill, " +
+                         "a.brand, button.copy, a.role-main");
       if (!node) return;
+      /* Карточка роли — не ссылка целиком: в ней ссылка и кнопка. Нажатие
+         на ссылку отзывается всей карточкой, как у обычной карточки. */
+      if (node.classList.contains("role-main")) node = node.parentNode;
       node.classList.remove("tap");
       void node.offsetWidth;
       node.classList.add("tap");
