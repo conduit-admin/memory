@@ -1086,6 +1086,14 @@
    "size": 155389
   },
   {
+   "path": "tutoring/listki/trehchlen-razbor.pdf",
+   "folder": "tutoring/listki",
+   "title": "trehchlen-razbor",
+   "kind": "pdf",
+   "pages": 9,
+   "size": 231085
+  },
+  {
    "path": "tutoring/listki/trehchlen.pdf",
    "folder": "tutoring/listki",
    "title": "trehchlen",
@@ -1400,6 +1408,12 @@
    "tex": "trehchlen.tex",
    "group": "tutoring",
    "pdf": "tutoring/listki/trehchlen.pdf"
+  },
+  {
+   "title": "Квадратный трёхчлен",
+   "tex": "trehchlen-razbor.tex",
+   "group": "tutoring",
+   "pdf": "tutoring/listki/trehchlen-razbor.pdf"
   },
   {
    "title": "Серия 1. Точечные заряды",
