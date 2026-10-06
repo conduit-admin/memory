@@ -408,30 +408,215 @@ body {
   letter-spacing: -0.01em;
 }
 
-/* Подзаголовок группы внутри блока — например, конспекты зачёта среди прочих.
-   Тихий: плашка держится на редкости, и вторая подряд её обесценивает. */
-.subhead {
+/* Число документов на плашке — справа, приглушённо: это справка, а не второй
+   заголовок. Цифры одной ширины, чтобы столбик по плашкам не плясал. */
+.block-count {
+  margin-left: auto;
+  color: var(--solid-dim);
+  font-size: 13px;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Полоса вкладок закреплена сверху: без отступа блок, к которому довело
+   оглавление, уезжал бы плашкой под неё. */
+.block { scroll-margin-top: 72px; }
+
+/* ── оглавление вкладки ───────────────────────────────── */
+
+/* Тихие пилюли: подложка без рамки и тени — мелкому элементу стекло
+   не идёт. Высота — цель касания, 44 пункта. */
+.toc {
   display: flex;
-  align-items: baseline;
-  gap: 10px;
-  margin: 12px 2px 2px;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: -6px 0 20px;
+}
+
+.toc-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  min-height: var(--tap);
+  padding: 0 15px;
+  border: 0;
+  border-radius: 999px;
+  background: var(--quiet);
+  color: var(--ink-2);
+  font: 600 13.5px var(--font-ui);
+  cursor: pointer;
+  transition: background-color .14s ease, color .14s ease;
+}
+
+.toc-pill:hover { background: var(--quiet-on); color: var(--ink); }
+.toc-pill:focus-visible { outline: 2px solid var(--s1); outline-offset: 2px; }
+
+.toc-n {
+  color: var(--ink-muted);
+  font-size: 12px;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ── раскрывающиеся группы ────────────────────────────── */
+
+/* Та же панель матового стекла, что у карточки: в закрытом виде группа и есть
+   карточка, только с шевроном. Строки внутри — на этой же панели, без своего
+   стекла: стекло в стекле выглядит коробкой в коробке. */
+.group {
+  background-color: var(--pane);
+  background-image: linear-gradient(147deg, var(--sheen), transparent 44%);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow:
+    var(--shadow-1),
+    inset 0 1px 0 var(--pane-edge),
+    inset 0 -1px 0 var(--pane-edge-low);
+  transition: border-color .16s ease;
+}
+
+.group:hover { border-color: var(--border-strong); }
+
+.group-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px 10px;
+  min-height: var(--tap);
+  padding: 13px 16px;
+  border-radius: var(--radius);
+  list-style: none;
+  cursor: pointer;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+/* Родной треугольник прячем: шеврон справа рисуется сам и поворачивается. */
+.group-head::-webkit-details-marker { display: none; }
+.group-head::marker { content: ""; }
+.group-head:focus-visible { outline: 2px solid var(--s1); outline-offset: -2px; }
+
+.group-title {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  flex: 1 1 10rem;
+  min-width: 0;
+  font-weight: 600;
+  font-size: 15.5px;
+  overflow-wrap: anywhere;
+}
+
+/* Вторая строка шапки — что именно в теме: «два правила, сочетания…». */
+.group-sub {
+  color: var(--ink-muted);
+  font-size: 12.5px;
+  font-weight: 500;
+}
+
+.group-meta {
+  margin-left: auto;
   color: var(--ink-muted);
   font-size: 12px;
   font-weight: 600;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-}
-
-.list > .subhead:first-child { margin-top: 0; }
-
-.subhead-link {
-  margin-left: auto;
-  color: var(--ink-muted);
-  text-decoration-color: var(--border-strong);
+  font-variant-numeric: tabular-nums;
   white-space: nowrap;
 }
 
-.subhead-link:hover { color: var(--ink-2); }
+/* Шеврон — уголок из двух рамок. Вниз — закрыто, вверх — открыто: стрелка
+   показывает, куда поедет содержимое, а не где оно сейчас. */
+.chev {
+  flex: none;
+  width: 8px;
+  height: 8px;
+  margin: 0 3px 3px 2px;
+  border-right: 2px solid var(--ink-muted);
+  border-bottom: 2px solid var(--ink-muted);
+  transform: rotate(45deg);
+  transition: transform .16s ease;
+}
+
+.group[open] > .group-head .chev { transform: translateY(3px) rotate(225deg); }
+
+/* Тело отделено от шапки тонкой чертой — не рамкой: это одна панель. */
+.group-body {
+  display: grid;
+  gap: 1px;
+  margin: 0 8px;
+  padding: 6px 0 8px;
+  border-top: 1px solid var(--quiet-on);
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: var(--tap);
+  padding: 10px 10px;
+  border-radius: var(--radius-sm);
+  color: inherit;
+  text-decoration: none;
+  transition: background-color .14s ease;
+}
+
+.row:hover { background: var(--quiet); }
+.row:focus-visible { outline: 2px solid var(--s1); outline-offset: -2px; }
+
+.row-label {
+  flex: 1 1 auto;
+  min-width: 0;
+  font-size: 14.5px;
+  overflow-wrap: anywhere;
+}
+
+/* Номер подтемы или дата — моноширинно и тихо: столбиком по правому краю
+   они читаются как поля, а не как текст. */
+.row-aside {
+  flex: none;
+  color: var(--ink-muted);
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+}
+
+.row-aux .row-label { color: var(--ink-muted); }
+
+/* Подпись и вторая строка под ней — столбиком: стадия ролика, адрес
+   репозитория, краткое описание стиля. */
+.row-label { display: flex; flex-direction: column; gap: 1px; }
+
+.row-sub {
+  color: var(--ink-muted);
+  font-size: 12.5px;
+}
+
+/* Панель без раскрытия: тело без черты сверху — шапки над ним нет. */
+.panel > .group-body { border-top: 0; padding-top: 8px; }
+.panel:hover { border-color: var(--border); }
+
+/* Стадия ролика точкой — те же цвета, что у прежних меток стадий. */
+.st-0 { --dot: var(--s8); }   /* не начат */
+.st-1 { --dot: var(--s1); }   /* программируется */
+.st-2 { --dot: var(--s4); }   /* озвучивается и монтируется */
+.st-3 { --dot: var(--s3); }   /* готов */
+.st-4 { --dot: var(--s5); }   /* выложен */
+.row[class*="st-"] .row-sub { color: var(--dot); font-weight: 600; }
+
+/* Вид документа репетиторства — точкой: урок, домашка, разбор. Плоская,
+   без света и тени: мелкому предмету объём не идёт. */
+/* Стоит напротив первой строки, а не посередине двух: точка относится
+   к названию, вторая строка — пояснение к нему. */
+.row-dot {
+  flex: none;
+  align-self: flex-start;
+  width: 8px;
+  height: 8px;
+  margin-top: 7px;
+  border-radius: 50%;
+  background: var(--dot, var(--s8));
+}
+
+.kind-u { --dot: var(--s1); }   /* урок и занятие */
+.kind-d { --dot: var(--s4); }   /* домашка */
+.kind-r { --dot: var(--s3); }   /* разбор */
 
 /* Тихий заголовок — для служебных блоков. Плашка держится на редкости: если ею
    помечать и хвост раздела, приём перестаёт работать на всём экране. */
@@ -869,12 +1054,22 @@ body {
 .tap.tap { animation: tap .19s cubic-bezier(.2, .8, .3, 1); }
 a.card.tap.tap { animation: tapCard .4s ease-out; }
 
+/* Строка группы и шапка группы — во всю ширину, как карточка: отзываются
+   подсветкой, а не сжатием. */
+@keyframes tapRow {
+  0% { background-color: var(--quiet-on); }
+  100% { background-color: transparent; }
+}
+
+a.row.tap.tap, .group-head.tap.tap { animation: tapRow .4s ease-out; }
+
 /* Движение выключается системной настройкой — она не про красоту. */
 @media (prefers-reduced-motion: reduce) {
   .tabs::before { transition: none; }
   #main.leaving { transition: none; }
   #main.entering { animation: none; }
-  .tap.tap, a.card.tap.tap { animation: none; }
+  .tap.tap, a.card.tap.tap, a.row.tap.tap, .group-head.tap.tap { animation: none; }
+  .chev { transition: none; }
   /* Каркас остаётся, движение по нему — нет: он и без бега говорит,
      что содержимое ещё едет. */
   .skel-head, .skel-row { animation: none; background-image: none; }

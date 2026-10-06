@@ -194,13 +194,14 @@
 
   /* ── сборка блоков ───────────────────────────────────── */
 
-  /* На плашке только название. Пояснения оттуда убраны: они удлиняли строку —
-     на узком экране плашка вылезала за край, — а сказать что-то важное всё
-     равно не успевали. */
-  function block(main, title, tone) {
+  /* На плашке только название и, если передано, число документов справа.
+     Пояснения оттуда убраны: они удлиняли строку — на узком экране плашка
+     вылезала за край, — а сказать что-то важное всё равно не успевали. */
+  function block(main, title, tone, count) {
     var box = el("section", "block");
     var head = el("div", "block-head " + tone);
     head.appendChild(el("h2", null, title));
+    if (count != null) head.appendChild(el("span", "block-count", String(count)));
     box.appendChild(head);
     var list = el("div", "list");
     box.appendChild(list);
@@ -208,19 +209,90 @@
     return list;
   }
 
-  /* Подзаголовок внутри блока — для групп конспектов. Тихий, потому что плашек
-     на экране уже столько, сколько их терпит приём. Ссылка на описание группы
-     стоит прямо в нём: отдельной карточкой README повторял бы этот же заголовок
-     строкой ниже. */
-  function subhead(list, text, href) {
-    var row = el("div", "subhead");
-    row.appendChild(el("span", null, text));
-    if (href) {
-      var a = el("a", "subhead-link", "правила →");
-      a.href = href;
-      row.appendChild(a);
-    }
-    list.appendChild(row);
+  /* ── раскрывающиеся группы ───────────────────────────────
+
+     Группа — родной <details>: раскрывается без скрипта, клавиатурой
+     и читалкой экрана, и работает раньше, чем страница досчитает остальное.
+     В закрытом виде экран — оглавление: строка на тему, у каждой видно,
+     сколько внутри и когда последний раз менялось.
+
+     Внутри не карточки, а строки на той же панели: стекло в стекле
+     выглядит коробкой в коробке. Какие группы открыты, помнит браузер
+     читателя — это его удобство, а не данные: в приватном окне всё просто
+     закрыто, и страница от этого не ломается. */
+  function isOpen(id) {
+    try { return localStorage.getItem("open:" + id) === "1"; } catch (e) { return false; }
+  }
+
+  function remember(id, on) {
+    try {
+      if (on) localStorage.setItem("open:" + id, "1");
+      else localStorage.removeItem("open:" + id);
+    } catch (e) { /* хранилище недоступно — помнить просто нечем */ }
+  }
+
+  function group(list, id, title, meta, sub) {
+    var box = el("details", "group");
+    box.open = isOpen(id);
+    var head = el("summary", "group-head");
+    var name = el("span", "group-title");
+    name.appendChild(el("span", null, title));
+    if (sub) name.appendChild(el("span", "group-sub", sub));
+    head.appendChild(name);
+    if (meta) head.appendChild(el("span", "group-meta", meta));
+    head.appendChild(el("span", "chev"));
+    box.appendChild(head);
+    var body = el("div", "group-body");
+    box.appendChild(body);
+    box.addEventListener("toggle", function () { remember(id, box.open); });
+    list.appendChild(box);
+    return body;
+  }
+
+  /* Строка группы: подпись, под ней при нужде вторая строка, справа тихая
+     пометка — номер подтемы или дата. Точка слева — цвет вида документа
+     (урок, домашка, разбор) или стадии ролика: различать, не читая слова.
+       o.aside — справа, o.sub — вторая строка, o.dot — класс цвета точки. */
+  function row(body, href, label, o) {
+    o = o || {};
+    var a = el("a", "row" + (o.dot ? " " + o.dot : ""));
+    a.href = href;
+    if (o.dot) a.appendChild(el("span", "row-dot"));
+    var text = el("span", "row-label");
+    text.appendChild(el("span", null, label));
+    if (o.sub) text.appendChild(el("span", "row-sub", o.sub));
+    a.appendChild(text);
+    if (o.aside) a.appendChild(el("span", "row-aside", o.aside));
+    body.appendChild(a);
+    return a;
+  }
+
+  /* Панель без раскрытия — та же группа, только всегда открытая и без шапки:
+     для коротких блоков, где прятать нечего, а семь отдельных карточек
+     съедали полтора экрана. */
+  function panel(list) {
+    var box = el("div", "group panel");
+    var body = el("div", "group-body");
+    box.appendChild(body);
+    list.appendChild(box);
+    return body;
+  }
+
+  function files(n) {
+    return n + " " + plural(n, "файл", "файла", "файлов");
+  }
+
+  function shortDate(iso) {
+    var m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(iso || "");
+    return m ? m[3] + "." + m[2] : "";
+  }
+
+  function toRoman(n) {
+    var out = "";
+    [[10, "X"], [9, "IX"], [5, "V"], [4, "IV"], [1, "I"]].forEach(function (p) {
+      while (n >= p[0]) { out += p[1]; n -= p[0]; }
+    });
+    return out;
   }
 
   function fileName(path) {
@@ -272,22 +344,6 @@
     return a;
   }
 
-  /* Стили — все заметки с `type: style`, из какой бы папки они ни были,
-     одним блоком. Прежде каждый стиль лежал в конце своего проекта, и путь
-     к нему был зашит; это подвело — файлы назывались одинаково, `style.md`,
-     и вики-ссылка `[[style]]` из карточек сайтов вела на стиль анимаций.
-     Теперь у каждого стиля своё имя и свой файл в `styles/`, новый появится
-     здесь без правки кода, а цвет полосы говорит, к какому проекту он
-     относится. Краткая строка под названием — поле `kratko`. */
-  function styleCards(list) {
-    DATA.notes
-      .filter(function (n) { return n.fm.type === "style"; })
-      .sort(function (a, b) { return a.title.localeCompare(b.title, "ru"); })
-      .forEach(function (n) {
-        list.appendChild(card(n, { note: n.fm.kratko || "" }));
-      });
-  }
-
   /* Роли — промпты для новых сессий. Отбор по типу, а не по папке: так новый
      файл роли появляется на вкладке сам. README раздела идёт первым — он
      объясняет, как этим пользоваться, а остальные по алфавиту. */
@@ -315,82 +371,205 @@
       .sort(function (a, b) { return a.title.localeCompare(b.title, "ru"); });
   }
 
-  function viewProekty(main) {
-    /* Анимации. Кроме названия — имя файла со сценами и стадия производства:
-       по списку должно быть видно, что снято, а что ещё только пишется. */
-    var anim = byVid("animatsiya");
-    var list = block(main, "Анимации", "warm");
-    anim.forEach(function (n) {
-      list.appendChild(card(n, {
-        stage: n.fm.stadiya || STAGES[0],
-        /* готовый ролик виден прямо в списке — за ним сюда и приходят */
-        tag: n.fm.video ? "видео" : "",
-        fname: n.fm.fail || fileName(n.path)
-      }));
+  /* Зачёт — по разделам: номер подтемы берётся из первой строки исходника
+     («Зачёт, подтема 1.2»), название раздела — из заголовков math/zachet.md.
+     И то и другое собирает tools/publish.py, так что новый документ встаёт
+     в свой раздел сам. Документ без номера — в отдельную группу в конце. */
+  function zachetGroups(list, docs) {
+    var names = DATA.zachet || {};
+    function part(d) { return (d.num || "").split(".")[0]; }
+    var parts = [];
+    docs.forEach(function (d) { if (parts.indexOf(part(d)) < 0) parts.push(part(d)); });
+    parts.sort(function (a, b) { return (+a || 99) - (+b || 99); });
+    parts.forEach(function (k) {
+      var mine = docs.filter(function (d) { return part(d) === k; });
+      var title = k ? toRoman(+k) + ". " + (names[k] || "Раздел " + k) : "Без раздела";
+      var body = group(list, "zachet:" + k, title, files(mine.length));
+      mine.forEach(function (d) { row(body, "#/f/" + encodeURI(d.pdf), d.title, { aside: d.num }); });
     });
-    if (!anim.length) empty(list, "Роликов пока нет.");
+  }
+
+  /* Репетиторство — по темам. Вид документа и тема читаются из имени файла,
+     как их и заводят: `sravneniya`, `sravneniya-dz`, `sravneniya-razbor`,
+     `parametr-dz-01`, `parametr-zanyatie-01-razbor`. Тема — то, что осталось
+     без хвоста; новый урок, домашка или разбор встают в свою тему сами.
+
+     Внутри темы — в порядке цикла: урок, его разбор, занятия, домашки и их
+     разборы. Темы — свежие сверху: открывают обычно последнюю. */
+  var KIND = /^(.*?)(-zanyatie-(\d+))?(-dz(?:-(\d+))?)?(-razbor)?$/;
+
+  function kindOf(stem) {
+    var m = KIND.exec(stem);
+    var razbor = !!m[6], num = +(m[3] || m[5] || 0);
+    var k;
+    if (m[2]) k = { label: (razbor ? "Разбор занятия " : "Занятие ") + num, rank: razbor ? 3 : 2 };
+    else if (m[4]) k = { label: (razbor ? "Разбор домашки" : "Домашка") + (num ? " " + num : ""),
+                         rank: razbor ? 5 : 4 };
+    else k = { label: razbor ? "Разбор урока" : "Урок", rank: razbor ? 1 : 0 };
+    k.base = m[1];
+    k.num = num;
+    /* Цвет точки: урок и занятие — одно, домашка — другое, любой разбор — третье. */
+    k.kind = razbor ? "r" : (m[4] ? "d" : "u");
+    return k;
+  }
+
+  function tutoringGroups(list, docs) {
+    var topics = {}, order = [];
+    docs.forEach(function (d) {
+      var k = kindOf(d.tex.replace(/\.tex$/, ""));
+      if (!topics[k.base]) { topics[k.base] = []; order.push(k.base); }
+      topics[k.base].push({ d: d, k: k });
+    });
+    function latest(base) {
+      return topics[base].reduce(function (m, x) { return (x.d.date || "") > m ? x.d.date : m; }, "");
+    }
+    order.sort(function (a, b) { return latest(b).localeCompare(latest(a)) || a.localeCompare(b); });
+    order.forEach(function (base) {
+      var items = topics[base].sort(function (x, y) {
+        return x.k.rank - y.k.rank || x.k.num - y.k.num;
+      });
+      var lesson = items.filter(function (x) { return x.k.rank === 0; })[0] || items[0];
+      var day = shortDate(latest(base));
+      /* «Комбинаторика: два правила, сочетания, дополнение» — тема и что
+         в ней: до двоеточия названием, после — второй строкой. В одну строку
+         такое название занимало на телефоне три. */
+      var t = lesson.d.title.split(": ");
+      var body = group(list, "tutoring:" + base, t[0],
+                       files(items.length) + (day ? " · " + day : ""),
+                       t.slice(1).join(": "));
+      items.forEach(function (x) {
+        row(body, "#/f/" + encodeURI(x.d.pdf), x.k.label,
+            { aside: shortDate(x.d.date), dot: "kind-" + x.k.kind });
+      });
+    });
+  }
+
+  function stageOf(n) {
+    return Math.max(0, STAGES.indexOf(n.fm.stadiya || STAGES[0]));
+  }
+
+  function viewProekty(main) {
+    /* Оглавление вкладки: блок и сколько в нём. Нажатие доводит до блока —
+       на телефоне вкладка в несколько экранов, и листать к «Стилям» через
+       весь зачёт незачем. Тихие пилюли без рамки: плашек на экране и так
+       столько, сколько их терпит приём. */
+    var toc = el("nav", "toc");
+    toc.setAttribute("aria-label", "Блоки вкладки");
+    main.appendChild(toc);
+    function tocAdd(list, title, n) {
+      var box = list.parentNode;
+      var b = el("button", "toc-pill");
+      b.type = "button";
+      b.appendChild(el("span", null, title));
+      b.appendChild(el("span", "toc-n", String(n)));
+      b.addEventListener("click", function () {
+        var still = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
+        box.scrollIntoView({ behavior: still ? "auto" : "smooth", block: "start" });
+      });
+      toc.appendChild(b);
+    }
+
+    /* Анимации. Кроме названия — стадия производства: по списку должно быть
+       видно, что снято, а что ещё только пишется. Дальше продвинутые — выше. */
+    var anim = byVid("animatsiya").sort(function (a, b) {
+      return stageOf(b) - stageOf(a) || a.title.localeCompare(b.title, "ru");
+    });
+    var list = block(main, "Анимации", "warm", anim.length);
+    tocAdd(list, "Анимации", anim.length);
+    /* Одной панелью строк: стадия — точкой её цвета и подписью под
+       названием. Готовый ролик помечен справа — за ним сюда и приходят. */
+    if (anim.length) {
+      var reel = panel(list);
+      anim.forEach(function (n) {
+        var st = n.fm.stadiya || STAGES[0];
+        row(reel, "#/n/" + encodeURI(n.path), n.title,
+            { sub: st, dot: "st-" + stageOf(n), aside: n.fm.video ? "видео" : "" });
+      });
+    } else empty(list, "Роликов пока нет.");
 
     /* Сайты. Ссылка ведёт наружу, поэтому открывается отдельной кнопкой внутри
        заметки, а не по самой карточке: иначе описание не прочитать. */
     var sites = byVid("sait");
-    list = block(main, "Сайты", "cold");
-    sites.forEach(function (n) {
-      list.appendChild(card(n, { note: n.fm.repo || "" }));
-    });
-    if (!sites.length) empty(list, "Сайтов пока нет.");
+    list = block(main, "Сайты", "cold", sites.length);
+    tocAdd(list, "Сайты", sites.length);
+    if (sites.length) {
+      var web = panel(list);
+      sites.forEach(function (n) {
+        row(web, "#/n/" + encodeURI(n.path), n.title, { sub: n.fm.repo || "" });
+      });
+    } else empty(list, "Сайтов пока нет.");
 
     /* Документы TeX. Список берётся прямо из файлов: исходник и собранный PDF
        рядом. Группа документа — его папка, и три из них показаны своими
        блоками: зачёт, листки репетиторства и всё остальное — статьи.
-       Новая подпапка в tex/documents/ попадает в статьи своей группой,
-       со своим README вместо заголовка, без правки кода.
+       Документ без PDF здесь не показывается: открыть его нечем, а это
+       служебные ответы к листкам, которые наружу и не идут.
 
        Тона блоков все разные — соседние плашки одного оттенка сливаются,
        и шесть блоков на вкладке требуют шести красок. */
-    var docs = DATA.tex || [];
+    var docs = (DATA.tex || []).filter(function (d) { return d.pdf; });
 
-    function texBlock(title, tone, pick) {
-      var mine = docs.filter(pick);
-      var list = block(main, title, tone);
-      mine.forEach(function (d) { list.appendChild(texCard(d)); });
-      return list;
-    }
+    var zach = docs.filter(function (d) { return d.group === "zachet"; });
+    list = block(main, "Зачёт", "sheet", zach.length);
+    tocAdd(list, "Зачёт", zach.length);
+    zachetGroups(list, zach);
+    if (!zach.length) empty(list, "Документов пока нет.");
 
-    list = texBlock("Зачёт", "sheet",
-      function (d) { return d.group === "zachet"; });
-    if (!list.childNodes.length) empty(list, "Документов пока нет.");
+    var tut = docs.filter(function (d) { return d.group === "tutoring"; });
+    list = block(main, "Репетиторство", "moss", tut.length);
+    tocAdd(list, "Репетиторство", tut.length);
+    tutoringGroups(list, tut);
+    if (!tut.length) empty(list, "Листков пока нет.");
 
-    list = texBlock("Репетиторство", "moss",
-      function (d) { return d.group === "tutoring"; });
-    if (!list.childNodes.length) empty(list, "Листков пока нет.");
-
-    /* Статьи: документы из корня tex/documents/ и любые другие его подпапки,
-       каждая своей группой. */
+    /* Статьи: документы из корня tex/documents/ — одной панелью строк,
+       любая его подпапка — своей группой, с README вместо заголовка
+       и строкой «как устроено» внутри. Новая подпапка появится без правки
+       кода. */
     var rest = docs.filter(function (d) {
       return d.group !== "zachet" && d.group !== "tutoring" && !isPhysics(d);
     });
-    list = block(main, "Статьи", "rose");
-    var groups = [""];
+    list = block(main, "Статьи", "rose", rest.length);
+    tocAdd(list, "Статьи", rest.length);
+    var loose = rest.filter(function (d) { return !d.group; });
+    if (loose.length) {
+      var shelf = panel(list);
+      loose.forEach(function (d) {
+        row(shelf, "#/f/" + encodeURI(d.pdf), d.title, { aside: shortDate(d.date) });
+      });
+    }
+    var subs = [];
     rest.forEach(function (d) {
-      if (d.group && groups.indexOf(d.group) < 0) groups.push(d.group);
+      if (d.group && subs.indexOf(d.group) < 0) subs.push(d.group);
     });
-    groups.forEach(function (g) {
-      var mine = rest.filter(function (d) { return (d.group || "") === g; });
-      if (!mine.length) return;
-      if (g) {
-        var readme = noteAt("tex/documents/" + g + "/README.md");
-        subhead(list, readme ? readme.title : g,
-                readme ? "#/n/" + encodeURI(readme.path) : "");
-      }
-      mine.forEach(function (d) { list.appendChild(texCard(d)); });
+    subs.forEach(function (g) {
+      var mine = rest.filter(function (d) { return d.group === g; });
+      var readme = noteAt("tex/documents/" + g + "/README.md");
+      var body = group(list, "tex:" + g, readme ? readme.title : g, files(mine.length));
+      mine.forEach(function (d) {
+        row(body, "#/f/" + encodeURI(d.pdf), d.title, { aside: shortDate(d.date) });
+      });
+      if (readme) row(body, "#/n/" + encodeURI(readme.path), "Как устроено", { aside: "→" })
+        .classList.add("row-aux");
     });
     if (!rest.length) empty(list, "Статей пока нет.");
 
     /* Стили всех проектов — своим блоком в конце: это справочник,
-       а не работы, и в списках работ он только мешался. */
-    list = block(main, "Стили", "slate");
-    styleCards(list);
-    if (!list.childNodes.length) empty(list, "Стилей пока нет.");
+       а не работы, и в списках работ он только мешался. Отбор по типу
+       `style`, из какой бы папки заметка ни была: прежде каждый стиль лежал
+       в конце своего проекта, путь был зашит, и вики-ссылка `[[style]]`
+       вела не туда. Новый стиль появится здесь без правки кода; строка
+       под названием — поле `kratko`. */
+    var styles = DATA.notes
+      .filter(function (n) { return n.fm.type === "style"; })
+      .sort(function (a, b) { return a.title.localeCompare(b.title, "ru"); });
+    list = block(main, "Стили", "slate", styles.length);
+    tocAdd(list, "Стили", styles.length);
+    if (styles.length) {
+      var book = panel(list);
+      styles.forEach(function (n) {
+        row(book, "#/n/" + encodeURI(n.path), n.title, { sub: n.fm.kratko || "" });
+      });
+    } else empty(list, "Стилей пока нет.");
   }
 
   /* ── вкладка «Роли» ──────────────────────────────────── */
@@ -657,6 +836,11 @@
     box.appendChild(el("h1", null, doc ? doc.title : meta.title || name));
 
     var chips = el("div", "meta");
+    /* У урока и его разбора название одно — «Квадратный трёхчлен», — и вид
+       документа приходится называть рядом, иначе страницы не различить. */
+    if (doc && doc.group === "tutoring") {
+      chips.appendChild(el("span", "chip", kindOf(doc.tex.replace(/\.tex$/, "")).label));
+    }
     if (meta.pages) chips.appendChild(el("span", "chip", meta.pages + " " + plural(
       meta.pages, "страница", "страницы", "страниц")));
     if (meta.size) chips.appendChild(el("span", "chip", Math.round(meta.size / 1024) + " КБ"));
@@ -880,7 +1064,8 @@
      прокручивать, и на быстром тапе состояние не успевает появиться. */
   function enableTapFeedback() {
     document.addEventListener("pointerdown", function (e) {
-      var node = e.target.closest && e.target.closest(".tab, .chip, a.card, a.back, a.ext");
+      var node = e.target.closest &&
+        e.target.closest(".tab, .chip, a.card, a.back, a.ext, a.row, .group-head, .toc-pill");
       if (!node) return;
       node.classList.remove("tap");
       void node.offsetWidth;

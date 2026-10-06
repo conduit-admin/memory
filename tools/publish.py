@@ -14,6 +14,7 @@ import json
 import pathlib
 import re
 import shutil
+import subprocess
 import sys
 from datetime import datetime
 
@@ -250,12 +251,74 @@ TEX_ROOTS = (
 )
 
 
+def podtema(path):
+    """Номер подтемы зачёта из первых строк исходника, «1.2», или пусто.
+
+    Тот же источник, что у порядка в tex_order: «%  Зачёт, подтема 1.2: …».
+    По первой цифре вкладка «Проекты» раскладывает зачёт по разделам.
+    """
+    try:
+        head = path.read_text(encoding="utf-8", errors="replace")[:600]
+    except OSError:
+        return ""
+    m = re.search(r"подтема\s+(\d+\.\d+)", head)
+    return m.group(1) if m else ""
+
+
+def git_dates():
+    """Путь в knowledge → дата последнего коммита, «2026-10-06».
+
+    Один проход по истории, а не вызов на каждый файл: документов под сотню,
+    и сотня вызовов git заметно тормозила бы выкладку. По дате вкладка
+    «Проекты» ставит свежие темы репетиторства наверх.
+    """
+    try:
+        log = subprocess.run(
+            ["git", "-C", str(KNOWLEDGE), "log", "--format=%x00%cs", "--name-only"],
+            capture_output=True, text=True, encoding="utf-8", timeout=60).stdout
+    except (OSError, subprocess.SubprocessError):
+        return {}
+    out, day = {}, ""
+    for line in (log or "").splitlines():
+        if line.startswith("\0"):
+            day = line[1:]
+        elif line and line not in out:
+            out[line] = day          # история идёт от новых к старым
+    return out
+
+
+ROMAN = {"I": 1, "V": 5, "X": 10}
+
+
+def roman(s):
+    total = 0
+    for a, b in zip(s, s[1:] + " "):
+        v = ROMAN[a]
+        total += -v if ROMAN.get(b, 0) > v else v
+    return total
+
+
+def zachet_sections():
+    """Номер раздела зачёта → название, из заголовков math/zachet.md.
+
+    Заголовки там вида «### I. Математический анализ и неравенства». Новый
+    раздел появится на сайте сам, как только у него будет заголовок.
+    """
+    src = KNOWLEDGE / "math" / "zachet.md"
+    if not src.exists():
+        return {}
+    text = src.read_text(encoding="utf-8", errors="replace")
+    return {str(roman(m.group(1))): m.group(2).strip()
+            for m in re.finditer(r"^###\s+([IVX]+)\.\s+(.+)$", text, re.M)}
+
+
 def tex_documents():
     """Список документов: исходник и собранный PDF рядом.
 
     Берётся прямо из папок, а не из заметок: заводить карточку на каждый документ
     значило бы держать в двух местах то, что и так видно в файлах.
     """
+    dates = git_dates()
     out = []
     for root, fixed, prefix in TEX_ROOTS:
         src = KNOWLEDGE / root
@@ -275,13 +338,20 @@ def tex_documents():
             sub = tex.parent.relative_to(src).as_posix()
             group = fixed or (prefix.rstrip("/") if sub == "." else prefix + sub)
             rel_pdf = rel[:-4] + ".pdf"
+            pdf = tex.with_suffix(".pdf")
+            # Дата — последнего коммита PDF, а если его ещё нет в истории
+            # (выкладка берёт рабочее дерево) — время изменения файла.
+            day = dates.get(rel_pdf) or dates.get(rel) or ""
+            if not day and pdf.exists():
+                day = datetime.fromtimestamp(pdf.stat().st_mtime).strftime("%Y-%m-%d")
             out.append({
                 "title": tex_title(tex) or tex.stem,
                 "tex": tex.name,
                 "group": group,
                 # PDF показывается, только если он собран и не изъят белым списком
-                "pdf": rel_pdf if (tex.with_suffix(".pdf").exists()
-                                   and not skipped(rel_pdf)) else "",
+                "pdf": rel_pdf if (pdf.exists() and not skipped(rel_pdf)) else "",
+                "num": podtema(tex),
+                "date": day,
             })
     return out
 
@@ -399,7 +469,8 @@ def main():
     build = datetime.now().strftime("%Y%m%d%H%M")
 
     (HERE / "data" / "index.json").write_text(
-        json.dumps({"notes": notes, "files": files, "tex": tex},
+        json.dumps({"notes": notes, "files": files, "tex": tex,
+                    "zachet": zachet_sections()},
                    ensure_ascii=False, indent=1),
         encoding="utf-8", newline="\n")
 
