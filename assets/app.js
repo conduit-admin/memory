@@ -331,9 +331,12 @@
   function texCard(d) {
     var a = el("a", "card");
     a.href = d.pdf ? "#/f/" + encodeURI(d.pdf) : "#/";
-    /* Листки репетиторства и физики лежат не в tex/ — и цвет у них свой. */
+    /* Листки репетиторства и физики лежат не в tex/ — и цвет у них свой.
+       Шпаргалки кружка ML лежат в tex/, но живут во вкладке «ИИ» и красятся
+       её цветом. */
     a.style.setProperty("--sec", sectionColor(
-      d.group === "tutoring" ? "tutoring" : (isPhysics(d) ? "physics" : "tex")));
+      d.group === "tutoring" ? "tutoring"
+        : (isPhysics(d) ? "physics" : (isMl(d) ? "ml" : "tex"))));
     var top = el("div", "card-top");
     top.appendChild(el("span", "card-title", d.title));
     var meta = el("div", "card-meta");
@@ -524,9 +527,11 @@
     /* Статьи: документы из корня tex/documents/ — одной панелью строк,
        любая его подпапка — своей группой, с README вместо заголовка
        и строкой «как устроено» внутри. Новая подпапка появится без правки
-       кода. */
+       кода. Шпаргалки кружка ML (tex/documents/ml/) сюда не идут: они
+       во вкладке «ИИ», как листки физики — во «Физике». */
     var rest = docs.filter(function (d) {
-      return d.group !== "zachet" && d.group !== "tutoring" && !isPhysics(d);
+      return d.group !== "zachet" && d.group !== "tutoring" && !isPhysics(d)
+        && !isMl(d);
     });
     list = block(main, "Статьи", "rose", rest.length);
     tocAdd(list, "Статьи", rest.length);
@@ -723,13 +728,33 @@
 
   /* ── вкладка «ИИ» ────────────────────────────────────── */
 
-  /* Конспекты и описание раздела — все заметки из ml/, по названию. Задач
-     и приёмов здесь больше нет: с октября 2026 эта схема снята везде. */
+  /* Шпаргалки кружка — PDF из tex/documents/ml/ и любой его подпапки.
+     Карточка открывает сам файл, а не страницу о нём: шпаргалку достают
+     посреди занятия, и лишнее нажатие там мешает (владелец, 07.10.2026).
+     Справка о файле остаётся доступна по прямому адресу #/f/… . Новая
+     шпаргалка появится здесь без правки кода. */
+  function isMl(d) {
+    return d.group === "ml" || String(d.group).indexOf("ml/") === 0;
+  }
+
+  /* Ниже — конспекты и описание раздела: все заметки из ml/, по названию.
+     Задач и приёмов здесь больше нет: с октября 2026 эта схема снята везде. */
   function viewMl(main) {
+    var docs = (DATA.tex || []).filter(function (d) { return d.pdf && isMl(d); });
+    var list = block(main, "Шпаргалки", "warm", docs.length);
+    docs.forEach(function (d) {
+      var a = texCard(d);
+      a.href = "data/notes/" + encodeURI(d.pdf) + V;
+      a.target = "_blank";
+      a.rel = "noopener";
+      list.appendChild(a);
+    });
+    if (!docs.length) empty(list, "Шпаргалок пока нет.");
+
     var mine = DATA.notes.filter(function (n) {
       return n.folder === "ml" || n.folder.indexOf("ml/") === 0;
     }).sort(function (a, b) { return a.title.localeCompare(b.title, "ru"); });
-    var list = block(main, "Конспекты", "cold");
+    list = block(main, "Конспекты", "cold");
     mine.forEach(function (n) { list.appendChild(card(n, {})); });
     if (!mine.length) empty(list, "Конспектов пока нет.");
   }
