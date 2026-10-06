@@ -1084,6 +1084,14 @@
    "kind": "pdf",
    "pages": 2,
    "size": 155389
+  },
+  {
+   "path": "tutoring/listki/trehchlen.pdf",
+   "folder": "tutoring/listki",
+   "title": "trehchlen",
+   "kind": "pdf",
+   "pages": 5,
+   "size": 198454
   }
  ],
  "tex": [
@@ -1386,6 +1394,12 @@
    "tex": "sravneniya-razbor.tex",
    "group": "tutoring",
    "pdf": "tutoring/listki/sravneniya-razbor.pdf"
+  },
+  {
+   "title": "Квадратный трёхчлен",
+   "tex": "trehchlen.tex",
+   "group": "tutoring",
+   "pdf": "tutoring/listki/trehchlen.pdf"
   },
   {
    "title": "Серия 1. Точечные заряды",
