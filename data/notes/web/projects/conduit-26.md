@@ -4,6 +4,7 @@ vid: sait
 repo: conduit-admin/conduit-26
 ssylka: https://conduit-admin.github.io/conduit-26/
 redaktor: https://conduit-admin.github.io/conduit-26/edit.html
+znachok: assets/web/conduit-26.svg
 ---
 
 # Кондуит

@@ -3,6 +3,7 @@ type: proekt
 vid: sait
 repo: conduit-admin/memory
 ssylka: https://conduit-admin.github.io/memory/
+znachok: assets/web/memory.svg
 ---
 
 # Лучезарность

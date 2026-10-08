@@ -412,7 +412,8 @@
     "vid": "sait",
     "repo": "conduit-admin/conduit-26",
     "ssylka": "https://conduit-admin.github.io/conduit-26/",
-    "redaktor": "https://conduit-admin.github.io/conduit-26/edit.html"
+    "redaktor": "https://conduit-admin.github.io/conduit-26/edit.html",
+    "znachok": "assets/web/conduit-26.svg"
    },
    "links": []
   },
@@ -425,7 +426,8 @@
     "vid": "sait",
     "repo": "conduit-admin/conduit-city-26",
     "ssylka": "https://conduit-admin.github.io/conduit-city-26/",
-    "redaktor": "https://conduit-admin.github.io/conduit-city-26/edit.html"
+    "redaktor": "https://conduit-admin.github.io/conduit-city-26/edit.html",
+    "znachok": "assets/web/conduit-city-26.svg"
    },
    "links": [
     "steklo"
@@ -439,7 +441,8 @@
     "type": "proekt",
     "vid": "sait",
     "repo": "conduit-admin/memory",
-    "ssylka": "https://conduit-admin.github.io/memory/"
+    "ssylka": "https://conduit-admin.github.io/memory/",
+    "znachok": "assets/web/memory.svg"
    },
    "links": [
     "bumaga",
