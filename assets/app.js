@@ -318,6 +318,7 @@
        o.aside — справа, o.sub — вторая строка, o.dot — класс цвета точки,
        o.color — цвет точки прямо (раздел в «Свежем» и в поиске),
        o.thumb — миниатюра первой страницы, она встаёт на место точки,
+       o.logo — готовый значок картинкой (у сайтов — их фавикон), на том же месте,
        o.label — подпись для читалки экрана, если видимой мало. */
   function row(body, href, label, o) {
     o = o || {};
@@ -327,7 +328,13 @@
     if (o.label) a.setAttribute("aria-label", o.label);
     if (o.color) a.style.setProperty("--dot", o.color);
     if (o.thumb) a.appendChild(thumbImg(o.thumb, "row-thumb"));
-    else if (o.icon) {
+    else if (o.logo) {
+      var img = el("img", "row-logo");
+      img.src = pdfHref(o.logo);
+      img.alt = "";
+      img.width = img.height = 46;
+      a.appendChild(img);
+    } else if (o.icon) {
       var tile = el("span", "row-icon");
       tile.appendChild(icon(o.icon));
       a.appendChild(tile);
@@ -795,9 +802,15 @@
     tocAdd(list, "Сайты", sites.length);
     if (sites.length) {
       var web = panel(list);
+      /* Значок сайта — его собственный, из поля `znachok` карточки: путь
+         к картинке в хранилище, обычно копия фавикона (владелец, 2026-10-08:
+         одинаковые глобусы у всех трёх сайтов не различались). Нет поля —
+         глобус, как раньше. */
       sites.forEach(function (n) {
+        var z = n.fm.znachok || "";
         row(web, n.fm.ssylka || "#/n/" + encodeURI(n.path), n.title,
-            { sub: n.fm.repo || "", icon: "globe" });
+            { sub: n.fm.repo || "", logo: /\.(svg|png|jpe?g|webp)$/i.test(z) ? z : "",
+              icon: "globe" });
         if (n.fm.redaktor) {
           row(web, n.fm.redaktor, "Редактор", { aside: "↗", label: "Редактор: " + n.title })
             .classList.add("row-aux");
