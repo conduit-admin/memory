@@ -688,18 +688,20 @@
    "folder": "physics/listki/serii",
    "title": "seriya-01",
    "kind": "pdf",
-   "pages": 2,
-   "size": 168124,
-   "date": "2026-10-04"
+   "pages": 6,
+   "size": 189023,
+   "date": "2026-10-09",
+   "thumb": "data/thumbs/physics/listki/serii/seriya-01.png"
   },
   {
    "path": "physics/listki/teoriya/elektrostatika-teoriya.pdf",
    "folder": "physics/listki/teoriya",
    "title": "elektrostatika-teoriya",
    "kind": "pdf",
-   "pages": 1,
-   "size": 143047,
-   "date": "2026-10-04"
+   "pages": 3,
+   "size": 162444,
+   "date": "2026-10-09",
+   "thumb": "data/thumbs/physics/listki/teoriya/elektrostatika-teoriya.png"
   },
   {
    "path": "math/serii/grobariy.pdf",
@@ -1350,20 +1352,22 @@
    "thumb": "data/thumbs/tutoring/listki/trehchlen-razbor.png"
   },
   {
-   "title": "Серия 1. Точечные заряды",
+   "title": "Точечные заряды",
    "tex": "seriya-01.tex",
    "group": "physics/serii",
    "pdf": "physics/listki/serii/seriya-01.pdf",
    "num": "",
-   "date": "2026-10-04"
+   "date": "2026-10-09",
+   "thumb": "data/thumbs/physics/listki/serii/seriya-01.png"
   },
   {
-   "title": "Теория: электростатика",
+   "title": "Электростатика",
    "tex": "elektrostatika-teoriya.tex",
    "group": "physics/teoriya",
    "pdf": "physics/listki/teoriya/elektrostatika-teoriya.pdf",
    "num": "",
-   "date": "2026-10-04"
+   "date": "2026-10-09",
+   "thumb": "data/thumbs/physics/listki/teoriya/elektrostatika-teoriya.png"
   }
  ]
 }
