@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="560" height="640" viewBox="0 0 560 640">
+  <!-- Украшения поверх фона (2026-10-08, владелец: «звёздочки и всякое
+       такое», в фиолетовых и бирюзовых тонах, не связанные с веером).
+       Отдельный слой с другим шагом повтора — 560 на 640 против 96 на 48
+       у веера, — поэтому звёзды не встают в сетку вееров и не читаются
+       как часть узора. Рассыпаны неровно: искры о четырёх лучах, звёзды
+       о пяти, ромбики и точки. У залитых — белая кайма, чтобы не путались
+       с линиями веера под ними. -->
+  <defs>
+    <path id="iskra" vector-effect="non-scaling-stroke" d="M0 -1C.12 -.12 .12 -.12 1 0C.12 .12 .12 .12 0 1C-.12 .12 -.12 .12 -1 0C-.12 -.12 -.12 -.12 0 -1Z"/>
+    <path id="zv" vector-effect="non-scaling-stroke" d="M0 -1L.247 -.34L.951 -.309L.399 .13L.588 .809L0 .42L-.588 .809L-.399 .13L-.951 -.309L-.247 -.34Z"/>
+    <path id="romb" vector-effect="non-scaling-stroke" d="M0 -1L.6 0L0 1L-.6 0Z"/>
+  </defs>
+  <g stroke="#fff" stroke-width="3" paint-order="stroke" stroke-linejoin="round">
+    <use href="#iskra" fill="#8E5BD6" transform="translate(70 92) scale(10)"/>
+    <circle cx="101" cy="70" r="2.6" fill="#3DB5AC"/>
+    <use href="#romb" fill="#3DB5AC" transform="translate(332 40) scale(7)"/>
+    <use href="#iskra" fill="#3DB5AC" transform="translate(470 162) scale(7)"/>
+    <use href="#iskra" fill="#8E5BD6" transform="translate(522 384) scale(12)"/>
+    <circle cx="500" cy="410" r="2.2" fill="#8E5BD6"/>
+    <use href="#romb" fill="#8E5BD6" transform="translate(142 472) scale(6)"/>
+    <use href="#iskra" fill="#3DB5AC" transform="translate(302 562) scale(9)"/>
+    <circle cx="40" cy="602" r="2.2" fill="#3DB5AC"/>
+    <use href="#zv" fill="#3DB5AC" transform="translate(424 522) scale(5.5)"/>
+  </g>
+  <use href="#zv" fill="#fff" stroke="#8E5BD6" stroke-width="1.6" stroke-linejoin="round"
+       transform="translate(222 262) scale(8)"/>
+</svg>
