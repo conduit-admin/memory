@@ -10,6 +10,7 @@
 списке новая папка в knowledge уезжает наружу молча, а забыть добавить строку
 в белый список — значит всего лишь не опубликовать её.
 """
+import hashlib
 import json
 import pathlib
 import re
@@ -565,6 +566,31 @@ def stamp_html(build):
     page.write_text(text, encoding="utf-8", newline="\n")
 
 
+def stamp_css():
+    """Метка содержимого у картинок фона в стилях: url("veer.svg?v=<хеш>").
+
+    Стили тянутся с меткой сборки и всегда свежие, а картинки, на которые они
+    ссылаются, браузер держал в кэше по старому адресу. 08.10.2026 так и
+    вышло: свежие стили ждали плитку 96 на 48, а телефон подставил старую
+    480 на 240 — веер сжался впятеро. Метка — от содержимого файла, а не от
+    сборки: адрес меняется, только когда меняется сама картинка, и стили
+    не правятся на каждой выкладке. Шрифты не трогаем — их адрес должен
+    совпадать с предзагрузкой в index.html.
+    """
+    css = HERE / "assets" / "style.css"
+    text = css.read_text(encoding="utf-8")
+
+    def mark(m):
+        src = HERE / "assets" / m.group(1)
+        if not src.exists():
+            return m.group(0)
+        return 'url("%s?v=%s")' % (m.group(1), hashlib.md5(src.read_bytes()).hexdigest()[:8])
+
+    new = re.sub(r'url\("([\w.-]+\.svg)(?:\?v=[0-9a-f]+)?"\)', mark, text)
+    if new != text:
+        css.write_text(new, encoding="utf-8", newline="\n")
+
+
 def main():
     if not KNOWLEDGE.is_dir():
         sys.exit("не найден knowledge: %s" % KNOWLEDGE)
@@ -596,6 +622,7 @@ def main():
         json.dumps(config, ensure_ascii=False, indent=2),
         encoding="utf-8", newline="\n")
 
+    stamp_css()
     stamp_html(build)
 
     linked = sum(len(n["links"]) for n in notes)

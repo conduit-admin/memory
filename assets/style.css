@@ -180,7 +180,7 @@ html {
    одинаковыми, и едут вместе со страницей. */
 html {
   background-color: var(--plane);
-  background-image: url("zvezdy.svg"), url("veer.svg");
+  background-image: url("zvezdy.svg?v=6f59744e"), url("veer.svg?v=23cdab24");
   background-size: 560px 640px, 96px 48px;
   background-position: 50% 0, 50% 0;
 }
