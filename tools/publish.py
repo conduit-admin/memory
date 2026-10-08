@@ -366,23 +366,54 @@ def tex_documents():
 
 THUMBS = HERE / "data" / "thumbs"
 
+# Сторона миниатюры по большему измерению, в пикселях. На карточке рисунок
+# шириной 64, на плотном экране это втрое, и мельче уже мыло.
+COVER_PX = 220
+
+
+def cover_box(src):
+    """Рамка иллюстрации обложки на первой странице PDF или None.
+
+    Рамку пишет в PDF общая преамбула A5 (tex/preamble-a5.tex, «рамка
+    обложки»): ArtBox первой страницы — ровно рисунок figCover с титула.
+    Если ArtBox не задан, pdfinfo показывает его равным странице — значит,
+    обложки нет. Числа — в пунктах PostScript, начало — левый нижний угол.
+    """
+    try:
+        res = subprocess.run(["pdfinfo", "-box", "-f", "1", "-l", "1", str(src)],
+                             capture_output=True, text=True, timeout=30)
+    except (OSError, subprocess.SubprocessError):
+        return None
+    boxes = {}
+    for line in res.stdout.splitlines():
+        m = re.match(r"Page\s+1\s+(\w+):\s+([-\d.]+)\s+([-\d.]+)\s+([-\d.]+)\s+([-\d.]+)", line)
+        if m:
+            boxes[m.group(1)] = tuple(float(v) for v in m.groups()[1:])
+    art, page = boxes.get("ArtBox"), boxes.get("CropBox") or boxes.get("MediaBox")
+    if not art or not page or art == page or art[2] <= art[0] or art[3] <= art[1]:
+        return None
+    return art, page
+
 
 def make_thumbs(docs, files):
-    """Миниатюра первой страницы у каждого PDF: data/thumbs/<путь>.jpg.
+    """Миниатюра — иллюстрация с титула: data/thumbs/<путь>.png.
 
-    Сначала миниатюры были только у документов A5 — там первая страница и есть
-    обложка. С 2026-10-08 они у всех: владелец просил больше картинок, и даже
-    текстовая первая страница A4 в списке читается как лист бумаги, а не как
-    пустая строка.
+    С 2026-10-08 это не первая страница целиком, а только рисунок обложки
+    (владелец: «не надо превью pdf, просто иллюстрацию с титульника»).
+    Рамку рисунка берём из PDF — см. cover_box. У документа без обложки
+    миниатюры нет вовсе, и сайт ставит на её место то же, что ставил
+    до миниатюр; со временем обложка будет у всех.
 
-    Рисует pdftoppm из поставки MiKTeX — он есть на обеих машинах. Картинка
-    пересобирается, только если PDF новее её: иначе каждая выкладка гоняла бы
-    pdftoppm по всем документам и пересоздавала одинаковые файлы, которые git
-    всё равно счёл бы изменёнными. Нет pdftoppm — миниатюр нет, а сайт без них
-    работает как раньше. Миниатюра пропавшего документа удаляется.
+    Рисует pdftoppm из поставки MiKTeX — он есть на обеих машинах: вся
+    страница в таком разрешении, чтобы рисунок вышел COVER_PX по большей
+    стороне, и вырезка по рамке. PNG, а не JPEG: рисунки плоские, с резкими
+    краями, и JPEG покрывал их грязью. Картинка пересобирается, только если
+    PDF новее её. Нет pdftoppm или pdfinfo — миниатюр нет, а сайт без них
+    работает как раньше. Миниатюра пропавшего документа или документа,
+    потерявшего обложку, удаляется — как и прежние JPEG первых страниц.
     """
-    if not shutil.which("pdftoppm"):
-        print("pdftoppm не найден — миниатюры не обновлялись")
+    if not (shutil.which("pdftoppm") and shutil.which("pdfinfo")):
+        print("pdftoppm или pdfinfo не найден — миниатюры не обновлялись")
         return
     made = {}
 
@@ -390,18 +421,26 @@ def make_thumbs(docs, files):
         if rel in made:
             return made[rel]
         src = KNOWLEDGE / rel
-        out = THUMBS / (rel[:-4] + ".jpg")
+        out = THUMBS / (rel[:-4] + ".png")
         made[rel] = None
         if not src.exists():
             return None
-        if not (out.exists() and out.stat().st_mtime >= src.stat().st_mtime):
+        fresh = out.exists() and out.stat().st_mtime >= src.stat().st_mtime
+        if not fresh:
+            box = cover_box(src)
+            if not box:
+                return None
+            (x0, y0, x1, y1), (px0, py0, px1, py1) = box
+            dpi = COVER_PX * 72 / max(x1 - x0, y1 - y0)
+            k = dpi / 72
             out.parent.mkdir(parents=True, exist_ok=True)
-            # 200 пунктов в ширину: на карточке миниатюра шириной 52, на
-            # плотном экране это вчетверо, и мельче уже мыло
-            subprocess.run(["pdftoppm", "-jpeg", "-jpegopt", "quality=82",
-                            "-f", "1", "-l", "1", "-scale-to-x", "200",
-                            "-scale-to-y", "-1", "-singlefile",
-                            str(src), str(out.with_suffix(""))],
+            subprocess.run(["pdftoppm", "-png", "-r", "%.3f" % dpi,
+                            "-f", "1", "-l", "1",
+                            "-x", str(round((x0 - px0) * k)),
+                            "-y", str(round((py1 - y1) * k)),
+                            "-W", str(round((x1 - x0) * k)),
+                            "-H", str(round((y1 - y0) * k)),
+                            "-singlefile", str(src), str(out.with_suffix(""))],
                            capture_output=True, timeout=60)
         if out.exists():
             made[rel] = out.relative_to(HERE).as_posix()
@@ -415,7 +454,7 @@ def make_thumbs(docs, files):
             f["thumb"] = made[f["path"]]
     keep = {HERE / p for p in made.values() if p}
     if THUMBS.exists():
-        for old in THUMBS.rglob("*.jpg"):
+        for old in list(THUMBS.rglob("*.jpg")) + list(THUMBS.rglob("*.png")):
             if old not in keep:
                 old.unlink()
 
