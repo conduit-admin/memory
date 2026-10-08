@@ -999,6 +999,10 @@
       bar.setAttribute("aria-hidden", "true");
       var fill = el("span");
       fill.style.width = Math.round(100 * done / counted.length) + "%";
+      /* Доля — для цвета: чем полнее, тем гуще фиолетовый. В кубе: почти все
+         серии решены на 3/4 и больше, и при прямой шкале 6 из 8 и 8 из 8
+         сливались по цвету. Куб растягивает именно этот верхний край. */
+      fill.style.setProperty("--p", Math.pow(done / counted.length, 3).toFixed(3));
       bar.appendChild(fill);
       a.appendChild(bar);
     }
