@@ -305,6 +305,8 @@ body {
 /* Полоса вкладок — белый лист с волосяным краем, закреплённый сверху. Фон
    плотный: под ней проезжает содержимое, и сквозь неё оно не должно читаться. */
 .tabs {
+  /* поле вкладки по бокам — на столько черта указателя короче ячейки */
+  --tab-pad: 18px;
   position: sticky;
   top: 0;
   z-index: 20;
@@ -328,17 +330,23 @@ body {
 
    Пока ширина не задана, указателя попросту нет: он не выскакивает из угла при
    первой отрисовке. */
+/* Указатель — тонкая золотая черта под выбранной вкладкой, а сама
+   надпись золотая (2026-10-08). Правило для золота знака: только
+   на чёрном, как в самом знаке — золотые лучи на чёрном круге. Полоса
+   вкладок чёрная, и выбранная вкладка на ней становится тем же, что знак.
+   Прежде указателем была белая пилюля во всю высоту полосы. Черта короче
+   вкладки на поля слева и справа — чтобы стояла под словом, а не под
+   всей ячейкой. */
 .tabs::before {
   content: "";
   position: absolute;
-  top: 5px;
-  bottom: 5px;
+  bottom: 6px;
+  height: 2.5px;
   left: 0;
-  width: var(--thumb-w, 0);
-  transform: translateX(var(--thumb-x, 0));
-  border-radius: 999px;
-  /* Указатель — белая плоская плашка на чёрной полосе. */
-  background: var(--surface);
+  width: max(0px, calc(var(--thumb-w, 0px) - 2 * var(--tab-pad, 16px)));
+  transform: translateX(calc(var(--thumb-x, 0px) + var(--tab-pad, 16px)));
+  border-radius: 2px;
+  background: var(--gold-logo);
   pointer-events: none;
   transition: transform .38s cubic-bezier(.22, .8, .24, 1),
               width .38s cubic-bezier(.22, .8, .24, 1);
@@ -368,8 +376,8 @@ body {
 .tab:hover { color: #FFFFFF; }
 .tab:focus-visible { outline: 2px solid var(--gold-2); outline-offset: -2px; }
 
-/* Заливку выбранной вкладки рисует указатель, самой вкладке остаётся цвет. */
-.tab[aria-selected="true"] { color: var(--black); }
+/* Выбранная вкладка — золотом знака, черта под ней — указатель выше. */
+.tab[aria-selected="true"] { color: var(--gold-logo); }
 
 /* ── блоки ─────────────────────────────────────────────── */
 
@@ -552,7 +560,8 @@ body {
   padding: 0 7px;
   border-radius: 999px;
   background: var(--black);
-  color: #FFFFFF;
+  /* золото знака на чёрном — то же правило, что у выбранной вкладки */
+  color: var(--gold-logo);
   font-size: 13.5px;
   font-weight: 600;
   font-variant-numeric: tabular-nums;
@@ -1430,6 +1439,7 @@ a.row.tap.tap, .group-head.tap.tap { animation: tapRow .4s ease-out; }
      а не подсказкой, что там есть ещё. */
   /* Жирный CM широк: на телефоне поля вкладок узкие, иначе «Роли» уезжают. */
   .tab { padding: 8px 6px; font-size: 14px; }
+  .tabs { --tab-pad: 6px; }
   .note { padding: 18px 16px 22px; }
   .note h1 { font-size: 26px; }
   /* плашка названия прижата к рамке и при узких полях */
