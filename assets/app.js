@@ -240,10 +240,32 @@
   /* На плашке только название и, если передано, число документов справа.
      Пояснения оттуда убраны: они удлиняли строку — на узком экране плашка
      вылезала за край, — а сказать что-то важное всё равно не успевали. */
+  /* Значок раздела — по его названию. Золотом: значки разделов и линия от
+     заголовка — те самые «золотые вставки», единственное нарядное на странице
+     (владелец, 2026-10-08). Раздел без своего значка получает солнце из лучей
+     знака — так новый блок появляется и без правки этого списка. */
+  var BLOCK_ICON = {
+    "Свежее": "sun", "Найдено": "search", "Анимации": "film", "Сайты": "globe",
+    "Репетиторство": "board", "Статьи": "book", "Стили": "palette",
+    "Шпаргалки": "bookmark", "Конспекты": "book", "Серии": "sigma",
+    "Гробарий": "archive", "План обучения": "map", "Разборы": "listcheck",
+    "Эксперимент": "flask", "Теория": "book", "Роли": "compass"
+  };
+
+  /* «Серии» есть и в «Математике», и в «Физике»: у физики свой значок. */
+  function blockIcon(title) {
+    if (VIEW === "physics" && title === "Серии") return "atom";
+    return BLOCK_ICON[title] || "sun";
+  }
+
   function block(main, title, tone, count) {
     var box = el("section", "block");
     var head = el("div", "block-head " + tone);
+    var mark = el("span", "block-icon");
+    mark.appendChild(icon(blockIcon(title)));
+    head.appendChild(mark);
     head.appendChild(el("h2", null, title));
+    head.appendChild(el("span", "block-rule"));
     if (count != null) head.appendChild(el("span", "block-count", String(count)));
     box.appendChild(head);
     var list = el("div", "list");
@@ -307,7 +329,11 @@
     if (o.label) a.setAttribute("aria-label", o.label);
     if (o.color) a.style.setProperty("--dot", o.color);
     if (o.thumb) a.appendChild(thumbImg(o.thumb, "row-thumb"));
-    else if (o.dot || o.color) a.appendChild(el("span", "row-dot"));
+    else if (o.icon) {
+      var tile = el("span", "row-icon");
+      tile.appendChild(icon(o.icon));
+      a.appendChild(tile);
+    } else if (o.dot || o.color) a.appendChild(el("span", "row-dot"));
     var text = el("span", "row-label");
     text.appendChild(el("span", null, label));
     if (o.sub) text.appendChild(el("span", "row-sub", o.sub));
@@ -317,8 +343,8 @@
     return a;
   }
 
-  /* Миниатюра первой страницы — только у документов A5, у них первая страница
-     и есть обложка (рисует tools/publish.py). Размеры заданы в разметке,
+  /* Миниатюра первой страницы — у каждого PDF (рисует tools/publish.py);
+     у документов A5 это обложка, у A4 — лист с началом текста. Размеры заданы в разметке,
      чтобы строка не прыгала, пока картинка едет; подпись пустая — рядом
      стоит название, и читалке повторять его незачем. */
   function thumbImg(src, cls) {
@@ -460,6 +486,22 @@
       '<path d="M15.6 8.4l-2.1 5.1-5.1 2.1 2.1-5.1z"/>' },
     map: { c: "var(--s8)", d: '<path d="M3 6.5l6-2.5 6 2.5 6-2.5v13.5l-6 2.5-6-2.5-6 2.5z"/>' +
       '<path d="M9 4v13.5M15 6.5V20"/>' },
+    sun: { c: "var(--gold)", d: '<circle cx="12" cy="12" r="3.4" fill="currentColor" stroke="none"/>' +
+      '<path d="M12 2v3.4M12 18.6V22M2 12h3.4M18.6 12H22M4.9 4.9l2.4 2.4M16.7 16.7l2.4 2.4M4.9 19.1l2.4-2.4M16.7 7.3l2.4-2.4"/>' },
+    globe: { c: "var(--violet)", d: '<circle cx="12" cy="12" r="9"/>' +
+      '<path d="M3 12h18M12 3c2.6 2.6 3.8 5.6 3.8 9s-1.2 6.4-3.8 9c-2.6-2.6-3.8-5.6-3.8-9S9.4 5.6 12 3z"/>' },
+    palette: { c: "var(--violet)", d: '<path d="M12 3a9 9 0 1 0 0 18c1 0 1.7-.8 1.7-1.7 0-.5-.2-.9-.5-1.2-.3-.3-.5-.7-.5-1.2 0-.9.8-1.7 1.7-1.7h2.1a4.5 4.5 0 0 0 4.5-4.5C21 6.6 17 3 12 3z"/>' +
+      '<g fill="currentColor" stroke="none"><circle cx="7.6" cy="11" r="1.2"/><circle cx="10" cy="7.3" r="1.2"/>' +
+      '<circle cx="14.3" cy="7.3" r="1.2"/></g>' },
+    book: { c: "var(--violet)", d: '<path d="M3 5.6c3-1.2 6-1.1 9 .6v13.6c-3-1.7-6-1.8-9-.6zM21 5.6c-3-1.2-6-1.1-9 .6v13.6c3-1.7 6-1.8 9-.6z"/>' },
+    bookmark: { c: "var(--violet)", d: '<path d="M7 3.5h10V21l-5-4-5 4z"/>' },
+    archive: { c: "var(--violet)", d: '<rect x="3" y="4" width="18" height="4.5" rx="1.2"/>' +
+      '<path d="M5 8.5V19a1.5 1.5 0 0 0 1.5 1.5h11A1.5 1.5 0 0 0 19 19V8.5M10 12.5h4"/>' },
+    flask: { c: "var(--violet)", d: '<path d="M9 3h6M10 3v6.2L4.8 18.6A1.6 1.6 0 0 0 6.2 21h11.6a1.6 1.6 0 0 0 1.4-2.4L14 9.2V3M7.4 15h9.2"/>' },
+    listcheck: { c: "var(--violet)", d: '<path d="M3.8 6.6l1.6 1.6L8.2 5.4M3.8 12.6l1.6 1.6 2.8-2.8M3.8 18.6l1.6 1.6 2.8-2.8M11.5 7h8.5M11.5 13h8.5M11.5 19h8.5"/>' },
+    search: { c: "var(--violet)", d: '<circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/>' },
+    layers: { c: "var(--violet)", d: '<path d="M12 3.5l9 5-9 5-9-5z"/><path d="M3 13l9 5 9-5"/>' },
+    file: { c: "var(--violet)", d: '<path d="M6.5 3h7.5l4.5 4.5V21h-12z"/><path d="M14 3v4.5h4.5"/>' },
     copy: { c: "currentColor", d: '<rect x="8.5" y="8.5" width="11.5" height="11.5" rx="2.2"/>' +
       '<path d="M15.5 8.5V6.2a2.2 2.2 0 0 0-2.2-2.2H6.2A2.2 2.2 0 0 0 4 6.2v7.1a2.2 2.2 0 0 0 2.2 2.2h2.3"/>' },
     check: { c: "currentColor", d: '<path d="M5 12.5l4.5 4.5L19 7.5"/>' }
@@ -660,7 +702,7 @@
     });
     DATA.files.forEach(function (f) {
       var t = seriesTitle(f.path);
-      if (t) out.push({ title: t, sub: "Математика", href: pdfHref(f.path),
+      if (t) out.push({ title: t, sub: "Математика", href: pdfHref(f.path), thumb: f.thumb,
                         color: sectionColor("math"), date: f.date, key: fileName(f.path) });
     });
     return out;
@@ -698,6 +740,7 @@
       var box = list.parentNode;
       var b = el("button", "toc-pill");
       b.type = "button";
+      b.appendChild(icon(blockIcon(title)));
       b.appendChild(el("span", null, title));
       b.appendChild(el("span", "toc-n", String(n)));
       b.addEventListener("click", function () {
@@ -743,7 +786,8 @@
     if (sites.length) {
       var web = panel(list);
       sites.forEach(function (n) {
-        row(web, n.fm.ssylka || "#/n/" + encodeURI(n.path), n.title, { sub: n.fm.repo || "" });
+        row(web, n.fm.ssylka || "#/n/" + encodeURI(n.path), n.title,
+            { sub: n.fm.repo || "", icon: "globe" });
         if (n.fm.redaktor) {
           row(web, n.fm.redaktor, "Редактор", { aside: "↗", label: "Редактор: " + n.title })
             .classList.add("row-aux");
@@ -817,7 +861,7 @@
     if (styles.length) {
       var book = panel(list);
       styles.forEach(function (n) {
-        row(book, "#/n/" + encodeURI(n.path), n.title, { sub: n.fm.kratko || "" });
+        row(book, "#/n/" + encodeURI(n.path), n.title, { sub: n.fm.kratko || "", icon: "palette" });
       });
     } else empty(list, "Стилей пока нет.");
   }
@@ -925,10 +969,19 @@
   function setCard(r, tasks) {
     var name = r[0], file = r[6];
     var path = file && file !== "—" ? "math/serii/" + file : "";
-    var has = path && DATA.files.some(function (f) { return f.path === path; });
-    var a = el(has ? "a" : "div", "card");
-    if (has) outward(a).href = pdfHref(path);
-    a.style.setProperty("--sec", sectionColor("math"));
+    var sheet = path && DATA.files.filter(function (f) { return f.path === path; })[0];
+    var has = !!sheet;
+    /* С миниатюрой листка слева — серия узнаётся по первой странице. Всё
+       остальное карточки уходит в тело справа от неё. */
+    var card = el(has ? "a" : "div", "card" + (sheet && sheet.thumb ? " has-thumb" : ""));
+    if (has) outward(card).href = pdfHref(path);
+    card.style.setProperty("--sec", sectionColor("math"));
+    var a = card;
+    if (sheet && sheet.thumb) {
+      card.appendChild(thumbImg(sheet.thumb, "card-thumb"));
+      a = el("div", "card-body");
+      card.appendChild(a);
+    }
 
     var mine = tasks.filter(function (t) { return t[1] === name; });
     var counted = mine.filter(function (t) { return !isExercise(t); });
@@ -955,7 +1008,7 @@
       marks.appendChild(m);
     });
     if (mine.length) a.appendChild(marks);
-    return a;
+    return card;
   }
 
   function fillMath(host, src) {

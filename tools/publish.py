@@ -367,27 +367,13 @@ def tex_documents():
 THUMBS = HERE / "data" / "thumbs"
 
 
-def page_size(src):
-    """Ширина и высота первой страницы в пунктах, по pdfinfo; нет — None."""
-    try:
-        info = subprocess.run(["pdfinfo", str(src)], capture_output=True,
-                              text=True, encoding="utf-8", errors="replace",
-                              timeout=30).stdout
-    except (OSError, subprocess.SubprocessError):
-        return None
-    m = re.search(r"Page size:\s*([\d.]+)\s*x\s*([\d.]+)", info or "")
-    return (float(m.group(1)), float(m.group(2))) if m else None
+def make_thumbs(docs, files):
+    """Миниатюра первой страницы у каждого PDF: data/thumbs/<путь>.jpg.
 
-
-def is_a5(size):
-    """A5 — 419,5 на 595,3 пункта. У документов этого формата первая страница —
-    титул с обложкой, и её миниатюра узнаётся с одного взгляда. У A4 первая
-    страница — текст, и в миниатюре это серый прямоугольник."""
-    return bool(size) and abs(size[0] - 419.5) < 3 and abs(size[1] - 595.3) < 3
-
-
-def make_thumbs(docs):
-    """Миниатюра первой страницы у документов A5: data/thumbs/<путь>.jpg.
+    Сначала миниатюры были только у документов A5 — там первая страница и есть
+    обложка. С 2026-10-08 они у всех: владелец просил больше картинок, и даже
+    текстовая первая страница A4 в списке читается как лист бумаги, а не как
+    пустая строка.
 
     Рисует pdftoppm из поставки MiKTeX — он есть на обеих машинах. Картинка
     пересобирается, только если PDF новее её: иначе каждая выкладка гоняла бы
@@ -395,31 +381,39 @@ def make_thumbs(docs):
     всё равно счёл бы изменёнными. Нет pdftoppm — миниатюр нет, а сайт без них
     работает как раньше. Миниатюра пропавшего документа удаляется.
     """
-    if not shutil.which("pdftoppm") or not shutil.which("pdfinfo"):
-        print("pdftoppm или pdfinfo не найдены — миниатюры не обновлялись")
+    if not shutil.which("pdftoppm"):
+        print("pdftoppm не найден — миниатюры не обновлялись")
         return
-    keep = set()
-    for d in docs:
-        if not d["pdf"]:
-            continue
-        src = KNOWLEDGE / d["pdf"]
-        out = THUMBS / (d["pdf"][:-4] + ".jpg")
-        fresh = out.exists() and out.stat().st_mtime >= src.stat().st_mtime
-        if not fresh:
-            if not is_a5(page_size(src)):
-                continue
+    made = {}
+
+    def thumb(rel):
+        if rel in made:
+            return made[rel]
+        src = KNOWLEDGE / rel
+        out = THUMBS / (rel[:-4] + ".jpg")
+        made[rel] = None
+        if not src.exists():
+            return None
+        if not (out.exists() and out.stat().st_mtime >= src.stat().st_mtime):
             out.parent.mkdir(parents=True, exist_ok=True)
-            # 200 пунктов в ширину: на карточке миниатюра шириной 48, на
+            # 200 пунктов в ширину: на карточке миниатюра шириной 52, на
             # плотном экране это вчетверо, и мельче уже мыло
             subprocess.run(["pdftoppm", "-jpeg", "-jpegopt", "quality=82",
                             "-f", "1", "-l", "1", "-scale-to-x", "200",
                             "-scale-to-y", "-1", "-singlefile",
                             str(src), str(out.with_suffix(""))],
                            capture_output=True, timeout=60)
-            if not out.exists():
-                continue
-        keep.add(out)
-        d["thumb"] = out.relative_to(HERE).as_posix()
+        if out.exists():
+            made[rel] = out.relative_to(HERE).as_posix()
+        return made[rel]
+
+    for d in docs:
+        if d["pdf"] and thumb(d["pdf"]):
+            d["thumb"] = made[d["pdf"]]
+    for f in files:
+        if f["path"].endswith(".pdf") and thumb(f["path"]):
+            f["thumb"] = made[f["path"]]
+    keep = {HERE / p for p in made.values() if p}
     if THUMBS.exists():
         for old in THUMBS.rglob("*.jpg"):
             if old not in keep:
@@ -543,7 +537,7 @@ def main():
 
     notes, files, seen = collect()
     tex = tex_documents()
-    make_thumbs(tex)
+    make_thumbs(tex, files)
     build = datetime.now().strftime("%Y%m%d%H%M")
 
     (HERE / "data" / "index.json").write_text(

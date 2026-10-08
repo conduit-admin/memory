@@ -3,8 +3,8 @@
    Плоская тёплая бумага, белые листы карточек, чернила. Цвет — из строгого
    набора владельца: чернила, фиолетовый, тёмное золото и нейтральные для
    второстепенного. Свободны в цвете только иллюстрации — обложки документов.
-   Заголовки и текст заметок — Computer Modern, как в документах владельца;
-   интерфейс — Golos, ему на телефоне в мелком кегле читаться легче.
+   Шрифт один — Computer Modern, как в документах владельца, по всему сайту.
+   Единственное нарядное — золотые вставки.
    Описание — web/styles/bumaga.md в knowledge.
 
    Тема одна, светлая: «только светлая» объявлено и браузеру, иначе Chrome
@@ -13,16 +13,17 @@
 :root {
   color-scheme: only light;
 
-  /* Бумага и чернила. Страница — тёплая бумага, карточка — белый лист на ней:
-     слой читается без тени. */
-  --plane: #F7F4EC;
+  /* Бумага и чернила. Страница белая — белый у владельца среди любимых,
+     тёплый бежевый не понравился (2026-10-08). Листы карточек того же белого
+     и отделены волосяным краем с лёгкой фиолетовой ноткой. */
+  --plane: #FFFFFF;
   --surface: #FFFFFF;
   --ink: #16131C;
   --ink-2: #3E3848;
   --ink-muted: #756E80;
   --ink-inv: #FFFFFF;
-  --border: #E4DED2;
-  --border-strong: #CFC7B8;
+  --border: #E8E4EE;
+  --border-strong: #D3CCDD;
   --wash: rgba(22, 19, 28, 0.035);
 
   /* Подложка тихих кнопок и пилюль — без рамки, сама себе граница. */
@@ -38,6 +39,12 @@
   --gold: #A57C1B;
   --gold-2: #D9B45A;
   --gold-logo: #FDD17A;
+  /* Золотые вставки — единственное нарядное на странице: двойная линия под
+     шапкой и у названия заметки, линия от заголовка раздела, значки разделов,
+     золото на чёрном у выбранной вкладки. Линии — среднего золота: тёмное
+     на волосяной толщине выглядит грязью, светлое пропадает на белом. */
+  --gold-line: #C9A54C;
+  --gold-on-ink: #F0C75E;
 
   /* Краски разделов прежнего набора сведены к строгому: разделы различаются
      местом на странице, а не радугой. Имена оставлены, чтобы правила, которые
@@ -63,20 +70,19 @@
   --shadow-2: none;
 
 
-  --font-ui: "Golos Text", "Segoe UI Variable Text", system-ui, -apple-system,
-             "Segoe UI", Roboto, sans-serif;
+  /* Шрифт один — Computer Modern, по всему сайту. Golos в интерфейсе рядом
+     с CM в заголовках владелец назвал расхождением (2026-10-08). Пометки,
+     которым нужна моноширинность, — машинописный CM из того же семейства. */
   --font-display: "CMU Serif", "Latin Modern Roman", "Computer Modern", Georgia,
                   "Times New Roman", serif;
-  --font-mono: ui-monospace, "Cascadia Mono", "Segoe UI Mono", Consolas, monospace;
-
-  /* Солнце из лучей знака у заголовков разделов — единственный «богатый»
-     мотив на странице. Рисунок здесь, чтобы цвет менялся в одном месте. */
-  --sun: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cg stroke='%23A57C1B' stroke-width='1.7' stroke-linecap='round'%3E%3Cpath d='M12 1.6v3.6M12 18.8v3.6M1.6 12h3.6M18.8 12h3.6M4.65 4.65l2.55 2.55M16.8 16.8l2.55 2.55M4.65 19.35l2.55-2.55M16.8 7.2l2.55-2.55'/%3E%3C/g%3E%3Ccircle cx='12' cy='12' r='3.4' fill='%23A57C1B'/%3E%3C/svg%3E");
+  --font-ui: var(--font-display);
+  --font-mono: "CMU Typewriter Text", "Latin Modern Mono", ui-monospace, Consolas,
+               monospace;
 }
 
 /* Computer Modern Unicode — с кириллицей. Пока берётся с jsDelivr, версия
    закреплена коммитом, чтобы чужая правка не поменяла сайт; положить файлы
-   рядом, как Golos, — следующий шаг. */
+   рядом, в assets/fonts/, — следующий шаг. */
 @font-face {
   font-family: "CMU Serif";
   src: url("https://cdn.jsdelivr.net/gh/dreampulse/computer-modern-web-font@e9977be1283466992a2dede47a342655d8426fee/font/Serif/cmunrm.woff") format("woff");
@@ -98,6 +104,22 @@
   src: url("https://cdn.jsdelivr.net/gh/dreampulse/computer-modern-web-font@e9977be1283466992a2dede47a342655d8426fee/font/Serif/cmunti.woff") format("woff");
   font-weight: 400;
   font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "CMU Typewriter Text";
+  src: url("https://cdn.jsdelivr.net/gh/dreampulse/computer-modern-web-font@e9977be1283466992a2dede47a342655d8426fee/font/Typewriter/cmuntt.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "CMU Typewriter Text";
+  src: url("https://cdn.jsdelivr.net/gh/dreampulse/computer-modern-web-font@e9977be1283466992a2dede47a342655d8426fee/font/Typewriter/cmuntb.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
   font-display: swap;
 }
 
@@ -129,33 +151,12 @@ html {
    без стекла им нечего подчёркивать. */
 html { background-color: var(--plane); }
 
-/* Гарнитура своя и лежит рядом. Сайт целиком русский, а системные интерфейсные
-   шрифты рисуют кириллицу как приложение к латинице. Файлов два, по диапазонам:
-   кириллический берётся всегда, латинский — только если попадётся латиница. */
-@font-face {
-  font-family: "Golos Text";
-  src: url("fonts/golos-cyrillic.woff2") format("woff2");
-  font-weight: 400 700;
-  font-style: normal;
-  font-display: swap;
-  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
-}
-
-@font-face {
-  font-family: "Golos Text";
-  src: url("fonts/golos-latin.woff2") format("woff2");
-  font-weight: 400 700;
-  font-style: normal;
-  font-display: swap;
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
-                 U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122,
-                 U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
 
 body {
   color: var(--ink);
   font-family: var(--font-ui);
-  font-size: 15px;
+  /* Кегль на ступень крупнее, чем был у Golos: рисунок CM тоньше. */
+  font-size: 16px;
   line-height: 1.45;
   -webkit-text-size-adjust: 100%;
 }
@@ -170,12 +171,16 @@ body {
 
 /* ── шапка ─────────────────────────────────────────────── */
 
+/* Под шапкой — двойная золотая линия, как обрез у книги в переплёте. Одна
+   из золотых вставок. */
 .topbar {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   gap: 10px 12px;
   padding: 24px 0 16px;
+  margin-bottom: 18px;
+  border-bottom: 3px double var(--gold-line);
 }
 
 /* Вместо надписи — знак владельца, 64 пункта: заметно крупнее поля поиска
@@ -334,7 +339,8 @@ body {
 .tab:focus-visible { outline: 2px solid var(--s1); outline-offset: -2px; }
 
 /* Заливку выбранной вкладки рисует указатель, самой вкладке остаётся цвет. */
-.tab[aria-selected="true"] { color: var(--ink-inv); }
+/* Выбранная вкладка — золото на чёрном, как лучи знака. */
+.tab[aria-selected="true"] { color: var(--gold-on-ink); }
 
 /* ── блоки ─────────────────────────────────────────────── */
 
@@ -353,12 +359,24 @@ body {
   color: var(--ink);
 }
 
-.block-head::before {
-  content: "";
+/* Значок раздела золотом и золотая линия от названия до числа справа —
+   как у глав в книге. */
+.block-icon {
   flex: none;
-  width: 17px;
-  height: 17px;
-  background: var(--sun) center / contain no-repeat;
+  display: grid;
+  place-items: center;
+  width: 22px;
+  height: 22px;
+  color: var(--gold);
+}
+
+.block-icon svg { width: 21px; height: 21px; }
+
+.block-rule {
+  flex: 1 1 auto;
+  min-width: 16px;
+  height: 0;
+  border-top: 1px solid var(--gold-line);
 }
 
 .block-head h2 {
@@ -411,6 +429,7 @@ body {
 }
 
 .toc-pill:hover { background: var(--quiet-on); color: var(--ink); }
+.toc-pill svg { width: 16px; height: 16px; flex: none; color: var(--gold); }
 .toc-pill:focus-visible { outline: 2px solid var(--s1); outline-offset: 2px; }
 
 .toc-n {
@@ -596,6 +615,21 @@ body {
 /* В строке миниатюра встаёт на место точки и не раздувает строку: 30 на 42,
    чуть выше двух строк подписи. */
 .row-thumb { width: 30px; }
+
+/* Значок на месте миниатюры — у строк без файла: сайты, стили. Та же
+   ширина, что у миниатюры, чтобы названия в списке стояли по одной линии. */
+.row-icon {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
+  background: var(--violet-tint);
+  color: var(--violet);
+}
+
+.row-icon svg { width: 18px; height: 18px; }
 .row.has-thumb { padding-top: 6px; padding-bottom: 6px; }
 
 /* На карточке — слева от названия, крупнее: карточку и выбирают глазами. */
@@ -605,7 +639,7 @@ body {
   gap: 14px;
 }
 
-.card-thumb { width: 48px; }
+.card-thumb { width: 52px; }
 .card-body { flex: 1 1 auto; min-width: 0; }
 
 /* ── роли ─────────────────────────────────────────────── */
@@ -904,7 +938,15 @@ body {
 }
 
 .note h1, .note h2, .note h3 { font-family: var(--font-display); font-weight: 700; }
-.note h1 { font-size: 30px; line-height: 1.15; margin: 0 0 16px; letter-spacing: 0; }
+/* Под названием заметки — та же двойная золотая линия, что под шапкой. */
+.note h1 {
+  font-size: 30px;
+  line-height: 1.15;
+  margin: 0 0 16px;
+  padding-bottom: 12px;
+  border-bottom: 3px double var(--gold-line);
+  letter-spacing: 0;
+}
 .note h2 { font-size: 21px; margin: 28px 0 8px; }
 .note h3 { font-size: 18px; margin: 22px 0 6px; }
 .note p, .note li { font-size: 17.5px; line-height: 1.6; }
@@ -1147,6 +1189,18 @@ a.row.tap.tap, .group-head.tap.tap { animation: tapRow .4s ease-out; }
 
 @media (max-width: 640px) {
   .wrap { padding: 0 12px 48px; }
+  /* Со значками пилюли оглавления на телефоне занимали три строки и съедали
+     экран до первого раздела. Одна строка с прокруткой вбок — как у ленты
+     фильтров: пилюля, уехавшая за край, здесь читается как «дальше ещё». */
+  .toc {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scrollbar-width: none;
+    margin-right: -12px;
+    padding-right: 12px;
+  }
+  .toc::-webkit-scrollbar { display: none; }
+  .toc-pill { flex: none; }
   /* Подписи вкладок в полосу шириной с телефон помещаются впритык. Полоса умеет
      прокручиваться, но вкладка, наполовину уехавшая за край, выглядит поломкой,
      а не подсказкой, что там есть ещё. */
