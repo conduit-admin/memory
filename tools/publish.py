@@ -113,6 +113,18 @@ EXCLUDE = {
     "web/projects/conduit-26.md",
 }
 
+# Старые листки репетиторства, набранные на A4 до стандарта A5 (06.10.2026):
+# владелец убрал их с сайта 2026-10-08 — «они старые». Файлы в knowledge
+# остаются как референс, наружу не идёт ни один файл этих тем. Тема — начало
+# имени файла в tutoring/listki/. «Сравнения по модулю» сюда не входят:
+# их перевели на A5 и оставили на сайте.
+ARHIV_LISTKI = (
+    "kombinatorika",
+    "parametr",
+    "planimetriya",
+    "probnoe-",
+)
+
 # Служебное и черновое наружу не идёт вовсе — этого нет и в белом списке,
 # перечислено для ясности: .claude/, publish/, templates/, tex/drafts/, tex/notes/.
 
@@ -486,7 +498,8 @@ def skipped(rel):
             or rel.startswith(tuple(d + "/" for d in EXCLUDE_DIRS))
             or (p.suffix == ".md"
                 and rel.startswith(tuple(d + "/" for d in PRIVATE_MD)))
-            or p.stem.endswith(PRIVATE_SUFFIX))
+            or p.stem.endswith(PRIVATE_SUFFIX)
+            or (str(p.parent) == "tutoring/listki" and p.name.startswith(ARHIV_LISTKI)))
 
 
 def collect():
