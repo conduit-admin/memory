@@ -459,7 +459,7 @@
    "title": "Бумага",
    "fm": {
     "type": "style",
-    "kratko": "тёплая бумага, чернила, фиолетовый и золото; Computer Modern"
+    "kratko": "белый лист, Computer Modern, фиолетовый; золотые вставки"
    },
    "links": [
     "steklo"
@@ -653,7 +653,8 @@
    "kind": "pdf",
    "pages": 2,
    "size": 168124,
-   "date": "2026-10-04"
+   "date": "2026-10-04",
+   "thumb": "data/thumbs/physics/listki/serii/seriya-01.jpg"
   },
   {
    "path": "physics/listki/teoriya/elektrostatika-teoriya.pdf",
@@ -662,7 +663,8 @@
    "kind": "pdf",
    "pages": 1,
    "size": 143047,
-   "date": "2026-10-04"
+   "date": "2026-10-04",
+   "thumb": "data/thumbs/physics/listki/teoriya/elektrostatika-teoriya.jpg"
   },
   {
    "path": "math/serii/grobariy.pdf",
@@ -671,7 +673,8 @@
    "kind": "pdf",
    "pages": 0,
    "size": 151402,
-   "date": "2026-10-04"
+   "date": "2026-10-04",
+   "thumb": "data/thumbs/math/serii/grobariy.jpg"
   },
   {
    "path": "math/serii/seriya-01.pdf",
@@ -680,7 +683,8 @@
    "kind": "pdf",
    "pages": 0,
    "size": 122449,
-   "date": "2026-09-07"
+   "date": "2026-09-07",
+   "thumb": "data/thumbs/math/serii/seriya-01.jpg"
   },
   {
    "path": "math/serii/seriya-02.pdf",
@@ -689,7 +693,8 @@
    "kind": "pdf",
    "pages": 0,
    "size": 106348,
-   "date": "2026-09-09"
+   "date": "2026-09-09",
+   "thumb": "data/thumbs/math/serii/seriya-02.jpg"
   },
   {
    "path": "math/serii/seriya-03.pdf",
@@ -698,7 +703,8 @@
    "kind": "pdf",
    "pages": 0,
    "size": 101490,
-   "date": "2026-09-10"
+   "date": "2026-09-10",
+   "thumb": "data/thumbs/math/serii/seriya-03.jpg"
   },
   {
    "path": "math/serii/seriya-04.pdf",
@@ -707,7 +713,8 @@
    "kind": "pdf",
    "pages": 0,
    "size": 112177,
-   "date": "2026-09-13"
+   "date": "2026-09-13",
+   "thumb": "data/thumbs/math/serii/seriya-04.jpg"
   },
   {
    "path": "math/serii/seriya-05.pdf",
@@ -716,7 +723,8 @@
    "kind": "pdf",
    "pages": 0,
    "size": 114928,
-   "date": "2026-09-27"
+   "date": "2026-09-27",
+   "thumb": "data/thumbs/math/serii/seriya-05.jpg"
   },
   {
    "path": "math/serii/seriya-06.pdf",
@@ -725,7 +733,8 @@
    "kind": "pdf",
    "pages": 0,
    "size": 105199,
-   "date": "2026-09-28"
+   "date": "2026-09-28",
+   "thumb": "data/thumbs/math/serii/seriya-06.jpg"
   },
   {
    "path": "math/serii/seriya-07.pdf",
@@ -734,7 +743,8 @@
    "kind": "pdf",
    "pages": 0,
    "size": 134342,
-   "date": "2026-10-02"
+   "date": "2026-10-02",
+   "thumb": "data/thumbs/math/serii/seriya-07.jpg"
   },
   {
    "path": "math/serii/seriya-08.pdf",
@@ -743,7 +753,8 @@
    "kind": "pdf",
    "pages": 0,
    "size": 100298,
-   "date": "2026-10-04"
+   "date": "2026-10-04",
+   "thumb": "data/thumbs/math/serii/seriya-08.jpg"
   },
   {
    "path": "math/zadachniki/gorod-10.pdf",
@@ -752,7 +763,8 @@
    "kind": "pdf",
    "pages": 0,
    "size": 491772,
-   "date": "2026-09-13"
+   "date": "2026-09-13",
+   "thumb": "data/thumbs/math/zadachniki/gorod-10.jpg"
   },
   {
    "path": "math/zadachniki/lager-10.pdf",
@@ -761,7 +773,8 @@
    "kind": "pdf",
    "pages": 0,
    "size": 325713,
-   "date": "2026-09-13"
+   "date": "2026-09-13",
+   "thumb": "data/thumbs/math/zadachniki/lager-10.jpg"
   },
   {
    "path": "tex/documents/cursor.pdf",
@@ -770,7 +783,8 @@
    "kind": "pdf",
    "pages": 7,
    "size": 291071,
-   "date": "2026-09-06"
+   "date": "2026-09-06",
+   "thumb": "data/thumbs/tex/documents/cursor.jpg"
   },
   {
    "path": "tex/documents/kanal/rotating-liquid.pdf",
@@ -779,7 +793,8 @@
    "kind": "pdf",
    "pages": 6,
    "size": 236346,
-   "date": "2026-10-06"
+   "date": "2026-10-06",
+   "thumb": "data/thumbs/tex/documents/kanal/rotating-liquid.jpg"
   },
   {
    "path": "tex/documents/ml/lineynye-modeli.pdf",
@@ -788,7 +803,8 @@
    "kind": "pdf",
    "pages": 11,
    "size": 282087,
-   "date": "2026-10-07"
+   "date": "2026-10-07",
+   "thumb": "data/thumbs/tex/documents/ml/lineynye-modeli.jpg"
   },
   {
    "path": "tex/documents/ml/numpy-pandas.pdf",
@@ -797,7 +813,8 @@
    "kind": "pdf",
    "pages": 9,
    "size": 312998,
-   "date": "2026-10-07"
+   "date": "2026-10-07",
+   "thumb": "data/thumbs/tex/documents/ml/numpy-pandas.jpg"
   },
   {
    "path": "tex/documents/oscillations.pdf",
@@ -806,7 +823,8 @@
    "kind": "pdf",
    "pages": 9,
    "size": 339969,
-   "date": "2026-09-10"
+   "date": "2026-09-10",
+   "thumb": "data/thumbs/tex/documents/oscillations.jpg"
   },
   {
    "path": "tutoring/listki/kombinatorika-dz-razbor.pdf",
@@ -815,7 +833,8 @@
    "kind": "pdf",
    "pages": 6,
    "size": 231827,
-   "date": "2026-09-30"
+   "date": "2026-09-30",
+   "thumb": "data/thumbs/tutoring/listki/kombinatorika-dz-razbor.jpg"
   },
   {
    "path": "tutoring/listki/kombinatorika-dz.pdf",
@@ -824,7 +843,8 @@
    "kind": "pdf",
    "pages": 3,
    "size": 153394,
-   "date": "2026-09-16"
+   "date": "2026-09-16",
+   "thumb": "data/thumbs/tutoring/listki/kombinatorika-dz.jpg"
   },
   {
    "path": "tutoring/listki/kombinatorika-ogranicheniya-dz.pdf",
@@ -833,7 +853,8 @@
    "kind": "pdf",
    "pages": 2,
    "size": 145071,
-   "date": "2026-09-27"
+   "date": "2026-09-27",
+   "thumb": "data/thumbs/tutoring/listki/kombinatorika-ogranicheniya-dz.jpg"
   },
   {
    "path": "tutoring/listki/kombinatorika-ogranicheniya-razbor.pdf",
@@ -842,7 +863,8 @@
    "kind": "pdf",
    "pages": 3,
    "size": 202766,
-   "date": "2026-09-27"
+   "date": "2026-09-27",
+   "thumb": "data/thumbs/tutoring/listki/kombinatorika-ogranicheniya-razbor.jpg"
   },
   {
    "path": "tutoring/listki/kombinatorika-ogranicheniya.pdf",
@@ -851,7 +873,8 @@
    "kind": "pdf",
    "pages": 2,
    "size": 168896,
-   "date": "2026-09-27"
+   "date": "2026-09-27",
+   "thumb": "data/thumbs/tutoring/listki/kombinatorika-ogranicheniya.jpg"
   },
   {
    "path": "tutoring/listki/kombinatorika-razbor.pdf",
@@ -860,7 +883,8 @@
    "kind": "pdf",
    "pages": 4,
    "size": 207280,
-   "date": "2026-09-16"
+   "date": "2026-09-16",
+   "thumb": "data/thumbs/tutoring/listki/kombinatorika-razbor.jpg"
   },
   {
    "path": "tutoring/listki/kombinatorika.pdf",
@@ -869,7 +893,8 @@
    "kind": "pdf",
    "pages": 3,
    "size": 181452,
-   "date": "2026-09-16"
+   "date": "2026-09-16",
+   "thumb": "data/thumbs/tutoring/listki/kombinatorika.jpg"
   },
   {
    "path": "tutoring/listki/parametr-dz-01.pdf",
@@ -878,7 +903,8 @@
    "kind": "pdf",
    "pages": 3,
    "size": 235714,
-   "date": "2026-09-20"
+   "date": "2026-09-20",
+   "thumb": "data/thumbs/tutoring/listki/parametr-dz-01.jpg"
   },
   {
    "path": "tutoring/listki/parametr-zanyatie-01-razbor.pdf",
@@ -887,7 +913,8 @@
    "kind": "pdf",
    "pages": 3,
    "size": 153781,
-   "date": "2026-09-20"
+   "date": "2026-09-20",
+   "thumb": "data/thumbs/tutoring/listki/parametr-zanyatie-01-razbor.jpg"
   },
   {
    "path": "tutoring/listki/parametr.pdf",
@@ -896,7 +923,8 @@
    "kind": "pdf",
    "pages": 9,
    "size": 281864,
-   "date": "2026-09-20"
+   "date": "2026-09-20",
+   "thumb": "data/thumbs/tutoring/listki/parametr.jpg"
   },
   {
    "path": "tutoring/listki/planimetriya.pdf",
@@ -905,7 +933,8 @@
    "kind": "pdf",
    "pages": 11,
    "size": 287293,
-   "date": "2026-09-23"
+   "date": "2026-09-23",
+   "thumb": "data/thumbs/tutoring/listki/planimetriya.jpg"
   },
   {
    "path": "tutoring/listki/probnoe-fiztekh-10-razbor.pdf",
@@ -914,7 +943,8 @@
    "kind": "pdf",
    "pages": 6,
    "size": 252250,
-   "date": "2026-09-13"
+   "date": "2026-09-13",
+   "thumb": "data/thumbs/tutoring/listki/probnoe-fiztekh-10-razbor.jpg"
   },
   {
    "path": "tutoring/listki/probnoe-fiztekh-10.pdf",
@@ -923,7 +953,8 @@
    "kind": "pdf",
    "pages": 4,
    "size": 161133,
-   "date": "2026-09-13"
+   "date": "2026-09-13",
+   "thumb": "data/thumbs/tutoring/listki/probnoe-fiztekh-10.jpg"
   },
   {
    "path": "tutoring/listki/probnoe-vsosh-11.pdf",
@@ -932,7 +963,8 @@
    "kind": "pdf",
    "pages": 2,
    "size": 124197,
-   "date": "2026-09-28"
+   "date": "2026-09-28",
+   "thumb": "data/thumbs/tutoring/listki/probnoe-vsosh-11.jpg"
   },
   {
    "path": "tutoring/listki/sravneniya-dz.pdf",
@@ -941,7 +973,8 @@
    "kind": "pdf",
    "pages": 2,
    "size": 162728,
-   "date": "2026-10-04"
+   "date": "2026-10-04",
+   "thumb": "data/thumbs/tutoring/listki/sravneniya-dz.jpg"
   },
   {
    "path": "tutoring/listki/sravneniya-razbor.pdf",
@@ -950,7 +983,8 @@
    "kind": "pdf",
    "pages": 4,
    "size": 200961,
-   "date": "2026-10-04"
+   "date": "2026-10-04",
+   "thumb": "data/thumbs/tutoring/listki/sravneniya-razbor.jpg"
   },
   {
    "path": "tutoring/listki/sravneniya.pdf",
@@ -959,7 +993,8 @@
    "kind": "pdf",
    "pages": 2,
    "size": 155389,
-   "date": "2026-10-04"
+   "date": "2026-10-04",
+   "thumb": "data/thumbs/tutoring/listki/sravneniya.jpg"
   },
   {
    "path": "tutoring/listki/trehchlen-razbor.pdf",
@@ -968,7 +1003,8 @@
    "kind": "pdf",
    "pages": 9,
    "size": 231085,
-   "date": "2026-10-06"
+   "date": "2026-10-06",
+   "thumb": "data/thumbs/tutoring/listki/trehchlen-razbor.jpg"
   },
   {
    "path": "tutoring/listki/trehchlen.pdf",
@@ -977,7 +1013,8 @@
    "kind": "pdf",
    "pages": 5,
    "size": 173393,
-   "date": "2026-10-06"
+   "date": "2026-10-06",
+   "thumb": "data/thumbs/tutoring/listki/trehchlen.jpg"
   }
  ],
  "tex": [
@@ -987,7 +1024,8 @@
    "group": "",
    "pdf": "tex/documents/cursor.pdf",
    "num": "",
-   "date": "2026-09-06"
+   "date": "2026-09-06",
+   "thumb": "data/thumbs/tex/documents/cursor.jpg"
   },
   {
    "title": "Колебательное движение",
@@ -995,7 +1033,8 @@
    "group": "",
    "pdf": "tex/documents/oscillations.pdf",
    "num": "",
-   "date": "2026-09-10"
+   "date": "2026-09-10",
+   "thumb": "data/thumbs/tex/documents/oscillations.jpg"
   },
   {
    "title": "Вращение жидкости",
@@ -1254,7 +1293,8 @@
    "group": "tutoring",
    "pdf": "tutoring/listki/kombinatorika.pdf",
    "num": "",
-   "date": "2026-09-16"
+   "date": "2026-09-16",
+   "thumb": "data/thumbs/tutoring/listki/kombinatorika.jpg"
   },
   {
    "title": "Комбинаторика: домашняя работа",
@@ -1262,7 +1302,8 @@
    "group": "tutoring",
    "pdf": "tutoring/listki/kombinatorika-dz.pdf",
    "num": "",
-   "date": "2026-09-16"
+   "date": "2026-09-16",
+   "thumb": "data/thumbs/tutoring/listki/kombinatorika-dz.jpg"
   },
   {
    "title": "Разбор: комбинаторика, домашняя работа",
@@ -1270,7 +1311,8 @@
    "group": "tutoring",
    "pdf": "tutoring/listki/kombinatorika-dz-razbor.pdf",
    "num": "",
-   "date": "2026-09-30"
+   "date": "2026-09-30",
+   "thumb": "data/thumbs/tutoring/listki/kombinatorika-dz-razbor.jpg"
   },
   {
    "title": "Комбинаторика: подсчёт с ограничениями",
@@ -1278,7 +1320,8 @@
    "group": "tutoring",
    "pdf": "tutoring/listki/kombinatorika-ogranicheniya.pdf",
    "num": "",
-   "date": "2026-09-27"
+   "date": "2026-09-27",
+   "thumb": "data/thumbs/tutoring/listki/kombinatorika-ogranicheniya.jpg"
   },
   {
    "title": "Комбинаторика: домашняя работа 2",
@@ -1286,7 +1329,8 @@
    "group": "tutoring",
    "pdf": "tutoring/listki/kombinatorika-ogranicheniya-dz.pdf",
    "num": "",
-   "date": "2026-09-27"
+   "date": "2026-09-27",
+   "thumb": "data/thumbs/tutoring/listki/kombinatorika-ogranicheniya-dz.jpg"
   },
   {
    "title": "Разбор: подсчёт с ограничениями",
@@ -1294,7 +1338,8 @@
    "group": "tutoring",
    "pdf": "tutoring/listki/kombinatorika-ogranicheniya-razbor.pdf",
    "num": "",
-   "date": "2026-09-27"
+   "date": "2026-09-27",
+   "thumb": "data/thumbs/tutoring/listki/kombinatorika-ogranicheniya-razbor.jpg"
   },
   {
    "title": "Разбор: комбинаторика",
@@ -1302,7 +1347,8 @@
    "group": "tutoring",
    "pdf": "tutoring/listki/kombinatorika-razbor.pdf",
    "num": "",
-   "date": "2026-09-16"
+   "date": "2026-09-16",
+   "thumb": "data/thumbs/tutoring/listki/kombinatorika-razbor.jpg"
   },
   {
    "title": "Параметр: картинка вместо перебора",
@@ -1310,7 +1356,8 @@
    "group": "tutoring",
    "pdf": "tutoring/listki/parametr.pdf",
    "num": "",
-   "date": "2026-09-20"
+   "date": "2026-09-20",
+   "thumb": "data/thumbs/tutoring/listki/parametr.jpg"
   },
   {
    "title": "Параметр: домашняя работа 1",
@@ -1318,7 +1365,8 @@
    "group": "tutoring",
    "pdf": "tutoring/listki/parametr-dz-01.pdf",
    "num": "",
-   "date": "2026-09-20"
+   "date": "2026-09-20",
+   "thumb": "data/thumbs/tutoring/listki/parametr-dz-01.jpg"
   },
   {
    "title": "Разбор: параметр, занятие 1",
@@ -1326,7 +1374,8 @@
    "group": "tutoring",
    "pdf": "tutoring/listki/parametr-zanyatie-01-razbor.pdf",
    "num": "",
-   "date": "2026-09-20"
+   "date": "2026-09-20",
+   "thumb": "data/thumbs/tutoring/listki/parametr-zanyatie-01-razbor.jpg"
   },
   {
    "title": "Планиметрия: от чертежа к числу",
@@ -1334,7 +1383,8 @@
    "group": "tutoring",
    "pdf": "tutoring/listki/planimetriya.pdf",
    "num": "",
-   "date": "2026-09-23"
+   "date": "2026-09-23",
+   "thumb": "data/thumbs/tutoring/listki/planimetriya.jpg"
   },
   {
    "title": "Планиметрия: от чертежа к числу~--- ответы и диагностика",
@@ -1350,7 +1400,8 @@
    "group": "tutoring",
    "pdf": "tutoring/listki/probnoe-fiztekh-10.pdf",
    "num": "",
-   "date": "2026-09-13"
+   "date": "2026-09-13",
+   "thumb": "data/thumbs/tutoring/listki/probnoe-fiztekh-10.jpg"
   },
   {
    "title": "Разбор: Физтех",
@@ -1358,7 +1409,8 @@
    "group": "tutoring",
    "pdf": "tutoring/listki/probnoe-fiztekh-10-razbor.pdf",
    "num": "",
-   "date": "2026-09-13"
+   "date": "2026-09-13",
+   "thumb": "data/thumbs/tutoring/listki/probnoe-fiztekh-10-razbor.jpg"
   },
   {
    "title": "Пробное занятие: ВсОШ",
@@ -1366,7 +1418,8 @@
    "group": "tutoring",
    "pdf": "tutoring/listki/probnoe-vsosh-11.pdf",
    "num": "",
-   "date": "2026-09-28"
+   "date": "2026-09-28",
+   "thumb": "data/thumbs/tutoring/listki/probnoe-vsosh-11.jpg"
   },
   {
    "title": "Пробное занятие: ВсОШ~--- ответы и диагностика",
@@ -1382,7 +1435,8 @@
    "group": "tutoring",
    "pdf": "tutoring/listki/sravneniya.pdf",
    "num": "",
-   "date": "2026-10-04"
+   "date": "2026-10-04",
+   "thumb": "data/thumbs/tutoring/listki/sravneniya.jpg"
   },
   {
    "title": "Сравнения по модулю: домашняя работа",
@@ -1390,7 +1444,8 @@
    "group": "tutoring",
    "pdf": "tutoring/listki/sravneniya-dz.pdf",
    "num": "",
-   "date": "2026-10-04"
+   "date": "2026-10-04",
+   "thumb": "data/thumbs/tutoring/listki/sravneniya-dz.jpg"
   },
   {
    "title": "Разбор: сравнения по модулю",
@@ -1398,7 +1453,8 @@
    "group": "tutoring",
    "pdf": "tutoring/listki/sravneniya-razbor.pdf",
    "num": "",
-   "date": "2026-10-04"
+   "date": "2026-10-04",
+   "thumb": "data/thumbs/tutoring/listki/sravneniya-razbor.jpg"
   },
   {
    "title": "Квадратный трёхчлен",
@@ -1424,7 +1480,8 @@
    "group": "physics/serii",
    "pdf": "physics/listki/serii/seriya-01.pdf",
    "num": "",
-   "date": "2026-10-04"
+   "date": "2026-10-04",
+   "thumb": "data/thumbs/physics/listki/serii/seriya-01.jpg"
   },
   {
    "title": "Теория: электростатика",
@@ -1432,7 +1489,8 @@
    "group": "physics/teoriya",
    "pdf": "physics/listki/teoriya/elektrostatika-teoriya.pdf",
    "num": "",
-   "date": "2026-10-04"
+   "date": "2026-10-04",
+   "thumb": "data/thumbs/physics/listki/teoriya/elektrostatika-teoriya.jpg"
   }
  ]
 }
