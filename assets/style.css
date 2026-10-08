@@ -1,10 +1,11 @@
 /* Лучезарность — оформление «Бумага» (с 2026-10-08; прежде было «Стекло»).
 
-   Белый лист, чернила, блоки в толстой чёрной обводке. Цвет — из строгого
-   набора владельца: чернила, белый, золото и нейтральные для второстепенного;
-   фиолетовый пока снят. Свободны в цвете только иллюстрации — обложки
-   документов. Шрифт один — Golos, крупно; жирным — только заголовки.
-   Нарядное — золотые плашки заголовков разделов.
+   Белый лист, чернила, всё, кроме золота, — в чёрной обводке. Цвет —
+   из строгого набора владельца: чернила, белый, золото, платина
+   и нейтральные для второстепенного; фиолетовый пока снят. Свободны в цвете
+   только иллюстрации — обложки документов. Шрифт один — Golos, крупно;
+   жирным — только заголовки. Нарядное — золотые вставки разной формы
+   и платиновые пилюли.
    Описание — web/styles/bumaga.md в knowledge.
 
    Тема одна, светлая: «только светлая» объявлено и браузеру, иначе Chrome
@@ -40,28 +41,40 @@
   --gold: #A57C1B;
   --gold-2: #D9B45A;
   --gold-logo: #FDD17A;
-  /* Золотые вставки — единственное нарядное на странице: двойная линия под
-     шапкой и у названия заметки, линия от заголовка раздела, значки разделов,
-     золото на чёрном у выбранной вкладки. Линии — среднего золота: тёмное
-     на волосяной толщине выглядит грязью, светлое пропадает на белом. */
-  --gold-line: #C9A54C;
-  --gold-on-ink: #F0C75E;
 
   /* Золотые плашки — плотные плашки «Стекла», только золотые (владелец,
      2026-10-08): заливка, косой блик, светлое пятно в углу, светлая кромка
      сверху и мягкая тень. Металлический перелив пробовался и отвергнут:
-     «отвратительное золото». Плашек немного — только заголовки разделов. */
+     «отвратительное золото». Формы разные (2026-10-08): плашки заголовков
+     разделов, полоска под названием заметки, полоска решённого у серий,
+     медальоны чисел в оглавлении. Золото не обводится. */
   --plate-gold: #C4932E;
   --plate-glow: rgba(255, 238, 178, 0.85);
   --plate-sheen: linear-gradient(142deg, rgba(255, 255, 255, 0.42), rgba(255, 255, 255, 0) 46%);
   --plate-edge: rgba(255, 255, 255, 0.45);
   --plate-shadow: 0 2px 6px rgba(110, 72, 8, 0.14), 0 22px 44px -26px rgba(110, 72, 8, 0.55);
+  /* Та же плашка одним фоном — для мелких вставок, где светлое пятно
+     псевдоэлементом не поставить: полоски, медальоны. */
+  --plate-gold-bg: radial-gradient(120% 170% at 88% -25%, var(--plate-glow), rgba(255, 238, 178, 0) 55%),
+                   var(--plate-sheen),
+                   var(--plate-gold);
+
+  /* Платина — в любимой палитре владельца с 2026-10-08. Плашка того же
+     устройства, что золотая: заливка, косой блик, светлое пятно в углу, —
+     только холодная и светлая. Ей отданы мелкие элементы управления:
+     выбранная вкладка, пилюли, кнопки, пометки, решённые задачи, дорожка
+     полоски решённого. */
+  --plat: #D5D8DE;
+  --plate-plat: radial-gradient(120% 170% at 88% -25%, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0) 55%),
+                linear-gradient(142deg, rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0) 50%),
+                var(--plat);
 
   /* Чёрного больше (2026-10-08): полоса вкладок, плитки значков, текст
-     на золоте и толстая чёрная обводка блоков — карточек, групп, заметки,
-     поля поиска, золотых плашек. */
+     на золоте и чёрная обводка всего, кроме золота: блоки — 2,5 пункта,
+     мелочь внутри них — 2. */
   --black: #141118;
   --frame: 2.5px solid var(--black);
+  --frame-sm: 2px solid var(--black);
 
 
   /* Краски разделов прежнего набора сведены к строгому: разделы различаются
@@ -302,9 +315,9 @@ body {
   width: var(--thumb-w, 0);
   transform: translateX(var(--thumb-x, 0));
   border-radius: 999px;
-  /* Указатель — белая плашка на чёрной полосе. Плоская: блик и свет —
-     только у золотых плашек. */
-  background: var(--surface);
+  /* Указатель — платиновая плашка на чёрной полосе. */
+  background: var(--plate-plat);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.9);
   pointer-events: none;
   transition: transform .38s cubic-bezier(.22, .8, .24, 1),
               width .38s cubic-bezier(.22, .8, .24, 1);
@@ -347,7 +360,7 @@ body {
    узнаваемый и негромкий. */
 /* Заголовок раздела — золотая плашка в манере «Стекла»: плотная заливка,
    косой блик, светлое пятно в правом углу, светлая кромка сверху и мягкая
-   тень. Надпись и значок — чёрные. Это единственная золотая вставка. */
+   тень. Надпись и значок — чёрные. Золото не обводится. */
 .block-head {
   position: relative;
   overflow: hidden;
@@ -357,7 +370,7 @@ body {
   gap: 10px;
   margin: 0 0 12px;
   padding: 11px 16px;
-  border: var(--frame);
+  border: 1px solid var(--plate-edge);
   border-radius: var(--radius-sm);
   background-color: var(--plate-gold);
   background-image: var(--plate-sheen);
@@ -424,7 +437,7 @@ body {
 .toc {
   display: flex;
   flex-wrap: wrap;
-  gap: 6px;
+  gap: 8px;
   margin: -6px 0 20px;
 }
 
@@ -434,25 +447,35 @@ body {
   gap: 7px;
   min-height: var(--tap);
   padding: 0 16px;
-  border: 0;
+  border: var(--frame-sm);
   border-radius: 999px;
-  background: var(--soft);
+  background: var(--plate-plat);
   color: var(--black);
   font: 500 16px var(--font-ui);
   cursor: pointer;
-  transition: background-color .14s ease, color .14s ease;
+  transition: filter .14s ease;
 }
 
-.toc-pill:hover { background: var(--quiet-on); color: var(--ink); }
+.toc-pill:hover { filter: brightness(1.05); }
 .toc-pill svg { width: 18px; height: 18px; flex: none; color: var(--black); }
 .toc-pill:focus-visible { outline: 2px solid var(--s1); outline-offset: 2px; }
 
+/* Число — золотой медальон: круг на одну цифру, пилюля на две. */
 .toc-n {
-  color: var(--ink-muted);
-  font-size: 15px;
-  font-weight: 500;
+  display: inline-grid;
+  place-items: center;
+  min-width: 25px;
+  height: 25px;
+  padding: 0 7px;
+  border-radius: 999px;
+  background: var(--plate-gold-bg);
+  box-shadow: inset 0 1px 0 var(--plate-edge);
+  color: var(--black);
+  font-size: 13.5px;
+  font-weight: 600;
   font-variant-numeric: tabular-nums;
 }
+
 
 /* ── раскрывающиеся группы ────────────────────────────── */
 
@@ -729,16 +752,16 @@ body {
   min-width: var(--tap);
   min-height: var(--tap);
   padding: 0 14px;
-  border: 0;
+  border: var(--frame-sm);
   border-radius: 999px;
-  background: var(--soft);
+  background: var(--plate-plat);
   color: var(--black);
   font: 500 15px var(--font-ui);
   cursor: pointer;
-  transition: background-color .14s ease, color .14s ease;
+  transition: filter .14s ease;
 }
 
-.copy:hover { background: var(--quiet-on); color: var(--ink); }
+.copy:hover { filter: brightness(1.05); }
 .copy:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
 .copy svg { width: 17px; height: 17px; flex: none; }
 .copy.done { color: var(--black); }
@@ -772,7 +795,7 @@ body {
 
 /* ── карточки ──────────────────────────────────────────── */
 
-.list { display: grid; gap: 8px; }
+.list { display: grid; gap: 12px; }
 
 /* Панель матового стекла: полупрозрачная заливка, косой блик, светлая грань
    поверху (она и читается как толщина) и мягкая тень под низом. Заливка и блик
@@ -871,7 +894,7 @@ body {
 .mark {
   min-width: 34px;
   padding: 3px 8px;
-  border: 1.5px solid var(--line);
+  border: 2px solid var(--line);
   border-radius: 999px;
   color: var(--ink-muted);
   font-size: 14px;
@@ -881,12 +904,32 @@ body {
 }
 
 .mark.on {
-  color: var(--sec, var(--s5));
-  border-color: currentColor;
-  background: color-mix(in srgb, currentColor 14%, transparent);
+  border-color: var(--black);
+  background: var(--plate-plat);
+  color: var(--black);
 }
 
+
 .mark.ex { border-style: dashed; }
+
+/* Полоска решённого — золото по платиновой дорожке, под названием серии.
+   Дорожка не обводится: это золотая вставка. */
+.progress {
+  height: 9px;
+  margin-top: 9px;
+  border-radius: 999px;
+  background: var(--plate-plat);
+  box-shadow: inset 0 1px 2px rgba(20, 17, 24, 0.14);
+  overflow: hidden;
+}
+
+.progress > span {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: var(--plate-gold-bg);
+  box-shadow: inset 0 1px 0 var(--plate-edge);
+}
 
 /* Стадия ролика. Пять состояний, цвет из того же набора красок. */
 .stage {
@@ -956,13 +999,24 @@ body {
 }
 
 .note h1, .note h2, .note h3 { font-family: var(--font-display); font-weight: 700; }
-/* Под названием заметки — та же двойная золотая линия, что под шапкой. */
+/* Под названием заметки — короткая золотая полоска. */
 .note h1 {
   font-size: 31px;
   line-height: 1.15;
   margin: 0 0 16px;
   color: var(--black);
   letter-spacing: 0;
+}
+
+.note h1::after {
+  content: "";
+  display: block;
+  width: 88px;
+  height: 8px;
+  margin-top: 14px;
+  border-radius: 999px;
+  background: var(--plate-gold-bg);
+  box-shadow: inset 0 1px 0 var(--plate-edge), 0 6px 14px -8px rgba(110, 72, 8, 0.6);
 }
 
 .note h2 { color: var(--black); }
@@ -1076,8 +1130,9 @@ body {
 .chip {
   padding: 3px 11px;
   border-radius: 999px;
-  background: var(--soft);
-  color: var(--ink-2);
+  background: var(--plate-plat);
+  border: var(--frame-sm);
+  color: var(--black);
   font-size: 14px;
   font-weight: 400;
 }
@@ -1105,9 +1160,9 @@ body {
   min-height: 36px;
   margin-bottom: 14px;
   padding: 0 14px;
-  border: 0;
+  border: var(--frame-sm);
   border-radius: 999px;
-  background: var(--soft);
+  background: var(--plate-plat);
   color: var(--black);
   font: inherit;
   font-size: 16px;
@@ -1116,7 +1171,7 @@ body {
   cursor: pointer;
 }
 
-.back:hover, .ext:hover { background: var(--quiet-on); }
+.back:hover, .ext:hover { filter: brightness(1.05); }
 .ext { margin-right: 8px; }
 
 /* Кнопка к документу. Крупнее обычной: на странице PDF она главное и почти
@@ -1165,7 +1220,7 @@ body {
    преобразованием, оно не трогает разметку и ничего не сдвигает вокруг. */
 .tab, .chip, .back, .ext {
   transition: background-color .14s ease, color .14s ease,
-              border-color .14s ease, opacity .14s ease;
+              border-color .14s ease, opacity .14s ease, filter .14s ease;
 }
 
 /* Класс ставится на нажатие из скрипта, анимация доигрывает сама. Через :active

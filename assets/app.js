@@ -992,6 +992,17 @@
     top.appendChild(meta);
     a.appendChild(top);
 
+    /* Полоска решённого — та же доля, что «7 из 8» рядом, поэтому читалке
+       экрана она не нужна. */
+    if (counted.length) {
+      var bar = el("div", "progress");
+      bar.setAttribute("aria-hidden", "true");
+      var fill = el("span");
+      fill.style.width = Math.round(100 * done / counted.length) + "%";
+      bar.appendChild(fill);
+      a.appendChild(bar);
+    }
+
     var dates = [];
     if (r[4] && r[4] !== "—") dates.push("выдана " + r[4]);
     if (r[5] && r[5] !== "—") dates.push("занятие " + r[5]);
