@@ -1573,55 +1573,6 @@
     }, { passive: true });
   }
 
-  /* Вспышка лучей на весь экран при нажатии на знак (владелец, 2026-10-08:
-     «хочется, чтобы прям по всему экрану расходились»). Из центра знака
-     по тем же десяти направлениям, что лучи самого знака, разлетаются
-     золотые клинья до краёв экрана и гаснут. Направления сняты с отрезков
-     лучей в разметке знака; у ног «Л» (60° и 120° вниз) лучей нет и здесь.
-
-     Слой — отдельный svg поверх страницы, нажатий не ловит и удаляется,
-     как только анимация кончилась; повторное нажатие запускает новую
-     вспышку. Системная настройка «уменьшить движение» вспышку выключает,
-     как и остальные анимации. */
-  var RAY_ANGLES = [90, 30, 0, -30, -60, -90, -120, -150, 180, 150];
-
-  function rayBurst() {
-    if (window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-    var logo = document.querySelector(".brand-logo");
-    if (!logo) return;
-    var r = logo.getBoundingClientRect();
-    var cx = r.left + r.width / 2, cy = r.top + r.height / 2;
-    var w = window.innerWidth, h = window.innerHeight;
-    var far = Math.hypot(Math.max(cx, w - cx), Math.max(cy, h - cy)) * 1.05;
-    var near = r.width / 2 + 4;
-    var svg = document.createElementNS(SVG_NS, "svg");
-    svg.setAttribute("class", "ray-burst");
-    svg.setAttribute("viewBox", "0 0 " + w + " " + h);
-    svg.setAttribute("aria-hidden", "true");
-    var g = document.createElementNS(SVG_NS, "g");
-    g.style.transformOrigin = cx + "px " + cy + "px";
-    RAY_ANGLES.forEach(function (a) {
-      /* клин: узкий у знака, расширяется к краю экрана — по 2,2° в каждую сторону */
-      var pts = [[a - 0.35, near], [a + 0.35, near], [a + 2.2, far], [a - 2.2, far]].map(function (p) {
-        var t = p[0] * Math.PI / 180;
-        return (cx + p[1] * Math.cos(t)).toFixed(1) + "," + (cy + p[1] * Math.sin(t)).toFixed(1);
-      });
-      var poly = document.createElementNS(SVG_NS, "polygon");
-      poly.setAttribute("points", pts.join(" "));
-      g.appendChild(poly);
-    });
-    svg.appendChild(g);
-    document.body.appendChild(svg);
-    g.addEventListener("animationend", function () { svg.remove(); });
-    /* на случай, если анимация не запустится вовсе — слой не должен остаться */
-    setTimeout(function () { svg.remove(); }, 1600);
-  }
-
-  function enableRayBurst() {
-    var brand = document.querySelector(".brand");
-    if (brand) brand.addEventListener("pointerdown", rayBurst, { passive: true });
-  }
-
   /* ── запуск ──────────────────────────────────────────── */
 
   /* Если страница пришла из кэша, а данные уже новее — перезагружаемся по адресу
@@ -1683,7 +1634,6 @@
       bindTabs();
       bindSearch();
       enableTapFeedback();
-      enableRayBurst();
       window.addEventListener("hashchange", onHashChange);
       /* При повороте экрана вкладки меняют ширину — указатель должен успеть. */
       window.addEventListener("resize", moveThumb);
