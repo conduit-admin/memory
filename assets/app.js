@@ -947,15 +947,29 @@
       docs.filter(function (d) { return d.group.replace(/^physics\/?/, "") === sub; })
         .forEach(function (d) { list.appendChild(texCard(d)); });
     });
-    metal(main, "plat");
   }
 
-  /* Металл плашек всей вкладки (владелец, 2026-10-08): «Физика» —
-     платина, «ИИ» — алмазная бирюза, остальные — золото. Ставится после
-     того, как вкладка собрана, поэтому новый раздел получает металл
-     вкладки сам. */
-  function metal(main, cls) {
-    main.querySelectorAll(".block-head").forEach(function (h) { h.classList.add(cls); });
+  /* Металл плашек (владелец, 2026-10-08: «равномерно распределить
+     материалы плашек во всех вкладках в порядке важности: алмаз, золото,
+     платина»). Разделы на вкладке уже стоят по важности сверху вниз,
+     поэтому металл раздаётся по месту: шкала от первого раздела
+     до последнего делится на три равные части — верхняя алмазная, средняя
+     золотая, нижняя платиновая. Первый раздел всегда алмазный, последний —
+     платиновый; при шести разделах выходит по два каждого, при двух —
+     алмаз и платина, единственный раздел — алмаз.
+
+     Вызывается после того, как экран собран, — и после дозагрузки,
+     если часть разделов приезжает позже. Новый раздел получает металл
+     по своему месту сам. Золото — без класса, это плашка по умолчанию. */
+  function metals(main) {
+    var heads = main.querySelectorAll(".block-head");
+    var n = heads.length;
+    heads.forEach(function (h, i) {
+      var tier = n > 1 ? Math.round(2 * i / (n - 1)) : 0;
+      h.classList.remove("almaz", "plat");
+      if (tier === 0) h.classList.add("almaz");
+      if (tier === 2) h.classList.add("plat");
+    });
   }
 
   /* ── вкладка «Математика» ────────────────────────────── */
@@ -1058,6 +1072,8 @@
     sets.filter(function (r) { return !/^Серия/.test(r[0]); }).forEach(function (r) {
       block(host, r[0], "slate").appendChild(setCard(r, tasks));
     });
+    /* таблица серий могла приехать позже отрисовки экрана — металл заново */
+    metals(document.getElementById("main"));
   }
 
   function viewMath(main) {
@@ -1092,7 +1108,6 @@
     list = block(main, "Конспекты", "cold");
     mine.forEach(function (n) { list.appendChild(card(n, {})); });
     if (!mine.length) empty(list, "Конспектов пока нет.");
-    metal(main, "almaz");
   }
 
   /* ── заметка ─────────────────────────────────────────── */
@@ -1293,7 +1308,7 @@
     var main = document.getElementById("main");
     main.classList.remove("leaving", "entering");
     main.innerHTML = "";
-    if (QUERY) viewSearch(main);
+    if (QUERY) { viewSearch(main); metals(main); }
     else paint();
   }
 
@@ -1471,6 +1486,11 @@
 
   function paint() {
     var main = document.getElementById("main");
+    paintView(main);
+    metals(main);
+  }
+
+  function paintView(main) {
     main.innerHTML = "";
     var hash = decodeURI(location.hash.replace(/^#/, ""));
 
