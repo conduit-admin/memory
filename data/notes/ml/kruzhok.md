@@ -26,3 +26,19 @@ kratko: занятия кружка ML — шпаргалки и домашки
 - ДЗ 2, numpy и pandas — [contest.yandex.ru/contest/100254](https://contest.yandex.ru/contest/100254),
   открыта с 1 октября.
 - [new.contest.yandex.ru/contests/100020](https://new.contest.yandex.ru/contests/100020/problems)
+
+Задачи на NumPy, 7–8 октября:
+
+- «Отчёт по классификации» — сдана.
+- `clip_features` — сдана.
+- `pairwise_distances` — 92.86: не прошёл один тест из 14. Посмотреть
+  вердикт; подозрение — тип входа, `float32` или `int32`.
+- `k_nearest_neighbors` — сделана.
+
+## Заметки
+
+Что всплыло на домашках и не вошло в шпаргалки:
+
+- [[jupyter]] — запуск, ядро, сдача `.py` из ноутбука.
+- [[numpy-iznutri]] — массив, broadcasting, оси, сортировка, типы и точность.
+- [[pandas-csv]] — чтение и запись CSV, новые колонки, группировка.

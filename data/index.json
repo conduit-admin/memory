@@ -78,8 +78,55 @@
     "kratko": "занятия кружка ML — шпаргалки и домашки"
    },
    "links": [
+    "jupyter",
     "lineynye-modeli",
-    "numpy-pandas"
+    "numpy-iznutri",
+    "numpy-pandas",
+    "pandas-csv"
+   ]
+  },
+  {
+   "path": "ml/notes/jupyter.md",
+   "folder": "ml/notes",
+   "title": "Jupyter",
+   "fm": {
+    "type": "konspekt",
+    "tema": "Jupyter — среда для домашек",
+    "istochnik": "домашки кружка ML по NumPy, октябрь 2026",
+    "data": "2026-10-08"
+   },
+   "links": [
+    "numpy-iznutri",
+    "pandas-csv"
+   ]
+  },
+  {
+   "path": "ml/notes/numpy-iznutri.md",
+   "folder": "ml/notes",
+   "title": "NumPy изнутри",
+   "fm": {
+    "type": "konspekt",
+    "tema": "NumPy изнутри — массив, broadcasting, оси, сортировка",
+    "istochnik": "домашки кружка ML по NumPy, октябрь 2026",
+    "data": "2026-10-08"
+   },
+   "links": [
+    "jupyter",
+    "pandas-csv"
+   ]
+  },
+  {
+   "path": "ml/notes/pandas-csv.md",
+   "folder": "ml/notes",
+   "title": "pandas и CSV",
+   "fm": {
+    "type": "konspekt",
+    "tema": "pandas и CSV — чтение, запись, новые колонки, группировка",
+    "istochnik": "домашки кружка ML по NumPy, октябрь 2026",
+    "data": "2026-10-08"
+   },
+   "links": [
+    "numpy-iznutri"
    ]
   },
   {
