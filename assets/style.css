@@ -240,6 +240,31 @@ body {
   box-shadow: 0 0 0 2.5px var(--gold-logo);
 }
 
+/* Лучи вспыхивают при нажатии на знак (владелец, 2026-10-08). Лучи разом
+   вытягиваются от центра, становятся толще и светлее и возвращаются,
+   кольцо на миг толще — меньше секунды. Поворота нет: лучи стоят через
+   30° с пропуском там, где белые ноги «Л», и поворот загнал бы луч
+   на ноги. Вытягиваются до радиуса 48 — внутри чёрного круга (радиус 50).
+   Запускает их класс tap, который общий обработчик касаний ставит
+   на знак при каждом нажатии (enableTapFeedback в app.js); двойной класс —
+   чтобы перебить анимацию входа экрана, как у остальных откликов. */
+.brand-rays { transform-origin: 50px 50px; }
+
+.brand.tap.tap .brand-rays { animation: rays-flash .7s cubic-bezier(.2, .8, .3, 1); }
+.brand.tap.tap .brand-logo { animation: ring-flash .7s cubic-bezier(.2, .8, .3, 1); }
+
+@keyframes rays-flash {
+  0%   { transform: scale(1);   stroke: #FDD17A; stroke-width: 2.6; }
+  30%  { transform: scale(1.2); stroke: #FFF2C6; stroke-width: 3.9; }
+  100% { transform: scale(1);   stroke: #FDD17A; stroke-width: 2.6; }
+}
+
+@keyframes ring-flash {
+  0%   { box-shadow: 0 0 0 2.5px var(--gold-logo); }
+  30%  { box-shadow: 0 0 0 4px var(--gold-logo); }
+  100% { box-shadow: 0 0 0 2.5px var(--gold-logo); }
+}
+
 /* Поиск — справа от названия, тихим полем: подложка без рамки и тени, как
    у пилюль оглавления, радиус полей 12. Высота — цель касания. Кегль 16:
    мельче iOS на фокусе приближает страницу и не отдаёт обратно. На узком
@@ -1414,6 +1439,7 @@ a.row.tap.tap, .group-head.tap.tap { animation: tapRow .4s ease-out; }
   #main.leaving { transition: none; }
   #main.entering { animation: none; }
   .tap.tap, .card.tap.tap, a.row.tap.tap, .group-head.tap.tap { animation: none; }
+  .brand.tap.tap .brand-rays, .brand.tap.tap .brand-logo { animation: none; }
   .chev { transition: none; }
   /* Каркас остаётся, движение по нему — нет: он и без бега говорит,
      что содержимое ещё едет. */
