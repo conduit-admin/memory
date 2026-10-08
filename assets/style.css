@@ -1,186 +1,104 @@
-/* Хранилище — оформление.
-   Палитра, подложка, стекло и движение взяты из «Кондуита» без переизобретения:
-   это один дом-стиль на два сайта, и расходиться им незачем. Отсюда же принцип —
-   светлая и тёмная темы заданы отдельными наборами шагов, а не инверсией. */
+/* Лучезарность — оформление «Бумага» (с 2026-10-08; прежде было «Стекло»).
+
+   Плоская тёплая бумага, белые листы карточек, чернила. Цвет — из строгого
+   набора владельца: чернила, фиолетовый, тёмное золото и нейтральные для
+   второстепенного. Свободны в цвете только иллюстрации — обложки документов.
+   Заголовки и текст заметок — Computer Modern, как в документах владельца;
+   интерфейс — Golos, ему на телефоне в мелком кегле читаться легче.
+   Описание — web/styles/bumaga.md в knowledge.
+
+   Тема одна, светлая: «только светлая» объявлено и браузеру, иначе Chrome
+   на Android с включённым тёмным режимом перекрашивает страницу сам. */
 
 :root {
-  color-scheme: light dark;
+  color-scheme: only light;
 
-  --surface: #ffffff;
-  --plane: #dde1ee;
-  --ink: #0e0e14;
-  --ink-2: #45454f;
-  --ink-muted: #7c7c88;
-  --border: rgba(255, 255, 255, 0.7);
-  --border-strong: rgba(11, 11, 11, 0.16);
-  --wash: rgba(255, 255, 255, 0.45);
+  /* Бумага и чернила. Страница — тёплая бумага, карточка — белый лист на ней:
+     слой читается без тени. */
+  --plane: #F7F4EC;
+  --surface: #FFFFFF;
+  --ink: #16131C;
+  --ink-2: #3E3848;
+  --ink-muted: #756E80;
+  --ink-inv: #FFFFFF;
+  --border: #E4DED2;
+  --border-strong: #CFC7B8;
+  --wash: rgba(22, 19, 28, 0.035);
 
-  /* Подложка тихих кнопок — пилюль без рамки. У кнопки без рамки подложка и есть
-     её граница, поэтому она обязана читаться в обеих темах. */
-  --quiet: rgba(11, 11, 11, 0.055);
-  --quiet-on: rgba(11, 11, 11, 0.10);
+  /* Подложка тихих кнопок и пилюль — без рамки, сама себе граница. */
+  --quiet: rgba(22, 19, 28, 0.055);
+  --quiet-on: rgba(22, 19, 28, 0.10);
 
-  /* Матовое стекло. Панель — заливка с прозрачностью плюс размытие того, что под
-     ней; толщину даёт светлая грань поверху, а не рамка. */
-  --pane: rgba(255, 255, 255, 0.64);
-  --pane-2: rgba(255, 255, 255, 0.84);
-  --pane-edge: rgba(255, 255, 255, 1);
-  --pane-edge-low: rgba(11, 11, 11, 0.05);
-  --sheen: rgba(255, 255, 255, 0.34);
-  /* Одно значение на весь сайт: если размытие где-то окажется дорогим,
-     достаточно поставить здесь none. */
-  --pane-blur: blur(18px);
+  /* Строгий набор. Фиолетовый — второй голос после чернил: значки, отметки,
+     ссылки на действие. Золото — тёмное, для бумаги: светлое золото знака
+     на белом пропадает. Светлые ступени — для точек и подложек. */
+  --violet: #5B2A8C;
+  --violet-2: #9A7CC9;
+  --violet-tint: rgba(91, 42, 140, 0.09);
+  --gold: #A57C1B;
+  --gold-2: #D9B45A;
+  --gold-logo: #FDD17A;
 
-  /* Пятна на подложке. Лежат неподвижным слоем под всей страницей. Цвета в них
-     нет: это чистый свет, и он подчёркивает стекло — сквозь панель видно, что
-     под ней светлее, а по краям темнее. */
-  --glow-1: rgba(255, 255, 255, 0.80);
-  --glow-2: rgba(255, 255, 255, 0.55);
-  --glow-3: rgba(255, 255, 255, 0.38);
+  /* Краски разделов прежнего набора сведены к строгому: разделы различаются
+     местом на странице, а не радугой. Имена оставлены, чтобы правила, которые
+     их читают, не переписывать. */
+  --s1: var(--violet);
+  --s2: var(--gold);
+  --s3: var(--violet);
+  --s4: var(--gold);
+  --s5: var(--violet);
+  --s6: var(--violet);
+  --s7: var(--violet);
+  --s8: #8A8494;
 
-  /* Цвета разделов — набор красок, а не круг оттенков: берлинская лазурь,
-     киноварь, бутылочная зелень, охра, тирский пурпур, морская волна, баклажан
-     и графит. Ни один не сидит на чистом спектральном тоне: у краски тон всегда
-     чуть сбит в сторону, оттого она и выглядит краской.
-
-     Цвет ничего не значит сам по себе — он только отличает раздел от раздела. */
-  --s1: #1f5673;   /* берлинская лазурь */
-  --s2: #b4442c;   /* киноварь */
-  --s3: #2d6a45;   /* бутылочная зелень */
-  --s4: #97701a;   /* охра */
-  --s5: #8d2f63;   /* тирский пурпур */
-  --s6: #167a74;   /* морская волна */
-  --s7: #5b3f8f;   /* баклажан */
-  --s8: #55606e;   /* графит */
-
-  /* Два радиуса на весь интерфейс: крупный для карточек и панелей, мелкий для
-     полей и пилюль. Круглые кнопки — отдельно, 999px. */
-  --radius: 20px;
-  --radius-sm: 12px;
+  /* Два радиуса: 14 — листы и панели, 10 — поля и мелкие кнопки. Круглые —
+     999. Мельче, чем у стекла: бумажный лист с огромным скруглением выглядит
+     игрушкой. */
+  --radius: 14px;
+  --radius-sm: 10px;
   --tap: 44px;
 
-  --ink-inv: #ffffff;
+  /* Теней нет: плоско. Имена держатся для правил, которые их ещё упоминают. */
+  --shadow-1: none;
+  --shadow-2: none;
 
-  /* Две ступени высоты. Тень мягкая, широкая и слегка синеватая — под стеклом
-     чёрная тень выглядит грязью. */
-  --shadow-1: 0 1px 2px rgba(16, 16, 44, .05), 0 10px 26px -14px rgba(16, 16, 44, .30);
-  --shadow-2: 0 2px 8px rgba(16, 16, 44, .07), 0 28px 64px -28px rgba(16, 16, 44, .45);
-
-  /* Линия тетрадной клетки на подложке. */
-  --paper: rgba(11, 11, 11, .07);
-  --paper-step: 30px;
 
   --font-ui: "Golos Text", "Segoe UI Variable Text", system-ui, -apple-system,
              "Segoe UI", Roboto, sans-serif;
-  --font-display: "Golos Text", "Segoe UI Variable Display", system-ui,
-                  -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-display: "CMU Serif", "Latin Modern Roman", "Computer Modern", Georgia,
+                  "Times New Roman", serif;
   --font-mono: ui-monospace, "Cascadia Mono", "Segoe UI Mono", Consolas, monospace;
 
-  /* Стекло кнопки. Панель под ней уже полупрозрачна, поэтому кнопке довольно
-     одного шага плотности — плюс светлая грань поверху и косой блик. */
-  --glass: rgba(255, 255, 255, 0.58);
-  --glass-on: rgba(255, 255, 255, 0.86);
-  --glass-edge: rgba(11, 11, 11, 0.15);
-  --glass-top: rgba(255, 255, 255, 0.95);
-  --glass-sheen: rgba(255, 255, 255, 0.55);
-  /* Две тени: близкая держит край, дальняя отрывает кнопку от панели. Без второй
-     кнопка лежит с панелью в одной плоскости и выглядит плоско и дёшево. */
-  --btn-near: rgba(16, 16, 44, 0.10);
-  --btn-far: rgba(16, 16, 44, 0.30);
-
-  /* Плотные плашки. Единственные вывернутые блоки: белый текст на цвете там, где
-     всё остальное — чернила по светлому. Заливка плотная нарочно, 0.82 против
-     0.6 у панели: сквозь неё подложка почти не видна, и плашка читается как
-     предмет, а не как окно. Стеклом её оставляют косой блик и светлая грань;
-     пятно второго цвета из угла и есть то, что отличает её от простой краски.
-
-     Приём работает, только пока таких блоков мало. Здесь они разрешены ровно
-     в одном месте — заголовки блоков, — и новое появляется вместо старого. */
-  --solid-edge: rgba(255, 255, 255, 0.26);
-  --solid-dim: rgba(255, 255, 255, 0.70);
-  --cold-bg: rgba(38, 30, 110, 0.82);
-  --cold-glow: rgba(120, 200, 255, 0.50);
-  --warm-bg: rgba(122, 38, 26, 0.82);
-  --warm-glow: rgba(255, 196, 120, 0.48);
-  --sheet-bg: rgba(15, 76, 92, 0.94);
-  --sheet-glow: rgba(120, 220, 235, 0.44);
-  --ans-bg: rgba(52, 34, 96, 0.94);
-  --ans-glow: rgba(190, 160, 255, 0.40);
-  --moss-bg: rgba(22, 62, 40, 0.94);
-  --moss-glow: rgba(150, 225, 165, 0.40);
-  --rose-bg: rgba(112, 26, 70, 0.90);
-  --rose-glow: rgba(255, 170, 205, 0.42);
-  --slate-bg: rgba(52, 58, 72, 0.92);
-  --slate-glow: rgba(200, 210, 230, 0.36);
+  /* Солнце из лучей знака у заголовков разделов — единственный «богатый»
+     мотив на странице. Рисунок здесь, чтобы цвет менялся в одном месте. */
+  --sun: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cg stroke='%23A57C1B' stroke-width='1.7' stroke-linecap='round'%3E%3Cpath d='M12 1.6v3.6M12 18.8v3.6M1.6 12h3.6M18.8 12h3.6M4.65 4.65l2.55 2.55M16.8 16.8l2.55 2.55M4.65 19.35l2.55-2.55M16.8 7.2l2.55-2.55'/%3E%3C/g%3E%3Ccircle cx='12' cy='12' r='3.4' fill='%23A57C1B'/%3E%3C/svg%3E");
 }
 
-/* Тёмная тема — свой набор шагов под тёмную подложку, а не инверсия светлой.
-   Пока страница объявляла «только светлая», браузер затемнял её сам. */
-@media (prefers-color-scheme: dark) {
-  :root {
-    --surface: #15151c;
-    --plane: #06060b;
-    --ink: #ffffff;
-    --ink-2: #c2c2d0;
-    --ink-muted: #8b8b9c;
-    --border: rgba(255, 255, 255, 0.13);
-    --border-strong: rgba(255, 255, 255, 0.26);
-    --wash: rgba(255, 255, 255, 0.07);
-    --quiet: rgba(255, 255, 255, 0.075);
-    --quiet-on: rgba(255, 255, 255, 0.15);
+/* Computer Modern Unicode — с кириллицей. Пока берётся с jsDelivr, версия
+   закреплена коммитом, чтобы чужая правка не поменяла сайт; положить файлы
+   рядом, как Golos, — следующий шаг. */
+@font-face {
+  font-family: "CMU Serif";
+  src: url("https://cdn.jsdelivr.net/gh/dreampulse/computer-modern-web-font@e9977be1283466992a2dede47a342655d8426fee/font/Serif/cmunrm.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
 
-    --pane: rgba(38, 38, 52, 0.60);
-    --pane-2: rgba(24, 24, 36, 0.86);
-    --pane-edge: rgba(255, 255, 255, 0.24);
-    --pane-edge-low: rgba(0, 0, 0, 0.28);
-    --sheen: rgba(255, 255, 255, 0.07);
-    --glow-1: rgba(255, 255, 255, 0.11);
-    --glow-2: rgba(255, 255, 255, 0.07);
-    --glow-3: rgba(255, 255, 255, 0.08);
+@font-face {
+  font-family: "CMU Serif";
+  src: url("https://cdn.jsdelivr.net/gh/dreampulse/computer-modern-web-font@e9977be1283466992a2dede47a342655d8426fee/font/Serif/cmunbx.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
 
-    /* Линия раздела на тёмной подложке светлее, а не темнее: тот же набор,
-       что на светлой, слился бы с фоном. */
-    --s1: #62aecd;
-    --s2: #e8836a;
-    --s3: #6fb98a;
-    --s4: #d9ac4f;
-    --s5: #d76aa4;
-    --s6: #46bdb4;
-    --s7: #9b81dc;
-    --s8: #a3b0c2;
-
-    --ink-inv: #08080e;
-    --shadow-1: 0 1px 2px rgba(0, 0, 0, .5), 0 10px 28px -14px rgba(0, 0, 0, .75);
-    --shadow-2: 0 2px 8px rgba(0, 0, 0, .55), 0 28px 64px -28px rgba(0, 0, 0, .9);
-    --paper: rgba(255, 255, 255, .055);
-
-    --glass: rgba(255, 255, 255, 0.11);
-    --glass-on: rgba(255, 255, 255, 0.21);
-    --glass-edge: rgba(255, 255, 255, 0.26);
-    --glass-top: rgba(255, 255, 255, 0.10);
-    --glass-sheen: rgba(255, 255, 255, 0.06);
-    --btn-near: rgba(0, 0, 0, 0.40);
-    --btn-far: rgba(0, 0, 0, 0.70);
-
-    /* На тёмной подложке плашка светлее, а не темнее: тёмное на тёмном
-       пропадает. Прозрачность выше — под ней есть что показать. */
-    --solid-edge: rgba(255, 255, 255, 0.20);
-    --solid-dim: rgba(255, 255, 255, 0.66);
-    --cold-bg: rgba(58, 48, 142, 0.74);
-    --cold-glow: rgba(120, 200, 255, 0.34);
-    --warm-bg: rgba(140, 54, 38, 0.74);
-    --warm-glow: rgba(255, 196, 120, 0.32);
-    --sheet-bg: rgba(20, 88, 106, 0.90);
-    --sheet-glow: rgba(120, 220, 235, 0.30);
-    --ans-bg: rgba(64, 44, 116, 0.88);
-    --ans-glow: rgba(190, 160, 255, 0.30);
-    --moss-bg: rgba(28, 78, 52, 0.90);
-    --moss-glow: rgba(150, 225, 165, 0.30);
-    --rose-bg: rgba(132, 40, 88, 0.86);
-    --rose-glow: rgba(255, 170, 205, 0.30);
-    --slate-bg: rgba(68, 76, 94, 0.86);
-    --slate-glow: rgba(200, 210, 230, 0.26);
-  }
+@font-face {
+  font-family: "CMU Serif";
+  src: url("https://cdn.jsdelivr.net/gh/dreampulse/computer-modern-web-font@e9977be1283466992a2dede47a342655d8426fee/font/Serif/cmunti.woff") format("woff");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
 }
 
 * {
@@ -206,25 +124,10 @@ html {
   scrollbar-gutter: stable;
 }
 
-/* Весь фон — клетка и свет — задан у самого html закреплённой заливкой. Это фон
-   окна, а не слой поверх страницы: он не прокручивается вместе с содержимым и не
-   пересчитывается, когда на телефоне появляется и исчезает адресная строка.
-   Рисунок простой — две линии и три пятна, — поэтому обходится дёшево. */
-html {
-  background-color: var(--plane);
-  background-image:
-    linear-gradient(var(--paper) 1px, transparent 1px),
-    linear-gradient(90deg, var(--paper) 1px, transparent 1px),
-    radial-gradient(58% 46% at 8% -8%, var(--glow-1), transparent 64%),
-    radial-gradient(52% 42% at 96% 6%, var(--glow-2), transparent 62%),
-    radial-gradient(60% 50% at 62% 104%, var(--glow-3), transparent 64%);
-  background-attachment: fixed;
-  background-size:
-    var(--paper-step) var(--paper-step),
-    var(--paper-step) var(--paper-step),
-    auto, auto, auto;
-  background-position: -1px -1px, -1px -1px, 0 0, 0 0, 0 0;
-}
+/* Фон — чистая тёплая бумага, без клетки и пятен света: «чисто» — первое
+   слово во вкусе владельца. Клетка и свет были подложкой под стекло;
+   без стекла им нечего подчёркивать. */
+html { background-color: var(--plane); }
 
 /* Гарнитура своя и лежит рядом. Сайт целиком русский, а системные интерфейсные
    шрифты рисуют кириллицу как приложение к латинице. Файлов два, по диапазонам:
@@ -349,16 +252,16 @@ body {
   width: 100%;
   min-height: var(--tap);
   padding: 0 12px 0 38px;
-  border: 0;
+  border: 1px solid var(--border);
   border-radius: var(--radius-sm);
-  background: var(--quiet);
+  background: var(--surface);
   color: var(--ink);
   font: 400 16px var(--font-ui);
-  transition: background-color .14s ease;
+  transition: border-color .14s ease;
 }
 
 .search-input::placeholder { color: var(--ink-muted); }
-.search-input:hover, .search-input:focus { background: var(--quiet-on); }
+.search-input:hover { border-color: var(--border-strong); }
 /* Обводка фокуса — цветом текста: белая на тёмной теме, чёрная на светлой
    (владелец, 2026-10-07). У поля она видна при каждом касании, не только
    с клавиатуры; голубая спорила со знаком, охра не понравилась. Цвет текста
@@ -367,9 +270,8 @@ body {
 
 /* ── вкладки ───────────────────────────────────────────── */
 
-/* Стекло — только здесь: под полосой проезжает содержимое, там эффект и виден.
-   На карточках его нет — размытие под длинным списком стоит плавности
-   прокрутки, а платить пришлось бы на каждом кадре. */
+/* Полоса вкладок — белый лист с волосяным краем, закреплённый сверху. Фон
+   плотный: под ней проезжает содержимое, и сквозь неё оно не должно читаться. */
 .tabs {
   position: sticky;
   top: 0;
@@ -380,13 +282,7 @@ body {
   margin-bottom: 20px;
   border: 1px solid var(--border);
   border-radius: 999px;
-  background: var(--pane);
-  -webkit-backdrop-filter: var(--pane-blur);
-  backdrop-filter: var(--pane-blur);
-  box-shadow:
-    inset 0 1px 0 var(--pane-edge),
-    inset 0 -1px 0 var(--pane-edge-low),
-    var(--shadow-1);
+  background: var(--surface);
   overflow-x: auto;
   scrollbar-width: none;
 }
@@ -444,53 +340,41 @@ body {
 
 .block { margin-bottom: 26px; }
 
-/* Заголовок блока — плотная плашка. Заливка приходит двумя переменными, поэтому
-   плашку можно направить в любой цвет, не трогая правило. */
+/* Заголовок блока — не плашка, а заголовок: Computer Modern жирным, чернилами,
+   и перед ним золотое солнце из лучей знака. Цветных плашек больше нет:
+   шесть подряд перестают различаться, а солнце — один мотив на весь сайт,
+   узнаваемый и негромкий. */
 .block-head {
-  position: relative;
-  overflow: hidden;
   display: flex;
-  align-items: baseline;
-  gap: 10px;
-  margin-bottom: 10px;
-  padding: 11px 16px;
-  border: 1px solid var(--solid-edge);
-  border-radius: var(--radius-sm);
-  background-color: var(--solid-bg, var(--cold-bg));
-  background-image:
-    linear-gradient(142deg, rgba(255, 255, 255, 0.18), rgba(255, 255, 255, 0) 46%);
-  box-shadow: var(--shadow-2), inset 0 1px 0 var(--solid-edge);
-  color: #fff;
+  align-items: center;
+  gap: 9px;
+  margin: 0 0 10px;
+  padding: 0 4px;
+  color: var(--ink);
 }
 
-/* Пятно уходит под содержимое отрицательным слоем: поднимать текст поверх него
-   не нужно, а так он и не перекрывается. */
-.block-head::after {
+.block-head::before {
   content: "";
-  position: absolute;
-  z-index: -1;
-  top: -58%;
-  right: -14%;
-  width: 66%;
-  padding-bottom: 66%;
-  border-radius: 50%;
-  background: radial-gradient(circle, var(--solid-glow, var(--cold-glow)), transparent 68%);
-  pointer-events: none;
+  flex: none;
+  width: 17px;
+  height: 17px;
+  background: var(--sun) center / contain no-repeat;
 }
 
 .block-head h2 {
   margin: 0;
   font-family: var(--font-display);
-  font-size: 17px;
-  font-weight: 640;
-  letter-spacing: -0.01em;
+  font-size: 21px;
+  font-weight: 700;
+  letter-spacing: 0;
+  line-height: 1.2;
 }
 
-/* Число документов на плашке — справа, приглушённо: это справка, а не второй
-   заголовок. Цифры одной ширины, чтобы столбик по плашкам не плясал. */
+/* Число документов — справа, приглушённо: это справка, а не второй
+   заголовок. Цифры одной ширины, чтобы столбик не плясал. */
 .block-count {
   margin-left: auto;
-  color: var(--solid-dim);
+  color: var(--ink-muted);
   font-size: 13px;
   font-weight: 600;
   font-variant-numeric: tabular-nums;
@@ -537,18 +421,13 @@ body {
 
 /* ── раскрывающиеся группы ────────────────────────────── */
 
-/* Та же панель матового стекла, что у карточки: в закрытом виде группа и есть
-   карточка, только с шевроном. Строки внутри — на этой же панели, без своего
-   стекла: стекло в стекле выглядит коробкой в коробке. */
+/* Тот же белый лист, что у карточки: в закрытом виде группа и есть карточка,
+   только с шевроном. Строки внутри — на этом же листе, без своей рамки:
+   лист на листе выглядит коробкой в коробке. */
 .group {
-  background-color: var(--pane);
-  background-image: linear-gradient(147deg, var(--sheen), transparent 44%);
+  background: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--radius);
-  box-shadow:
-    var(--shadow-1),
-    inset 0 1px 0 var(--pane-edge),
-    inset 0 -1px 0 var(--pane-edge-low);
   transition: border-color .16s ease;
 }
 
@@ -573,16 +452,20 @@ body {
 .group-head::marker { content: ""; }
 .group-head:focus-visible { outline: 2px solid var(--s1); outline-offset: -2px; }
 
+/* Название группы — тема: Computer Modern, как заголовки документов. */
 .group-title {
   display: flex;
   flex-direction: column;
   gap: 1px;
   flex: 1 1 10rem;
   min-width: 0;
-  font-weight: 600;
-  font-size: 15.5px;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 17px;
   overflow-wrap: anywhere;
 }
+
+.group-sub { font-family: var(--font-ui); }
 
 /* Вторая строка шапки — что именно в теме: «два правила, сочетания…». */
 .group-sub {
@@ -671,11 +554,13 @@ body {
 .panel:hover { border-color: var(--border); }
 
 /* Стадия ролика точкой — те же цвета, что у прежних меток стадий. */
-.st-0 { --dot: var(--s8); }   /* не начат */
-.st-1 { --dot: var(--s1); }   /* программируется */
-.st-2 { --dot: var(--s4); }   /* озвучивается и монтируется */
-.st-3 { --dot: var(--s3); }   /* готов */
-.st-4 { --dot: var(--s5); }   /* выложен */
+/* Пять стадий в строгом наборе: серое, светлый фиолетовый, золото,
+   густой фиолетовый, чернила — от замысла к выложенному. */
+.st-0 { --dot: var(--s8); }         /* не начат */
+.st-1 { --dot: var(--violet-2); }   /* программируется */
+.st-2 { --dot: var(--gold); }       /* озвучивается и монтируется */
+.st-3 { --dot: var(--violet); }     /* готов */
+.st-4 { --dot: var(--ink); }        /* выложен */
 .row[class*="st-"] .row-sub { color: var(--dot); font-weight: 600; }
 
 /* Вид документа репетиторства — точкой: урок, домашка, разбор. Плоская,
@@ -757,8 +642,11 @@ body {
   width: 46px;
   height: 46px;
   border-radius: var(--radius-sm);
-  background: color-mix(in srgb, var(--c, var(--s8)) 15%, transparent);
-  color: var(--c, var(--s8));
+  /* Все значки ролей — фиолетовым: на бумаге цвет только из строгого набора,
+     и пёстрые плитки разных красок спорили бы с ним. Цвет из набора ICONS
+     в app.js здесь не используется. */
+  background: var(--violet-tint);
+  color: var(--violet);
 }
 
 .role-icon svg { width: 25px; height: 25px; }
@@ -819,31 +707,13 @@ body {
 .pre-wrap > .copy { align-self: flex-end; margin-bottom: 4px; }
 .pre-wrap > pre { margin: 0; }
 
-.kind-u { --dot: var(--s1); }   /* урок и занятие */
-.kind-d { --dot: var(--s4); }   /* домашка */
-.kind-r { --dot: var(--s3); }   /* разбор */
+.kind-u { --dot: var(--violet); }   /* урок и занятие */
+.kind-d { --dot: var(--gold); }     /* домашка */
+.kind-r { --dot: var(--ink); }      /* разбор */
 
-/* Тихий заголовок — для служебных блоков. Плашка держится на редкости: если ею
-   помечать и хвост раздела, приём перестаёт работать на всём экране. */
-.block-head.quiet {
-  padding: 0 2px 2px;
-  border: 0;
-  border-radius: 0;
-  background: none;
-  box-shadow: none;
-  color: var(--ink-muted);
-}
-
-.block-head.quiet::after { content: none; }
-.block-head.quiet h2 { font-size: 13px; font-weight: 600; letter-spacing: 0.02em; }
-
-.cold  { --solid-bg: var(--cold-bg);  --solid-glow: var(--cold-glow); }
-.warm  { --solid-bg: var(--warm-bg);  --solid-glow: var(--warm-glow); }
-.sheet { --solid-bg: var(--sheet-bg); --solid-glow: var(--sheet-glow); }
-.ans   { --solid-bg: var(--ans-bg);   --solid-glow: var(--ans-glow); }
-.moss  { --solid-bg: var(--moss-bg);  --solid-glow: var(--moss-glow); }
-.rose  { --solid-bg: var(--rose-bg);  --solid-glow: var(--rose-glow); }
-.slate { --solid-bg: var(--slate-bg); --solid-glow: var(--slate-glow); }
+/* Заголовки «Свежее» и «Найдено» скрипт помечает тихими; на бумаге плашек
+   нет вовсе, и тихий заголовок ничем не отличается от обычного. Тона блоков
+   (cold, warm, sheet…) тоже остались только в разметке: цвета у них нет. */
 
 /* ── карточки ──────────────────────────────────────────── */
 
@@ -855,14 +725,9 @@ body {
 .card {
   display: block;
   padding: 13px 16px;
-  background-color: var(--pane);
-  background-image: linear-gradient(147deg, var(--sheen), transparent 44%);
+  background: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--radius);
-  box-shadow:
-    var(--shadow-1),
-    inset 0 1px 0 var(--pane-edge),
-    inset 0 -1px 0 var(--pane-edge-low);
   color: inherit;
   text-decoration: none;
 }
@@ -889,9 +754,12 @@ body {
    должен уместиться в строку вместе с разделом, иначе раздел повисает один
    на следующей строке и выглядит потерянным. Длинный заголовок при этом всё
    равно выталкивает метки вниз — там места на двоих нет ни при какой основе. */
+/* Название карточки — Computer Modern жирным, как название документа. */
 .card-title {
-  font-weight: 600;
-  font-size: 15.5px;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 17px;
+  line-height: 1.25;
   flex: 1 1 10rem;
   min-width: 0;
   /* длинное слово рвётся, а не распирает карточку */
@@ -976,11 +844,11 @@ body {
   white-space: nowrap;
 }
 
-.stage-0 { --stage: var(--s8); }   /* не начат */
-.stage-1 { --stage: var(--s1); }   /* программируется */
-.stage-2 { --stage: var(--s4); }   /* озвучивается и монтируется */
-.stage-3 { --stage: var(--s3); }   /* готов */
-.stage-4 { --stage: var(--s5); }   /* выложен */
+.stage-0 { --stage: var(--s8); }         /* не начат */
+.stage-1 { --stage: var(--violet-2); }   /* программируется */
+.stage-2 { --stage: var(--gold); }       /* озвучивается и монтируется */
+.stage-3 { --stage: var(--violet); }     /* готов */
+.stage-4 { --stage: var(--ink); }        /* выложен */
 
 /* ── каркас на время загрузки ──────────────────────────── */
 
@@ -992,10 +860,10 @@ body {
 .skel-head, .skel-row {
   display: block;
   border-radius: var(--radius-sm);
-  background: var(--wash);
-  /* Пятно света едет по полосе слева направо — то же движение, что у стекла
-     на подложке, только в одну сторону. */
-  background-image: linear-gradient(100deg, transparent 20%, var(--sheen) 50%, transparent 80%);
+  background: var(--quiet);
+  /* Светлая полоса едет по каркасу слева направо: каркас «дышит», пока
+     содержимое в пути. Это не украшение, а знак загрузки. */
+  background-image: linear-gradient(100deg, transparent 20%, rgba(255, 255, 255, 0.7) 50%, transparent 80%);
   background-size: 220% 100%;
   animation: sweep 1.25s linear infinite;
 }
@@ -1023,22 +891,24 @@ body {
 
 /* ── заметка ───────────────────────────────────────────── */
 
+/* Заметка — белый лист, набранный Computer Modern, как документы владельца:
+   формулы KaTeX и так в духе CM, и текст рядом с ними перестаёт быть чужим.
+   Кегль крупнее прежнего: у CM тонкий рисунок, в 15 пунктов на телефоне
+   он бледнеет. */
 .note {
   padding: 22px 24px 28px;
-  background-color: var(--pane);
-  background-image: linear-gradient(147deg, var(--sheen), transparent 44%);
+  background: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--radius);
-  box-shadow:
-    var(--shadow-1),
-    inset 0 1px 0 var(--pane-edge),
-    inset 0 -1px 0 var(--pane-edge-low);
+  font-family: var(--font-display);
 }
 
-.note h1 { font-size: 26px; line-height: 1.2; margin: 0 0 16px; letter-spacing: -0.015em; }
-.note h2 { font-size: 19px; margin: 28px 0 8px; }
-.note h3 { font-size: 16px; margin: 22px 0 6px; }
-.note p, .note li { font-size: 15.5px; line-height: 1.62; }
+.note h1, .note h2, .note h3 { font-family: var(--font-display); font-weight: 700; }
+.note h1 { font-size: 30px; line-height: 1.15; margin: 0 0 16px; letter-spacing: 0; }
+.note h2 { font-size: 21px; margin: 28px 0 8px; }
+.note h3 { font-size: 18px; margin: 22px 0 6px; }
+.note p, .note li { font-size: 17.5px; line-height: 1.6; }
+.note .meta, .note .chip, .note .pre-wrap > .copy { font-family: var(--font-ui); }
 .note ul, .note ol { padding-left: 22px; }
 .note li { margin: 4px 0; }
 
@@ -1097,14 +967,12 @@ body {
 .blk:first-child { margin-top: 4px; }
 .blk:last-child { margin-bottom: 0; }
 
-/* Заголовок раздела — не второй заголовок статьи, а подпись к блоку: мелко,
-   в разрядку, цветом линии. Иначе он спорит с названием заметки. */
+/* Заголовок раздела — не второй заголовок статьи, а подпись к блоку: мельче
+   названия заметки, цветом линии. Обычными буквами, без разрядки и заглавных:
+   заглавные владельцу кажутся казёнными. */
 .blk > h2 {
   margin: 0 0 8px;
-  font-size: 12.5px;
-  font-weight: 650;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
+  font-size: 17px;
   color: var(--accent, var(--ink-muted));
 }
 
@@ -1112,12 +980,15 @@ body {
 
 /* Цвет отличает роль блока и ничего не значит сам по себе — то же правило,
    что и для разделов на карточках. */
-.blk-cond  { --accent: var(--s8); }   /* условие, триггер — данность */
-.blk-idea  { --accent: var(--s4); }   /* ключевая идея — то, ради чего разбор */
-.blk-sol   { --accent: var(--s1); }   /* решение */
-.blk-prob  { --accent: var(--s2); }   /* где сломалось */
-.blk-links { --accent: var(--s3); }   /* связи */
+.blk-cond  { --accent: var(--s8); }       /* условие, триггер — данность */
+.blk-idea  { --accent: var(--gold); }     /* ключевая идея — то, ради чего разбор */
+.blk-sol   { --accent: var(--violet); }   /* решение */
+.blk-prob  { --accent: var(--ink); }      /* где сломалось */
+.blk-links { --accent: var(--violet-2); } /* связи */
 .blk-plain { --accent: var(--border-strong); }
+/* У нейтрального блока линия светлая, а подпись к ней тем же цветом
+   на бумаге не читается — подпись берёт приглушённые чернила. */
+.blk-plain > h2 { color: var(--ink-muted); }
 
 /* Приёмы и связанные задачи — не блок разбора, а его хвост: список ссылок,
    который идёт после решения. Линия слева тут лишняя, она обещает содержание,
@@ -1172,15 +1043,9 @@ body {
   min-height: 36px;
   margin-bottom: 14px;
   padding: 0 14px;
-  border: 1px solid var(--glass-edge);
+  border: 1px solid var(--border-strong);
   border-radius: 999px;
-  background:
-    linear-gradient(180deg, var(--glass-sheen), transparent 46%),
-    var(--glass);
-  box-shadow:
-    inset 0 1px 0 var(--glass-top),
-    0 1px 2px var(--btn-near),
-    0 8px 18px -12px var(--btn-far);
+  background: var(--surface);
   color: var(--ink-2);
   font: inherit;
   font-size: 14px;
@@ -1188,7 +1053,7 @@ body {
   cursor: pointer;
 }
 
-.back:hover, .ext:hover { background: var(--glass-on); }
+.back:hover, .ext:hover { background: var(--plane); color: var(--ink); }
 .ext { margin-right: 8px; }
 
 /* Кнопка к документу. Крупнее обычной: на странице PDF она главное и почти
@@ -1251,7 +1116,7 @@ body {
 /* На карточке во всю ширину сжатие выглядит рывком — она отзывается подсветкой. */
 @keyframes tapCard {
   0% { background-color: var(--quiet-on); }
-  100% { background-color: var(--pane); }
+  100% { background-color: var(--surface); }
 }
 
 /* Класс продублирован нарочно: иначе первые полсекунды после смены раздела
@@ -1282,14 +1147,10 @@ a.row.tap.tap, .group-head.tap.tap { animation: tapRow .4s ease-out; }
 
 @media (max-width: 640px) {
   .wrap { padding: 0 12px 48px; }
-  .brand { font-size: 27px; }
-  /* Подпись в шапке переносится и делает шапку двухэтажной. Она поясняет,
-     а не называет, — на телефоне ею можно пожертвовать. */
-  .brand-sub { display: none; }
   /* Подписи вкладок в полосу шириной с телефон помещаются впритык. Полоса умеет
      прокручиваться, но вкладка, наполовину уехавшая за край, выглядит поломкой,
      а не подсказкой, что там есть ещё. */
   .tab { padding: 8px 9px; font-size: 13.5px; }
   .note { padding: 18px 16px 22px; }
-  .note h1 { font-size: 22px; }
+  .note h1 { font-size: 26px; }
 }
