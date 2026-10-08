@@ -778,7 +778,7 @@
    "title": "lineynye-modeli",
    "kind": "pdf",
    "pages": 11,
-   "size": 282116,
+   "size": 282551,
    "date": "2026-10-08",
    "thumb": "data/thumbs/tex/documents/ml/lineynye-modeli.png"
   },
@@ -788,7 +788,7 @@
    "title": "numpy-pandas",
    "kind": "pdf",
    "pages": 9,
-   "size": 313024,
+   "size": 348057,
    "date": "2026-10-08",
    "thumb": "data/thumbs/tex/documents/ml/numpy-pandas.png"
   },
@@ -807,7 +807,7 @@
    "title": "sravneniya-dz",
    "kind": "pdf",
    "pages": 4,
-   "size": 205818,
+   "size": 158975,
    "date": "2026-10-08",
    "thumb": "data/thumbs/tutoring/listki/sravneniya-dz.png"
   },
@@ -817,7 +817,7 @@
    "title": "sravneniya-razbor",
    "kind": "pdf",
    "pages": 9,
-   "size": 248568,
+   "size": 199328,
    "date": "2026-10-08",
    "thumb": "data/thumbs/tutoring/listki/sravneniya-razbor.png"
   },
@@ -827,7 +827,7 @@
    "title": "sravneniya",
    "kind": "pdf",
    "pages": 5,
-   "size": 202132,
+   "size": 153072,
    "date": "2026-10-08",
    "thumb": "data/thumbs/tutoring/listki/sravneniya.png"
   },
@@ -837,7 +837,7 @@
    "title": "trehchlen-razbor",
    "kind": "pdf",
    "pages": 9,
-   "size": 231110,
+   "size": 231502,
    "date": "2026-10-08",
    "thumb": "data/thumbs/tutoring/listki/trehchlen-razbor.png"
   },
@@ -847,7 +847,7 @@
    "title": "trehchlen",
    "kind": "pdf",
    "pages": 5,
-   "size": 173419,
+   "size": 173969,
    "date": "2026-10-08",
    "thumb": "data/thumbs/tutoring/listki/trehchlen.png"
   }
