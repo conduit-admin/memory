@@ -802,157 +802,34 @@
    "date": "2026-09-10"
   },
   {
-   "path": "tutoring/listki/kombinatorika-dz-razbor.pdf",
-   "folder": "tutoring/listki",
-   "title": "kombinatorika-dz-razbor",
-   "kind": "pdf",
-   "pages": 6,
-   "size": 231827,
-   "date": "2026-09-30"
-  },
-  {
-   "path": "tutoring/listki/kombinatorika-dz.pdf",
-   "folder": "tutoring/listki",
-   "title": "kombinatorika-dz",
-   "kind": "pdf",
-   "pages": 3,
-   "size": 153394,
-   "date": "2026-09-16"
-  },
-  {
-   "path": "tutoring/listki/kombinatorika-ogranicheniya-dz.pdf",
-   "folder": "tutoring/listki",
-   "title": "kombinatorika-ogranicheniya-dz",
-   "kind": "pdf",
-   "pages": 2,
-   "size": 145071,
-   "date": "2026-09-27"
-  },
-  {
-   "path": "tutoring/listki/kombinatorika-ogranicheniya-razbor.pdf",
-   "folder": "tutoring/listki",
-   "title": "kombinatorika-ogranicheniya-razbor",
-   "kind": "pdf",
-   "pages": 3,
-   "size": 202766,
-   "date": "2026-09-27"
-  },
-  {
-   "path": "tutoring/listki/kombinatorika-ogranicheniya.pdf",
-   "folder": "tutoring/listki",
-   "title": "kombinatorika-ogranicheniya",
-   "kind": "pdf",
-   "pages": 2,
-   "size": 168896,
-   "date": "2026-09-27"
-  },
-  {
-   "path": "tutoring/listki/kombinatorika-razbor.pdf",
-   "folder": "tutoring/listki",
-   "title": "kombinatorika-razbor",
-   "kind": "pdf",
-   "pages": 4,
-   "size": 207280,
-   "date": "2026-09-16"
-  },
-  {
-   "path": "tutoring/listki/kombinatorika.pdf",
-   "folder": "tutoring/listki",
-   "title": "kombinatorika",
-   "kind": "pdf",
-   "pages": 3,
-   "size": 181452,
-   "date": "2026-09-16"
-  },
-  {
-   "path": "tutoring/listki/parametr-dz-01.pdf",
-   "folder": "tutoring/listki",
-   "title": "parametr-dz-01",
-   "kind": "pdf",
-   "pages": 3,
-   "size": 235714,
-   "date": "2026-09-20"
-  },
-  {
-   "path": "tutoring/listki/parametr-zanyatie-01-razbor.pdf",
-   "folder": "tutoring/listki",
-   "title": "parametr-zanyatie-01-razbor",
-   "kind": "pdf",
-   "pages": 3,
-   "size": 153781,
-   "date": "2026-09-20"
-  },
-  {
-   "path": "tutoring/listki/parametr.pdf",
-   "folder": "tutoring/listki",
-   "title": "parametr",
-   "kind": "pdf",
-   "pages": 9,
-   "size": 281864,
-   "date": "2026-09-20"
-  },
-  {
-   "path": "tutoring/listki/planimetriya.pdf",
-   "folder": "tutoring/listki",
-   "title": "planimetriya",
-   "kind": "pdf",
-   "pages": 11,
-   "size": 287293,
-   "date": "2026-09-23"
-  },
-  {
-   "path": "tutoring/listki/probnoe-fiztekh-10-razbor.pdf",
-   "folder": "tutoring/listki",
-   "title": "probnoe-fiztekh-10-razbor",
-   "kind": "pdf",
-   "pages": 6,
-   "size": 252250,
-   "date": "2026-09-13"
-  },
-  {
-   "path": "tutoring/listki/probnoe-fiztekh-10.pdf",
-   "folder": "tutoring/listki",
-   "title": "probnoe-fiztekh-10",
-   "kind": "pdf",
-   "pages": 4,
-   "size": 161133,
-   "date": "2026-09-13"
-  },
-  {
-   "path": "tutoring/listki/probnoe-vsosh-11.pdf",
-   "folder": "tutoring/listki",
-   "title": "probnoe-vsosh-11",
-   "kind": "pdf",
-   "pages": 2,
-   "size": 124197,
-   "date": "2026-09-28"
-  },
-  {
    "path": "tutoring/listki/sravneniya-dz.pdf",
    "folder": "tutoring/listki",
    "title": "sravneniya-dz",
    "kind": "pdf",
-   "pages": 2,
-   "size": 162728,
-   "date": "2026-10-04"
+   "pages": 4,
+   "size": 205818,
+   "date": "2026-10-08",
+   "thumb": "data/thumbs/tutoring/listki/sravneniya-dz.png"
   },
   {
    "path": "tutoring/listki/sravneniya-razbor.pdf",
    "folder": "tutoring/listki",
    "title": "sravneniya-razbor",
    "kind": "pdf",
-   "pages": 4,
-   "size": 200961,
-   "date": "2026-10-04"
+   "pages": 9,
+   "size": 248568,
+   "date": "2026-10-08",
+   "thumb": "data/thumbs/tutoring/listki/sravneniya-razbor.png"
   },
   {
    "path": "tutoring/listki/sravneniya.pdf",
    "folder": "tutoring/listki",
    "title": "sravneniya",
    "kind": "pdf",
-   "pages": 2,
-   "size": 155389,
-   "date": "2026-10-04"
+   "pages": 5,
+   "size": 202132,
+   "date": "2026-10-08",
+   "thumb": "data/thumbs/tutoring/listki/sravneniya.png"
   },
   {
    "path": "tutoring/listki/trehchlen-razbor.pdf",
@@ -1247,7 +1124,7 @@
    "title": "Комбинаторика: два правила, сочетания, дополнение",
    "tex": "kombinatorika.tex",
    "group": "tutoring",
-   "pdf": "tutoring/listki/kombinatorika.pdf",
+   "pdf": "",
    "num": "",
    "date": "2026-09-16"
   },
@@ -1255,7 +1132,7 @@
    "title": "Комбинаторика: домашняя работа",
    "tex": "kombinatorika-dz.tex",
    "group": "tutoring",
-   "pdf": "tutoring/listki/kombinatorika-dz.pdf",
+   "pdf": "",
    "num": "",
    "date": "2026-09-16"
   },
@@ -1263,7 +1140,7 @@
    "title": "Разбор: комбинаторика, домашняя работа",
    "tex": "kombinatorika-dz-razbor.tex",
    "group": "tutoring",
-   "pdf": "tutoring/listki/kombinatorika-dz-razbor.pdf",
+   "pdf": "",
    "num": "",
    "date": "2026-09-30"
   },
@@ -1271,7 +1148,7 @@
    "title": "Комбинаторика: подсчёт с ограничениями",
    "tex": "kombinatorika-ogranicheniya.tex",
    "group": "tutoring",
-   "pdf": "tutoring/listki/kombinatorika-ogranicheniya.pdf",
+   "pdf": "",
    "num": "",
    "date": "2026-09-27"
   },
@@ -1279,7 +1156,7 @@
    "title": "Комбинаторика: домашняя работа 2",
    "tex": "kombinatorika-ogranicheniya-dz.tex",
    "group": "tutoring",
-   "pdf": "tutoring/listki/kombinatorika-ogranicheniya-dz.pdf",
+   "pdf": "",
    "num": "",
    "date": "2026-09-27"
   },
@@ -1287,7 +1164,7 @@
    "title": "Разбор: подсчёт с ограничениями",
    "tex": "kombinatorika-ogranicheniya-razbor.tex",
    "group": "tutoring",
-   "pdf": "tutoring/listki/kombinatorika-ogranicheniya-razbor.pdf",
+   "pdf": "",
    "num": "",
    "date": "2026-09-27"
   },
@@ -1295,7 +1172,7 @@
    "title": "Разбор: комбинаторика",
    "tex": "kombinatorika-razbor.tex",
    "group": "tutoring",
-   "pdf": "tutoring/listki/kombinatorika-razbor.pdf",
+   "pdf": "",
    "num": "",
    "date": "2026-09-16"
   },
@@ -1303,7 +1180,7 @@
    "title": "Параметр: картинка вместо перебора",
    "tex": "parametr.tex",
    "group": "tutoring",
-   "pdf": "tutoring/listki/parametr.pdf",
+   "pdf": "",
    "num": "",
    "date": "2026-09-20"
   },
@@ -1311,7 +1188,7 @@
    "title": "Параметр: домашняя работа 1",
    "tex": "parametr-dz-01.tex",
    "group": "tutoring",
-   "pdf": "tutoring/listki/parametr-dz-01.pdf",
+   "pdf": "",
    "num": "",
    "date": "2026-09-20"
   },
@@ -1319,7 +1196,7 @@
    "title": "Разбор: параметр, занятие 1",
    "tex": "parametr-zanyatie-01-razbor.tex",
    "group": "tutoring",
-   "pdf": "tutoring/listki/parametr-zanyatie-01-razbor.pdf",
+   "pdf": "",
    "num": "",
    "date": "2026-09-20"
   },
@@ -1327,7 +1204,7 @@
    "title": "Планиметрия: от чертежа к числу",
    "tex": "planimetriya.tex",
    "group": "tutoring",
-   "pdf": "tutoring/listki/planimetriya.pdf",
+   "pdf": "",
    "num": "",
    "date": "2026-09-23"
   },
@@ -1343,7 +1220,7 @@
    "title": "Пробное занятие: Физтех",
    "tex": "probnoe-fiztekh-10.tex",
    "group": "tutoring",
-   "pdf": "tutoring/listki/probnoe-fiztekh-10.pdf",
+   "pdf": "",
    "num": "",
    "date": "2026-09-13"
   },
@@ -1351,7 +1228,7 @@
    "title": "Разбор: Физтех",
    "tex": "probnoe-fiztekh-10-razbor.tex",
    "group": "tutoring",
-   "pdf": "tutoring/listki/probnoe-fiztekh-10-razbor.pdf",
+   "pdf": "",
    "num": "",
    "date": "2026-09-13"
   },
@@ -1359,7 +1236,7 @@
    "title": "Пробное занятие: ВсОШ",
    "tex": "probnoe-vsosh-11.tex",
    "group": "tutoring",
-   "pdf": "tutoring/listki/probnoe-vsosh-11.pdf",
+   "pdf": "",
    "num": "",
    "date": "2026-09-28"
   },
@@ -1377,23 +1254,26 @@
    "group": "tutoring",
    "pdf": "tutoring/listki/sravneniya.pdf",
    "num": "",
-   "date": "2026-10-04"
+   "date": "2026-10-08",
+   "thumb": "data/thumbs/tutoring/listki/sravneniya.png"
   },
   {
-   "title": "Сравнения по модулю: домашняя работа",
+   "title": "Сравнения по модулю",
    "tex": "sravneniya-dz.tex",
    "group": "tutoring",
    "pdf": "tutoring/listki/sravneniya-dz.pdf",
    "num": "",
-   "date": "2026-10-04"
+   "date": "2026-10-08",
+   "thumb": "data/thumbs/tutoring/listki/sravneniya-dz.png"
   },
   {
-   "title": "Разбор: сравнения по модулю",
+   "title": "Сравнения по модулю",
    "tex": "sravneniya-razbor.tex",
    "group": "tutoring",
    "pdf": "tutoring/listki/sravneniya-razbor.pdf",
    "num": "",
-   "date": "2026-10-04"
+   "date": "2026-10-08",
+   "thumb": "data/thumbs/tutoring/listki/sravneniya-razbor.png"
   },
   {
    "title": "Квадратный трёхчлен",
