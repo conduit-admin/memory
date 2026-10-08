@@ -213,7 +213,7 @@ body {
   width: 104px;
   height: 78px;
   margin: 40px auto 0;
-  background: url("zmeya.svg") center / contain no-repeat;
+  background: url("zmeya.svg?v=c957aeb8") center / contain no-repeat;
 }
 
 /* ── шапка ─────────────────────────────────────────────── */
