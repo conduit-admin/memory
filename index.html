@@ -32,6 +32,22 @@
 <meta name="build" content="202610081156">
 </head>
 <body>
+<!-- Перелив металлического золота для значков: те же ступени, что у
+     --gold-metal в стилях. Координаты — в единицах значка (сетка 24), а не
+     долях его рамки: у прямой черты рамка нулевой толщины, и градиент
+     в долях рамки её бы не нарисовал. -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <linearGradient id="gold-grad" gradientUnits="userSpaceOnUse" x1="2" y1="3" x2="22" y2="21">
+      <stop offset="0" stop-color="#8A6216"/>
+      <stop offset="0.22" stop-color="#E9C25E"/>
+      <stop offset="0.38" stop-color="#FFF1BF"/>
+      <stop offset="0.55" stop-color="#D4A440"/>
+      <stop offset="0.78" stop-color="#F6D980"/>
+      <stop offset="1" stop-color="#9A6E1C"/>
+    </linearGradient>
+  </defs>
+</svg>
 <div class="wrap">
   <header class="topbar">
     <!-- Знак владельца вместо надписи (2026-10-07). Эталон — manim/kanal/logo.svg

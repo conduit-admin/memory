@@ -22,8 +22,8 @@
   --ink-2: #3E3848;
   --ink-muted: #756E80;
   --ink-inv: #FFFFFF;
-  --border: #E8E4EE;
-  --border-strong: #D3CCDD;
+  --border: #E4DBF0;
+  --border-strong: #CDBFE3;
   --wash: rgba(22, 19, 28, 0.035);
 
   /* Подложка тихих кнопок и пилюль — без рамки, сама себе граница. */
@@ -45,6 +45,24 @@
      на волосяной толщине выглядит грязью, светлое пропадает на белом. */
   --gold-line: #C9A54C;
   --gold-on-ink: #F0C75E;
+
+  /* Металлическое золото — перелив со светом и тенью, как сусальное
+     (владелец, 2026-10-08: «под золотом — нечто с градиентом и светотенью»).
+     Это и есть золотые вставки: полосы, рамки, монетки, слиток вкладки.
+     Тот же перелив для значков — градиент #gold-grad в index.html. */
+  --gold-metal: linear-gradient(100deg,
+      #7A5512 0%, #C2922E 12%, #F3D57C 26%, #FFF4C8 33%, #E4B955 45%,
+      #A77A1C 58%, #E3BC59 72%, #FCE8A4 84%, #B88A28 94%, #7E5A14 100%);
+  --gold-bevel: inset 0 1px 0 rgba(255, 250, 225, 0.75),
+                inset 0 -1px 0 rgba(84, 55, 6, 0.55),
+                0 1px 2px rgba(84, 55, 6, 0.25);
+  --gold-text: #3A2608;
+
+  /* Больше фиолетового (2026-10-08): полоса вкладок, заголовки, подложки. */
+  --violet-deep: #2E1452;
+  --violet-ink: #3B1868;
+  --violet-soft: #F2ECFA;
+  --violet-line: #DCCFEE;
 
   /* Краски разделов прежнего набора сведены к строгому: разделы различаются
      местом на странице, а не радугой. Имена оставлены, чтобы правила, которые
@@ -155,8 +173,9 @@ html { background-color: var(--plane); }
 body {
   color: var(--ink);
   font-family: var(--font-ui);
-  /* Кегль на ступень крупнее, чем был у Golos: рисунок CM тоньше. */
-  font-size: 16px;
+  /* Кегль крупный: рисунок CM тонкий, а владелец просил надписи крупнее
+     и жирнее (2026-10-08). */
+  font-size: 17px;
   line-height: 1.45;
   -webkit-text-size-adjust: 100%;
 }
@@ -171,27 +190,44 @@ body {
 
 /* ── шапка ─────────────────────────────────────────────── */
 
-/* Под шапкой — двойная золотая линия, как обрез у книги в переплёте. Одна
-   из золотых вставок. */
+/* Под шапкой — широкая полоса металлического золота с бликом, как
+   золочёный обрез книги. Главная золотая вставка сайта. */
 .topbar {
+  position: relative;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 10px 12px;
-  padding: 24px 0 16px;
-  margin-bottom: 18px;
-  border-bottom: 3px double var(--gold-line);
+  gap: 10px 14px;
+  padding: 24px 0 22px;
+  margin-bottom: 20px;
+}
+
+.topbar::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 7px;
+  border-radius: 4px;
+  background: var(--gold-metal);
+  box-shadow: var(--gold-bevel);
 }
 
 /* Вместо надписи — знак владельца, 64 пункта: заметно крупнее поля поиска
    рядом, знак здесь главный. Ссылка ведёт на главную, её же цель касания —
    сам знак. Отклик на нажатие — тот же, что у кнопок. */
+/* Золотое кольцо — металлом: знак лежит на золотом диске, который виден
+   ободом по краю. */
 .brand {
   display: block;
   flex: none;
   line-height: 0;
   margin: 0;
+  padding: 4px;
   border-radius: 50%;
+  background: var(--gold-metal);
+  box-shadow: var(--gold-bevel);
   color: inherit;
   text-decoration: none;
 }
@@ -199,17 +235,13 @@ body {
 /* Фокус с клавиатуры — тем же цветом текста, что у поля, и снаружи кольца. */
 .brand:focus-visible { outline: 2px solid var(--ink); outline-offset: 5px; }
 
-/* Жёлтое кольцо — только здесь, на сайте (владелец, 2026-10-07): сам знак
-   его не имеет, и в роликах и PDF его нет. Цвет — лучей знака. Кольцо
-   заодно решает тёмную тему: чёрный круг на почти чёрной подложке без
-   него сливался, и от знака оставались одни лучи. Рисуется тенью без
-   размытия — это рамка снаружи круга, а не объём. */
+/* Кольцо — только здесь, на сайте (владелец, 2026-10-07): у самого знака
+   его нет, и в роликах и PDF тоже. */
 .brand-logo {
   display: block;
   width: 64px;
   height: 64px;
   border-radius: 50%;
-  box-shadow: 0 0 0 2.5px #FDD17A;
 }
 
 /* Поиск — справа от названия, тихим полем: подложка без рамки и тени, как
@@ -257,11 +289,11 @@ body {
   width: 100%;
   min-height: var(--tap);
   padding: 0 12px 0 38px;
-  border: 1px solid var(--border);
+  border: 1.5px solid var(--violet-line);
   border-radius: var(--radius-sm);
   background: var(--surface);
   color: var(--ink);
-  font: 400 16px var(--font-ui);
+  font: 700 17px var(--font-ui);
   transition: border-color .14s ease;
 }
 
@@ -283,11 +315,13 @@ body {
   z-index: 20;
   display: flex;
   gap: 2px;
-  padding: 4px;
+  padding: 5px;
   margin-bottom: 20px;
-  border: 1px solid var(--border);
   border-radius: 999px;
-  background: var(--surface);
+  /* Полоса — глубокий фиолетовый: больше фиолетового (2026-10-08), и золото
+     выбранной вкладки на нём горит, как на бархате. */
+  background: var(--violet-deep);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12);
   overflow-x: auto;
   scrollbar-width: none;
 }
@@ -303,13 +337,15 @@ body {
 .tabs::before {
   content: "";
   position: absolute;
-  top: 4px;
-  bottom: 4px;
+  top: 5px;
+  bottom: 5px;
   left: 0;
   width: var(--thumb-w, 0);
   transform: translateX(var(--thumb-x, 0));
   border-radius: 999px;
-  background: var(--ink);
+  /* Указатель — слиток металлического золота. */
+  background: var(--gold-metal);
+  box-shadow: var(--gold-bevel);
   pointer-events: none;
   transition: transform .38s cubic-bezier(.22, .8, .24, 1),
               width .38s cubic-bezier(.22, .8, .24, 1);
@@ -322,25 +358,26 @@ body {
   position: relative;
   z-index: 1;
   flex: 1 0 auto;
-  min-height: 36px;
+  min-height: 38px;
   padding: 8px 18px;
   appearance: none;
   border: 0;
   border-radius: 999px;
   background: none;
-  color: var(--ink-muted);
+  color: #D9CCEF;
   font: inherit;
-  font-weight: 500;
+  font-size: 17px;
+  font-weight: 700;
   white-space: nowrap;
   cursor: pointer;
 }
 
-.tab:hover { color: var(--ink-2); }
+.tab:hover { color: #FFFFFF; }
 .tab:focus-visible { outline: 2px solid var(--s1); outline-offset: -2px; }
 
 /* Заливку выбранной вкладки рисует указатель, самой вкладке остаётся цвет. */
-/* Выбранная вкладка — золото на чёрном, как лучи знака. */
-.tab[aria-selected="true"] { color: var(--gold-on-ink); }
+/* Выбранная вкладка — тёмная надпись на золотом слитке. */
+.tab[aria-selected="true"] { color: var(--gold-text); }
 
 /* ── блоки ─────────────────────────────────────────────── */
 
@@ -353,10 +390,10 @@ body {
 .block-head {
   display: flex;
   align-items: center;
-  gap: 9px;
-  margin: 0 0 10px;
-  padding: 0 4px;
-  color: var(--ink);
+  gap: 10px;
+  margin: 0 0 12px;
+  padding: 0 2px;
+  color: var(--violet-ink);
 }
 
 /* Значок раздела золотом и золотая линия от названия до числа справа —
@@ -365,8 +402,8 @@ body {
   flex: none;
   display: grid;
   place-items: center;
-  width: 22px;
-  height: 22px;
+  width: 26px;
+  height: 26px;
   color: var(--gold);
 }
 
@@ -375,14 +412,16 @@ body {
 .block-rule {
   flex: 1 1 auto;
   min-width: 16px;
-  height: 0;
-  border-top: 1px solid var(--gold-line);
+  height: 4px;
+  border-radius: 2px;
+  background: var(--gold-metal);
+  box-shadow: var(--gold-bevel);
 }
 
 .block-head h2 {
   margin: 0;
   font-family: var(--font-display);
-  font-size: 21px;
+  font-size: 25px;
   font-weight: 700;
   letter-spacing: 0;
   line-height: 1.2;
@@ -390,11 +429,18 @@ body {
 
 /* Число документов — справа, приглушённо: это справка, а не второй
    заголовок. Цифры одной ширины, чтобы столбик не плясал. */
+/* Число — золотой монеткой. */
 .block-count {
-  margin-left: auto;
-  color: var(--ink-muted);
-  font-size: 13px;
-  font-weight: 600;
+  flex: none;
+  min-width: 30px;
+  padding: 2px 10px;
+  border-radius: 999px;
+  background: var(--gold-metal);
+  box-shadow: var(--gold-bevel);
+  color: var(--gold-text);
+  font-size: 15px;
+  font-weight: 700;
+  text-align: center;
   font-variant-numeric: tabular-nums;
 }
 
@@ -418,23 +464,24 @@ body {
   align-items: center;
   gap: 7px;
   min-height: var(--tap);
-  padding: 0 15px;
-  border: 0;
+  padding: 0 16px;
+  border: 1px solid var(--violet-line);
   border-radius: 999px;
-  background: var(--quiet);
-  color: var(--ink-2);
-  font: 600 13.5px var(--font-ui);
+  background: var(--violet-soft);
+  color: var(--violet-ink);
+  font: 700 16px var(--font-ui);
   cursor: pointer;
   transition: background-color .14s ease, color .14s ease;
 }
 
 .toc-pill:hover { background: var(--quiet-on); color: var(--ink); }
-.toc-pill svg { width: 16px; height: 16px; flex: none; color: var(--gold); }
+.toc-pill svg { width: 18px; height: 18px; flex: none; }
 .toc-pill:focus-visible { outline: 2px solid var(--s1); outline-offset: 2px; }
 
 .toc-n {
-  color: var(--ink-muted);
-  font-size: 12px;
+  color: var(--violet);
+  font-size: 15px;
+  font-weight: 700;
   font-variant-numeric: tabular-nums;
 }
 
@@ -480,7 +527,8 @@ body {
   min-width: 0;
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: 17px;
+  font-size: 19px;
+  color: var(--violet-ink);
   overflow-wrap: anywhere;
 }
 
@@ -495,9 +543,9 @@ body {
 
 .group-meta {
   margin-left: auto;
-  color: var(--ink-muted);
-  font-size: 12px;
-  font-weight: 600;
+  color: var(--violet);
+  font-size: 14.5px;
+  font-weight: 700;
   font-variant-numeric: tabular-nums;
   white-space: nowrap;
 }
@@ -544,7 +592,8 @@ body {
 .row-label {
   flex: 1 1 auto;
   min-width: 0;
-  font-size: 14.5px;
+  font-size: 17.5px;
+  font-weight: 700;
   overflow-wrap: anywhere;
 }
 
@@ -554,7 +603,8 @@ body {
   flex: none;
   color: var(--ink-muted);
   font-family: var(--font-mono);
-  font-size: 11.5px;
+  font-size: 14px;
+  font-weight: 700;
 }
 
 .row-aux .row-label { color: var(--ink-muted); }
@@ -564,8 +614,9 @@ body {
 .row-label { display: flex; flex-direction: column; gap: 1px; }
 
 .row-sub {
-  color: var(--ink-muted);
-  font-size: 12.5px;
+  color: var(--violet);
+  font-size: 15px;
+  font-weight: 400;
 }
 
 /* Панель без раскрытия: тело без черты сверху — шапки над ним нет. */
@@ -601,32 +652,36 @@ body {
    волосяной рамкой, не тенью: мелкому предмету объём не идёт. Радиус 4 —
    угол листа, а не интерфейса: на прямоугольнике в три десятка пунктов
    радиус поля 12 превращал страницу в пилюлю. */
+/* Миниатюра — в рамке металлического золота, как картина. */
 .thumb {
   display: block;
   flex: none;
   height: auto;
   aspect-ratio: 200 / 283;
-  border: 1px solid var(--border-strong);
+  padding: 2px;
+  border: 0;
   border-radius: 4px;
-  background: #fff;
+  background: var(--gold-metal);
+  box-shadow: var(--gold-bevel);
   object-fit: cover;
 }
 
 /* В строке миниатюра встаёт на место точки и не раздувает строку: 30 на 42,
    чуть выше двух строк подписи. */
-.row-thumb { width: 30px; }
+.row-thumb { width: 36px; }
 
 /* Значок на месте миниатюры — у строк без файла: сайты, стили. Та же
    ширина, что у миниатюры, чтобы названия в списке стояли по одной линии. */
+/* Плитка значка — густой фиолетовый, значок — золотым переливом. */
 .row-icon {
   flex: none;
   display: grid;
   place-items: center;
-  width: 30px;
-  height: 30px;
-  border-radius: 8px;
-  background: var(--violet-tint);
-  color: var(--violet);
+  width: 36px;
+  height: 36px;
+  border-radius: 9px;
+  background: var(--violet-deep);
+  color: var(--gold-2);
 }
 
 .row-icon svg { width: 18px; height: 18px; }
@@ -639,7 +694,7 @@ body {
   gap: 14px;
 }
 
-.card-thumb { width: 52px; }
+.card-thumb { width: 58px; }
 .card-body { flex: 1 1 auto; min-width: 0; }
 
 /* ── роли ─────────────────────────────────────────────── */
@@ -679,8 +734,8 @@ body {
   /* Все значки ролей — фиолетовым: на бумаге цвет только из строгого набора,
      и пёстрые плитки разных красок спорили бы с ним. Цвет из набора ICONS
      в app.js здесь не используется. */
-  background: var(--violet-tint);
-  color: var(--violet);
+  background: var(--violet-deep);
+  color: var(--gold-2);
 }
 
 .role-icon svg { width: 25px; height: 25px; }
@@ -708,11 +763,11 @@ body {
   min-width: var(--tap);
   min-height: var(--tap);
   padding: 0 14px;
-  border: 0;
+  border: 1px solid var(--violet-line);
   border-radius: 999px;
-  background: var(--quiet);
-  color: var(--ink-2);
-  font: 600 13px var(--font-ui);
+  background: var(--violet-soft);
+  color: var(--violet-ink);
+  font: 700 15px var(--font-ui);
   cursor: pointer;
   transition: background-color .14s ease, color .14s ease;
 }
@@ -792,7 +847,8 @@ body {
 .card-title {
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: 17px;
+  font-size: 19.5px;
+  color: var(--violet-ink);
   line-height: 1.25;
   flex: 1 1 10rem;
   min-width: 0;
@@ -829,15 +885,15 @@ body {
   text-align: right;
 }
 
-.card-note { margin-top: 3px; color: var(--ink-muted); font-size: 13px; }
+.card-note { margin-top: 3px; color: var(--violet); font-size: 15px; }
 
 /* Метка раздела: цвет только отличает раздел от раздела. */
 /* Раздел набирается целиком, без сокращений: «Волны. Оптика. Кванты» — это
    название раздела сборника, и обрезанное оно перестаёт им быть. Если строка
    не влезла, она переносится по пробелам. */
 .tag {
-  font-size: 12px;
-  font-weight: 600;
+  font-size: 14px;
+  font-weight: 700;
   color: var(--sec, var(--s8));
   text-align: right;
 }
@@ -848,13 +904,13 @@ body {
 .marks { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 8px; }
 
 .mark {
-  min-width: 30px;
-  padding: 2px 7px;
-  border: 1px solid var(--border-strong);
+  min-width: 34px;
+  padding: 3px 8px;
+  border: 1.5px solid var(--violet-line);
   border-radius: 999px;
   color: var(--ink-muted);
-  font-size: 12px;
-  font-weight: 600;
+  font-size: 14px;
+  font-weight: 700;
   font-variant-numeric: tabular-nums;
   text-align: center;
 }
@@ -940,13 +996,28 @@ body {
 .note h1, .note h2, .note h3 { font-family: var(--font-display); font-weight: 700; }
 /* Под названием заметки — та же двойная золотая линия, что под шапкой. */
 .note h1 {
-  font-size: 30px;
+  position: relative;
+  font-size: 31px;
   line-height: 1.15;
-  margin: 0 0 16px;
-  padding-bottom: 12px;
-  border-bottom: 3px double var(--gold-line);
+  margin: 0 0 18px;
+  padding-bottom: 16px;
+  color: var(--violet-ink);
   letter-spacing: 0;
 }
+
+.note h1::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 5px;
+  border-radius: 3px;
+  background: var(--gold-metal);
+  box-shadow: var(--gold-bevel);
+}
+
+.note h2 { color: var(--violet-ink); }
 .note h2 { font-size: 21px; margin: 28px 0 8px; }
 .note h3 { font-size: 18px; margin: 22px 0 6px; }
 .note p, .note li { font-size: 17.5px; line-height: 1.6; }
@@ -1055,11 +1126,12 @@ body {
 .meta { display: flex; flex-wrap: wrap; gap: 6px; margin: -6px 0 18px; }
 
 .chip {
-  padding: 3px 10px;
+  padding: 3px 11px;
   border-radius: 999px;
-  background: var(--quiet);
-  color: var(--ink-2);
-  font-size: 12px;
+  background: var(--violet-soft);
+  color: var(--violet-ink);
+  font-size: 14px;
+  font-weight: 700;
 }
 
 .chip.mono { font-family: var(--font-mono); font-size: 11.5px; }
@@ -1085,17 +1157,18 @@ body {
   min-height: 36px;
   margin-bottom: 14px;
   padding: 0 14px;
-  border: 1px solid var(--border-strong);
+  border: 1.5px solid var(--violet-line);
   border-radius: 999px;
-  background: var(--surface);
-  color: var(--ink-2);
+  background: var(--violet-soft);
+  color: var(--violet-ink);
   font: inherit;
-  font-size: 14px;
+  font-size: 16px;
+  font-weight: 700;
   text-decoration: none;
   cursor: pointer;
 }
 
-.back:hover, .ext:hover { background: var(--plane); color: var(--ink); }
+.back:hover, .ext:hover { background: var(--surface); color: var(--violet); }
 .ext { margin-right: 8px; }
 
 /* Кнопка к документу. Крупнее обычной: на странице PDF она главное и почти
@@ -1204,7 +1277,24 @@ a.row.tap.tap, .group-head.tap.tap { animation: tapRow .4s ease-out; }
   /* Подписи вкладок в полосу шириной с телефон помещаются впритык. Полоса умеет
      прокручиваться, но вкладка, наполовину уехавшая за край, выглядит поломкой,
      а не подсказкой, что там есть ещё. */
-  .tab { padding: 8px 9px; font-size: 13.5px; }
+  /* Жирный CM широк: на телефоне поля вкладок узкие, иначе «Роли» уезжают. */
+  .tab { padding: 8px 6px; font-size: 14px; }
   .note { padding: 18px 16px 22px; }
   .note h1 { font-size: 26px; }
 }
+
+/* ── золотой перелив значков ───────────────────────────── */
+
+/* Значки разделов, пилюль, строк и ролей рисуются переливом металлического
+   золота — градиент #gold-grad объявлен в index.html. Свойство stroke
+   в стилях сильнее атрибута stroke="currentColor" у самих значков. */
+.block-icon svg, .toc-pill svg, .row-icon svg, .role-icon svg {
+  stroke: url(#gold-grad);
+}
+
+.block-icon svg [fill="currentColor"], .toc-pill svg [fill="currentColor"],
+.row-icon svg [fill="currentColor"], .role-icon svg [fill="currentColor"] {
+  fill: url(#gold-grad);
+}
+
+.block-icon svg { stroke-width: 2.1; }
