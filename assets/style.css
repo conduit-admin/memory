@@ -688,14 +688,17 @@ body {
 .panel > .group-body { border-top: 0; padding-top: 8px; }
 
 
-/* Стадия ролика точкой — те же цвета, что у прежних меток стадий. */
-/* Пять стадий в строгом наборе: серое, светлый фиолетовый, золото,
-   густой фиолетовый, чернила — от замысла к выложенному. */
-.st-0 { --dot: #C3BFC8; }           /* не начат */
-.st-1 { --dot: #8A8494; }           /* программируется */
-.st-2 { --dot: var(--gold); }       /* озвучивается и монтируется */
-.st-3 { --dot: var(--black); }      /* готов */
-.st-4 { --dot: #8A6416; }           /* выложен */
+/* Стадия ролика точкой. Всё, что про продвижение, — фиолетовое (владелец,
+   2026-10-08: «все стадии (прогресс) должны быть ассоциированы
+   с фиолетовым»): стадии роликов, полоска решённого у серий, решённые
+   задачи. Шкала одна на всё — та же, что у полоски: от тёмного
+   фиолетового --violet-start в начале пути до розово-лилового
+   --violet-full у сделанного, пять стадий — через равные доли. */
+.st-0 { --dot: var(--violet-start); }                                               /* не начат */
+.st-1 { --dot: color-mix(in oklch, var(--violet-full) 25%, var(--violet-start)); }  /* программируется */
+.st-2 { --dot: color-mix(in oklch, var(--violet-full) 50%, var(--violet-start)); }  /* озвучивается и монтируется */
+.st-3 { --dot: color-mix(in oklch, var(--violet-full) 75%, var(--violet-start)); }  /* готов */
+.st-4 { --dot: var(--violet-full); }                                                /* выложен */
 .row[class*="st-"] .row-sub { color: var(--dot); font-weight: 500; }
 
 /* Вид документа репетиторства — точкой: урок, домашка, разбор. Плоская,
@@ -878,7 +881,7 @@ body {
 .kind-d { --dot: var(--gold); }     /* домашка */
 .kind-r { --dot: #8A8494; }         /* разбор */
 
-/* Заголовки «Свежее» и «Найдено» скрипт помечает тихими; на бумаге плашек
+/* Заголовки «Актуальное» и «Найдено» скрипт помечает тихими; на бумаге плашек
    нет вовсе, и тихий заголовок ничем не отличается от обычного. Тона блоков
    (cold, warm, sheet…) тоже остались только в разметке: цвета у них нет. */
 
@@ -992,9 +995,11 @@ body {
   text-align: center;
 }
 
+/* Решённая задача — фиолетовым того же оттенка, что полоска её серии:
+   край цветом полоски, лёгкая подкраска внутри. --prog задан на карточке. */
 .mark.on {
-  border-color: var(--black);
-  background: var(--soft);
+  border-color: var(--prog, var(--violet));
+  background: color-mix(in oklch, var(--prog, var(--violet)) 14%, white);
   color: var(--black);
 }
 
@@ -1019,10 +1024,14 @@ body {
    --violet-start и --violet-full. Долю 0…1 (в кубе, см. app.js) ставит
    скрипт в --p. Каждая полоска одного плоского цвета: градиентов
    у фиолетового нет. */
+.card {
+  --prog: color-mix(in oklch, var(--violet-full) calc(var(--p, 1) * 100%), var(--violet-start));
+}
+
 .progress > span {
   display: block;
   height: 100%;
-  background: color-mix(in oklch, var(--violet-full) calc(var(--p, 1) * 100%), var(--violet-start));
+  background: var(--prog);
 }
 
 /* Стадия ролика. Пять состояний, цвет из того же набора красок. */
@@ -1036,11 +1045,12 @@ body {
   white-space: nowrap;
 }
 
-.stage-0 { --stage: var(--s8); }         /* не начат */
-.stage-1 { --stage: #8A8494; }           /* программируется */
-.stage-2 { --stage: var(--gold); }       /* озвучивается и монтируется */
-.stage-3 { --stage: var(--black); }      /* готов */
-.stage-4 { --stage: var(--ink); }        /* выложен */
+/* Та же фиолетовая шкала, что у точек стадий .st-N выше. */
+.stage-0 { --stage: var(--violet-start); }
+.stage-1 { --stage: color-mix(in oklch, var(--violet-full) 25%, var(--violet-start)); }
+.stage-2 { --stage: color-mix(in oklch, var(--violet-full) 50%, var(--violet-start)); }
+.stage-3 { --stage: color-mix(in oklch, var(--violet-full) 75%, var(--violet-start)); }
+.stage-4 { --stage: var(--violet-full); }
 
 /* ── каркас на время загрузки ──────────────────────────── */
 
