@@ -39,10 +39,12 @@
   /* Концы шкалы полоски решённого: начато — тёмный фиолетовый, решено
      целиком — розово-лиловый с тёплой ноткой (владелец, 2026-10-08).
      Сначала конец был персиковым #F2A07F — «не настолько»: шкала вышла
-     слишком сильной. Смешение — в oklch: насыщенность держится, в oklab
-     середина выходила пыльной, серо-лиловой. */
-  --violet-start: #55259A;
-  --violet-full: #C27BA6;
+     слишком сильной; потом #55259A — #C27BA6 оказалась слишком узкой,
+     владелец попросил шире. Теперь — глубокий фиолетовый и светлый
+     розово-лиловый, между персиком и узкой шкалой. Смешение — в oklch:
+     насыщенность держится, в oklab середина выходила пыльной. */
+  --violet-start: #3F1680;
+  --violet-full: #E29AB4;
   --soft: #F1F0F2;
   --line: #D6D3DA;
   --gold: #A57C1B;
@@ -1089,13 +1091,18 @@ body {
   to { background-position: -120% 0; }
 }
 
+/* Пустой раздел — «Листков пока нет» и подобное. Белая карточка
+   с пунктирной серой рамкой: место есть, содержимого ещё нет. Пунктир —
+   тот же знак «не в счёт», что у упражнений в серии. Раньше надпись
+   лежала прямо на муаре и читалась как недоделка. */
 .empty {
-  padding: 22px 16px;
+  padding: 20px 16px;
+  border: 2px dashed var(--line);
   border-radius: var(--radius);
-  background: var(--wash);
+  background: var(--surface);
   color: var(--ink-muted);
   text-align: center;
-  font-size: 14px;
+  font-size: 15px;
 }
 
 /* ── заметка ───────────────────────────────────────────── */
@@ -1110,13 +1117,40 @@ body {
 }
 
 .note h1, .note h2, .note h3 { font-family: var(--font-display); font-weight: 700; }
-/* Золотая полоска под названием была и снята (владелец, 2026-10-08). */
-.note h1 {
-  font-size: 31px;
+/* Название заметки — платиновая плашка во всю ширину листа сверху
+   (2026-10-08: владелец сказал, что заметки «не очень сочетаются со
+   стилем»). Так страница заметки устроена как раздел на вкладке: плашка,
+   под ней лист в чёрной рамке. Плашка — та же, что у разделов: заливка,
+   косой блик, светлое пятно в углу, — и она прижата к рамке листа, чёрная
+   черта отделяет её от текста. */
+.note > h1 {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  margin: -22px -24px 18px;
+  padding: 18px 24px 16px;
+  border-bottom: var(--frame-sm);
+  border-radius: calc(var(--radius) - 2.5px) calc(var(--radius) - 2.5px) 0 0;
+  background-color: var(--plat-plate);
+  background-image: var(--plate-sheen);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.7);
+  font-size: 29px;
   line-height: 1.15;
-  margin: 0 0 16px;
   color: var(--black);
-  letter-spacing: 0;
+  letter-spacing: -0.01em;
+}
+
+.note > h1::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: -80%;
+  right: -10%;
+  width: 55%;
+  padding-bottom: 55%;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.95), transparent 68%);
+  pointer-events: none;
 }
 
 .note h2 { color: var(--black); }
@@ -1153,11 +1187,11 @@ body {
 .note blockquote {
   margin: 12px 0;
   padding-left: 14px;
-  border-left: 3px solid var(--border-strong);
+  border-left: 2.5px solid var(--black);
   color: var(--ink-2);
 }
 
-.note hr { border: 0; border-top: 1px solid var(--border-strong); margin: 24px 0; }
+.note hr { border: 0; border-top: 1px solid var(--line); margin: 24px 0; }
 
 /* Таблицы и выключные формулы шире колонки не редкость. Прокручиваются внутри
    себя: горизонтальной полосы у страницы быть не должно. */
@@ -1168,42 +1202,47 @@ body {
 
 /* ── блоки внутри заметки ──────────────────────────────── */
 
-/* Раздел заметки — отдельный блок с цветной линией слева. Панели внутри панели
-   не заводим: вложенное стекло читается как коробка в коробке. Линии и тихого
-   заголовка достаточно, чтобы условие не слипалось с решением.
+/* Раздел заметки. Обычный раздел (blk-plain) — это просто глава: чёрный
+   жирный заголовок, над ним тонкая серая черта, без линии слева. Прежде
+   каждый раздел шёл с серой линией слева и серым заголовком и выглядел
+   цитатой — на «Бумаге» это и не сочеталось со стилем (2026-10-08).
 
-   Отступ слева небольшой: это разделение, а не вложенность. */
+   Линия слева осталась только у разделов разбора задачи — условие,
+   идея, решение, где сломалось: там она отделяет роли друг от друга.
+   Линия той же толщины, что рамки, 2,5; чёрная у решения и идеи, серая
+   у данности и ошибок. */
 .blk {
   margin: 22px 0;
   padding-left: 14px;
-  border-left: 3px solid var(--accent, var(--border-strong));
+  border-left: 2.5px solid var(--accent, var(--line));
 }
 
 .blk:first-child { margin-top: 4px; }
 .blk:last-child { margin-bottom: 0; }
 
-/* Заголовок раздела — не второй заголовок статьи, а подпись к блоку: мельче
-   названия заметки, цветом линии. Обычными буквами, без разрядки и заглавных:
-   заглавные владельцу кажутся казёнными. */
 .blk > h2 {
   margin: 0 0 8px;
   font-size: 17px;
-  color: var(--accent, var(--ink-muted));
+  color: var(--black);
 }
 
 .blk > :last-child { margin-bottom: 0; }
 
-/* Цвет отличает роль блока и ничего не значит сам по себе — то же правило,
-   что и для разделов на карточках. */
-.blk-cond  { --accent: var(--s8); }       /* условие, триггер — данность */
-.blk-idea  { --accent: var(--gold); }     /* ключевая идея — то, ради чего разбор */
+.blk-cond  { --accent: var(--line); }     /* условие, триггер — данность */
+.blk-idea  { --accent: var(--black); }    /* ключевая идея — то, ради чего разбор */
 .blk-sol   { --accent: var(--black); }    /* решение */
-.blk-prob  { --accent: var(--ink); }      /* где сломалось */
-.blk-links { --accent: #8A8494; }         /* связи */
-.blk-plain { --accent: var(--border-strong); }
-/* У нейтрального блока линия светлая, а подпись к ней тем же цветом
-   на бумаге не читается — подпись берёт приглушённые чернила. */
-.blk-plain > h2 { color: var(--ink-muted); }
+.blk-prob  { --accent: var(--line); }     /* где сломалось */
+.blk-links { --accent: var(--line); }     /* связи */
+
+.blk-plain {
+  margin: 26px 0 0;
+  padding: 20px 0 0;
+  border-left: 0;
+  border-top: 1px solid var(--line);
+}
+
+.blk-plain:first-child { margin-top: 6px; }
+.blk-plain > h2 { margin: 0 0 10px; font-size: 21px; }
 
 /* Приёмы и связанные задачи — не блок разбора, а его хвост: список ссылок,
    который идёт после решения. Линия слева тут лишняя, она обещает содержание,
@@ -1237,7 +1276,16 @@ body {
   font-weight: 400;
 }
 
-.chip.mono { font-size: 13px; }
+/* Путь к файлу — справка, а не поле шапки: без рамки, тихим серым,
+   чтобы не спорить с названием на плашке. */
+.chip.mono {
+  padding-left: 0;
+  padding-right: 0;
+  border: 0;
+  background: none;
+  color: var(--ink-muted);
+  font-size: 13px;
+}
 
 /* ── обратные ссылки ───────────────────────────────────── */
 
@@ -1384,4 +1432,6 @@ a.row.tap.tap, .group-head.tap.tap { animation: tapRow .4s ease-out; }
   .tab { padding: 8px 6px; font-size: 14px; }
   .note { padding: 18px 16px 22px; }
   .note h1 { font-size: 26px; }
+  /* плашка названия прижата к рамке и при узких полях */
+  .note > h1 { margin: -18px -16px 16px; padding: 15px 16px 13px; font-size: 25px; }
 }
