@@ -3,8 +3,7 @@
    Плоская тёплая бумага, белые листы карточек, чернила. Цвет — из строгого
    набора владельца: чернила, фиолетовый, тёмное золото и нейтральные для
    второстепенного. Свободны в цвете только иллюстрации — обложки документов.
-   Шрифт один — Computer Modern, как в документах владельца, по всему сайту.
-   Единственное нарядное — золотые вставки.
+   Шрифт один — Golos, крупно и жирно. Нарядное — золотые плашки заголовков.
    Описание — web/styles/bumaga.md в knowledge.
 
    Тема одна, светлая: «только светлая» объявлено и браузеру, иначе Chrome
@@ -92,57 +91,38 @@
   --shadow-2: none;
 
 
-  /* Шрифт один — Computer Modern, по всему сайту. Golos в интерфейсе рядом
-     с CM в заголовках владелец назвал расхождением (2026-10-08). Пометки,
-     которым нужна моноширинность, — машинописный CM из того же семейства. */
-  --font-display: "CMU Serif", "Latin Modern Roman", "Computer Modern", Georgia,
-                  "Times New Roman", serif;
-  --font-ui: var(--font-display);
-  --font-mono: "CMU Typewriter Text", "Latin Modern Mono", ui-monospace, Consolas,
-               monospace;
+  /* Шрифт один — Golos Text, по всему сайту. Моноширинный — только в блоках
+     кода, где без него нельзя; даты и имена файлов — тем же Golos
+     с цифрами одной ширины. */
+  --font-ui: "Golos Text", "Segoe UI Variable Text", system-ui, -apple-system,
+             "Segoe UI", Roboto, sans-serif;
+  --font-display: var(--font-ui);
+  --font-mono: ui-monospace, "Cascadia Mono", "Segoe UI Mono", Consolas, monospace;
 }
 
-/* Computer Modern Unicode — с кириллицей. Пока берётся с jsDelivr, версия
-   закреплена коммитом, чтобы чужая правка не поменяла сайт; положить файлы
-   рядом, в assets/fonts/, — следующий шаг. */
+/* Шрифт — Golos Text, свой файл рядом, по всему сайту: заголовки, текст,
+   интерфейс. Computer Modern по всему сайту пробовали 08.10.2026 — владелец
+   вернул Golos: «прошлый шрифт подходил лучше». Смешивать два шрифта нельзя —
+   это расхождение. Файлов два, по диапазонам: кириллический берётся всегда,
+   латинский — только если попадётся латиница. */
 @font-face {
-  font-family: "CMU Serif";
-  src: url("https://cdn.jsdelivr.net/gh/dreampulse/computer-modern-web-font@e9977be1283466992a2dede47a342655d8426fee/font/Serif/cmunrm.woff") format("woff");
-  font-weight: 400;
+  font-family: "Golos Text";
+  src: url("fonts/golos-cyrillic.woff2") format("woff2");
+  font-weight: 400 700;
   font-style: normal;
   font-display: swap;
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
 }
 
 @font-face {
-  font-family: "CMU Serif";
-  src: url("https://cdn.jsdelivr.net/gh/dreampulse/computer-modern-web-font@e9977be1283466992a2dede47a342655d8426fee/font/Serif/cmunbx.woff") format("woff");
-  font-weight: 700;
+  font-family: "Golos Text";
+  src: url("fonts/golos-latin.woff2") format("woff2");
+  font-weight: 400 700;
   font-style: normal;
   font-display: swap;
-}
-
-@font-face {
-  font-family: "CMU Serif";
-  src: url("https://cdn.jsdelivr.net/gh/dreampulse/computer-modern-web-font@e9977be1283466992a2dede47a342655d8426fee/font/Serif/cmunti.woff") format("woff");
-  font-weight: 400;
-  font-style: italic;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "CMU Typewriter Text";
-  src: url("https://cdn.jsdelivr.net/gh/dreampulse/computer-modern-web-font@e9977be1283466992a2dede47a342655d8426fee/font/Typewriter/cmuntt.woff") format("woff");
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "CMU Typewriter Text";
-  src: url("https://cdn.jsdelivr.net/gh/dreampulse/computer-modern-web-font@e9977be1283466992a2dede47a342655d8426fee/font/Typewriter/cmuntb.woff") format("woff");
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+                 U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122,
+                 U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
 * {
@@ -326,11 +306,9 @@ body {
   width: var(--thumb-w, 0);
   transform: translateX(var(--thumb-x, 0));
   border-radius: 999px;
-  /* Указатель — фиолетовая плашка в манере «Стекла»: заливка, косой блик
-     и светлая кромка сверху. */
-  background-color: var(--plate-violet);
-  background-image: var(--plate-sheen);
-  box-shadow: inset 0 1px 0 var(--plate-edge);
+  /* Указатель — плоская фиолетовая плашка: фиолетовый без градиентов
+     (владелец, 2026-10-08); блик и свет — только у золотых плашек. */
+  background: var(--plate-violet);
   pointer-events: none;
   transition: transform .38s cubic-bezier(.22, .8, .24, 1),
               width .38s cubic-bezier(.22, .8, .24, 1);
@@ -424,7 +402,7 @@ body {
   font-family: var(--font-display);
   font-size: 22px;
   font-weight: 700;
-  letter-spacing: 0;
+  letter-spacing: -0.01em;
   line-height: 1.2;
 }
 
@@ -597,9 +575,9 @@ body {
 .row-aside {
   flex: none;
   color: var(--ink-muted);
-  font-family: var(--font-mono);
   font-size: 14px;
   font-weight: 700;
+  font-variant-numeric: tabular-nums;
 }
 
 .row-aux .row-label { color: var(--ink-muted); }
@@ -870,7 +848,6 @@ body {
    разойдётся по ним, если не влезла. Принудительный разрыв резал бы слово
    посреди буквы, а по имени файла его потом искать. */
 .fname {
-  font-family: var(--font-mono);
   font-size: 11.5px;
   color: var(--ink-muted);
   overflow-wrap: break-word;
@@ -973,10 +950,7 @@ body {
 
 /* ── заметка ───────────────────────────────────────────── */
 
-/* Заметка — белый лист, набранный Computer Modern, как документы владельца:
-   формулы KaTeX и так в духе CM, и текст рядом с ними перестаёт быть чужим.
-   Кегль крупнее прежнего: у CM тонкий рисунок, в 15 пунктов на телефоне
-   он бледнеет. */
+/* Заметка — белый лист, текст крупно: владелец просил надписи крупнее. */
 .note {
   padding: 22px 24px 28px;
   background: var(--surface);
@@ -1112,7 +1086,7 @@ body {
   font-weight: 700;
 }
 
-.chip.mono { font-family: var(--font-mono); font-size: 11.5px; }
+.chip.mono { font-size: 13px; }
 
 /* ── обратные ссылки ───────────────────────────────────── */
 
