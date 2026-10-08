@@ -1,9 +1,10 @@
 /* Лучезарность — оформление «Бумага» (с 2026-10-08; прежде было «Стекло»).
 
-   Плоская тёплая бумага, белые листы карточек, чернила. Цвет — из строгого
-   набора владельца: чернила, фиолетовый, тёмное золото и нейтральные для
-   второстепенного. Свободны в цвете только иллюстрации — обложки документов.
-   Шрифт один — Golos, крупно и жирно. Нарядное — золотые плашки заголовков.
+   Белый лист, чернила, блоки в толстой чёрной обводке. Цвет — из строгого
+   набора владельца: чернила, белый, золото и нейтральные для второстепенного;
+   фиолетовый пока снят. Свободны в цвете только иллюстрации — обложки
+   документов. Шрифт один — Golos, крупно; жирным — только заголовки.
+   Нарядное — золотые плашки заголовков разделов.
    Описание — web/styles/bumaga.md в knowledge.
 
    Тема одна, светлая: «только светлая» объявлено и браузеру, иначе Chrome
@@ -14,27 +15,28 @@
 
   /* Бумага и чернила. Страница белая — белый у владельца среди любимых,
      тёплый бежевый не понравился (2026-10-08). Листы карточек того же белого
-     и отделены волосяным краем с лёгкой фиолетовой ноткой. */
+     и отделены толстой чёрной обводкой — --frame ниже. */
   --plane: #FFFFFF;
   --surface: #FFFFFF;
   --ink: #16131C;
   --ink-2: #3E3848;
   --ink-muted: #756E80;
   --ink-inv: #FFFFFF;
-  --border: #E4DBF0;
-  --border-strong: #CDBFE3;
+  --border: #E2E0E5;
+  --border-strong: #CBC8CF;
   --wash: rgba(22, 19, 28, 0.035);
 
   /* Подложка тихих кнопок и пилюль — без рамки, сама себе граница. */
   --quiet: rgba(22, 19, 28, 0.055);
   --quiet-on: rgba(22, 19, 28, 0.10);
 
-  /* Строгий набор. Фиолетовый — второй голос после чернил: значки, отметки,
-     ссылки на действие. Золото — тёмное, для бумаги: светлое золото знака
-     на белом пропадает. Светлые ступени — для точек и подложек. */
+  /* Строгий набор: чернила, белый, золото. Фиолетовый снят 2026-10-08 —
+     владелец скажет, где его вернуть; сам цвет держим здесь, но сейчас
+     его не читает ни одно правило. Вместо фиолетовых подложек и линий —
+     нейтральные серые. */
   --violet: #5B2A8C;
-  --violet-2: #9A7CC9;
-  --violet-tint: rgba(91, 42, 140, 0.09);
+  --soft: #F1F0F2;
+  --line: #D6D3DA;
   --gold: #A57C1B;
   --gold-2: #D9B45A;
   --gold-logo: #FDD17A;
@@ -54,29 +56,24 @@
   --plate-sheen: linear-gradient(142deg, rgba(255, 255, 255, 0.42), rgba(255, 255, 255, 0) 46%);
   --plate-edge: rgba(255, 255, 255, 0.45);
   --plate-shadow: 0 2px 6px rgba(110, 72, 8, 0.14), 0 22px 44px -26px rgba(110, 72, 8, 0.55);
-  --plate-violet: #5B2A8C;
-  --plate-violet-glow: rgba(196, 164, 255, 0.55);
 
   /* Чёрного больше (2026-10-08): полоса вкладок, плитки значков, текст
-     на золоте. */
+     на золоте и толстая чёрная обводка блоков — карточек, групп, заметки,
+     поля поиска, золотых плашек. */
   --black: #141118;
+  --frame: 2.5px solid var(--black);
 
-  /* Больше фиолетового (2026-10-08): полоса вкладок, заголовки, подложки. */
-  --violet-deep: #2E1452;
-  --violet-ink: #3B1868;
-  --violet-soft: #F2ECFA;
-  --violet-line: #DCCFEE;
 
   /* Краски разделов прежнего набора сведены к строгому: разделы различаются
      местом на странице, а не радугой. Имена оставлены, чтобы правила, которые
      их читают, не переписывать. */
-  --s1: var(--violet);
+  --s1: var(--black);
   --s2: var(--gold);
-  --s3: var(--violet);
+  --s3: var(--black);
   --s4: var(--gold);
-  --s5: var(--violet);
-  --s6: var(--violet);
-  --s7: var(--violet);
+  --s5: var(--black);
+  --s6: var(--black);
+  --s7: var(--black);
   --s8: #8A8494;
 
   /* Два радиуса: 14 — листы и панели, 10 — поля и мелкие кнопки. Круглые —
@@ -253,16 +250,15 @@ body {
   width: 100%;
   min-height: var(--tap);
   padding: 0 12px 0 38px;
-  border: 1.5px solid var(--violet-line);
+  border: var(--frame);
   border-radius: var(--radius-sm);
   background: var(--surface);
   color: var(--ink);
-  font: 700 17px var(--font-ui);
+  font: 400 17px var(--font-ui);
   transition: border-color .14s ease;
 }
 
 .search-input::placeholder { color: var(--ink-muted); }
-.search-input:hover { border-color: var(--border-strong); }
 /* Обводка фокуса — цветом текста: белая на тёмной теме, чёрная на светлой
    (владелец, 2026-10-07). У поля она видна при каждом касании, не только
    с клавиатуры; голубая спорила со знаком, охра не понравилась. Цвет текста
@@ -306,9 +302,9 @@ body {
   width: var(--thumb-w, 0);
   transform: translateX(var(--thumb-x, 0));
   border-radius: 999px;
-  /* Указатель — плоская фиолетовая плашка: фиолетовый без градиентов
-     (владелец, 2026-10-08); блик и свет — только у золотых плашек. */
-  background: var(--plate-violet);
+  /* Указатель — белая плашка на чёрной полосе. Плоская: блик и свет —
+     только у золотых плашек. */
+  background: var(--surface);
   pointer-events: none;
   transition: transform .38s cubic-bezier(.22, .8, .24, 1),
               width .38s cubic-bezier(.22, .8, .24, 1);
@@ -327,19 +323,19 @@ body {
   border: 0;
   border-radius: 999px;
   background: none;
-  color: #D9CCEF;
+  color: rgba(255, 255, 255, 0.74);
   font: inherit;
   font-size: 17px;
-  font-weight: 700;
+  font-weight: 500;
   white-space: nowrap;
   cursor: pointer;
 }
 
 .tab:hover { color: #FFFFFF; }
-.tab:focus-visible { outline: 2px solid var(--s1); outline-offset: -2px; }
+.tab:focus-visible { outline: 2px solid var(--gold-2); outline-offset: -2px; }
 
 /* Заливку выбранной вкладки рисует указатель, самой вкладке остаётся цвет. */
-.tab[aria-selected="true"] { color: #FFFFFF; }
+.tab[aria-selected="true"] { color: var(--black); }
 
 /* ── блоки ─────────────────────────────────────────────── */
 
@@ -361,7 +357,7 @@ body {
   gap: 10px;
   margin: 0 0 12px;
   padding: 11px 16px;
-  border: 1px solid var(--plate-edge);
+  border: var(--frame);
   border-radius: var(--radius-sm);
   background-color: var(--plate-gold);
   background-image: var(--plate-sheen);
@@ -413,7 +409,7 @@ body {
   margin-left: auto;
   color: rgba(20, 17, 24, 0.62);
   font-size: 16px;
-  font-weight: 700;
+  font-weight: 600;
   font-variant-numeric: tabular-nums;
 }
 
@@ -438,23 +434,23 @@ body {
   gap: 7px;
   min-height: var(--tap);
   padding: 0 16px;
-  border: 1px solid var(--violet-line);
+  border: 0;
   border-radius: 999px;
-  background: var(--violet-soft);
+  background: var(--soft);
   color: var(--black);
-  font: 700 16px var(--font-ui);
+  font: 500 16px var(--font-ui);
   cursor: pointer;
   transition: background-color .14s ease, color .14s ease;
 }
 
 .toc-pill:hover { background: var(--quiet-on); color: var(--ink); }
-.toc-pill svg { width: 18px; height: 18px; flex: none; color: var(--violet); }
+.toc-pill svg { width: 18px; height: 18px; flex: none; color: var(--black); }
 .toc-pill:focus-visible { outline: 2px solid var(--s1); outline-offset: 2px; }
 
 .toc-n {
-  color: var(--violet);
+  color: var(--ink-muted);
   font-size: 15px;
-  font-weight: 700;
+  font-weight: 500;
   font-variant-numeric: tabular-nums;
 }
 
@@ -465,12 +461,12 @@ body {
    лист на листе выглядит коробкой в коробке. */
 .group {
   background: var(--surface);
-  border: 1px solid var(--border);
+  border: var(--frame);
   border-radius: var(--radius);
   transition: border-color .16s ease;
 }
 
-.group:hover { border-color: var(--border-strong); }
+
 
 .group-head {
   display: flex;
@@ -511,14 +507,14 @@ body {
 .group-sub {
   color: var(--ink-muted);
   font-size: 12.5px;
-  font-weight: 500;
+  font-weight: 400;
 }
 
 .group-meta {
   margin-left: auto;
-  color: var(--violet);
+  color: var(--ink-muted);
   font-size: 14.5px;
-  font-weight: 700;
+  font-weight: 500;
   font-variant-numeric: tabular-nums;
   white-space: nowrap;
 }
@@ -566,7 +562,7 @@ body {
   flex: 1 1 auto;
   min-width: 0;
   font-size: 17.5px;
-  font-weight: 700;
+  font-weight: 500;
   overflow-wrap: anywhere;
 }
 
@@ -576,7 +572,7 @@ body {
   flex: none;
   color: var(--ink-muted);
   font-size: 14px;
-  font-weight: 700;
+  font-weight: 400;
   font-variant-numeric: tabular-nums;
 }
 
@@ -587,24 +583,24 @@ body {
 .row-label { display: flex; flex-direction: column; gap: 1px; }
 
 .row-sub {
-  color: var(--violet);
+  color: var(--ink-muted);
   font-size: 15px;
   font-weight: 400;
 }
 
 /* Панель без раскрытия: тело без черты сверху — шапки над ним нет. */
 .panel > .group-body { border-top: 0; padding-top: 8px; }
-.panel:hover { border-color: var(--border); }
+
 
 /* Стадия ролика точкой — те же цвета, что у прежних меток стадий. */
 /* Пять стадий в строгом наборе: серое, светлый фиолетовый, золото,
    густой фиолетовый, чернила — от замысла к выложенному. */
-.st-0 { --dot: var(--s8); }         /* не начат */
-.st-1 { --dot: var(--violet-2); }   /* программируется */
+.st-0 { --dot: #C3BFC8; }           /* не начат */
+.st-1 { --dot: #8A8494; }           /* программируется */
 .st-2 { --dot: var(--gold); }       /* озвучивается и монтируется */
-.st-3 { --dot: var(--violet); }     /* готов */
-.st-4 { --dot: var(--ink); }        /* выложен */
-.row[class*="st-"] .row-sub { color: var(--dot); font-weight: 600; }
+.st-3 { --dot: var(--black); }      /* готов */
+.st-4 { --dot: #8A6416; }           /* выложен */
+.row[class*="st-"] .row-sub { color: var(--dot); font-weight: 500; }
 
 /* Вид документа репетиторства — точкой: урок, домашка, разбор. Плоская,
    без света и тени: мелкому предмету объём не идёт. */
@@ -701,9 +697,9 @@ body {
   width: 46px;
   height: 46px;
   border-radius: var(--radius-sm);
-  /* Все значки ролей — фиолетовым: на бумаге цвет только из строгого набора,
-     и пёстрые плитки разных красок спорили бы с ним. Цвет из набора ICONS
-     в app.js здесь не используется. */
+  /* Все плитки ролей одинаковые — чёрные, значок светлым золотом, как знак:
+     пёстрые плитки разных красок спорили бы со строгим набором. Цвет
+     из набора ICONS в app.js здесь не используется. */
   background: var(--black);
   color: var(--gold-2);
 }
@@ -733,11 +729,11 @@ body {
   min-width: var(--tap);
   min-height: var(--tap);
   padding: 0 14px;
-  border: 1px solid var(--violet-line);
+  border: 0;
   border-radius: 999px;
-  background: var(--violet-soft);
-  color: var(--violet-ink);
-  font: 700 15px var(--font-ui);
+  background: var(--soft);
+  color: var(--black);
+  font: 500 15px var(--font-ui);
   cursor: pointer;
   transition: background-color .14s ease, color .14s ease;
 }
@@ -745,7 +741,7 @@ body {
 .copy:hover { background: var(--quiet-on); color: var(--ink); }
 .copy:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
 .copy svg { width: 17px; height: 17px; flex: none; }
-.copy.done { color: var(--s3); }
+.copy.done { color: var(--black); }
 
 /* На узком экране слово прячется — длинное название роли важнее. Кнопка
    становится круглой, имя для читалки экрана у неё задано полностью. */
@@ -766,9 +762,9 @@ body {
 .pre-wrap > .copy { align-self: flex-end; margin-bottom: 4px; }
 .pre-wrap > pre { margin: 0; }
 
-.kind-u { --dot: var(--violet); }   /* урок и занятие */
+.kind-u { --dot: var(--black); }    /* урок и занятие */
 .kind-d { --dot: var(--gold); }     /* домашка */
-.kind-r { --dot: var(--ink); }      /* разбор */
+.kind-r { --dot: #8A8494; }         /* разбор */
 
 /* Заголовки «Свежее» и «Найдено» скрипт помечает тихими; на бумаге плашек
    нет вовсе, и тихий заголовок ничем не отличается от обычного. Тона блоков
@@ -785,13 +781,13 @@ body {
   display: block;
   padding: 13px 16px;
   background: var(--surface);
-  border: 1px solid var(--border);
+  border: var(--frame);
   border-radius: var(--radius);
   color: inherit;
   text-decoration: none;
 }
 
-.card:hover { border-color: var(--border-strong); }
+
 
 /* Строка переносится, а не выдавливает содержимое за край. Имя файла и метки
    неразрывны — на узком экране без переноса они уезжали за правый край карточки
@@ -854,7 +850,7 @@ body {
   text-align: right;
 }
 
-.card-note { margin-top: 3px; color: var(--violet); font-size: 15px; }
+.card-note { margin-top: 3px; color: var(--ink-muted); font-size: 15px; }
 
 /* Метка раздела: цвет только отличает раздел от раздела. */
 /* Раздел набирается целиком, без сокращений: «Волны. Оптика. Кванты» — это
@@ -862,7 +858,7 @@ body {
    не влезла, она переносится по пробелам. */
 .tag {
   font-size: 14px;
-  font-weight: 700;
+  font-weight: 500;
   color: var(--sec, var(--s8));
   text-align: right;
 }
@@ -875,11 +871,11 @@ body {
 .mark {
   min-width: 34px;
   padding: 3px 8px;
-  border: 1.5px solid var(--violet-line);
+  border: 1.5px solid var(--line);
   border-radius: 999px;
   color: var(--ink-muted);
   font-size: 14px;
-  font-weight: 700;
+  font-weight: 500;
   font-variant-numeric: tabular-nums;
   text-align: center;
 }
@@ -899,14 +895,14 @@ body {
   border-radius: 999px;
   color: var(--stage, var(--s8));
   font-size: 11.5px;
-  font-weight: 600;
+  font-weight: 500;
   white-space: nowrap;
 }
 
 .stage-0 { --stage: var(--s8); }         /* не начат */
-.stage-1 { --stage: var(--violet-2); }   /* программируется */
+.stage-1 { --stage: #8A8494; }           /* программируется */
 .stage-2 { --stage: var(--gold); }       /* озвучивается и монтируется */
-.stage-3 { --stage: var(--violet); }     /* готов */
+.stage-3 { --stage: var(--black); }      /* готов */
 .stage-4 { --stage: var(--ink); }        /* выложен */
 
 /* ── каркас на время загрузки ──────────────────────────── */
@@ -954,7 +950,7 @@ body {
 .note {
   padding: 22px 24px 28px;
   background: var(--surface);
-  border: 1px solid var(--border);
+  border: var(--frame);
   border-radius: var(--radius);
   font-family: var(--font-display);
 }
@@ -969,7 +965,7 @@ body {
   letter-spacing: 0;
 }
 
-.note h2 { color: var(--violet-ink); }
+.note h2 { color: var(--black); }
 .note h2 { font-size: 21px; margin: 28px 0 8px; }
 .note h3 { font-size: 18px; margin: 22px 0 6px; }
 .note p, .note li { font-size: 17.5px; line-height: 1.6; }
@@ -1047,9 +1043,9 @@ body {
    что и для разделов на карточках. */
 .blk-cond  { --accent: var(--s8); }       /* условие, триггер — данность */
 .blk-idea  { --accent: var(--gold); }     /* ключевая идея — то, ради чего разбор */
-.blk-sol   { --accent: var(--violet); }   /* решение */
+.blk-sol   { --accent: var(--black); }    /* решение */
 .blk-prob  { --accent: var(--ink); }      /* где сломалось */
-.blk-links { --accent: var(--violet-2); } /* связи */
+.blk-links { --accent: #8A8494; }         /* связи */
 .blk-plain { --accent: var(--border-strong); }
 /* У нейтрального блока линия светлая, а подпись к ней тем же цветом
    на бумаге не читается — подпись берёт приглушённые чернила. */
@@ -1080,10 +1076,10 @@ body {
 .chip {
   padding: 3px 11px;
   border-radius: 999px;
-  background: var(--violet-soft);
-  color: var(--violet-ink);
+  background: var(--soft);
+  color: var(--ink-2);
   font-size: 14px;
-  font-weight: 700;
+  font-weight: 400;
 }
 
 .chip.mono { font-size: 13px; }
@@ -1109,18 +1105,18 @@ body {
   min-height: 36px;
   margin-bottom: 14px;
   padding: 0 14px;
-  border: 1.5px solid var(--violet-line);
+  border: 0;
   border-radius: 999px;
-  background: var(--violet-soft);
-  color: var(--violet-ink);
+  background: var(--soft);
+  color: var(--black);
   font: inherit;
   font-size: 16px;
-  font-weight: 700;
+  font-weight: 500;
   text-decoration: none;
   cursor: pointer;
 }
 
-.back:hover, .ext:hover { background: var(--surface); color: var(--violet); }
+.back:hover, .ext:hover { background: var(--quiet-on); }
 .ext { margin-right: 8px; }
 
 /* Кнопка к документу. Крупнее обычной: на странице PDF она главное и почти
@@ -1130,7 +1126,7 @@ body {
   margin: 18px 0 0;
   padding: 0 22px;
   font-size: 15px;
-  font-weight: 600;
+  font-weight: 500;
   color: var(--ink);
 }
 
