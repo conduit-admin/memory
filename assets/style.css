@@ -204,6 +204,18 @@ body {
   padding: 0 16px 64px;
 }
 
+/* Змея с флага Гадсдена — одна, внизу каждой страницы, под содержимым
+   (владелец, 2026-10-08: «добавь куда-нибудь одну гадсденовскую змейку»).
+   Чёрная целиком. Рисунок — zmeya.svg рядом. */
+.wrap::after {
+  content: "";
+  display: block;
+  width: 104px;
+  height: 78px;
+  margin: 40px auto 0;
+  background: url("zmeya.svg") center / contain no-repeat;
+}
+
 /* ── шапка ─────────────────────────────────────────────── */
 
 .topbar {
@@ -420,14 +432,50 @@ body {
    второстепенные — «Стили», гробарий и всё, что не серия, на «Математике»,
    незнакомые подпапки листков физики (тон slate). Тон ставит скрипт при
    создании раздела, поэтому новая подпапка получит платину сама. */
-.block-head.quiet, .block-head.slate {
+/* Вся вкладка «Физика» — тоже платина (владелец, 2026-10-08): класс plat
+   ставит скрипт всем плашкам вкладки, см. metal() в app.js. */
+.block-head.quiet, .block-head.slate, .block-head.plat {
   background-color: var(--plat-plate);
   box-shadow: 0 2px 6px rgba(40, 46, 60, 0.12), 0 22px 44px -26px rgba(40, 46, 60, 0.5),
               inset 0 1px 0 rgba(255, 255, 255, 0.7);
 }
 
-.block-head.quiet::after, .block-head.slate::after {
+.block-head.quiet::after, .block-head.slate::after, .block-head.plat::after {
   background: radial-gradient(circle, rgba(255, 255, 255, 0.95), transparent 68%);
+}
+
+/* Алмазная бирюза — плашки вкладки «ИИ» (владелец, 2026-10-08: «можно ли
+   сделать алмазно-бирюзовую плашку»). Устройство то же, что у золота
+   и платины, но свет не мягкий, а огранённый: вместо одного косого блика —
+   несколько узких светлых граней с резкими краями, как у камня под лампой,
+   и белая искра в углу. Края граней размыты на полпроцента, иначе косая
+   заливка рисует их лесенкой. */
+.block-head.almaz {
+  background-color: #45C2B8;
+  background-image:
+    linear-gradient(118deg, transparent 15%, rgba(255, 255, 255, 0.6) 15.5%, rgba(255, 255, 255, 0.6) 18%, transparent 18.5%),
+    linear-gradient(118deg, transparent 23%, rgba(255, 255, 255, 0.28) 23.5%, rgba(255, 255, 255, 0.28) 33%, transparent 33.5%),
+    linear-gradient(62deg, transparent 61%, rgba(255, 255, 255, 0.4) 61.5%, rgba(255, 255, 255, 0.4) 63.5%, transparent 64%),
+    linear-gradient(62deg, transparent 67%, rgba(10, 90, 84, 0.14) 67.5%, rgba(10, 90, 84, 0.14) 80%, transparent 80.5%),
+    linear-gradient(160deg, rgba(255, 255, 255, 0.45), rgba(255, 255, 255, 0) 45%);
+  box-shadow: 0 2px 6px rgba(10, 80, 76, 0.16), 0 22px 44px -26px rgba(10, 80, 76, 0.55),
+              inset 0 1px 0 rgba(255, 255, 255, 0.75);
+}
+
+.block-head.almaz::after {
+  background: radial-gradient(circle, rgba(236, 255, 252, 0.95), transparent 68%);
+}
+
+.block-head.almaz::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 6px;
+  right: 46px;
+  width: 15px;
+  height: 15px;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-1 -1 2 2'%3E%3Cpath d='M0 -1C.1 -.1 .1 -.1 1 0C.1 .1 .1 .1 0 1C-.1 .1 -.1 .1 -1 0C-.1 -.1 -.1 -.1 0 -1Z' fill='%23fff'/%3E%3C/svg%3E") center / contain no-repeat;
+  pointer-events: none;
 }
 
 /* Значок раздела золотом и золотая линия от названия до числа справа —
@@ -436,12 +484,14 @@ body {
   flex: none;
   display: grid;
   place-items: center;
-  width: 24px;
-  height: 24px;
+  width: 28px;
+  height: 28px;
   color: var(--black);
 }
 
-.block-icon svg { width: 21px; height: 21px; }
+/* Значки крупнее (владелец, 2026-10-08): в плашке 26 вместо 21, в пилюле
+   22 вместо 18, в плитке строки 24 вместо 18, у роли 29 вместо 25. */
+.block-icon svg { width: 26px; height: 26px; }
 
 
 
@@ -496,7 +546,7 @@ body {
 }
 
 .toc-pill:hover { background: var(--soft); }
-.toc-pill svg { width: 18px; height: 18px; flex: none; color: var(--black); }
+.toc-pill svg { width: 22px; height: 22px; flex: none; color: var(--black); }
 .toc-pill:focus-visible { outline: 2px solid var(--s1); outline-offset: 2px; }
 
 /* Число — чёрный медальон: круг на одну цифру, пилюля на две. Золото
@@ -710,14 +760,14 @@ body {
   flex: none;
   display: grid;
   place-items: center;
-  width: 36px;
-  height: 36px;
-  border-radius: 9px;
+  width: 46px;
+  height: 46px;
+  border-radius: 11px;
   background: var(--black);
   color: var(--gold-2);
 }
 
-.row-icon svg { width: 18px; height: 18px; }
+.row-icon svg { width: 24px; height: 24px; }
 .row.has-thumb { padding-top: 6px; padding-bottom: 6px; }
 
 /* На карточке — слева от названия, крупнее: карточку и выбирают глазами. */
@@ -771,7 +821,7 @@ body {
   color: var(--gold-2);
 }
 
-.role-icon svg { width: 25px; height: 25px; }
+.role-icon svg { width: 29px; height: 29px; }
 
 .role-text {
   display: flex;

@@ -947,6 +947,15 @@
       docs.filter(function (d) { return d.group.replace(/^physics\/?/, "") === sub; })
         .forEach(function (d) { list.appendChild(texCard(d)); });
     });
+    metal(main, "plat");
+  }
+
+  /* Металл плашек всей вкладки (владелец, 2026-10-08): «Физика» —
+     платина, «ИИ» — алмазная бирюза, остальные — золото. Ставится после
+     того, как вкладка собрана, поэтому новый раздел получает металл
+     вкладки сам. */
+  function metal(main, cls) {
+    main.querySelectorAll(".block-head").forEach(function (h) { h.classList.add(cls); });
   }
 
   /* ── вкладка «Математика» ────────────────────────────── */
@@ -1083,6 +1092,7 @@
     list = block(main, "Конспекты", "cold");
     mine.forEach(function (n) { list.appendChild(card(n, {})); });
     if (!mine.length) empty(list, "Конспектов пока нет.");
+    metal(main, "almaz");
   }
 
   /* ── заметка ─────────────────────────────────────────── */

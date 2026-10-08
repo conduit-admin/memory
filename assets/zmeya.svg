@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="120" height="90" viewBox="0 0 120 90">
+  <!-- Змея с флага Гадсдена — одна на всю страницу, внизу (владелец,
+       2026-10-08). Чёрная целиком. Свёрнута петлёй, голова поднята, пасть
+       раскрыта, на хвосте погремушка. Шея проходит поверх петли: тело
+       нарисовано целиком, а шея — ещё раз сверху, с белой каймой, которая
+       и отделяет её на пересечении. -->
+  <defs>
+    <path id="telo" d="M35 25C46 27 52 38 48 48C44 58 26 58 24 68C22 80 52 84 72 78C92 72 96 56 80 52C64 48 52 56 56 66C60 76 84 78 100 70C108 66 110 56 106 47"/>
+    <path id="sheya" d="M35 25C46 27 52 38 48 48C44 58 26 58 24 68"/>
+  </defs>
+  <g fill="none" stroke-linecap="round">
+    <use href="#telo" stroke="#fff" stroke-width="11"/>
+    <use href="#telo" stroke="#141118" stroke-width="7"/>
+    <use href="#sheya" stroke="#fff" stroke-width="11" stroke-linecap="butt"/>
+    <use href="#sheya" stroke="#141118" stroke-width="7"/>
+  </g>
+  <g fill="#141118" stroke="#fff" stroke-width="1">
+    <rect x="102.5" y="39" width="7" height="6" rx="3"/>
+    <rect x="102.5" y="34" width="7" height="6" rx="3"/>
+    <rect x="103" y="29.5" width="6" height="5.5" rx="2.75"/>
+  </g>
+  <g fill="#141118">
+    <path d="M37 18C30 12 19 12 12 16L8 19L13 21.5C20 21 28 22 37 23.5Z"/>
+    <path d="M37 24C30 25 21 25.5 15 27.5L11.5 29.5L16.5 30.2C23 30.5 30 29.5 37 27.5Z"/>
+    <path d="M14.5 21.2L16 24.4L17.5 21.3Z"/>
+  </g>
+  <circle cx="21.5" cy="16.8" r="1.5" fill="#fff"/>
+  <path d="M13 24.8H5.5M5.5 24.8L2.5 22.3M5.5 24.8L2.5 27.3" stroke="#141118" stroke-width="1.4" fill="none" stroke-linecap="round"/>
+</svg>
