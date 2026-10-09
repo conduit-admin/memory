@@ -704,6 +704,16 @@
    "thumb": "data/thumbs/physics/listki/serii/seriya-01.png"
   },
   {
+   "path": "physics/listki/serii/seriya-02.pdf",
+   "folder": "physics/listki/serii",
+   "title": "seriya-02",
+   "kind": "pdf",
+   "pages": 5,
+   "size": 212723,
+   "date": "2026-10-09",
+   "thumb": "data/thumbs/physics/listki/serii/seriya-02.png"
+  },
+  {
    "path": "physics/listki/teoriya/elektrostatika-teoriya.pdf",
    "folder": "physics/listki/teoriya",
    "title": "elektrostatika-teoriya",
@@ -712,6 +722,16 @@
    "size": 162444,
    "date": "2026-10-09",
    "thumb": "data/thumbs/physics/listki/teoriya/elektrostatika-teoriya.png"
+  },
+  {
+   "path": "physics/listki/teoriya/kolebaniya-teoriya.pdf",
+   "folder": "physics/listki/teoriya",
+   "title": "kolebaniya-teoriya",
+   "kind": "pdf",
+   "pages": 3,
+   "size": 137455,
+   "date": "2026-10-09",
+   "thumb": "data/thumbs/physics/listki/teoriya/kolebaniya-teoriya.png"
   },
   {
    "path": "math/serii/grobariy.pdf",
@@ -1380,6 +1400,15 @@
    "thumb": "data/thumbs/physics/listki/serii/seriya-01.png"
   },
   {
+   "title": "Малые колебания",
+   "tex": "seriya-02.tex",
+   "group": "physics/serii",
+   "pdf": "physics/listki/serii/seriya-02.pdf",
+   "num": "",
+   "date": "2026-10-09",
+   "thumb": "data/thumbs/physics/listki/serii/seriya-02.png"
+  },
+  {
    "title": "Электростатика",
    "tex": "elektrostatika-teoriya.tex",
    "group": "physics/teoriya",
@@ -1387,6 +1416,15 @@
    "num": "",
    "date": "2026-10-09",
    "thumb": "data/thumbs/physics/listki/teoriya/elektrostatika-teoriya.png"
+  },
+  {
+   "title": "Колебания",
+   "tex": "kolebaniya-teoriya.tex",
+   "group": "physics/teoriya",
+   "pdf": "physics/listki/teoriya/kolebaniya-teoriya.pdf",
+   "num": "",
+   "date": "2026-10-09",
+   "thumb": "data/thumbs/physics/listki/teoriya/kolebaniya-teoriya.png"
   }
  ]
 }
