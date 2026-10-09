@@ -920,6 +920,16 @@
    "thumb": "data/thumbs/tutoring/listki/sravneniya.png"
   },
   {
+   "path": "tutoring/listki/trehchlen-dz.pdf",
+   "folder": "tutoring/listki",
+   "title": "trehchlen-dz",
+   "kind": "pdf",
+   "pages": 5,
+   "size": 177229,
+   "date": "2026-10-09",
+   "thumb": "data/thumbs/tutoring/listki/trehchlen-dz.png"
+  },
+  {
    "path": "tutoring/listki/trehchlen-razbor.pdf",
    "folder": "tutoring/listki",
    "title": "trehchlen-razbor",
@@ -1371,6 +1381,15 @@
    "num": "",
    "date": "2026-10-08",
    "thumb": "data/thumbs/tutoring/listki/trehchlen.png"
+  },
+  {
+   "title": "Квадратный трёхчлен",
+   "tex": "trehchlen-dz.tex",
+   "group": "tutoring",
+   "pdf": "tutoring/listki/trehchlen-dz.pdf",
+   "num": "",
+   "date": "2026-10-09",
+   "thumb": "data/thumbs/tutoring/listki/trehchlen-dz.png"
   },
   {
    "title": "Квадратный трёхчлен",
