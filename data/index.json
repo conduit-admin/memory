@@ -684,6 +684,16 @@
  ],
  "files": [
   {
+   "path": "physics/listki/razbory/seriya-01-razbor.pdf",
+   "folder": "physics/listki/razbory",
+   "title": "seriya-01-razbor",
+   "kind": "pdf",
+   "pages": 10,
+   "size": 305397,
+   "date": "2026-10-09",
+   "thumb": "data/thumbs/physics/listki/razbory/seriya-01-razbor.png"
+  },
+  {
    "path": "physics/listki/serii/seriya-01.pdf",
    "folder": "physics/listki/serii",
    "title": "seriya-01",
@@ -1350,6 +1360,15 @@
    "num": "",
    "date": "2026-10-08",
    "thumb": "data/thumbs/tutoring/listki/trehchlen-razbor.png"
+  },
+  {
+   "title": "Точечные заряды",
+   "tex": "seriya-01-razbor.tex",
+   "group": "physics/razbory",
+   "pdf": "physics/listki/razbory/seriya-01-razbor.pdf",
+   "num": "",
+   "date": "2026-10-09",
+   "thumb": "data/thumbs/physics/listki/razbory/seriya-01-razbor.png"
   },
   {
    "title": "Точечные заряды",
