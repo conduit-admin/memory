@@ -697,8 +697,8 @@
    "title": "seriya-01-razbor",
    "kind": "pdf",
    "pages": 10,
-   "size": 305397,
-   "date": "2026-10-09",
+   "size": 305358,
+   "date": "2026-10-10",
    "thumb": "data/thumbs/physics/listki/razbory/seriya-01-razbor.png"
   },
   {
@@ -707,8 +707,8 @@
    "title": "seriya-01",
    "kind": "pdf",
    "pages": 6,
-   "size": 189023,
-   "date": "2026-10-09",
+   "size": 188992,
+   "date": "2026-10-10",
    "thumb": "data/thumbs/physics/listki/serii/seriya-01.png"
   },
   {
@@ -717,8 +717,8 @@
    "title": "seriya-02",
    "kind": "pdf",
    "pages": 5,
-   "size": 212723,
-   "date": "2026-10-09",
+   "size": 212671,
+   "date": "2026-10-10",
    "thumb": "data/thumbs/physics/listki/serii/seriya-02.png"
   },
   {
@@ -884,7 +884,7 @@
    "title": "kolebaniya-zachet",
    "kind": "pdf",
    "pages": 26,
-   "size": 409713,
+   "size": 409444,
    "date": "2026-10-10",
    "thumb": "data/thumbs/tex/documents/kolebaniya-zachet.png"
   },
@@ -923,8 +923,8 @@
    "title": "sravneniya-dz",
    "kind": "pdf",
    "pages": 4,
-   "size": 166319,
-   "date": "2026-10-08",
+   "size": 166206,
+   "date": "2026-10-10",
    "thumb": "data/thumbs/tutoring/listki/sravneniya-dz.png"
   },
   {
@@ -933,8 +933,8 @@
    "title": "sravneniya-razbor",
    "kind": "pdf",
    "pages": 9,
-   "size": 206673,
-   "date": "2026-10-08",
+   "size": 206599,
+   "date": "2026-10-10",
    "thumb": "data/thumbs/tutoring/listki/sravneniya-razbor.png"
   },
   {
@@ -943,8 +943,8 @@
    "title": "sravneniya",
    "kind": "pdf",
    "pages": 5,
-   "size": 160415,
-   "date": "2026-10-08",
+   "size": 160380,
+   "date": "2026-10-10",
    "thumb": "data/thumbs/tutoring/listki/sravneniya.png"
   },
   {
@@ -953,8 +953,8 @@
    "title": "trehchlen-dz",
    "kind": "pdf",
    "pages": 5,
-   "size": 215688,
-   "date": "2026-10-09",
+   "size": 215568,
+   "date": "2026-10-10",
    "thumb": "data/thumbs/tutoring/listki/trehchlen-dz.png"
   },
   {
@@ -963,8 +963,8 @@
    "title": "trehchlen-razbor",
    "kind": "pdf",
    "pages": 9,
-   "size": 231502,
-   "date": "2026-10-08",
+   "size": 231399,
+   "date": "2026-10-10",
    "thumb": "data/thumbs/tutoring/listki/trehchlen-razbor.png"
   },
   {
@@ -973,8 +973,8 @@
    "title": "trehchlen",
    "kind": "pdf",
    "pages": 5,
-   "size": 173969,
-   "date": "2026-10-08",
+   "size": 173904,
+   "date": "2026-10-10",
    "thumb": "data/thumbs/tutoring/listki/trehchlen.png"
   }
  ],
@@ -1398,7 +1398,7 @@
    "group": "tutoring",
    "pdf": "tutoring/listki/sravneniya.pdf",
    "num": "",
-   "date": "2026-10-08",
+   "date": "2026-10-10",
    "thumb": "data/thumbs/tutoring/listki/sravneniya.png"
   },
   {
@@ -1407,7 +1407,7 @@
    "group": "tutoring",
    "pdf": "tutoring/listki/sravneniya-dz.pdf",
    "num": "",
-   "date": "2026-10-08",
+   "date": "2026-10-10",
    "thumb": "data/thumbs/tutoring/listki/sravneniya-dz.png"
   },
   {
@@ -1416,7 +1416,7 @@
    "group": "tutoring",
    "pdf": "tutoring/listki/sravneniya-razbor.pdf",
    "num": "",
-   "date": "2026-10-08",
+   "date": "2026-10-10",
    "thumb": "data/thumbs/tutoring/listki/sravneniya-razbor.png"
   },
   {
@@ -1425,7 +1425,7 @@
    "group": "tutoring",
    "pdf": "tutoring/listki/trehchlen.pdf",
    "num": "",
-   "date": "2026-10-08",
+   "date": "2026-10-10",
    "thumb": "data/thumbs/tutoring/listki/trehchlen.png"
   },
   {
@@ -1434,7 +1434,7 @@
    "group": "tutoring",
    "pdf": "tutoring/listki/trehchlen-dz.pdf",
    "num": "",
-   "date": "2026-10-09",
+   "date": "2026-10-10",
    "thumb": "data/thumbs/tutoring/listki/trehchlen-dz.png"
   },
   {
@@ -1443,7 +1443,7 @@
    "group": "tutoring",
    "pdf": "tutoring/listki/trehchlen-razbor.pdf",
    "num": "",
-   "date": "2026-10-08",
+   "date": "2026-10-10",
    "thumb": "data/thumbs/tutoring/listki/trehchlen-razbor.png"
   },
   {
@@ -1452,7 +1452,7 @@
    "group": "physics/razbory",
    "pdf": "physics/listki/razbory/seriya-01-razbor.pdf",
    "num": "",
-   "date": "2026-10-09",
+   "date": "2026-10-10",
    "thumb": "data/thumbs/physics/listki/razbory/seriya-01-razbor.png"
   },
   {
@@ -1461,7 +1461,7 @@
    "group": "physics/serii",
    "pdf": "physics/listki/serii/seriya-01.pdf",
    "num": "",
-   "date": "2026-10-09",
+   "date": "2026-10-10",
    "thumb": "data/thumbs/physics/listki/serii/seriya-01.png"
   },
   {
@@ -1470,7 +1470,7 @@
    "group": "physics/serii",
    "pdf": "physics/listki/serii/seriya-02.pdf",
    "num": "",
-   "date": "2026-10-09",
+   "date": "2026-10-10",
    "thumb": "data/thumbs/physics/listki/serii/seriya-02.png"
   },
   {
