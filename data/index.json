@@ -872,9 +872,10 @@
    "folder": "tex/documents",
    "title": "integraly-kr",
    "kind": "pdf",
-   "pages": 2,
-   "size": 120705,
-   "date": "2026-10-10"
+   "pages": 3,
+   "size": 123972,
+   "date": "2026-10-10",
+   "thumb": "data/thumbs/tex/documents/integraly-kr.png"
   },
   {
    "path": "tex/documents/kanal/rotating-liquid.pdf",
@@ -996,12 +997,13 @@
    "date": "2026-09-06"
   },
   {
-   "title": "integraly-kr",
+   "title": "Определённые интегралы",
    "tex": "integraly-kr.tex",
    "group": "",
    "pdf": "tex/documents/integraly-kr.pdf",
    "num": "",
-   "date": "2026-10-10"
+   "date": "2026-10-10",
+   "thumb": "data/thumbs/tex/documents/integraly-kr.png"
   },
   {
    "title": "Колебания",
