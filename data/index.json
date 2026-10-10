@@ -861,6 +861,16 @@
    "thumb": "data/thumbs/tex/documents/kanal/rotating-liquid.png"
   },
   {
+   "path": "tex/documents/kolebaniya-zachet.pdf",
+   "folder": "tex/documents",
+   "title": "kolebaniya-zachet",
+   "kind": "pdf",
+   "pages": 7,
+   "size": 249167,
+   "date": "2026-10-10",
+   "thumb": "data/thumbs/tex/documents/kolebaniya-zachet.png"
+  },
+  {
    "path": "tex/documents/ml/lineynye-modeli.pdf",
    "folder": "tex/documents/ml",
    "title": "lineynye-modeli",
@@ -958,6 +968,15 @@
    "pdf": "tex/documents/cursor.pdf",
    "num": "",
    "date": "2026-09-06"
+  },
+  {
+   "title": "Колебания",
+   "tex": "kolebaniya-zachet.tex",
+   "group": "",
+   "pdf": "tex/documents/kolebaniya-zachet.pdf",
+   "num": "",
+   "date": "2026-10-10",
+   "thumb": "data/thumbs/tex/documents/kolebaniya-zachet.png"
   },
   {
    "title": "Колебательное движение",
