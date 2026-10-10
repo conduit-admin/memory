@@ -4,6 +4,8 @@ vid: sait
 repo: conduit-admin/conduit-city-26
 ssylka: https://conduit-admin.github.io/conduit-city-26/
 redaktor: https://conduit-admin.github.io/conduit-city-26/edit.html
+redaktor_nazvanie: Редактор кондуита кружка
+redaktor_znachok: assets/web/conduit-city-26-redaktor.svg
 znachok: assets/web/conduit-city-26.svg
 ---
 
