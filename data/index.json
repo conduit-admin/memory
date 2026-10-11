@@ -981,6 +981,16 @@
    "date": "2026-09-10"
   },
   {
+   "path": "tutoring/listki/sravneniya-dz-razbor.pdf",
+   "folder": "tutoring/listki",
+   "title": "sravneniya-dz-razbor",
+   "kind": "pdf",
+   "pages": 10,
+   "size": 260287,
+   "date": "2026-10-11",
+   "thumb": "data/thumbs/tutoring/listki/sravneniya-dz-razbor.png"
+  },
+  {
    "path": "tutoring/listki/sravneniya-dz.pdf",
    "folder": "tutoring/listki",
    "title": "sravneniya-dz",
@@ -1501,6 +1511,15 @@
    "num": "",
    "date": "2026-10-10",
    "thumb": "data/thumbs/tutoring/listki/sravneniya-dz.png"
+  },
+  {
+   "title": "Сравнения по модулю",
+   "tex": "sravneniya-dz-razbor.tex",
+   "group": "tutoring",
+   "pdf": "tutoring/listki/sravneniya-dz-razbor.pdf",
+   "num": "",
+   "date": "2026-10-11",
+   "thumb": "data/thumbs/tutoring/listki/sravneniya-dz-razbor.png"
   },
   {
    "title": "Сравнения по модулю",
