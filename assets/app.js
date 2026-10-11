@@ -947,6 +947,52 @@
     return d.group === "physics" || String(d.group).indexOf("physics/") === 0;
   }
 
+  /* Что засчитано по сериям — таблица «Сдача» в плане: номер серии, сколько
+     в ней задач и засчитанные номера через запятую. Таблица ведётся при
+     проверке решений, и полоска у новой серии появляется вместе с её
+     строкой. Серия узнаётся по имени листка: seriya-02.tex — строка «2». */
+  var PHYS_PLAN = "physics/plan.md";
+
+  function physSeriesNo(d) {
+    var m = /^seriya-0*(\d+)\.tex$/.exec(d.tex);
+    return m ? m[1] : "";
+  }
+
+  /* Счёт, полоска и задачи кружками — как у серий матцентра, только
+     дописываются в готовую карточку листка: обложка остаётся слева. */
+  function physTally(card, r) {
+    var total = parseInt(r[1], 10);
+    if (!total) return;
+    var on = (r[2] || "").split(/[\s,;]+/);
+    var nums = [];
+    for (var i = 1; i <= total; i++) nums.push(String(i));
+    var done = nums.filter(function (n) { return on.indexOf(n) >= 0; }).length;
+
+    var meta = card.querySelector(".card-meta");
+    meta.insertBefore(el("span", "tag", done + " из " + total), meta.firstChild);
+    var tally = el("div", "tally");
+    tally.appendChild(progressBar(card, done, total));
+
+    var marks = el("div", "marks");
+    nums.forEach(function (n) {
+      var yes = on.indexOf(n) >= 0;
+      var m = el("span", "mark" + (yes ? " on" : ""), n);
+      if (yes) m.title = "засчитана";
+      marks.appendChild(m);
+    });
+    tally.appendChild(marks);
+    (card.querySelector(".card-body") || card).appendChild(tally);
+    card.classList.add("has-tally");
+  }
+
+  function physProgress(cards, src) {
+    var rows = mdRows(src, "Серия");
+    cards.forEach(function (c) {
+      var r = rows.filter(function (r) { return r[0] === c.no; })[0];
+      if (r) physTally(c.card, r);
+    });
+  }
+
   function viewPhysics(main) {
     var plan = DATA.notes.filter(function (n) {
       return n.folder === "physics" && n.fm.type === "plan";
@@ -957,13 +1003,23 @@
 
     var docs = (DATA.tex || []).filter(isPhysics);
     var known = PHYS_GROUPS.map(function (g) { return g[0]; });
+    var serii = [];
 
     PHYS_GROUPS.forEach(function (g) {
       var mine = docs.filter(function (d) { return d.group === "physics/" + g[0]; });
       list = block(main, g[1], g[2]);
-      mine.forEach(function (d) { list.appendChild(texCard(d)); });
+      mine.forEach(function (d) {
+        var c = list.appendChild(texCard(d));
+        if (g[0] === "serii" && physSeriesNo(d)) serii.push({ card: c, no: physSeriesNo(d) });
+      });
       if (!mine.length) empty(list, "Листков пока нет.");
     });
+
+    /* План обычно уже подтянут до перехода (pendingPath); не успел —
+       полоски дорисуются, когда приедет. Не приехал — карточки без них. */
+    if (SRC[PHYS_PLAN] != null) physProgress(serii, SRC[PHYS_PLAN]);
+    else loadNote(PHYS_PLAN).then(function (src) { physProgress(serii, src); })
+      .catch(function () {});
 
     var extra = [];
     docs.forEach(function (d) {
@@ -1018,6 +1074,23 @@
 
   function isExercise(t) { return /\(упр\)/.test(t[3] || ""); }
 
+  /* Полоска решённого — та же доля, что «7 из 8» рядом, поэтому читалке
+     экрана она не нужна. Общая у серий матцентра и серий по физике. */
+  function progressBar(card, done, total) {
+    var bar = el("div", "progress");
+    bar.setAttribute("aria-hidden", "true");
+    var fill = el("span");
+    fill.style.width = Math.round(100 * done / total) + "%";
+    /* Доля — для цвета: чем полнее, тем дальше по фиолетовой шкале от
+       тёмного к розово-лиловому. В кубе: почти все серии решены на 3/4
+       и больше, и при прямой шкале 6 из 8 и 8 из 8 сливались по цвету.
+       Ставится на всю карточку: тем же оттенком красятся и решённые
+       задачи (--prog в стилях). */
+    card.style.setProperty("--p", Math.pow(done / total, 3).toFixed(3));
+    bar.appendChild(fill);
+    return bar;
+  }
+
   /* Карточка набора: листок по нажатию, даты, счёт и задачи кружками.
      Решённая залита цветом раздела, упражнение обведено пунктиром. */
   function setCard(r, tasks) {
@@ -1048,22 +1121,7 @@
     top.appendChild(meta);
     a.appendChild(top);
 
-    /* Полоска решённого — та же доля, что «7 из 8» рядом, поэтому читалке
-       экрана она не нужна. */
-    if (counted.length) {
-      var bar = el("div", "progress");
-      bar.setAttribute("aria-hidden", "true");
-      var fill = el("span");
-      fill.style.width = Math.round(100 * done / counted.length) + "%";
-      /* Доля — для цвета: чем полнее, тем дальше по фиолетовой шкале от
-         тёмного к розово-лиловому. В кубе: почти все серии решены на 3/4
-         и больше, и при прямой шкале 6 из 8 и 8 из 8 сливались по цвету.
-         Ставится на всю карточку: тем же оттенком красятся и решённые
-         задачи (--prog в стилях). */
-      card.style.setProperty("--p", Math.pow(done / counted.length, 3).toFixed(3));
-      bar.appendChild(fill);
-      a.appendChild(bar);
-    }
+    if (counted.length) a.appendChild(progressBar(card, done, counted.length));
 
     var dates = [];
     if (r[4] && r[4] !== "—") dates.push("выдана " + r[4]);
@@ -1461,12 +1519,14 @@
       .then(function (t) { SRC[path] = t; return t; });
   }
 
-  /* Вкладка «Математика» тоже читает заметку — таблицы серий, и её стоит
-     подтянуть заранее так же, как открываемую заметку. */
+  /* Вкладки «Математика» и «Физика» тоже читают заметку — таблицы серий
+     и план со сдачей, и её стоит подтянуть заранее так же, как открываемую
+     заметку. */
   function pendingPath() {
     var hash = decodeURI(location.hash.replace(/^#/, ""));
     if (hash.indexOf("/n/") === 0) return hash.slice(3);
-    return VIEW === "math" && !isDetail(location.hash) ? SERII : "";
+    if (isDetail(location.hash)) return "";
+    return VIEW === "math" ? SERII : (VIEW === "physics" ? PHYS_PLAN : "");
   }
 
   /* Содержимое сначала уходит, и только потом подменяется. Метка нужна на
