@@ -579,7 +579,15 @@
     "status": "занимается"
    },
    "links": [
-    "tyulenev-stepan-04"
+    "sravneniya",
+    "sravneniya-dz",
+    "sravneniya-razbor",
+    "trehchlen",
+    "trehchlen-dz",
+    "trehchlen-razbor",
+    "tyulenev-stepan-04",
+    "vpisannost",
+    "vpisannost-razbor"
    ]
   },
   {
@@ -909,7 +917,7 @@
    "title": "elektromagnitnye-kolebaniya",
    "kind": "pdf",
    "pages": 22,
-   "size": 378973,
+   "size": 378893,
    "date": "2026-10-11",
    "thumb": "data/thumbs/tex/documents/elektromagnitnye-kolebaniya.png"
   },
