@@ -144,9 +144,11 @@
     "type": "plan"
    },
    "links": [
+    "bumaga",
     "konvencii",
     "montazh",
-    "steklo"
+    "steklo",
+    "studiya/README"
    ]
   },
   {
@@ -232,6 +234,17 @@
     "telegram",
     "vertikal",
     "youtube"
+   ]
+  },
+  {
+   "path": "manim/kanal/studiya/README.md",
+   "folder": "manim/kanal/studiya",
+   "title": "Студия",
+   "fm": {
+    "type": "plan"
+   },
+   "links": [
+    "bumaga"
    ]
   },
   {

@@ -49,12 +49,12 @@ type: plan
 
 ```
 .venv/Scripts/python.exe kanal/zvuk/isogonal_squares.py
-.venv/Scripts/python.exe -m http.server 8000 -d media/zvuk/isogonal_squares
+.venv/Scripts/python.exe kanal/studiya/studiya.py
 ```
 
-Второе — чтобы открыть микшер: `http://localhost:8000`. Из файла браузер
-дорожки не загрузит. Параболоид — то же с `rotating_liquid`; его сервер
-заведён и в `.claude/launch.json`, порт 8014.
+Первое собирает дорожки и страницу, второе — студия: микшер ролика —
+её вкладка «Звук», `http://localhost:8014/<слаг>/zvuk/`. Из файла браузер
+дорожки не загрузит, а общее оформление страница берёт у студии.
 
 Микшер открывается только с ПК (владелец, 12.10.2026): публиковать его
 артефактом для телефона больше не нужно. Результат —
