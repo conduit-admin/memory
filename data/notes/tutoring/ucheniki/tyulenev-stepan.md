@@ -92,7 +92,7 @@ status: занимается
 
 1. 28.09 — пробное, `probnoe-vsosh-11` (A4, на сайт не идёт).
 2. Сравнения по модулю — [[sravneniya|урок]], [[sravneniya-razbor|разбор]],
-   [[sravneniya-dz|домашка]].
+   [[sravneniya-dz|домашка]], [[sravneniya-dz-razbor|разбор домашки]].
 3. Квадратный трёхчлен — [[trehchlen|урок]], [[trehchlen-razbor|разбор]],
    [[trehchlen-dz|домашка]].
 4. 11.10 — четыре точки на окружности: [[vpisannost|урок]],
