@@ -914,6 +914,16 @@
    "thumb": "data/thumbs/tex/documents/kolebaniya-zachet.png"
   },
   {
+   "path": "tex/documents/kolebatelnyy-kontur.pdf",
+   "folder": "tex/documents",
+   "title": "kolebatelnyy-kontur",
+   "kind": "pdf",
+   "pages": 9,
+   "size": 300985,
+   "date": "2026-10-11",
+   "thumb": "data/thumbs/tex/documents/kolebatelnyy-kontur.png"
+  },
+  {
    "path": "tex/documents/ml/lineynye-modeli.pdf",
    "folder": "tex/documents/ml",
    "title": "lineynye-modeli",
@@ -1039,6 +1049,15 @@
    "num": "",
    "date": "2026-10-10",
    "thumb": "data/thumbs/tex/documents/kolebaniya-zachet.png"
+  },
+  {
+   "title": "Колебательный контур",
+   "tex": "kolebatelnyy-kontur.tex",
+   "group": "",
+   "pdf": "tex/documents/kolebatelnyy-kontur.pdf",
+   "num": "",
+   "date": "2026-10-11",
+   "thumb": "data/thumbs/tex/documents/kolebatelnyy-kontur.png"
   },
   {
    "title": "Колебательное движение",
