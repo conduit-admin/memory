@@ -418,7 +418,8 @@
   }
 
   /* Карточка документа открывает сам PDF. С миниатюрой обложки — слева
-     картинка, справа то же, что было: название, метка, имя файла. */
+     картинка, справа название. Метки «PDF» и имени файла нет с 2026-10-11
+     (владелец: не нужны) — что карточка открывает PDF, и так понятно. */
   function texCard(d) {
     var a = el("a", "card" + (d.thumb ? " has-thumb" : ""));
     a.href = d.pdf ? pdfHref(d.pdf) : "#/";
@@ -426,10 +427,6 @@
     a.style.setProperty("--sec", docColor(d));
     var top = el("div", "card-top");
     top.appendChild(el("span", "card-title", d.title));
-    var meta = el("div", "card-meta");
-    if (d.pdf) meta.appendChild(el("span", "tag", "PDF"));
-    meta.appendChild(el("span", "fname", d.tex));
-    top.appendChild(meta);
     if (d.thumb) {
       a.appendChild(thumbImg(d.thumb, "card-thumb"));
       var body = el("div", "card-body");
@@ -968,8 +965,9 @@
     for (var i = 1; i <= total; i++) nums.push(String(i));
     var done = nums.filter(function (n) { return on.indexOf(n) >= 0; }).length;
 
-    var meta = card.querySelector(".card-meta");
-    meta.insertBefore(el("span", "tag", done + " из " + total), meta.firstChild);
+    var meta = el("div", "card-meta");
+    meta.appendChild(el("span", "tag", done + " из " + total));
+    card.querySelector(".card-top").appendChild(meta);
     var tally = el("div", "tally");
     tally.appendChild(progressBar(card, done, total));
 
