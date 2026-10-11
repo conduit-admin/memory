@@ -49,9 +49,12 @@ INCLUDE = [
     "web/**/*.md",
     "tex/**/*.md",
     "tex/**/*.pdf",
-    # из репетиторства наружу идут только собранные листки — проект
-    # «Репетиторство» во вкладке проектов; markdown оттуда см. PRIVATE_MD
+    # из репетиторства наружу идут собранные листки — проект «Репетиторство»
+    # во вкладке проектов; markdown оттуда см. PRIVATE_MD
     "tutoring/listki/*.pdf",
+    # и карточки учеников — группой «Ученики» в том же блоке, целиком и с именем:
+    # решение владельца 2026-10-11, взамен прежнего «наружу только листки»
+    "tutoring/ucheniki/*.md",
     # промпты сессий по ролям: за ними лезут с телефона, поэтому они на витрине,
     # а не в служебной зоне — туда публикация не заглядывает по правилу точки
     "roli/**/*.md",
@@ -76,7 +79,6 @@ EXCLUDE_DIRS = (
     "algo",               # архив решённого
     "math/arhiv",         # разборы и приёмы по прежней схеме, до 2026-10-02
     "physics/arhiv",      # разборы и приёмы по прежней схеме, до 2026-10-01
-    "tutoring/ucheniki",  # карточки учеников: чужие имена, витрина публичная
     "tutoring/zanyatiya", # планы и отчёты занятий — про конкретного ученика
     "tutoring/olimpiady", # разбор формата олимпиады — рабочие заметки
     "shkola",             # школьные бумаги на печать, не для чтения с экрана
@@ -90,6 +92,12 @@ EXCLUDE_DIRS = (
 # (методика, курс, диагностика в `-otvety.md`), а не то, что читают с сайта.
 PRIVATE_MD = (
     "tutoring",
+)
+
+# Подпапки PRIVATE_MD, чей markdown всё же идёт наружу. Карточки учеников —
+# с 2026-10-11 по решению владельца; планы занятий из zanyatiya/ закрыты.
+PUBLIC_MD = (
+    "tutoring/ucheniki",
 )
 
 # Файл с таким суффиксом в имени не публикуется ни в каком виде: это ответы
@@ -497,7 +505,8 @@ def skipped(rel):
     return (rel in EXCLUDE or hidden(rel)
             or rel.startswith(tuple(d + "/" for d in EXCLUDE_DIRS))
             or (p.suffix == ".md"
-                and rel.startswith(tuple(d + "/" for d in PRIVATE_MD)))
+                and rel.startswith(tuple(d + "/" for d in PRIVATE_MD))
+                and not rel.startswith(tuple(d + "/" for d in PUBLIC_MD)))
             or p.stem.endswith(PRIVATE_SUFFIX)
             or (str(p.parent) == "tutoring/listki" and p.name.startswith(ARHIV_LISTKI)))
 

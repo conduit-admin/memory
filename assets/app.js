@@ -845,9 +845,21 @@
     var docs = (DATA.tex || []).filter(function (d) { return d.pdf; });
 
     var tut = docs.filter(function (d) { return d.group === "tutoring"; });
-    list = block(main, "Репетиторство", "moss", tut.length);
-    tocAdd(list, "Репетиторство", tut.length);
+    /* Карточки учеников (tutoring/ucheniki/) — своей группой после тем:
+       открывают их реже листков. Новая карточка появится сама. */
+    var pupils = DATA.notes.filter(function (n) { return n.folder === "tutoring/ucheniki"; })
+      .sort(function (a, b) { return a.title.localeCompare(b.title, "ru"); });
+    list = block(main, "Репетиторство", "moss", tut.length + pupils.length);
+    tocAdd(list, "Репетиторство", tut.length + pupils.length);
     tutoringGroups(list, tut);
+    if (pupils.length) {
+      var who = group(list, "tutoring:ucheniki", "Ученики", String(pupils.length));
+      pupils.forEach(function (n) {
+        row(who, "#/n/" + encodeURI(n.path), n.title,
+            { sub: [n.fm.klass ? n.fm.klass + " класс" : "", n.fm.tsel || ""]
+                     .filter(Boolean).join(" · ") });
+      });
+    }
     if (!tut.length) empty(list, "Листков пока нет.");
 
     /* Статьи: документы из корня tex/documents/ — одной панелью строк,
