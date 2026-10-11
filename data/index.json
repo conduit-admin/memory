@@ -884,6 +884,16 @@
    "date": "2026-09-06"
   },
   {
+   "path": "tex/documents/elektromagnitnye-kolebaniya.pdf",
+   "folder": "tex/documents",
+   "title": "elektromagnitnye-kolebaniya",
+   "kind": "pdf",
+   "pages": 19,
+   "size": 377731,
+   "date": "2026-10-11",
+   "thumb": "data/thumbs/tex/documents/elektromagnitnye-kolebaniya.png"
+  },
+  {
    "path": "tex/documents/integraly-kr.pdf",
    "folder": "tex/documents",
    "title": "integraly-kr",
@@ -912,16 +922,6 @@
    "size": 403276,
    "date": "2026-10-11",
    "thumb": "data/thumbs/tex/documents/kolebaniya-zachet.png"
-  },
-  {
-   "path": "tex/documents/kolebatelnyy-kontur.pdf",
-   "folder": "tex/documents",
-   "title": "kolebatelnyy-kontur",
-   "kind": "pdf",
-   "pages": 19,
-   "size": 384669,
-   "date": "2026-10-11",
-   "thumb": "data/thumbs/tex/documents/kolebatelnyy-kontur.png"
   },
   {
    "path": "tex/documents/ml/lineynye-modeli.pdf",
@@ -1013,6 +1013,16 @@
    "thumb": "data/thumbs/tutoring/listki/trehchlen.png"
   },
   {
+   "path": "tutoring/listki/vpisannost-razbor.pdf",
+   "folder": "tutoring/listki",
+   "title": "vpisannost-razbor",
+   "kind": "pdf",
+   "pages": 16,
+   "size": 238090,
+   "date": "2026-10-11",
+   "thumb": "data/thumbs/tutoring/listki/vpisannost-razbor.png"
+  },
+  {
    "path": "tutoring/listki/vpisannost.pdf",
    "folder": "tutoring/listki",
    "title": "vpisannost",
@@ -1033,6 +1043,15 @@
    "date": "2026-09-06"
   },
   {
+   "title": "Электромагнитные колебания",
+   "tex": "elektromagnitnye-kolebaniya.tex",
+   "group": "",
+   "pdf": "tex/documents/elektromagnitnye-kolebaniya.pdf",
+   "num": "",
+   "date": "2026-10-11",
+   "thumb": "data/thumbs/tex/documents/elektromagnitnye-kolebaniya.png"
+  },
+  {
    "title": "Определённые интегралы",
    "tex": "integraly-kr.tex",
    "group": "",
@@ -1049,15 +1068,6 @@
    "num": "",
    "date": "2026-10-11",
    "thumb": "data/thumbs/tex/documents/kolebaniya-zachet.png"
-  },
-  {
-   "title": "Колебательный контур",
-   "tex": "kolebatelnyy-kontur.tex",
-   "group": "",
-   "pdf": "tex/documents/kolebatelnyy-kontur.pdf",
-   "num": "",
-   "date": "2026-10-11",
-   "thumb": "data/thumbs/tex/documents/kolebatelnyy-kontur.png"
   },
   {
    "title": "Колебательное движение",
@@ -1508,6 +1518,15 @@
    "num": "",
    "date": "2026-10-11",
    "thumb": "data/thumbs/tutoring/listki/vpisannost.png"
+  },
+  {
+   "title": "Четыре точки на окружности",
+   "tex": "vpisannost-razbor.tex",
+   "group": "tutoring",
+   "pdf": "tutoring/listki/vpisannost-razbor.pdf",
+   "num": "",
+   "date": "2026-10-11",
+   "thumb": "data/thumbs/tutoring/listki/vpisannost-razbor.png"
   },
   {
    "title": "Точечные заряды",
