@@ -992,6 +992,16 @@
    "size": 173969,
    "date": "2026-10-10",
    "thumb": "data/thumbs/tutoring/listki/trehchlen.png"
+  },
+  {
+   "path": "tutoring/listki/vpisannost.pdf",
+   "folder": "tutoring/listki",
+   "title": "vpisannost",
+   "kind": "pdf",
+   "pages": 7,
+   "size": 173715,
+   "date": "2026-10-11",
+   "thumb": "data/thumbs/tutoring/listki/vpisannost.png"
   }
  ],
  "tex": [
@@ -1461,6 +1471,15 @@
    "num": "",
    "date": "2026-10-10",
    "thumb": "data/thumbs/tutoring/listki/trehchlen-razbor.png"
+  },
+  {
+   "title": "Четыре точки на окружности",
+   "tex": "vpisannost.tex",
+   "group": "tutoring",
+   "pdf": "tutoring/listki/vpisannost.pdf",
+   "num": "",
+   "date": "2026-10-11",
+   "thumb": "data/thumbs/tutoring/listki/vpisannost.png"
   },
   {
    "title": "Точечные заряды",
