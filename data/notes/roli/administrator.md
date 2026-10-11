@@ -1,6 +1,6 @@
 ---
 type: rol
-poryadok: 8
+poryadok: 9
 znachok: shield
 kratko: целость базы, сверка с кондуитом, витрина
 ---

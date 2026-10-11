@@ -1,6 +1,6 @@
 ---
 type: rol
-poryadok: 9
+poryadok: 10
 znachok: compass
 kratko: универсальная: ревизия, перестройка, настройка машины
 ---
