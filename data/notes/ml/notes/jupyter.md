@@ -18,8 +18,8 @@ data: 2026-10-08
 
 ### Запуск
 
-- Нужен Python, в котором стоят jupyter, numpy и pandas. На ПК это venv
-  проекта DataAnalysis. Голый `python` не годится: на ПК он открывает
+- Нужен Python, в котором стоят jupyter, numpy и pandas, а с семинара
+  по деревьям ещё scikit-learn. На ПК это venv проекта DataAnalysis. Голый `python` не годится: на ПК он открывает
   Microsoft Store, а в системном Python библиотек нет.
 - Папка с домашкой в Проводнике → в адресной строке `powershell` → Enter.
   Или правый клик по пустому месту → «Открыть в Терминале».
