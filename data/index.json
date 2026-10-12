@@ -602,6 +602,7 @@
     "trehchlen-razbor",
     "tyulenev-stepan-04",
     "vpisannost",
+    "vpisannost-dz",
     "vpisannost-razbor"
    ]
   },
@@ -1064,6 +1065,16 @@
    "size": 173969,
    "date": "2026-10-10",
    "thumb": "data/thumbs/tutoring/listki/trehchlen.png"
+  },
+  {
+   "path": "tutoring/listki/vpisannost-dz.pdf",
+   "folder": "tutoring/listki",
+   "title": "vpisannost-dz",
+   "kind": "pdf",
+   "pages": 6,
+   "size": 196700,
+   "date": "2026-10-12",
+   "thumb": "data/thumbs/tutoring/listki/vpisannost-dz.png"
   },
   {
    "path": "tutoring/listki/vpisannost-razbor.pdf",
@@ -1580,6 +1591,15 @@
    "num": "",
    "date": "2026-10-11",
    "thumb": "data/thumbs/tutoring/listki/vpisannost.png"
+  },
+  {
+   "title": "Четыре точки на окружности",
+   "tex": "vpisannost-dz.tex",
+   "group": "tutoring",
+   "pdf": "tutoring/listki/vpisannost-dz.pdf",
+   "num": "",
+   "date": "2026-10-12",
+   "thumb": "data/thumbs/tutoring/listki/vpisannost-dz.png"
   },
   {
    "title": "Четыре точки на окружности",
