@@ -796,13 +796,23 @@
    "thumb": "data/thumbs/physics/listki/serii/seriya-02.png"
   },
   {
+   "path": "physics/listki/serii/seriya-03.pdf",
+   "folder": "physics/listki/serii",
+   "title": "seriya-03",
+   "kind": "pdf",
+   "pages": 4,
+   "size": 167042,
+   "date": "2026-10-13",
+   "thumb": "data/thumbs/physics/listki/serii/seriya-03.png"
+  },
+  {
    "path": "physics/listki/teoriya/elektrostatika-teoriya.pdf",
    "folder": "physics/listki/teoriya",
    "title": "elektrostatika-teoriya",
    "kind": "pdf",
-   "pages": 3,
-   "size": 162444,
-   "date": "2026-10-09",
+   "pages": 4,
+   "size": 167673,
+   "date": "2026-10-13",
    "thumb": "data/thumbs/physics/listki/teoriya/elektrostatika-teoriya.png"
   },
   {
@@ -1681,12 +1691,21 @@
    "thumb": "data/thumbs/physics/listki/serii/seriya-02.png"
   },
   {
+   "title": "Проводники и изображения",
+   "tex": "seriya-03.tex",
+   "group": "physics/serii",
+   "pdf": "physics/listki/serii/seriya-03.pdf",
+   "num": "",
+   "date": "2026-10-13",
+   "thumb": "data/thumbs/physics/listki/serii/seriya-03.png"
+  },
+  {
    "title": "Электростатика",
    "tex": "elektrostatika-teoriya.tex",
    "group": "physics/teoriya",
    "pdf": "physics/listki/teoriya/elektrostatika-teoriya.pdf",
    "num": "",
-   "date": "2026-10-09",
+   "date": "2026-10-13",
    "thumb": "data/thumbs/physics/listki/teoriya/elektrostatika-teoriya.png"
   },
   {
