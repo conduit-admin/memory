@@ -603,6 +603,8 @@
     "trehchlen-dz",
     "trehchlen-razbor",
     "tyulenev-stepan-04",
+    "tyulenev-stepan-05",
+    "uravneniya-v-celyh",
     "vpisannost",
     "vpisannost-dz",
     "vpisannost-razbor"
@@ -1067,6 +1069,16 @@
    "size": 173969,
    "date": "2026-10-10",
    "thumb": "data/thumbs/tutoring/listki/trehchlen.png"
+  },
+  {
+   "path": "tutoring/listki/uravneniya-v-celyh.pdf",
+   "folder": "tutoring/listki",
+   "title": "uravneniya-v-celyh",
+   "kind": "pdf",
+   "pages": 4,
+   "size": 160542,
+   "date": "2026-10-13",
+   "thumb": "data/thumbs/tutoring/listki/uravneniya-v-celyh.png"
   },
   {
    "path": "tutoring/listki/vpisannost-dz.pdf",
@@ -1584,6 +1596,15 @@
    "num": "",
    "date": "2026-10-10",
    "thumb": "data/thumbs/tutoring/listki/trehchlen-razbor.png"
+  },
+  {
+   "title": "Уравнения в целых числах",
+   "tex": "uravneniya-v-celyh.tex",
+   "group": "tutoring",
+   "pdf": "tutoring/listki/uravneniya-v-celyh.pdf",
+   "num": "",
+   "date": "2026-10-13",
+   "thumb": "data/thumbs/tutoring/listki/uravneniya-v-celyh.png"
   },
   {
    "title": "Четыре точки на окружности",
