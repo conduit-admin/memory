@@ -776,6 +776,16 @@
    "thumb": "data/thumbs/physics/listki/razbory/seriya-01-razbor.png"
   },
   {
+   "path": "physics/listki/razbory/seriya-02-razbor.pdf",
+   "folder": "physics/listki/razbory",
+   "title": "seriya-02-razbor",
+   "kind": "pdf",
+   "pages": 7,
+   "size": 270507,
+   "date": "2026-10-13",
+   "thumb": "data/thumbs/physics/listki/razbory/seriya-02-razbor.png"
+  },
+  {
    "path": "physics/listki/serii/seriya-01.pdf",
    "folder": "physics/listki/serii",
    "title": "seriya-01",
@@ -801,7 +811,7 @@
    "title": "seriya-03",
    "kind": "pdf",
    "pages": 4,
-   "size": 167042,
+   "size": 167045,
    "date": "2026-10-13",
    "thumb": "data/thumbs/physics/listki/serii/seriya-03.png"
   },
@@ -1671,6 +1681,15 @@
    "num": "",
    "date": "2026-10-10",
    "thumb": "data/thumbs/physics/listki/razbory/seriya-01-razbor.png"
+  },
+  {
+   "title": "Малые колебания",
+   "tex": "seriya-02-razbor.tex",
+   "group": "physics/razbory",
+   "pdf": "physics/listki/razbory/seriya-02-razbor.pdf",
+   "num": "",
+   "date": "2026-10-13",
+   "thumb": "data/thumbs/physics/listki/razbory/seriya-02-razbor.png"
   },
   {
    "title": "Точечные заряды",
