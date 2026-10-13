@@ -102,8 +102,8 @@ status: занимается
 4. 11.10 — четыре точки на окружности: [[vpisannost|урок]],
    [[vpisannost-razbor|разбор]], [[vpisannost-dz|домашка]]; план и отчёт —
    [[tyulenev-stepan-04]].
-5. 13.10 — уравнения в целых числах: [[uravneniya-v-celyh|урок]]; план —
-   [[tyulenev-stepan-05]].
+5. 13.10 — уравнения в целых числах: [[uravneniya-v-celyh|урок]],
+   [[uravneniya-v-celyh-razbor|разбор]]; план — [[tyulenev-stepan-05]].
 
 ## Наблюдения
 
