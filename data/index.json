@@ -766,13 +766,23 @@
  ],
  "files": [
   {
+   "path": "physics/listki/eksperiment/eksperiment-01.pdf",
+   "folder": "physics/listki/eksperiment",
+   "title": "eksperiment-01",
+   "kind": "pdf",
+   "pages": 4,
+   "size": 154330,
+   "date": "2026-10-13",
+   "thumb": "data/thumbs/physics/listki/eksperiment/eksperiment-01.png"
+  },
+  {
    "path": "physics/listki/razbory/seriya-01-razbor.pdf",
    "folder": "physics/listki/razbory",
    "title": "seriya-01-razbor",
    "kind": "pdf",
-   "pages": 10,
-   "size": 305397,
-   "date": "2026-10-10",
+   "pages": 8,
+   "size": 281539,
+   "date": "2026-10-13",
    "thumb": "data/thumbs/physics/listki/razbory/seriya-01-razbor.png"
   },
   {
@@ -781,7 +791,7 @@
    "title": "seriya-02-razbor",
    "kind": "pdf",
    "pages": 7,
-   "size": 270507,
+   "size": 267977,
    "date": "2026-10-13",
    "thumb": "data/thumbs/physics/listki/razbory/seriya-02-razbor.png"
   },
@@ -790,9 +800,9 @@
    "folder": "physics/listki/serii",
    "title": "seriya-01",
    "kind": "pdf",
-   "pages": 6,
-   "size": 189023,
-   "date": "2026-10-10",
+   "pages": 4,
+   "size": 169470,
+   "date": "2026-10-13",
    "thumb": "data/thumbs/physics/listki/serii/seriya-01.png"
   },
   {
@@ -800,9 +810,9 @@
    "folder": "physics/listki/serii",
    "title": "seriya-02",
    "kind": "pdf",
-   "pages": 5,
-   "size": 212723,
-   "date": "2026-10-10",
+   "pages": 4,
+   "size": 191955,
+   "date": "2026-10-13",
    "thumb": "data/thumbs/physics/listki/serii/seriya-02.png"
   },
   {
@@ -1674,12 +1684,21 @@
    "thumb": "data/thumbs/tutoring/listki/vpisannost-razbor.png"
   },
   {
+   "title": "Вязкость и упругость",
+   "tex": "eksperiment-01.tex",
+   "group": "physics/eksperiment",
+   "pdf": "physics/listki/eksperiment/eksperiment-01.pdf",
+   "num": "",
+   "date": "2026-10-13",
+   "thumb": "data/thumbs/physics/listki/eksperiment/eksperiment-01.png"
+  },
+  {
    "title": "Точечные заряды",
    "tex": "seriya-01-razbor.tex",
    "group": "physics/razbory",
    "pdf": "physics/listki/razbory/seriya-01-razbor.pdf",
    "num": "",
-   "date": "2026-10-10",
+   "date": "2026-10-13",
    "thumb": "data/thumbs/physics/listki/razbory/seriya-01-razbor.png"
   },
   {
@@ -1697,7 +1716,7 @@
    "group": "physics/serii",
    "pdf": "physics/listki/serii/seriya-01.pdf",
    "num": "",
-   "date": "2026-10-10",
+   "date": "2026-10-13",
    "thumb": "data/thumbs/physics/listki/serii/seriya-01.png"
   },
   {
@@ -1706,7 +1725,7 @@
    "group": "physics/serii",
    "pdf": "physics/listki/serii/seriya-02.pdf",
    "num": "",
-   "date": "2026-10-10",
+   "date": "2026-10-13",
    "thumb": "data/thumbs/physics/listki/serii/seriya-02.png"
   },
   {
