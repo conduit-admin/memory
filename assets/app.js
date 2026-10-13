@@ -1604,9 +1604,21 @@
 
   var lastHash = location.hash;
 
+  /* Пустой хеш и «#/» — один и тот же адрес, главная. Сайт открывают по
+     адресу без хеша; первое нажатие на знак меняет "" на "#/", и браузер
+     шлёт hashchange. Без этой проверки страница гасла и рисовалась заново,
+     будто перезагрузилась, а следующие нажатия уже ничего не делали:
+     хеш оставался прежним (2026-10-13). */
+  function sameRoute(a, b) {
+    function norm(h) { return h === "" || h === "#" ? "#/" : h; }
+    return norm(a) === norm(b);
+  }
+
   function onHashChange() {
-    var was = isDetail(lastHash), now = isDetail(location.hash);
+    var prev = lastHash;
+    var was = isDetail(prev), now = isDetail(location.hash);
     lastHash = location.hash;
+    if (sameRoute(prev, location.hash)) return;
     /* Переход из найденного — выбор сделан, поле больше не нужно. */
     dropSearch();
     swap(now && !was ? "open" : (!now && was ? "back" : "tab"));
