@@ -1015,6 +1015,16 @@
    "thumb": "data/thumbs/tex/documents/kolebaniya-zachet.png"
   },
   {
+   "path": "tex/documents/kompleksnyy-metod.pdf",
+   "folder": "tex/documents",
+   "title": "kompleksnyy-metod",
+   "kind": "pdf",
+   "pages": 9,
+   "size": 238817,
+   "date": "2026-10-14",
+   "thumb": "data/thumbs/tex/documents/kompleksnyy-metod.png"
+  },
+  {
    "path": "tex/documents/ml/lineynye-modeli.pdf",
    "folder": "tex/documents/ml",
    "title": "lineynye-modeli",
@@ -1042,16 +1052,6 @@
    "pages": 9,
    "size": 339969,
    "date": "2026-09-10"
-  },
-  {
-   "path": "tex/documents/peremennyy-tok-dz3.pdf",
-   "folder": "tex/documents",
-   "title": "peremennyy-tok-dz3",
-   "kind": "pdf",
-   "pages": 9,
-   "size": 241969,
-   "date": "2026-10-14",
-   "thumb": "data/thumbs/tex/documents/peremennyy-tok-dz3.png"
   },
   {
    "path": "tutoring/listki/sravneniya-dz-razbor.pdf",
@@ -1211,21 +1211,21 @@
    "thumb": "data/thumbs/tex/documents/kolebaniya-zachet.png"
   },
   {
+   "title": "Комплексный метод",
+   "tex": "kompleksnyy-metod.tex",
+   "group": "",
+   "pdf": "tex/documents/kompleksnyy-metod.pdf",
+   "num": "",
+   "date": "2026-10-14",
+   "thumb": "data/thumbs/tex/documents/kompleksnyy-metod.png"
+  },
+  {
    "title": "Колебательное движение",
    "tex": "oscillations.tex",
    "group": "",
    "pdf": "tex/documents/oscillations.pdf",
    "num": "",
    "date": "2026-09-10"
-  },
-  {
-   "title": "Цепи переменного тока",
-   "tex": "peremennyy-tok-dz3.tex",
-   "group": "",
-   "pdf": "tex/documents/peremennyy-tok-dz3.pdf",
-   "num": "",
-   "date": "2026-10-14",
-   "thumb": "data/thumbs/tex/documents/peremennyy-tok-dz3.png"
   },
   {
    "title": "Вращение жидкости",
