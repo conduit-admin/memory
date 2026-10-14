@@ -1044,6 +1044,16 @@
    "date": "2026-09-10"
   },
   {
+   "path": "tex/documents/peremennyy-tok-dz3.pdf",
+   "folder": "tex/documents",
+   "title": "peremennyy-tok-dz3",
+   "kind": "pdf",
+   "pages": 5,
+   "size": 166318,
+   "date": "2026-10-14",
+   "thumb": "data/thumbs/tex/documents/peremennyy-tok-dz3.png"
+  },
+  {
    "path": "tutoring/listki/sravneniya-dz-razbor.pdf",
    "folder": "tutoring/listki",
    "title": "sravneniya-dz-razbor",
@@ -1207,6 +1217,15 @@
    "pdf": "tex/documents/oscillations.pdf",
    "num": "",
    "date": "2026-09-10"
+  },
+  {
+   "title": "Цепи переменного тока",
+   "tex": "peremennyy-tok-dz3.tex",
+   "group": "",
+   "pdf": "tex/documents/peremennyy-tok-dz3.pdf",
+   "num": "",
+   "date": "2026-10-14",
+   "thumb": "data/thumbs/tex/documents/peremennyy-tok-dz3.png"
   },
   {
    "title": "Вращение жидкости",
