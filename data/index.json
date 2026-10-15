@@ -51,8 +51,8 @@
    "fm": {
     "type": "meta",
     "istochnik": "матцентр",
-    "vsego": 81,
-    "resheno": 59
+    "vsego": 96,
+    "resheno": 64
    },
    "links": []
   },
@@ -951,6 +951,24 @@
    "pages": 0,
    "size": 159611,
    "date": "2026-10-08"
+  },
+  {
+   "path": "math/serii/seriya-10.pdf",
+   "folder": "math/serii",
+   "title": "seriya-10",
+   "kind": "pdf",
+   "pages": 1,
+   "size": 110922,
+   "date": "2026-10-15"
+  },
+  {
+   "path": "math/serii/seriya-11.pdf",
+   "folder": "math/serii",
+   "title": "seriya-11",
+   "kind": "pdf",
+   "pages": 0,
+   "size": 137258,
+   "date": "2026-10-15"
   },
   {
    "path": "math/zadachniki/gorod-10.pdf",
