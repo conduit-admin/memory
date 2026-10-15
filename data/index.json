@@ -304,7 +304,9 @@
     "fail": "broken_stick.py",
     "data": "2026-10-14"
    },
-   "links": []
+   "links": [
+    "broken-stick"
+   ]
   },
   {
    "path": "manim/projects/broken-stick.md",
