@@ -1059,6 +1059,26 @@
    "date": "2026-09-10"
   },
   {
+   "path": "tutoring/listki/diagnostika-fizika-10-razbor.pdf",
+   "folder": "tutoring/listki",
+   "title": "diagnostika-fizika-10-razbor",
+   "kind": "pdf",
+   "pages": 11,
+   "size": 269701,
+   "date": "2026-10-15",
+   "thumb": "data/thumbs/tutoring/listki/diagnostika-fizika-10-razbor.png"
+  },
+  {
+   "path": "tutoring/listki/diagnostika-fizika-10.pdf",
+   "folder": "tutoring/listki",
+   "title": "diagnostika-fizika-10",
+   "kind": "pdf",
+   "pages": 5,
+   "size": 145653,
+   "date": "2026-10-15",
+   "thumb": "data/thumbs/tutoring/listki/diagnostika-fizika-10.png"
+  },
+  {
    "path": "tutoring/listki/sravneniya-dz-razbor.pdf",
    "folder": "tutoring/listki",
    "title": "sravneniya-dz-razbor",
@@ -1484,6 +1504,24 @@
    "date": "2026-09-13"
   },
   {
+   "title": "Физика",
+   "tex": "diagnostika-fizika-10.tex",
+   "group": "tutoring",
+   "pdf": "tutoring/listki/diagnostika-fizika-10.pdf",
+   "num": "",
+   "date": "2026-10-15",
+   "thumb": "data/thumbs/tutoring/listki/diagnostika-fizika-10.png"
+  },
+  {
+   "title": "Физика",
+   "tex": "diagnostika-fizika-10-razbor.tex",
+   "group": "tutoring",
+   "pdf": "tutoring/listki/diagnostika-fizika-10-razbor.pdf",
+   "num": "",
+   "date": "2026-10-15",
+   "thumb": "data/thumbs/tutoring/listki/diagnostika-fizika-10-razbor.png"
+  },
+  {
    "title": "Комбинаторика: два правила, сочетания, дополнение",
    "tex": "kombinatorika.tex",
    "group": "tutoring",
@@ -1578,14 +1616,6 @@
    "pdf": "",
    "num": "",
    "date": "2026-09-23"
-  },
-  {
-   "title": "Физика",
-   "tex": "probnoe-fizika-10.tex",
-   "group": "tutoring",
-   "pdf": "",
-   "num": "",
-   "date": "2026-10-15"
   },
   {
    "title": "Пробное занятие: Физтех",
