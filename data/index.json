@@ -205,7 +205,10 @@
    "fm": {
     "type": "ozvuchka"
    },
-   "links": []
+   "links": [
+    "telegram",
+    "youtube"
+   ]
   },
   {
    "path": "manim/kanal/ozvuchka/rotating_liquid.md",
