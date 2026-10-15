@@ -1019,6 +1019,16 @@
    "thumb": "data/thumbs/tex/documents/integraly-kr.png"
   },
   {
+   "path": "tex/documents/kanal/broken-stick.pdf",
+   "folder": "tex/documents/kanal",
+   "title": "broken-stick",
+   "kind": "pdf",
+   "pages": 6,
+   "size": 248641,
+   "date": "2026-10-15",
+   "thumb": "data/thumbs/tex/documents/kanal/broken-stick.png"
+  },
+  {
    "path": "tex/documents/kanal/rotating-liquid.pdf",
    "folder": "tex/documents/kanal",
    "title": "rotating-liquid",
@@ -1270,6 +1280,15 @@
    "pdf": "tex/documents/oscillations.pdf",
    "num": "",
    "date": "2026-09-10"
+  },
+  {
+   "title": "Сломанная палочка",
+   "tex": "broken-stick.tex",
+   "group": "kanal",
+   "pdf": "tex/documents/kanal/broken-stick.pdf",
+   "num": "",
+   "date": "2026-10-15",
+   "thumb": "data/thumbs/tex/documents/kanal/broken-stick.png"
   },
   {
    "title": "Вращение жидкости",
