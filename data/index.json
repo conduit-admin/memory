@@ -137,6 +137,17 @@
    "links": []
   },
   {
+   "path": "ml/vsosh-ii.md",
+   "folder": "ml",
+   "title": "ВсОШ по ИИ: школьный этап",
+   "fm": {
+    "type": "plan",
+    "kratko": "ВсОШ по информатике, профиль «Искусственный интеллект» — школьный этап 23 октября 2026",
+    "data": "2026-10-16"
+   },
+   "links": []
+  },
+  {
    "path": "manim/kanal/golos/README.md",
    "folder": "manim/kanal/golos",
    "title": "Запись голоса",
