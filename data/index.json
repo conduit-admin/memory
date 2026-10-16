@@ -630,6 +630,27 @@
    ]
   },
   {
+   "path": "tutoring/ucheniki/uchenik-fizika-10.md",
+   "folder": "tutoring/ucheniki",
+   "title": "Ученик, физика, 10 класс",
+   "fm": {
+    "type": "uchenik",
+    "imya": "",
+    "klass": 10,
+    "tsel": "ВсОШ и перечневые олимпиады по физике, в 11 классе — «Росатом»",
+    "srok": "сезоны 2026/27 и 2027/28",
+    "format": "онлайн, доска Miro",
+    "chasov_v_nedelyu": "",
+    "stavka": "",
+    "nachalo": "2026-10",
+    "status": "занимается"
+   },
+   "links": [
+    "diagnostika-fizika-10",
+    "diagnostika-fizika-10-razbor"
+   ]
+  },
+  {
    "path": "roli/administrator.md",
    "folder": "roli",
    "title": "Администратор базы и сайтов",
