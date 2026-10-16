@@ -1130,6 +1130,16 @@
    "thumb": "data/thumbs/tutoring/listki/diagnostika-fizika-10.png"
   },
   {
+   "path": "tutoring/listki/kinematika-razbor.pdf",
+   "folder": "tutoring/listki",
+   "title": "kinematika-razbor",
+   "kind": "pdf",
+   "pages": 16,
+   "size": 320602,
+   "date": "2026-10-16",
+   "thumb": "data/thumbs/tutoring/listki/kinematika-razbor.png"
+  },
+  {
    "path": "tutoring/listki/kinematika.pdf",
    "folder": "tutoring/listki",
    "title": "kinematika",
@@ -1599,6 +1609,15 @@
    "num": "",
    "date": "2026-10-16",
    "thumb": "data/thumbs/tutoring/listki/kinematika.png"
+  },
+  {
+   "title": "Бросок и~окружность",
+   "tex": "kinematika-razbor.tex",
+   "group": "tutoring",
+   "pdf": "tutoring/listki/kinematika-razbor.pdf",
+   "num": "",
+   "date": "2026-10-16",
+   "thumb": "data/thumbs/tutoring/listki/kinematika-razbor.png"
   },
   {
    "title": "Комбинаторика: два правила, сочетания, дополнение",
