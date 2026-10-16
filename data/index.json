@@ -648,7 +648,8 @@
    "links": [
     "diagnostika-fizika-10",
     "diagnostika-fizika-10-razbor",
-    "kinematika"
+    "kinematika",
+    "kinematika-razbor"
    ]
   },
   {
@@ -1135,7 +1136,7 @@
    "title": "kinematika-razbor",
    "kind": "pdf",
    "pages": 16,
-   "size": 320602,
+   "size": 322988,
    "date": "2026-10-16",
    "thumb": "data/thumbs/tutoring/listki/kinematika-razbor.png"
   },
