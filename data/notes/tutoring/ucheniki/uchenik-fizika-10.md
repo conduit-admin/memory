@@ -73,6 +73,7 @@ status: занимается
 
 1. Пробное — [[diagnostika-fizika-10|листок]],
    [[diagnostika-fizika-10-razbor|разбор]].
+2. Кинематика: бросок и окружность — [[kinematika|урок]].
 
 ## Наблюдения
 
