@@ -165,4 +165,4 @@ $2\int_0^{1/2} \frac{x}{1-x}\,dx = 2\ln 2 - 1$. Сверено моделиро�
   `media/vypusk/palochka.mp4`, звук и уровни — в [[montazh]].
 - Субтитры: `slova.py broken_stick --srt`, файл на YouTube отдельной дорожкой.
 - ~~PDF разбора~~ — готов 15.10.2026: `tex/documents/kanal/broken-stick.pdf`,
-  «Сломанная палочка», 6 страниц.
+  «Сломанная палочка», 4 страницы.

@@ -1023,9 +1023,9 @@
    "folder": "tex/documents/kanal",
    "title": "broken-stick",
    "kind": "pdf",
-   "pages": 6,
-   "size": 248641,
-   "date": "2026-10-15",
+   "pages": 4,
+   "size": 188679,
+   "date": "2026-10-16",
    "thumb": "data/thumbs/tex/documents/kanal/broken-stick.png"
   },
   {
@@ -1287,7 +1287,7 @@
    "group": "kanal",
    "pdf": "tex/documents/kanal/broken-stick.pdf",
    "num": "",
-   "date": "2026-10-15",
+   "date": "2026-10-16",
    "thumb": "data/thumbs/tex/documents/kanal/broken-stick.png"
   },
   {
