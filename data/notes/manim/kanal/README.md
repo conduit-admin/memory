@@ -1,5 +1,6 @@
 ---
 type: plan
+youtube: https://www.youtube.com/@lutchezarnost
 ---
 
 # Канал

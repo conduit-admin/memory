@@ -2,8 +2,8 @@
 type: proekt
 vid: animatsiya
 fail: broken_stick.py
-stadiya: готов
-video:
+stadiya: выложен
+video: https://www.youtube.com/shorts/u2l2gAzsYIc
 data: 2026-10-01
 ---
 

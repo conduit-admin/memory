@@ -240,7 +240,8 @@
    "folder": "manim/kanal",
    "title": "Канал",
    "fm": {
-    "type": "plan"
+    "type": "plan",
+    "youtube": "https://www.youtube.com/@lutchezarnost"
    },
    "links": [
     "idei",
@@ -331,8 +332,8 @@
     "type": "proekt",
     "vid": "animatsiya",
     "fail": "broken_stick.py",
-    "stadiya": "готов",
-    "video": "",
+    "stadiya": "выложен",
+    "video": "https://www.youtube.com/shorts/u2l2gAzsYIc",
     "data": "2026-10-01"
    },
    "links": []

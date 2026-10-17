@@ -649,6 +649,33 @@
       .sort(function (a, b) { return a.title.localeCompare(b.title, "ru"); });
   }
 
+  /* Канал — своей панелью над роликами (владелец, 2026-10-17). Адрес —
+     поле `youtube` в шапке заметки, сейчас manim/kanal/README.md; появится
+     поле `telegram` — встанет второй строкой без правки кода. Сайт ищет
+     поле, а не файл. Лицо строки — знак из шапки сайта: сайт назван
+     по каналу, и знак у них один. В счёт роликов канал не идёт. */
+  var CHANNELS = [["youtube", "Канал на YouTube"], ["telegram", "Канал в Telegram"]];
+
+  function channelPanel(list) {
+    var links = [];
+    CHANNELS.forEach(function (c) {
+      DATA.notes.forEach(function (n) {
+        if (n.fm[c[0]]) links.push({ href: n.fm[c[0]], label: c[1] });
+      });
+    });
+    if (!links.length) return;
+    var body = panel(list);
+    var mark = document.querySelector(".brand-logo");
+    links.forEach(function (l) {
+      var a = row(body, l.href, l.label,
+                  { sub: l.href.replace(/^https?:\/\/(www\.)?/, "") });
+      if (!mark) return;
+      var face = mark.cloneNode(true);
+      face.setAttribute("class", "row-logo");
+      a.insertBefore(face, a.firstChild);
+    });
+  }
+
   /* Репетиторство — по темам. Вид документа и тема читаются из имени файла,
      как их и заводят: `sravneniya`, `sravneniya-dz`, `sravneniya-razbor`,
      `parametr-dz-01`, `parametr-zanyatie-01-razbor`. Тема — то, что осталось
@@ -782,6 +809,7 @@
     });
     var list = block(main, "Анимации", "warm", anim.length);
     tocAdd(list, "Анимации", anim.length);
+    channelPanel(list);
     /* Одной панелью строк: стадия — точкой её цвета и подписью под
        названием. У ролика с адресом видео (поле `video` карточки) строка
        ведёт прямо на видео, справа ▶ — за готовым роликом сюда и приходят;
