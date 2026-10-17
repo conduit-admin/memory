@@ -880,6 +880,16 @@
    "thumb": "data/thumbs/physics/listki/serii/seriya-03.png"
   },
   {
+   "path": "physics/listki/serii/seriya-04.pdf",
+   "folder": "physics/listki/serii",
+   "title": "seriya-04",
+   "kind": "pdf",
+   "pages": 6,
+   "size": 177870,
+   "date": "2026-10-17",
+   "thumb": "data/thumbs/physics/listki/serii/seriya-04.png"
+  },
+  {
    "path": "physics/listki/teoriya/elektrostatika-teoriya.pdf",
    "folder": "physics/listki/teoriya",
    "title": "elektrostatika-teoriya",
@@ -898,6 +908,16 @@
    "size": 137455,
    "date": "2026-10-09",
    "thumb": "data/thumbs/physics/listki/teoriya/kolebaniya-teoriya.png"
+  },
+  {
+   "path": "physics/listki/teoriya/zakony-sohraneniya-teoriya.pdf",
+   "folder": "physics/listki/teoriya",
+   "title": "zakony-sohraneniya-teoriya",
+   "kind": "pdf",
+   "pages": 4,
+   "size": 157227,
+   "date": "2026-10-17",
+   "thumb": "data/thumbs/physics/listki/teoriya/zakony-sohraneniya-teoriya.png"
   },
   {
    "path": "math/serii/grobariy.pdf",
@@ -1924,6 +1944,15 @@
    "thumb": "data/thumbs/physics/listki/serii/seriya-03.png"
   },
   {
+   "title": "Импульс и энергия",
+   "tex": "seriya-04.tex",
+   "group": "physics/serii",
+   "pdf": "physics/listki/serii/seriya-04.pdf",
+   "num": "",
+   "date": "2026-10-17",
+   "thumb": "data/thumbs/physics/listki/serii/seriya-04.png"
+  },
+  {
    "title": "Электростатика",
    "tex": "elektrostatika-teoriya.tex",
    "group": "physics/teoriya",
@@ -1940,6 +1969,15 @@
    "num": "",
    "date": "2026-10-09",
    "thumb": "data/thumbs/physics/listki/teoriya/kolebaniya-teoriya.png"
+  },
+  {
+   "title": "Законы сохранения",
+   "tex": "zakony-sohraneniya-teoriya.tex",
+   "group": "physics/teoriya",
+   "pdf": "physics/listki/teoriya/zakony-sohraneniya-teoriya.pdf",
+   "num": "",
+   "date": "2026-10-17",
+   "thumb": "data/thumbs/physics/listki/teoriya/zakony-sohraneniya-teoriya.png"
   }
  ]
 }
