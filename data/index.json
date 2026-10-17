@@ -312,15 +312,6 @@
    "links": []
   },
   {
-   "path": "manim/media/golos/proba-golos/proba_golos.md",
-   "folder": "manim/media/golos/proba-golos",
-   "title": "Проба «голос сначала»",
-   "fm": {
-    "type": "proba"
-   },
-   "links": []
-  },
-  {
    "path": "manim/projects/broken-stick-podgonka.md",
    "folder": "manim/projects",
    "title": "Палочка на n кусков — подгонка под голос",
