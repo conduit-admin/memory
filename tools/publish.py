@@ -322,7 +322,8 @@ def git_dates():
     try:
         log = subprocess.run(
             ["git", "-C", str(KNOWLEDGE), "log", "--format=%x00%cs", "--name-only"],
-            capture_output=True, text=True, encoding="utf-8", timeout=60).stdout
+            capture_output=True, text=True, encoding="utf-8", errors="replace",
+            timeout=60).stdout
     except (OSError, subprocess.SubprocessError):
         log = ""
     out, day = {}, ""
@@ -403,13 +404,18 @@ def cover_box(src):
     Если ArtBox не задан, pdfinfo показывает его равным странице — значит,
     обложки нет. Числа — в пунктах PostScript, начало — левый нижний угол.
     """
+    #  Кодировка явно и с заменой: pdfinfo печатает заголовок PDF в UTF-8,
+    #  а в локали cp1251 байт 0x98 из заглавной «И» не декодируется — поток
+    #  чтения падал, stdout оставался None, и сборка вставала (2026-10-17).
+    #  Разбираются только строки рамок, так что заменённый символ не мешает.
     try:
         res = subprocess.run(["pdfinfo", "-box", "-f", "1", "-l", "1", str(src)],
-                             capture_output=True, text=True, timeout=30)
+                             capture_output=True, text=True, encoding="utf-8",
+                             errors="replace", timeout=30)
     except (OSError, subprocess.SubprocessError):
         return None
     boxes = {}
-    for line in res.stdout.splitlines():
+    for line in (res.stdout or "").splitlines():
         m = re.match(r"Page\s+1\s+(\w+):\s+([-\d.]+)\s+([-\d.]+)\s+([-\d.]+)\s+([-\d.]+)", line)
         if m:
             boxes[m.group(1)] = tuple(float(v) for v in m.groups()[1:])
