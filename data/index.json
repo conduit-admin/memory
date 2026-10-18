@@ -224,6 +224,15 @@
    ]
   },
   {
+   "path": "manim/kanal/ozvuchka/orthocentric.md",
+   "folder": "manim/kanal/ozvuchka",
+   "title": "Ортоцентрические тетраэдры",
+   "fm": {
+    "type": "ozvuchka"
+   },
+   "links": []
+  },
+  {
    "path": "manim/kanal/ozvuchka/rotating_liquid.md",
    "folder": "manim/kanal/ozvuchka",
    "title": "Параболоид жидкости",
