@@ -1,8 +1,8 @@
 ---
 type: proekt
 vid: animatsiya
-fail: утерян
-stadiya: снимается заново — сценарий
+fail: orthocentric.py
+stadiya: озвучивается и монтируется
 video:
 data: 2026-09-14
 ---
