@@ -25,6 +25,8 @@ kratko: занятия кружка ML — шпаргалки и домашки
 
 - ДЗ 2, numpy и pandas — [contest.yandex.ru/contest/100254](https://contest.yandex.ru/contest/100254),
   открыта с 1 октября.
+  - F, `standardize_features` — стандартизация столбцов, нулевой std
+    даёт нули. Сдана 18 октября, 100.
 - [new.contest.yandex.ru/contests/100020](https://new.contest.yandex.ru/contests/100020/problems)
 
 Задачи на NumPy, 7–8 октября:
