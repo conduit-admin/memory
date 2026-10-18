@@ -635,8 +635,8 @@
     "status": "занимается"
    },
    "links": [
-    "ocenka-i-primer",
-    "ocenka-i-primer-razbor",
+    "ocenka-i-primer-zanyatie-01",
+    "ocenka-i-primer-zanyatie-01-razbor",
     "sravneniya",
     "sravneniya-dz",
     "sravneniya-dz-razbor",
@@ -1205,24 +1205,24 @@
    "thumb": "data/thumbs/tutoring/listki/kinematika.png"
   },
   {
-   "path": "tutoring/listki/ocenka-i-primer-razbor.pdf",
+   "path": "tutoring/listki/ocenka-i-primer-zanyatie-01-razbor.pdf",
    "folder": "tutoring/listki",
-   "title": "ocenka-i-primer-razbor",
+   "title": "ocenka-i-primer-zanyatie-01-razbor",
    "kind": "pdf",
    "pages": 10,
    "size": 233053,
    "date": "2026-10-18",
-   "thumb": "data/thumbs/tutoring/listki/ocenka-i-primer-razbor.png"
+   "thumb": "data/thumbs/tutoring/listki/ocenka-i-primer-zanyatie-01-razbor.png"
   },
   {
-   "path": "tutoring/listki/ocenka-i-primer.pdf",
+   "path": "tutoring/listki/ocenka-i-primer-zanyatie-01.pdf",
    "folder": "tutoring/listki",
-   "title": "ocenka-i-primer",
+   "title": "ocenka-i-primer-zanyatie-01",
    "kind": "pdf",
    "pages": 5,
-   "size": 119905,
+   "size": 122478,
    "date": "2026-10-18",
-   "thumb": "data/thumbs/tutoring/listki/ocenka-i-primer.png"
+   "thumb": "data/thumbs/tutoring/listki/ocenka-i-primer-zanyatie-01.png"
   },
   {
    "path": "tutoring/listki/sravneniya-dz-razbor.pdf",
@@ -1752,21 +1752,21 @@
   },
   {
    "title": "Оценка и пример",
-   "tex": "ocenka-i-primer.tex",
+   "tex": "ocenka-i-primer-zanyatie-01.tex",
    "group": "tutoring",
-   "pdf": "tutoring/listki/ocenka-i-primer.pdf",
+   "pdf": "tutoring/listki/ocenka-i-primer-zanyatie-01.pdf",
    "num": "",
    "date": "2026-10-18",
-   "thumb": "data/thumbs/tutoring/listki/ocenka-i-primer.png"
+   "thumb": "data/thumbs/tutoring/listki/ocenka-i-primer-zanyatie-01.png"
   },
   {
    "title": "Оценка и пример",
-   "tex": "ocenka-i-primer-razbor.tex",
+   "tex": "ocenka-i-primer-zanyatie-01-razbor.tex",
    "group": "tutoring",
-   "pdf": "tutoring/listki/ocenka-i-primer-razbor.pdf",
+   "pdf": "tutoring/listki/ocenka-i-primer-zanyatie-01-razbor.pdf",
    "num": "",
    "date": "2026-10-18",
-   "thumb": "data/thumbs/tutoring/listki/ocenka-i-primer-razbor.png"
+   "thumb": "data/thumbs/tutoring/listki/ocenka-i-primer-zanyatie-01-razbor.png"
   },
   {
    "title": "Параметр: картинка вместо перебора",
