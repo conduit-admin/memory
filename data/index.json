@@ -636,6 +636,7 @@
    },
    "links": [
     "ocenka-i-primer",
+    "ocenka-i-primer-razbor",
     "sravneniya",
     "sravneniya-dz",
     "sravneniya-dz-razbor",
@@ -1204,6 +1205,16 @@
    "thumb": "data/thumbs/tutoring/listki/kinematika.png"
   },
   {
+   "path": "tutoring/listki/ocenka-i-primer-razbor.pdf",
+   "folder": "tutoring/listki",
+   "title": "ocenka-i-primer-razbor",
+   "kind": "pdf",
+   "pages": 10,
+   "size": 233053,
+   "date": "2026-10-18",
+   "thumb": "data/thumbs/tutoring/listki/ocenka-i-primer-razbor.png"
+  },
+  {
    "path": "tutoring/listki/ocenka-i-primer.pdf",
    "folder": "tutoring/listki",
    "title": "ocenka-i-primer",
@@ -1747,6 +1758,15 @@
    "num": "",
    "date": "2026-10-18",
    "thumb": "data/thumbs/tutoring/listki/ocenka-i-primer.png"
+  },
+  {
+   "title": "Оценка и пример",
+   "tex": "ocenka-i-primer-razbor.tex",
+   "group": "tutoring",
+   "pdf": "tutoring/listki/ocenka-i-primer-razbor.pdf",
+   "num": "",
+   "date": "2026-10-18",
+   "thumb": "data/thumbs/tutoring/listki/ocenka-i-primer-razbor.png"
   },
   {
    "title": "Параметр: картинка вместо перебора",

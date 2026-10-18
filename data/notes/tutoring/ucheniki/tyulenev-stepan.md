@@ -105,8 +105,8 @@ status: занимается
    [[tyulenev-stepan-04]].
 5. 13.10 — уравнения в целых числах: [[uravneniya-v-celyh|урок]],
    [[uravneniya-v-celyh-razbor|разбор]]; план — [[tyulenev-stepan-05]].
-6. 18.10 — комбинаторика, оценка и пример: [[ocenka-i-primer|урок]];
-   план — [[tyulenev-stepan-06]].
+6. 18.10 — комбинаторика, оценка и пример: [[ocenka-i-primer|урок]],
+   [[ocenka-i-primer-razbor|разбор]]; план — [[tyulenev-stepan-06]].
 
 ## Наблюдения
 
