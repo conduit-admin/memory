@@ -635,6 +635,7 @@
     "status": "занимается"
    },
    "links": [
+    "ocenka-i-primer",
     "sravneniya",
     "sravneniya-dz",
     "sravneniya-dz-razbor",
@@ -644,6 +645,7 @@
     "trehchlen-razbor",
     "tyulenev-stepan-04",
     "tyulenev-stepan-05",
+    "tyulenev-stepan-06",
     "uravneniya-v-celyh",
     "uravneniya-v-celyh-razbor",
     "vpisannost",
@@ -1202,6 +1204,16 @@
    "thumb": "data/thumbs/tutoring/listki/kinematika.png"
   },
   {
+   "path": "tutoring/listki/ocenka-i-primer.pdf",
+   "folder": "tutoring/listki",
+   "title": "ocenka-i-primer",
+   "kind": "pdf",
+   "pages": 5,
+   "size": 131234,
+   "date": "2026-10-18",
+   "thumb": "data/thumbs/tutoring/listki/ocenka-i-primer.png"
+  },
+  {
    "path": "tutoring/listki/sravneniya-dz-razbor.pdf",
    "folder": "tutoring/listki",
    "title": "sravneniya-dz-razbor",
@@ -1726,6 +1738,15 @@
    "pdf": "",
    "num": "",
    "date": "2026-09-16"
+  },
+  {
+   "title": "Оценка и пример",
+   "tex": "ocenka-i-primer.tex",
+   "group": "tutoring",
+   "pdf": "tutoring/listki/ocenka-i-primer.pdf",
+   "num": "",
+   "date": "2026-10-18",
+   "thumb": "data/thumbs/tutoring/listki/ocenka-i-primer.png"
   },
   {
    "title": "Параметр: картинка вместо перебора",
