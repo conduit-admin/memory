@@ -137,6 +137,20 @@
    "links": []
   },
   {
+   "path": "ml/vsosh-ii-istochniki.md",
+   "folder": "ml",
+   "title": "ВсОШ по ИИ: источники программы",
+   "fm": {
+    "type": "plan",
+    "kratko": "источники программы подготовки к ВсОШ по ИИ — что в каждом и что пройдено",
+    "data": "2026-10-20"
+   },
+   "links": [
+    "kruzhok",
+    "vsosh-ii"
+   ]
+  },
+  {
    "path": "ml/vsosh-ii.md",
    "folder": "ml",
    "title": "ВсОШ по ИИ: школьный этап",
@@ -145,7 +159,9 @@
     "kratko": "ВсОШ по информатике, профиль «Искусственный интеллект» — школьный этап 23 октября 2026",
     "data": "2026-10-16"
    },
-   "links": []
+   "links": [
+    "vsosh-ii-istochniki"
+   ]
   },
   {
    "path": "manim/kanal/golos/README.md",
