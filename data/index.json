@@ -596,6 +596,21 @@
    ]
   },
   {
+   "path": "web/projects/vsosh-ii.md",
+   "folder": "web/projects",
+   "title": "ВсОШ по ИИ",
+   "fm": {
+    "type": "proekt",
+    "vid": "sait",
+    "repo": "conduit-admin/vsosh-ii",
+    "ssylka": "https://conduit-admin.github.io/vsosh-ii/",
+    "kratko": "серии задач к ВсОШ по ИИ и проверка к ним"
+   },
+   "links": [
+    "bumaga"
+   ]
+  },
+  {
    "path": "web/README.md",
    "folder": "web",
    "title": "Веб",
@@ -1127,7 +1142,7 @@
    "title": "seriya-01",
    "kind": "pdf",
    "pages": 11,
-   "size": 307898,
+   "size": 308601,
    "date": "2026-10-20",
    "thumb": "data/thumbs/ml/listki/serii/seriya-01.png"
   },
