@@ -74,6 +74,65 @@
     return href.charAt(0) !== "#";
   }
 
+  /* ── скачать ─────────────────────────────────────────────
+
+     С 2026-10-20 рядом с каждым PDF — кнопка «Скачать» (владелец). Строка
+     и карточка по-прежнему открывают файл; кнопка сохраняет его. Она стоит
+     рядом со ссылкой, а не внутри: ссылка в ссылке — неверная разметка,
+     и читалка экрана слила бы обе цели в одну. Появляется сама у всего,
+     что ведёт в PDF, поэтому новый раздел с файлами получит её без правок. */
+  function pdfPath(href) {
+    var m = /^data\/notes\/([^?#]+\.pdf)(?:[?#]|$)/i.exec(href || "");
+    return m ? decodeURI(m[1]) : null;
+  }
+
+  /* Имя сохранённого файла — название документа, а не слаг: файл
+     пересылают ученикам, и «Неравенства. Домашка.pdf» им понятнее
+     «neravenstva-dz.pdf». У листков репетиторства название — тема, общая
+     для урока, домашки и разборов, поэтому к нему дописан вид: иначе
+     все файлы темы сохранялись бы под одним именем. Знаки, запрещённые
+     в именах файлов, — пробелом. */
+  function downloadName(path) {
+    var doc = DOC_BY_PDF[path];
+    var title = (doc && doc.title) || seriesTitle(path);
+    if (!title) return fileName(path);
+    if (doc && doc.group === "tutoring") title += ". " + kindOf(doc.tex.replace(/\.tex$/, "")).label;
+    else if (doc && isPhysics(doc)) title = physName(doc, title);
+    return title.replace(/[\\\/:*?"<>|]+/g, " ").replace(/\s+/g, " ").trim() + ".pdf";
+  }
+
+  /* По физике серия и разбор к ней называются одинаково — темой серии,
+     а теория бывает тёзкой зачётного конспекта. К имени дописаны номер
+     и вид, у теории и эксперимента — название их блока. */
+  function physName(doc, title) {
+    var m = /^seriya-0*(\d+)(-razbor)?\.tex$/.exec(doc.tex);
+    if (m) return (m[2] ? "Разбор серии " : "Серия ") + m[1] + ". " + title;
+    var sub = doc.group.replace(/^physics\/?/, "");
+    var g = PHYS_GROUPS.filter(function (g) { return g[0] === sub; })[0];
+    return g ? title + ". " + g[1] : title;
+  }
+
+  function downloadLink(path) {
+    var a = el("a", "dl");
+    a.href = pdfHref(path);
+    a.setAttribute("download", downloadName(path));
+    a.setAttribute("aria-label", "Скачать: " + downloadName(path).replace(/\.pdf$/, ""));
+    a.title = "Скачать";
+    a.appendChild(icon("download"));
+    return a;
+  }
+
+  /* Карточка файла и кнопка — в общей коробке, кнопка поставлена поверх
+     карточки у правого края. Сама карточка остаётся прежней ссылкой,
+     и всё, что дописывается в неё потом, — счёт задач у серий по физике, —
+     устроено как раньше. */
+  function withDownload(card, path) {
+    var box = el("div", "doc-box");
+    box.appendChild(card);
+    box.appendChild(downloadLink(path));
+    return box;
+  }
+
   /* ── разбор markdown ─────────────────────────────────────
 
      Порядок здесь важнее самого разбора. Формулы и код вынимаются из текста
@@ -344,7 +403,13 @@
     if (o.sub) text.appendChild(el("span", "row-sub", o.sub));
     a.appendChild(text);
     if (o.aside) a.appendChild(el("span", "row-aside", o.aside));
-    body.appendChild(a);
+    var path = pdfPath(href);
+    if (path) {
+      var box = el("div", "row-box");
+      box.appendChild(a);
+      box.appendChild(downloadLink(path));
+      body.appendChild(box);
+    } else body.appendChild(a);
     return a;
   }
 
@@ -419,7 +484,8 @@
 
   /* Карточка документа открывает сам PDF. С миниатюрой обложки — слева
      картинка, справа название. Метки «PDF» и имени файла нет с 2026-10-11
-     (владелец: не нужны) — что карточка открывает PDF, и так понятно. */
+     (владелец: не нужны) — что карточка открывает PDF, и так понятно.
+     С 2026-10-20 справа на ней — «Скачать», см. withDownload. */
   function texCard(d) {
     var a = el("a", "card" + (d.thumb ? " has-thumb" : ""));
     a.href = d.pdf ? pdfHref(d.pdf) : "#/";
@@ -433,7 +499,7 @@
       body.appendChild(top);
       a.appendChild(body);
     } else a.appendChild(top);
-    return a;
+    return d.pdf ? withDownload(a, d.pdf) : a;
   }
 
   /* Цвет документа — цвет раздела, где он живёт. Листки репетиторства
@@ -511,6 +577,7 @@
     copy: { c: "currentColor", d: '<rect x="8.5" y="8.5" width="11.5" height="11.5" rx="2.2"/>' +
       '<path d="M15.5 8.5V6.2a2.2 2.2 0 0 0-2.2-2.2H6.2A2.2 2.2 0 0 0 4 6.2v7.1a2.2 2.2 0 0 0 2.2 2.2h2.3"/>' },
     check: { c: "currentColor", d: '<path d="M5 12.5l4.5 4.5L19 7.5"/>' },
+    download: { c: "currentColor", d: '<path d="M12 4v11M7 10.5l5 5 5-5M5 20h14"/>' },
     /* Карандаш — строка редактора сайта, у которого нет своего значка
        редактора (поле redaktor_znachok). */
     pencil: { c: "currentColor", d: '<path d="M4 20l1-4.5L15.5 5a2.1 2.1 0 0 1 3 3L8 18.5z"/>' +
@@ -1047,7 +1114,8 @@
       var mine = docs.filter(function (d) { return d.group === "physics/" + g[0]; });
       list = block(main, g[1], g[2]);
       mine.forEach(function (d) {
-        var c = list.appendChild(texCard(d));
+        var box = list.appendChild(texCard(d));
+        var c = box.querySelector(".card") || box;
         if (g[0] === "serii" && physSeriesNo(d)) serii.push({ card: c, no: physSeriesNo(d) });
       });
       if (!mine.length) empty(list, "Листков пока нет.");
@@ -1175,7 +1243,7 @@
       marks.appendChild(m);
     });
     if (mine.length) a.appendChild(marks);
-    return card;
+    return has ? withDownload(card, path) : card;
   }
 
   function fillMath(host, src) {
@@ -1683,7 +1751,7 @@
     document.addEventListener("pointerdown", function (e) {
       var node = e.target.closest &&
         e.target.closest(".tab, .chip, a.card, a.back, a.ext, a.row, .group-head, .toc-pill, " +
-                         "a.brand, button.copy, a.role-main");
+                         "a.brand, button.copy, a.dl, a.role-main");
       if (!node) return;
       /* Карточка роли — не ссылка целиком: в ней ссылка и кнопка. Нажатие
          на ссылку отзывается всей карточкой, как у обычной карточки. */

@@ -149,7 +149,7 @@
 
 /* Синий прямоугольник при касании складывается из подсветки самого касания и
    выделения текста внутри кнопки. Гасим обе, но рамку для клавиатуры оставляем. */
-button, .tab, .chip, a.card, a.back {
+button, .tab, .chip, a.card, a.back, a.dl {
   -webkit-user-select: none;
   user-select: none;
   -webkit-touch-callout: none;
@@ -880,7 +880,8 @@ body {
 
 /* Кнопка «Копировать» — тихая пилюля, как оглавление: цель касания 44.
    Скопировано — галочка и бутылочная зелень на полторы секунды. */
-.copy {
+.copy,
+.dl {
   flex: none;
   display: inline-flex;
   align-items: center;
@@ -898,10 +899,51 @@ body {
   transition: background-color .14s ease;
 }
 
-.copy:hover { background: var(--soft); }
-.copy:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
-.copy svg { width: 17px; height: 17px; flex: none; }
+.copy:hover, .dl:hover { background: var(--soft); }
+.copy:focus-visible, .dl:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
+.copy svg, .dl svg { width: 17px; height: 17px; flex: none; }
 .copy.done { color: var(--black); }
+
+/* Кнопка «Скачать» — та же тихая кнопка, только круглая и без слова:
+   она стоит у каждого файла, и слово в каждой строке зашумило бы список.
+   Название для читалки экрана у неё полное, с именем файла. */
+.dl { padding: 0; text-decoration: none; }
+.dl svg { width: 19px; height: 19px; }
+
+/* Строка с файлом — ссылка и кнопка рядом, коробкой. Подсветка под
+   курсором остаётся у ссылки: видно, что целей две. */
+.row-box { display: flex; align-items: center; gap: 6px; }
+.row-box > .row { flex: 1 1 auto; min-width: 0; }
+.row-box > .dl { margin-right: 4px; }
+
+/* Карточка с файлом: кнопка поверх неё у правого края, место под кнопку —
+   поле справа. По центру высоты, а у карточек с задачами — вровень
+   с названием: посередине она встала бы между кружками. Сдвиг — полями,
+   а не transform: тот занят откликом на касание. */
+.doc-box { position: relative; }
+.doc-box > .card { padding-right: 68px; }
+.doc-box > .dl {
+  position: absolute;
+  right: 12px;
+  top: 0;
+  bottom: 0;
+  height: var(--tap);
+  margin: auto 0;
+}
+.doc-box:has(.marks, .tally) > .dl { top: 9px; bottom: auto; margin: 0; }
+
+/* У карточек с задачами поле под кнопку — только у верхних строк, названия
+   и полоски. Кружки идут ниже кнопки и занимают всю ширину: с полем
+   на всю высоту седьмой повисал один на второй строке. */
+.doc-box:has(.marks, .tally) > .card { padding-right: 16px; }
+.doc-box:has(.marks, .tally) .card-top,
+.doc-box:has(.marks, .tally) .progress { margin-right: 52px; }
+
+/* Серия по физике на телефоне: полоска уходит под обложку, ниже кнопки,
+   и поле ей не нужно. */
+@media (max-width: 480px) {
+  .doc-box .card.has-tally .progress { margin-right: 0; }
+}
 
 /* На узком экране слово прячется — длинное название роли важнее. Кнопка
    становится круглой, имя для читалки экрана у неё задано полностью. */
