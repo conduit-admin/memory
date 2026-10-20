@@ -70,6 +70,13 @@
    "links": []
   },
   {
+   "path": "ml/kontest/README.md",
+   "folder": "ml/kontest",
+   "title": "Контест: проверка серий по ИИ",
+   "fm": {},
+   "links": []
+  },
+  {
    "path": "ml/kruzhok.md",
    "folder": "ml",
    "title": "Кружок по ML",
@@ -1293,6 +1300,16 @@
    "thumb": "data/thumbs/tutoring/listki/ocenka-i-primer-zanyatie-01.png"
   },
   {
+   "path": "tutoring/listki/olimpiada-01.pdf",
+   "folder": "tutoring/listki",
+   "title": "olimpiada-01",
+   "kind": "pdf",
+   "pages": 3,
+   "size": 111268,
+   "date": "2026-10-20",
+   "thumb": "data/thumbs/tutoring/listki/olimpiada-01.png"
+  },
+  {
    "path": "tutoring/listki/sravneniya-dz-razbor.pdf",
    "folder": "tutoring/listki",
    "title": "sravneniya-dz-razbor",
@@ -1853,6 +1870,15 @@
    "num": "",
    "date": "2026-10-18",
    "thumb": "data/thumbs/tutoring/listki/ocenka-i-primer-zanyatie-01-razbor.png"
+  },
+  {
+   "title": "Олимпиада",
+   "tex": "olimpiada-01.tex",
+   "group": "tutoring",
+   "pdf": "tutoring/listki/olimpiada-01.pdf",
+   "num": "",
+   "date": "2026-10-20",
+   "thumb": "data/thumbs/tutoring/listki/olimpiada-01.png"
   },
   {
    "title": "Параметр: картинка вместо перебора",
