@@ -137,6 +137,20 @@
    "links": []
   },
   {
+   "path": "ml/vsosh-ii-format.md",
+   "folder": "ml",
+   "title": "ВсОШ по ИИ: этапы и формат",
+   "fm": {
+    "type": "plan",
+    "kratko": "ВсОШ по ИИ — все четыре этапа: площадка, время, задачи, баллы, сколько нужно набрать",
+    "data": "2026-10-20"
+   },
+   "links": [
+    "vsosh-ii",
+    "vsosh-ii-istochniki"
+   ]
+  },
+  {
    "path": "ml/vsosh-ii-istochniki.md",
    "folder": "ml",
    "title": "ВсОШ по ИИ: источники программы",
@@ -147,7 +161,8 @@
    },
    "links": [
     "kruzhok",
-    "vsosh-ii"
+    "vsosh-ii",
+    "vsosh-ii-format"
    ]
   },
   {
@@ -160,6 +175,7 @@
     "data": "2026-10-16"
    },
    "links": [
+    "vsosh-ii-format",
     "vsosh-ii-istochniki"
    ]
   },

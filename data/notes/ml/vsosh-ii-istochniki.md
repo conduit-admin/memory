@@ -95,6 +95,37 @@ data: 2026-10-20
 регрессия — 100067; деревья — 100064; временные ряды — 100068; математика
 M+ — 99890, 100061, 100062, листок 3, 100066. Что сдано — в [[kruzhok]].
 
+## Что советуют организаторы
+
+Список со страницы профиля [vsosh.yandex.ru/ai](https://vsosh.yandex.ru/ai#preparation),
+раздел «Подготовка». Ни один пока не открывался.
+
+- Математика: [«Тренажёр по математике в ИИ»](https://stepik.org/course/274550/syllabus),
+  CS Space на Stepik; [«Математика для анализа данных»](https://education.yandex.ru/handbook/math),
+  хендбук Яндекса.
+- Программирование: хендбуки Яндекса [«Основы Python»](https://education.yandex.ru/handbook/python)
+  и [«Основы алгоритмов»](https://education.yandex.ru/handbook/algorithms),
+  [статья про pandas](https://education.yandex.ru/knowledge/osnovi-analiza-dannikh-v-python-glavnoe-o-biblioteke-pandas),
+  [Тренировки по алгоритмам](https://yandex.ru/yaintern/training/algorithm-training).
+- ML: [учебник по машинному обучению ШАД](https://education.yandex.ru/handbook/ml),
+  [«Навигатор по ИИ»](https://edu.sirius.online/ai-navigator) Сириус.Курсов.
+- Кружки и смены: [Яндекс Кружок по ИИ](https://yandex.ru/yaintern/olympiads/kruzhok/ai),
+  [мартовская программа Сириуса](https://sochisirius.ru/obuchenie/nauka/smena2295/10554)
+  по профилю ИИ.
+- Для учителей, но годится и так: [«Основы IT-математики»](https://fpmidpo.mipt.ru/programs/ppk/basic-math)
+  ФПМИ МФТИ, [курсы Академии ИИ](https://ai-academy.ru/teachers/courses/),
+  [«Математика для Data Science»](https://stepik.org/course/259657/promo) проекта «ИИ Старт».
+
+Сириус на странице школьного этапа отдельно ведёт к своим курсам:
+[введение в ИИ](https://edu.sirius.online/course/aiintro),
+[в ML](https://edu.sirius.online/course/mlintro),
+[в DL](https://edu.sirius.online/course/dlintro),
+[в NLP](https://edu.sirius.online/course/nlpintro),
+[алгоритмы на Python](https://edu.sirius.online/course/algopython),
+[анализ данных на Python](https://edu.sirius.online/course/pythonanalytics).
+Совпадает ли «Введение в ML» с курсом 3185 выше — не сверено.
+
 ## Прошлые годы и пригласительный этап
 
-В [[vsosh-ii]], раздел «Материалы».
+Формат и архив всех этапов — [[vsosh-ii-format]]. Школьный этап 2025 года,
+пригласительный и варианты 2026 года — в [[vsosh-ii]], раздел «Материалы».
