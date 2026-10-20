@@ -502,9 +502,8 @@
     return d.pdf ? withDownload(a, d.pdf) : a;
   }
 
-  /* Цвет документа — цвет раздела, где он живёт. Листки репетиторства
-     и физики лежат не в tex/ — и цвет у них свой; шпаргалки кружка ML лежат
-     в tex/, но живут во вкладке «ИИ» и красятся её цветом. */
+  /* Цвет документа — цвет раздела, где он живёт. Листки репетиторства,
+     физики и ИИ лежат не в tex/ — и цвет у них свой. */
   function docColor(d) {
     return sectionColor(d.group === "tutoring" ? "tutoring"
       : (isPhysics(d) ? "physics" : (isMl(d) ? "ml" : "tex")));
@@ -517,7 +516,7 @@
       return kindOf(d.tex.replace(/\.tex$/, "")).label + " · репетиторство";
     }
     if (isPhysics(d)) return "Физика";
-    if (isMl(d)) return "Шпаргалка";
+    if (isMl(d)) return "ИИ";
     var readme = d.group ? noteAt("tex/documents/" + d.group + "/README.md") : null;
     return readme ? readme.title : "Статья";
   }
@@ -960,8 +959,9 @@
     /* Статьи: документы из корня tex/documents/ — одной панелью строк,
        любая его подпапка — своей группой, с README вместо заголовка
        и строкой «как устроено» внутри. Новая подпапка появится без правки
-       кода. Шпаргалки кружка ML (tex/documents/ml/) сюда не идут: они
-       во вкладке «ИИ», как листки физики — во «Физике». */
+       кода. Шпаргалки кружка ML (tex/documents/ml/) — здесь же, своей
+       группой: с 2026-10-20 во вкладке «ИИ» только листки. Листки физики
+       и ИИ сюда не идут — они на своих вкладках. */
     var rest = docs.filter(function (d) {
       return d.group !== "tutoring" && !isPhysics(d) && !isMl(d);
     });
@@ -1274,27 +1274,49 @@
 
   /* ── вкладка «ИИ» ────────────────────────────────────── */
 
-  /* Шпаргалки кружка — PDF из tex/documents/ml/ и любой его подпапки,
-     карточкой, которая открывает сам файл. Новая шпаргалка появится здесь
-     без правки кода. */
+  /* С 2026-10-20 вкладка устроена как «Физика»: только листки подготовки
+     к ВсОШ по ИИ — серии и теория (владелец). Листки — из ml/listki/,
+     блоками по подпапкам: две известные идут в своём порядке и со своими
+     названиями, любая новая появится следом отдельным блоком, с заголовком
+     из своего README или по имени папки. Шпаргалки кружка
+     (tex/documents/ml/) и конспекты отсюда сняты: шпаргалки — в «Статьях»,
+     как прочие документы tex/documents/, заметки — в поиске. */
+
+  var ML_GROUPS = [
+    ["serii", "Серии", "ans"],
+    ["teoriya", "Теория", "cold"]
+  ];
+
   function isMl(d) {
-    return d.group === "ml" || String(d.group).indexOf("ml/") === 0;
+    return d.group === "ml/listki" || String(d.group).indexOf("ml/listki/") === 0;
   }
 
-  /* Ниже — конспекты и описание раздела: все заметки из ml/, по названию.
-     Задач и приёмов здесь больше нет: с октября 2026 эта схема снята везде. */
-  function viewMl(main) {
-    var docs = (DATA.tex || []).filter(function (d) { return d.pdf && isMl(d); });
-    var list = block(main, "Шпаргалки", "warm", docs.length);
-    docs.forEach(function (d) { list.appendChild(texCard(d)); });
-    if (!docs.length) empty(list, "Шпаргалок пока нет.");
+  function mlSub(d) {
+    return d.group.replace(/^ml\/listki\/?/, "");
+  }
 
-    var mine = DATA.notes.filter(function (n) {
-      return n.folder === "ml" || n.folder.indexOf("ml/") === 0;
-    }).sort(function (a, b) { return a.title.localeCompare(b.title, "ru"); });
-    list = block(main, "Конспекты", "cold");
-    mine.forEach(function (n) { list.appendChild(card(n, {})); });
-    if (!mine.length) empty(list, "Конспектов пока нет.");
+  function viewMl(main) {
+    var docs = (DATA.tex || []).filter(isMl);
+    var known = ML_GROUPS.map(function (g) { return g[0]; });
+
+    ML_GROUPS.forEach(function (g) {
+      var mine = docs.filter(function (d) { return mlSub(d) === g[0]; });
+      var list = block(main, g[1], g[2]);
+      mine.forEach(function (d) { list.appendChild(texCard(d)); });
+      if (!mine.length) empty(list, "Листков пока нет.");
+    });
+
+    var extra = [];
+    docs.forEach(function (d) {
+      var sub = mlSub(d);
+      if (known.indexOf(sub) < 0 && extra.indexOf(sub) < 0) extra.push(sub);
+    });
+    extra.forEach(function (sub) {
+      var readme = noteAt("ml/listki/" + (sub ? sub + "/" : "") + "README.md");
+      var list = block(main, readme ? readme.title : (sub || "Листки"), "slate");
+      docs.filter(function (d) { return mlSub(d) === sub; })
+        .forEach(function (d) { list.appendChild(texCard(d)); });
+    });
   }
 
   /* ── заметка ─────────────────────────────────────────── */
