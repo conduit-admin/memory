@@ -1142,17 +1142,27 @@
    "title": "seriya-01",
    "kind": "pdf",
    "pages": 11,
-   "size": 308601,
+   "size": 316010,
    "date": "2026-10-20",
    "thumb": "data/thumbs/ml/listki/serii/seriya-01.png"
+  },
+  {
+   "path": "ml/listki/teoriya/baza-python.pdf",
+   "folder": "ml/listki/teoriya",
+   "title": "baza-python",
+   "kind": "pdf",
+   "pages": 9,
+   "size": 206954,
+   "date": "2026-10-20",
+   "thumb": "data/thumbs/ml/listki/teoriya/baza-python.png"
   },
   {
    "path": "ml/listki/teoriya/dannye-teoriya.pdf",
    "folder": "ml/listki/teoriya",
    "title": "dannye-teoriya",
    "kind": "pdf",
-   "pages": 8,
-   "size": 238159,
+   "pages": 7,
+   "size": 232965,
    "date": "2026-10-20",
    "thumb": "data/thumbs/ml/listki/teoriya/dannye-teoriya.png"
   },
@@ -2193,6 +2203,15 @@
    "num": "",
    "date": "2026-10-20",
    "thumb": "data/thumbs/ml/listki/serii/seriya-01.png"
+  },
+  {
+   "title": "База Python",
+   "tex": "baza-python.tex",
+   "group": "ml/listki/teoriya",
+   "pdf": "ml/listki/teoriya/baza-python.pdf",
+   "num": "",
+   "date": "2026-10-20",
+   "thumb": "data/thumbs/ml/listki/teoriya/baza-python.png"
   },
   {
    "title": "Данные и метрики",
