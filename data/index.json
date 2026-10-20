@@ -269,7 +269,9 @@
    "fm": {
     "type": "ozvuchka"
    },
-   "links": []
+   "links": [
+    "montazh"
+   ]
   },
   {
    "path": "manim/kanal/ozvuchka/rotating_liquid.md",
