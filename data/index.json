@@ -1122,6 +1122,26 @@
    "date": "2026-09-13"
   },
   {
+   "path": "ml/listki/serii/seriya-01.pdf",
+   "folder": "ml/listki/serii",
+   "title": "seriya-01",
+   "kind": "pdf",
+   "pages": 11,
+   "size": 307898,
+   "date": "2026-10-20",
+   "thumb": "data/thumbs/ml/listki/serii/seriya-01.png"
+  },
+  {
+   "path": "ml/listki/teoriya/dannye-teoriya.pdf",
+   "folder": "ml/listki/teoriya",
+   "title": "dannye-teoriya",
+   "kind": "pdf",
+   "pages": 8,
+   "size": 238159,
+   "date": "2026-10-20",
+   "thumb": "data/thumbs/ml/listki/teoriya/dannye-teoriya.png"
+  },
+  {
    "path": "tex/documents/cursor.pdf",
    "folder": "tex/documents",
    "title": "cursor",
@@ -2149,6 +2169,24 @@
    "num": "",
    "date": "2026-10-17",
    "thumb": "data/thumbs/physics/listki/teoriya/zakony-sohraneniya-teoriya.png"
+  },
+  {
+   "title": "Школьный этап",
+   "tex": "seriya-01.tex",
+   "group": "ml/listki/serii",
+   "pdf": "ml/listki/serii/seriya-01.pdf",
+   "num": "",
+   "date": "2026-10-20",
+   "thumb": "data/thumbs/ml/listki/serii/seriya-01.png"
+  },
+  {
+   "title": "Данные и метрики",
+   "tex": "dannye-teoriya.tex",
+   "group": "ml/listki/teoriya",
+   "pdf": "ml/listki/teoriya/dannye-teoriya.pdf",
+   "num": "",
+   "date": "2026-10-20",
+   "thumb": "data/thumbs/ml/listki/teoriya/dannye-teoriya.png"
   }
  ]
 }
