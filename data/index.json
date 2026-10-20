@@ -1147,24 +1147,14 @@
    "thumb": "data/thumbs/ml/listki/serii/seriya-01.png"
   },
   {
-   "path": "ml/listki/teoriya/baza-python.pdf",
+   "path": "ml/listki/teoriya/csv.pdf",
    "folder": "ml/listki/teoriya",
-   "title": "baza-python",
+   "title": "csv",
    "kind": "pdf",
-   "pages": 9,
-   "size": 206954,
+   "pages": 16,
+   "size": 258584,
    "date": "2026-10-20",
-   "thumb": "data/thumbs/ml/listki/teoriya/baza-python.png"
-  },
-  {
-   "path": "ml/listki/teoriya/dannye-teoriya.pdf",
-   "folder": "ml/listki/teoriya",
-   "title": "dannye-teoriya",
-   "kind": "pdf",
-   "pages": 7,
-   "size": 232965,
-   "date": "2026-10-20",
-   "thumb": "data/thumbs/ml/listki/teoriya/dannye-teoriya.png"
+   "thumb": "data/thumbs/ml/listki/teoriya/csv.png"
   },
   {
    "path": "tex/documents/cursor.pdf",
@@ -2205,22 +2195,13 @@
    "thumb": "data/thumbs/ml/listki/serii/seriya-01.png"
   },
   {
-   "title": "База Python",
-   "tex": "baza-python.tex",
+   "title": "Файлы CSV",
+   "tex": "csv.tex",
    "group": "ml/listki/teoriya",
-   "pdf": "ml/listki/teoriya/baza-python.pdf",
+   "pdf": "ml/listki/teoriya/csv.pdf",
    "num": "",
    "date": "2026-10-20",
-   "thumb": "data/thumbs/ml/listki/teoriya/baza-python.png"
-  },
-  {
-   "title": "Данные и метрики",
-   "tex": "dannye-teoriya.tex",
-   "group": "ml/listki/teoriya",
-   "pdf": "ml/listki/teoriya/dannye-teoriya.pdf",
-   "num": "",
-   "date": "2026-10-20",
-   "thumb": "data/thumbs/ml/listki/teoriya/dannye-teoriya.png"
+   "thumb": "data/thumbs/ml/listki/teoriya/csv.png"
   }
  ]
 }
