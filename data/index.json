@@ -635,6 +635,7 @@
     "status": "занимается"
    },
    "links": [
+    "neravenstva-zanyatie-01",
     "ocenka-i-primer-zanyatie-01",
     "ocenka-i-primer-zanyatie-01-razbor",
     "sravneniya",
@@ -647,6 +648,7 @@
     "tyulenev-stepan-04",
     "tyulenev-stepan-05",
     "tyulenev-stepan-06",
+    "tyulenev-stepan-07",
     "uravneniya-v-celyh",
     "uravneniya-v-celyh-razbor",
     "vpisannost",
@@ -1205,6 +1207,16 @@
    "thumb": "data/thumbs/tutoring/listki/kinematika.png"
   },
   {
+   "path": "tutoring/listki/neravenstva-zanyatie-01.pdf",
+   "folder": "tutoring/listki",
+   "title": "neravenstva-zanyatie-01",
+   "kind": "pdf",
+   "pages": 5,
+   "size": 173045,
+   "date": "2026-10-20",
+   "thumb": "data/thumbs/tutoring/listki/neravenstva-zanyatie-01.png"
+  },
+  {
    "path": "tutoring/listki/ocenka-i-primer-zanyatie-01-razbor.pdf",
    "folder": "tutoring/listki",
    "title": "ocenka-i-primer-zanyatie-01-razbor",
@@ -1749,6 +1761,15 @@
    "pdf": "",
    "num": "",
    "date": "2026-09-16"
+  },
+  {
+   "title": "Неравенства",
+   "tex": "neravenstva-zanyatie-01.tex",
+   "group": "tutoring",
+   "pdf": "tutoring/listki/neravenstva-zanyatie-01.pdf",
+   "num": "",
+   "date": "2026-10-20",
+   "thumb": "data/thumbs/tutoring/listki/neravenstva-zanyatie-01.png"
   },
   {
    "title": "Оценка и пример",
