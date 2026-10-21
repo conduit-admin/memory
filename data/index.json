@@ -450,8 +450,8 @@
     "type": "proekt",
     "vid": "animatsiya",
     "fail": "orthocentric.py",
-    "stadiya": "готов",
-    "video": "",
+    "stadiya": "выложен",
+    "video": "https://www.youtube.com/shorts/6Gzft2Y6RR4",
     "data": "2026-09-14"
    },
    "links": []
@@ -501,7 +501,7 @@
     "vid": "animatsiya",
     "fail": "rotating_liquid.py",
     "stadiya": "выложен",
-    "video": ""
+    "video": "https://www.youtube.com/shorts/dMjW-JTkKWg"
    },
    "links": []
   },
