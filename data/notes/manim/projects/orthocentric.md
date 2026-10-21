@@ -2,7 +2,7 @@
 type: proekt
 vid: animatsiya
 fail: orthocentric.py
-stadiya: озвучивается и монтируется
+stadiya: готов
 video:
 data: 2026-09-14
 ---
