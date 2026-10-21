@@ -500,7 +500,7 @@
     "type": "proekt",
     "vid": "animatsiya",
     "fail": "rotating_liquid.py",
-    "stadiya": "готов",
+    "stadiya": "выложен",
     "video": ""
    },
    "links": []
@@ -1206,7 +1206,7 @@
    "title": "orthocentric",
    "kind": "pdf",
    "pages": 5,
-   "size": 216026,
+   "size": 216032,
    "date": "2026-10-21",
    "thumb": "data/thumbs/tex/documents/kanal/orthocentric.png"
   },
