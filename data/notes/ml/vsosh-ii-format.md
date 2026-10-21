@@ -56,7 +56,8 @@ data: 2026-10-20
 
 ## Муниципальный этап
 
-По сезону 2025/26.
+По сезону 2025/26. У Москвы этап свой: 17 декабря 2025, 5 часов,
+математика и программирование в ИИ-сюжетах; ниже — вариант Сириуса.
 
 - Сириус, три варианта по группам регионов. 9–11 классы — 180 минут,
   600 баллов: четыре задачи с ответом и две на программирование, по 100.
@@ -159,7 +160,14 @@ data: 2026-10-20
   [вариант II](https://uts.sirius.online/smt-portal/content/_image/e88fd7a0351850ebc3987cb3b9598978563fafb2),
   [вариант III](https://uts.sirius.online/smt-portal/content/_image/2cc2b64b4a2c96dc46913938beea399f481b48b6);
   [форма заданий](https://my.sirius.online/content/forma_i_kolichestvo_zadanij_programmnoe_obespechenie_ii_me.pdf).
-- **РЭ 2026** — условия
+- **Пробные варианты** организаторов в Яндекс Контесте:
+  [МЭ](https://contest.yandex.ru/contest/84849), РЭ —
+  [математический тур](https://contest.yandex.ru/contest/87862) и
+  [ML-тур](https://contest.yandex.ru/contest/87863). МЭ Москвы 2025 и ещё
+  один вариант МЭ — PDF в `Desktop/ml-dz/tbank/fajly/`.
+- **РЭ 2026** — текстовые разборы:
+  [день 1](https://yastatic.net/s3/contest/roi/2026/ml/day1/editorial.html),
+  [день 2](https://yastatic.net/s3/contest/roi/2026/ml/day2/editorial.html); условия
   [тур 1](https://vos.olimpiada.ru/upload/files/Arhive_tasks/2025-26/reg/ai/tasks-ai-9-11-tur1-reg-25-26.pdf),
   [тур 2](https://vos.olimpiada.ru/upload/files/Arhive_tasks/2025-26/reg/ai/tasks-ai-9-11-tur2-reg-25-26.pdf);
   контест-архив, где можно сдавать:
