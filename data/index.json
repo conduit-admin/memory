@@ -270,7 +270,9 @@
     "type": "ozvuchka"
    },
    "links": [
-    "montazh"
+    "montazh",
+    "telegram",
+    "youtube"
    ]
   },
   {
@@ -1199,6 +1201,16 @@
    "thumb": "data/thumbs/tex/documents/kanal/broken-stick.png"
   },
   {
+   "path": "tex/documents/kanal/orthocentric.pdf",
+   "folder": "tex/documents/kanal",
+   "title": "orthocentric",
+   "kind": "pdf",
+   "pages": 5,
+   "size": 216792,
+   "date": "2026-10-21",
+   "thumb": "data/thumbs/tex/documents/kanal/orthocentric.png"
+  },
+  {
    "path": "tex/documents/kanal/rotating-liquid.pdf",
    "folder": "tex/documents/kanal",
    "title": "rotating-liquid",
@@ -1529,6 +1541,15 @@
    "num": "",
    "date": "2026-10-16",
    "thumb": "data/thumbs/tex/documents/kanal/broken-stick.png"
+  },
+  {
+   "title": "Сфера двадцати четырёх точек",
+   "tex": "orthocentric.tex",
+   "group": "kanal",
+   "pdf": "tex/documents/kanal/orthocentric.pdf",
+   "num": "",
+   "date": "2026-10-21",
+   "thumb": "data/thumbs/tex/documents/kanal/orthocentric.png"
   },
   {
    "title": "Вращение жидкости",
