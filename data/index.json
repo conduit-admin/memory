@@ -988,6 +988,16 @@
    "thumb": "data/thumbs/physics/listki/serii/seriya-04.png"
   },
   {
+   "path": "physics/listki/serii/seriya-05.pdf",
+   "folder": "physics/listki/serii",
+   "title": "seriya-05",
+   "kind": "pdf",
+   "pages": 5,
+   "size": 191277,
+   "date": "2026-10-22",
+   "thumb": "data/thumbs/physics/listki/serii/seriya-05.png"
+  },
+  {
    "path": "physics/listki/teoriya/elektrostatika-teoriya.pdf",
    "folder": "physics/listki/teoriya",
    "title": "elektrostatika-teoriya",
@@ -1006,6 +1016,16 @@
    "size": 137455,
    "date": "2026-10-09",
    "thumb": "data/thumbs/physics/listki/teoriya/kolebaniya-teoriya.png"
+  },
+  {
+   "path": "physics/listki/teoriya/termodinamika-teoriya.pdf",
+   "folder": "physics/listki/teoriya",
+   "title": "termodinamika-teoriya",
+   "kind": "pdf",
+   "pages": 3,
+   "size": 141354,
+   "date": "2026-10-22",
+   "thumb": "data/thumbs/physics/listki/teoriya/termodinamika-teoriya.png"
   },
   {
    "path": "physics/listki/teoriya/zakony-sohraneniya-teoriya.pdf",
@@ -2203,6 +2223,15 @@
    "thumb": "data/thumbs/physics/listki/serii/seriya-04.png"
   },
   {
+   "title": "Первое начало",
+   "tex": "seriya-05.tex",
+   "group": "physics/serii",
+   "pdf": "physics/listki/serii/seriya-05.pdf",
+   "num": "",
+   "date": "2026-10-22",
+   "thumb": "data/thumbs/physics/listki/serii/seriya-05.png"
+  },
+  {
    "title": "Электростатика",
    "tex": "elektrostatika-teoriya.tex",
    "group": "physics/teoriya",
@@ -2219,6 +2248,15 @@
    "num": "",
    "date": "2026-10-09",
    "thumb": "data/thumbs/physics/listki/teoriya/kolebaniya-teoriya.png"
+  },
+  {
+   "title": "Термодинамика",
+   "tex": "termodinamika-teoriya.tex",
+   "group": "physics/teoriya",
+   "pdf": "physics/listki/teoriya/termodinamika-teoriya.pdf",
+   "num": "",
+   "date": "2026-10-22",
+   "thumb": "data/thumbs/physics/listki/teoriya/termodinamika-teoriya.png"
   },
   {
    "title": "Законы сохранения",
