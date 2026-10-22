@@ -1187,9 +1187,9 @@
    "folder": "ml/listki/teoriya",
    "title": "csv",
    "kind": "pdf",
-   "pages": 8,
-   "size": 192849,
-   "date": "2026-10-20",
+   "pages": 26,
+   "size": 310266,
+   "date": "2026-10-22",
    "thumb": "data/thumbs/ml/listki/teoriya/csv.png"
   },
   {
@@ -2282,7 +2282,7 @@
    "group": "ml/listki/teoriya",
    "pdf": "ml/listki/teoriya/csv.pdf",
    "num": "",
-   "date": "2026-10-20",
+   "date": "2026-10-22",
    "thumb": "data/thumbs/ml/listki/teoriya/csv.png"
   }
  ]
