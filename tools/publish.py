@@ -85,6 +85,7 @@ EXCLUDE_DIRS = (
     "tutoring/zanyatiya", # планы и отчёты занятий — про конкретного ученика
     "tutoring/olimpiady", # разбор формата олимпиады — рабочие заметки
     "shkola",             # школьные бумаги на печать, не для чтения с экрана
+    "lichnoe",            # питание, тренировки, сон — личное, с 2026-10-20
     # Зачёт 26.09.2026 прошёл; его документы живут в архиве на сайте кружка
     # (conduit-city-26, собирает .claude/meta/push-zachet.py), здесь их больше
     # не выкладываем — владелец, 2026-10-07. Вернуть — убрать эту строку.
@@ -239,6 +240,10 @@ def tex_title(path):
     это то, что осталось. Резать по первому обратному слэшу нельзя: так
     «Поля частных. Дробно-рациональные функции» превращалось в «Поля частных.»
     Не нашлось — вернём пусто, и подписью станет имя файла.
+
+    Типографика TeX переводится в символы: неразрывный пробел `~` — в пробел,
+    `---` и `--` — в длинное и короткое тире. До 2026-10-22 их не трогали,
+    и урок 16.10 висел на сайте как «Бросок и~окружность».
     """
     src = path.read_text(encoding="utf-8", errors="replace")
     start = src.find(r"\begin{document}")
@@ -260,6 +265,8 @@ def tex_title(path):
     text = re.sub(r"\\fontsize\{[^}]*\}\{[^}]*\}", " ", text)
     text = re.sub(r"\\[A-Za-z]+\*?(\{[^}]*\})?", " ", text)   # прочие команды
     text = text.replace("{", " ").replace("}", " ")
+    text = re.sub(r"(?<!\\)~", " ", text)
+    text = text.replace("---", "—").replace("--", "–")
     return " ".join(text.split())[:80]
 
 
@@ -374,9 +381,15 @@ def tex_documents():
             if tex.stem.endswith("_figs") or tex.stem == "template":
                 continue
             rel = tex.relative_to(KNOWLEDGE).as_posix()
+            rel_pdf = rel[:-4] + ".pdf"
+            # Документ, чей PDF изъят белым списком, в индекс не идёт совсем:
+            # индекс публичный, и до 2026-10-22 в нём без файлов лежали
+            # названия зачёта, старых листков и даже `-otvety`. Несобранный
+            # документ из открытой папки остаётся — без ссылки, как и был.
+            if skipped(rel_pdf):
+                continue
             sub = tex.parent.relative_to(src).as_posix()
             group = fixed or (prefix.rstrip("/") if sub == "." else prefix + sub)
-            rel_pdf = rel[:-4] + ".pdf"
             pdf = tex.with_suffix(".pdf")
             # Дата — последнего коммита PDF, а если его ещё нет в истории
             # (выкладка берёт рабочее дерево) — время изменения файла.
@@ -387,8 +400,8 @@ def tex_documents():
                 "title": tex_title(tex) or tex.stem,
                 "tex": tex.name,
                 "group": group,
-                # PDF показывается, только если он собран и не изъят белым списком
-                "pdf": rel_pdf if (pdf.exists() and not skipped(rel_pdf)) else "",
+                # PDF показывается, только если он собран; изъятые отсеяны выше
+                "pdf": rel_pdf if pdf.exists() else "",
                 "num": podtema(tex),
                 "date": day,
             })
