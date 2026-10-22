@@ -938,6 +938,16 @@
    "thumb": "data/thumbs/physics/listki/razbory/seriya-02-razbor.png"
   },
   {
+   "path": "physics/listki/razbory/seriya-04-razbor.pdf",
+   "folder": "physics/listki/razbory",
+   "title": "seriya-04-razbor",
+   "kind": "pdf",
+   "pages": 9,
+   "size": 260211,
+   "date": "2026-10-22",
+   "thumb": "data/thumbs/physics/listki/razbory/seriya-04-razbor.png"
+  },
+  {
    "path": "physics/listki/serii/seriya-01.pdf",
    "folder": "physics/listki/serii",
    "title": "seriya-01",
@@ -2146,6 +2156,15 @@
    "num": "",
    "date": "2026-10-13",
    "thumb": "data/thumbs/physics/listki/razbory/seriya-02-razbor.png"
+  },
+  {
+   "title": "Импульс и энергия",
+   "tex": "seriya-04-razbor.tex",
+   "group": "physics/razbory",
+   "pdf": "physics/listki/razbory/seriya-04-razbor.pdf",
+   "num": "",
+   "date": "2026-10-22",
+   "thumb": "data/thumbs/physics/listki/razbory/seriya-04-razbor.png"
   },
   {
    "title": "Точечные заряды",
