@@ -98,6 +98,7 @@
     if (!title) return fileName(path);
     if (doc && doc.group === "tutoring") title += ". " + kindOf(doc.tex.replace(/\.tex$/, "")).label;
     else if (doc && isPhysics(doc)) title = physName(doc, title);
+    else if (doc && isMl(doc) && doc.vid) title += ". " + doc.vid;
     return title.replace(/[\\\/:*?"<>|]+/g, " ").replace(/\s+/g, " ").trim() + ".pdf";
   }
 
@@ -516,7 +517,8 @@
       return kindOf(d.tex.replace(/\.tex$/, "")).label + " · репетиторство";
     }
     if (isPhysics(d)) return "Физика";
-    if (isMl(d)) return "ИИ";
+    /* Урок и шпаргалка называются одинаково — подпись говорит, где что. */
+    if (isMl(d)) return (d.vid ? d.vid + " · " : "") + "ИИ";
     var readme = d.group ? noteAt("tex/documents/" + d.group + "/README.md") : null;
     return readme ? readme.title : "Статья";
   }
@@ -1280,16 +1282,18 @@
 
   /* ── вкладка «ИИ» ────────────────────────────────────── */
 
-  /* С 2026-10-20 вкладка устроена как «Физика»: только листки подготовки
-     к ВсОШ по ИИ — серии и теория (владелец). Листки — из ml/listki/,
-     блоками по подпапкам: две известные идут в своём порядке и со своими
-     названиями, любая новая появится следом отдельным блоком, с заголовком
-     из своего README или по имени папки. Шпаргалки кружка
-     (tex/documents/ml/) и конспекты отсюда сняты: шпаргалки — в «Статьях»,
-     как прочие документы tex/documents/, заметки — в поиске. */
+  /* Курс подготовки к ВсОШ по ИИ — тот же вид, что на его сайте
+     (conduit-admin/vsosh-ii): наверху трейлы задач, ниже листки теории.
+     С 2026-10-23 задачи живут не сериями, а трейлами — длинными списками
+     с метками; серий больше нет, и их блок снят. Трейлы — из ml/kontest/,
+     их разбирает tools/publish.py: сводка — в индексе, задачи — в
+     data/treyly.json. Листки — из ml/listki/, блоками по подпапкам:
+     «Теория» идёт первой и со своим названием, любая новая подпапка
+     появится следом отдельным блоком, с заголовком из своего README или
+     по имени папки. Шпаргалки кружка (tex/documents/ml/) и конспекты
+     отсюда сняты: шпаргалки — в «Статьях», заметки — в поиске. */
 
   var ML_GROUPS = [
-    ["serii", "Серии", "ans"],
     ["teoriya", "Теория", "cold"]
   ];
 
@@ -1301,14 +1305,68 @@
     return d.group.replace(/^ml\/listki\/?/, "");
   }
 
+  /* Листок и то, что к нему, — `X` и `X-что-угодно` из одной подпапки, —
+     одной раскрывающейся группой, как на сайте курса: урок и шпаргалка
+     называются одинаково и различаются видом из поля «Название» PDF
+     («Урок. Массивы в numpy» → «Урок»). Листок без пары — карточкой. */
+  function mlBundles(list, docs) {
+    var stems = docs.map(function (d) { return d.tex.replace(/\.tex$/, ""); });
+    function root(s) {
+      var best = s;
+      stems.forEach(function (p) {
+        if (s !== p && s.indexOf(p + "-") === 0 && p.length < best.length) best = p;
+      });
+      return best;
+    }
+    var sets = {}, order = [];
+    docs.forEach(function (d, i) {
+      var r = root(stems[i]);
+      if (!sets[r]) { sets[r] = []; order.push(r); }
+      sets[r].push({ d: d, stem: stems[i] });
+    });
+    order.forEach(function (r) {
+      var items = sets[r];
+      if (items.length === 1) { list.appendChild(texCard(items[0].d)); return; }
+      items.sort(function (x, y) {
+        return (x.stem === r ? 0 : 1) - (y.stem === r ? 0 : 1) || x.stem.localeCompare(y.stem);
+      });
+      var head = items[0].d;
+      var day = items.reduce(function (m, x) { return (x.d.date || "") > m ? x.d.date : m; }, "");
+      var body = group(list, "ml:" + mlSub(head) + ":" + r, head.title,
+                       files(items.length) + (day ? " · " + shortDate(day) : ""));
+      items.forEach(function (x) {
+        if (!x.d.pdf) return;
+        row(body, pdfHref(x.d.pdf), x.d.vid || x.d.title,
+            { aside: shortDate(x.d.date), thumb: x.d.thumb });
+      });
+    });
+  }
+
+  /* Трейл на вкладке — строка: картинка трейла, название, число задач
+     и метки. Нажатие открывает сам трейл здесь же, #/t/<трейл>. */
+  function mlTrails(main) {
+    var trails = DATA.treyly || [];
+    if (!trails.length) return;
+    var total = trails.reduce(function (n, t) { return n + t.n; }, 0);
+    var body = panel(block(main, "Трейлы", "ans", total));
+    trails.forEach(function (t) {
+      row(body, "#/t/" + t.id, t.title, {
+        sub: t.n + " " + plural(t.n, "задача", "задачи", "задач") +
+             (t.metki.length ? " · " + t.metki.join(", ") : ""),
+        aside: shortDate(t.date), thumb: t.thumb, color: sectionColor("ml")
+      });
+    });
+  }
+
   function viewMl(main) {
+    mlTrails(main);
     var docs = (DATA.tex || []).filter(isMl);
     var known = ML_GROUPS.map(function (g) { return g[0]; });
 
     ML_GROUPS.forEach(function (g) {
       var mine = docs.filter(function (d) { return mlSub(d) === g[0]; });
       var list = block(main, g[1], g[2]);
-      mine.forEach(function (d) { list.appendChild(texCard(d)); });
+      mlBundles(list, mine);
       if (!mine.length) empty(list, "Листков пока нет.");
     });
 
@@ -1320,9 +1378,281 @@
     extra.forEach(function (sub) {
       var readme = noteAt("ml/listki/" + (sub ? sub + "/" : "") + "README.md");
       var list = block(main, readme ? readme.title : (sub || "Листки"), "slate");
-      docs.filter(function (d) { return mlSub(d) === sub; })
-        .forEach(function (d) { list.appendChild(texCard(d)); });
+      mlBundles(list, docs.filter(function (d) { return mlSub(d) === sub; }));
     });
+  }
+
+  /* ── трейл ───────────────────────────────────────────────
+
+     Страница трейла — #/t/<трейл>, как treyl.html на сайте курса: пилюли
+     трейлов, метки-кнопки, задачи раскрывающимися карточками с условием,
+     формулами и пунктами. Метка — #/t/ml/pandas, задача раскрыта —
+     #/t/ml/ml17. Данные — data/treyly.json: его пишет tools/publish.py
+     из условий трейлов, а здесь он только показывается. Файлов задач
+     на витрине нет — они ссылками на сайт курса. */
+  var TRAILS = null;
+
+  function loadTrails() {
+    if (TRAILS) return Promise.resolve(TRAILS);
+    return fetch("data/treyly.json" + V)
+      .then(function (r) { return r.ok ? r.json() : Promise.reject(r.status); })
+      .then(function (d) { TRAILS = d; return d; });
+  }
+
+  function isTrail(hash) {
+    return hash.indexOf("#/t/") === 0;
+  }
+
+  /* Условие — тем же разбором, что заметки: формулы, код, таблицы. Пример
+     к программе — блоки «```ввод» и «```вывод» подряд — встаёт парой под
+     подписями, как на сайте курса. */
+  function trailMd(src, cls) {
+    var host = el("div", "tmd" + (cls ? " " + cls : ""));
+    if (!window.marked) {
+      host.appendChild(el("pre", null, src));
+      return host;
+    }
+    renderMarkdown(src, host);
+    host.querySelectorAll("pre > code.language-ввод").forEach(function (code) {
+      var first = code.closest(".pre-wrap") || code.parentNode;
+      var next = first.nextElementSibling;
+      var box = el("div", "primer");
+      first.parentNode.insertBefore(box, first);
+      var left = el("div", "primer-col");
+      left.appendChild(el("span", "primer-label", "Ввод"));
+      left.appendChild(first);
+      box.appendChild(left);
+      if (next && next.querySelector("code.language-вывод")) {
+        var right = el("div", "primer-col");
+        right.appendChild(el("span", "primer-label", "Вывод"));
+        right.appendChild(next);
+        box.appendChild(right);
+      }
+    });
+    return host;
+  }
+
+  function trailHash(t, tag) {
+    return "#/t/" + t.id + (tag ? "/" + encodeURIComponent(tag) : "");
+  }
+
+  function taskCard(t, z, kurs) {
+    var box = el("details", "group zad");
+    box.id = z.id;
+    var head = el("summary", "group-head");
+    var name = el("span", "group-title");
+    var top = el("span", "zad-top");
+    top.appendChild(el("span", "zad-id", z.id));
+    top.appendChild(el("span", null, z.title));
+    name.appendChild(top);
+    if (z.metki.length) name.appendChild(el("span", "group-sub", z.metki.join(" · ")));
+    head.appendChild(name);
+    head.appendChild(el("span", "chev"));
+    box.appendChild(head);
+
+    /* Тело рисуется при первом раскрытии: формулы трейла целиком сразу
+       не нужны. */
+    var filled = false;
+    box.fill = function () {
+      if (filled) return;
+      filled = true;
+      var body = el("div", "zad-body");
+      if (z.body) body.appendChild(trailMd(z.body));
+      if (z.chasti.length) {
+        var ol = el("ol", "punkty");
+        z.chasti.forEach(function (p) {
+          var li = el("li", "punkt");
+          li.appendChild(el("span", "punkt-bukva", p.bukva + ")"));
+          var text = trailMd(p.md, "punkt-text");
+          var code = el("code", "sdat", p.id);
+          code.title = "так этот пункт сдаётся в kontest.py";
+          var last = text.lastElementChild;
+          (last && last.tagName === "P" ? last : text).appendChild(code);
+          li.appendChild(text);
+          ol.appendChild(li);
+        });
+        body.appendChild(ol);
+      }
+      if (z.files.length) {
+        var files = el("div", "zad-files");
+        files.appendChild(el("span", "zad-files-label", "Файлы"));
+        z.files.forEach(function (f) {
+          var a = el("a", "file-pill", f);
+          if (kurs) {
+            a.href = kurs + "data/treyly/" + t.id + "/" + z.id + "/" + encodeURIComponent(f);
+            a.setAttribute("download", f);
+          }
+          files.appendChild(a);
+        });
+        body.appendChild(files);
+      }
+      box.appendChild(body);
+    };
+    box.addEventListener("toggle", function () {
+      if (box.open) box.fill();
+      remember("zad:" + z.id, box.open);
+    });
+    if (isOpen("zad:" + z.id)) { box.fill(); box.open = true; }
+    return box;
+  }
+
+  function trailAbout(list, t, kurs) {
+    var body = group(list, "treyl-o", "Как сдавать и что скачать");
+    var text = el("div", "zad-body tmd-about");
+    if (t.intro) text.appendChild(trailMd(t.intro));
+    t.razdely.forEach(function (r) {
+      text.appendChild(el("h3", "tmd-h", r.title));
+      text.appendChild(trailMd(r.md));
+    });
+    text.appendChild(el("h3", "tmd-h", "Скачать"));
+    var shelf = el("div", "tmd-rows");
+    row(shelf, pdfHref(t.path), "Условия одним файлом", { sub: "usloviya.md", color: sectionColor("ml") })
+      .setAttribute("download", "usloviya-" + t.id + ".md");
+    if (kurs) {
+      row(shelf, kurs + "data/kontest.zip", "Архив с проверкой",
+          { sub: "kontest.zip — с сайта курса", color: sectionColor("ml") });
+      row(shelf, kurs + "treyl.html#" + t.id, "Трейл на сайте курса",
+          { sub: kurs.replace(/^https?:\/\//, "") + "treyl.html", color: sectionColor("ml") });
+    }
+    text.appendChild(shelf);
+    body.appendChild(text);
+  }
+
+  function viewTrail(main, rest) {
+    main.appendChild(backButton());
+    var host = el("div");
+    main.appendChild(host);
+    var wait = el("div", "skeleton");
+    wait.appendChild(el("span", "skel-head"));
+    for (var k = 0; k < 3; k++) wait.appendChild(el("span", "skel-row"));
+    host.appendChild(wait);
+    loadTrails().then(function (data) {
+      host.innerHTML = "";
+      fillTrail(host, data, rest);
+      metals(main);
+    }).catch(function () {
+      host.innerHTML = "";
+      empty(host, "Трейлы не загрузились.");
+    });
+  }
+
+  function fillTrail(host, data, rest) {
+    var trails = data.treyly || [];
+    if (!trails.length) { empty(host, "Трейлов пока нет."); return; }
+    var parts = rest.split("/");
+    var t = trails.filter(function (x) { return x.id === parts[0]; })[0] || trails[0];
+    var more = decodeURIComponent(parts.slice(1).join("/"));
+    var task = new RegExp("^" + t.id + "\\d+$").test(more) ? more : "";
+    var known = t.metki.map(function (m) { return m.name; });
+    var tag = !task && known.indexOf(more) >= 0 ? more : null;
+
+    /* Пилюли трейлов — оглавление: картинка трейла кружком, название
+       и число задач медальоном. Выбранная — чёрная. */
+    var nav = el("nav", "toc trail-switch");
+    nav.setAttribute("aria-label", "Трейлы");
+    trails.forEach(function (x) {
+      var a = el("a", "toc-pill");
+      a.href = trailHash(x);
+      var thumb = DATA.treyly.filter(function (s) { return s.id === x.id; })[0];
+      if (thumb && thumb.thumb) {
+        var img = el("img", "pill-img");
+        img.src = thumb.thumb + V;
+        img.alt = "";
+        a.appendChild(img);
+        a.classList.add("with-img");
+      }
+      a.appendChild(el("span", null, x.title));
+      a.appendChild(el("span", "toc-n", String(x.zadachi.length)));
+      if (x.id === t.id) a.setAttribute("aria-current", "page");
+      nav.appendChild(a);
+    });
+    host.appendChild(nav);
+
+    var list = block(host, t.title, "ans", t.zadachi.length);
+    trailAbout(list, t, data.kurs);
+
+    /* Метки — кнопки, одна выбрана или ни одной; число — сколько задач
+       с меткой. «Раскрыть все» — у правого края той же строки. */
+    var tools = el("div", "trail-tools");
+    var chips = el("div", "trail-tags");
+    chips.setAttribute("role", "group");
+    chips.setAttribute("aria-label", "Метки");
+    var buttons = [];
+    function chip(label, n, value) {
+      var b = el("button", "toc-pill sm");
+      b.type = "button";
+      b.appendChild(el("span", null, label));
+      b.appendChild(el("span", "toc-n", String(n)));
+      b.addEventListener("click", function () {
+        tag = tag === value ? null : value;
+        history.replaceState(null, "", trailHash(t, tag));
+        lastHash = location.hash;
+        apply();
+      });
+      buttons.push({ b: b, value: value });
+      chips.appendChild(b);
+    }
+    chip("все", t.zadachi.length, null);
+    t.metki.forEach(function (m) { chip(m.name, m.n, m.name); });
+    tools.appendChild(chips);
+    var toggle = el("button", "toc-pill sm trail-toggle");
+    toggle.type = "button";
+    var toggleText = el("span", null, "Раскрыть все");
+    toggle.appendChild(toggleText);
+    toggle.appendChild(el("span", "chev"));
+    tools.appendChild(toggle);
+    list.appendChild(tools);
+    var opis = el("p", "tag-opis");
+    list.appendChild(opis);
+
+    var cards = t.zadachi.map(function (z) { return taskCard(t, z, data.kurs); });
+    cards.forEach(function (c) { list.appendChild(c); });
+
+    function visible() { return cards.filter(function (c) { return !c.hidden; }); }
+
+    function sync() {
+      var vis = visible();
+      var all = vis.length && vis.every(function (c) { return c.open; });
+      toggleText.textContent = all ? "Свернуть все" : "Раскрыть все";
+      toggle.setAttribute("aria-expanded", String(!!all));
+    }
+
+    function apply() {
+      buttons.forEach(function (x) { x.b.setAttribute("aria-pressed", String(tag === x.value)); });
+      var meta = t.metki.filter(function (m) { return m.name === tag; })[0];
+      opis.textContent = "";
+      if (meta) {
+        opis.appendChild(el("strong", null, meta.name));
+        opis.appendChild(document.createTextNode(" — " + meta.opis));
+      }
+      opis.hidden = !meta;
+      t.zadachi.forEach(function (z, i) {
+        cards[i].hidden = !!tag && z.metki.indexOf(tag) < 0;
+      });
+      sync();
+    }
+
+    toggle.addEventListener("click", function () {
+      var vis = visible();
+      var open = !vis.every(function (c) { return c.open; });
+      vis.forEach(function (c) {
+        if (open) c.fill();
+        c.open = open;
+        remember("zad:" + c.id, open);
+      });
+      sync();
+    });
+    list.addEventListener("toggle", sync, true);
+    apply();
+
+    if (task) {
+      var card = document.getElementById(task);
+      if (card) {
+        card.fill();
+        card.open = true;
+        setTimeout(function () { card.scrollIntoView({ block: "start" }); }, 0);
+      }
+    }
   }
 
   /* ── заметка ─────────────────────────────────────────── */
@@ -1462,6 +1792,9 @@
   }
 
   function noteHref(n) {
+    /* Условия трейла — заметка, но читают их на странице трейла. */
+    var trail = (DATA.treyly || []).filter(function (t) { return t.path === n.path; })[0];
+    if (trail) return "#/t/" + trail.id;
     if (n.fm.vid === "sait" && n.fm.ssylka) return n.fm.ssylka;
     if (n.fm.vid === "animatsiya" && n.fm.video) return n.fm.video;
     return "#/n/" + encodeURI(n.path);
@@ -1673,9 +2006,12 @@
      на медленной сети честнее показать каркас, чем держать старый экран. */
   function swap(mode) {
     var path = pendingPath();
+    /* Трейл ждёт так же, как заметка: его задачи — отдельный файл. */
     var ready = path
       ? Promise.race([loadNote(path).catch(function () {}), after(250)])
-      : Promise.resolve();
+      : (isTrail(location.hash)
+        ? Promise.race([loadTrails().catch(function () {}), after(250)])
+        : Promise.resolve());
     ready.then(function () { runSwap(mode); });
   }
 
@@ -1714,6 +2050,7 @@
     if (QUERY) return viewSearch(main);
     if (hash.indexOf("/n/") === 0) return viewNote(main, hash.slice(3));
     if (hash.indexOf("/f/") === 0) return viewFile(main, hash.slice(3));
+    if (hash.indexOf("/t/") === 0) return viewTrail(main, hash.slice(3));
 
     if (VIEW === "physics") return viewPhysics(main);
     if (VIEW === "math") return viewMath(main);
@@ -1723,7 +2060,7 @@
   }
 
   function isDetail(hash) {
-    return hash.indexOf("#/n/") === 0 || hash.indexOf("#/f/") === 0;
+    return hash.indexOf("#/n/") === 0 || hash.indexOf("#/f/") === 0 || isTrail(hash);
   }
 
   var lastHash = location.hash;
@@ -1779,7 +2116,7 @@
     document.addEventListener("pointerdown", function (e) {
       var node = e.target.closest &&
         e.target.closest(".tab, .chip, a.card, a.back, a.ext, a.row, .group-head, .toc-pill, " +
-                         "a.brand, button.copy, a.dl, a.role-main");
+                         "a.brand, button.copy, a.dl, a.role-main, a.file-pill");
       if (!node) return;
       /* Карточка роли — не ссылка целиком: в ней ссылка и кнопка. Нажатие
          на ссылку отзывается всей карточкой, как у обычной карточки. */

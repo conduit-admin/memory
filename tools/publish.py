@@ -270,6 +270,29 @@ def tex_title(path):
     return " ".join(text.split())[:80]
 
 
+def tex_vid(path):
+    """Вид листка из поля «Название» PDF: «Урок. Массивы в numpy» → «Урок».
+
+    Название на сайте берётся из титула (tex_title), а вид в титуле набран
+    отдельной меткой — \\metkaUrok, — которую разбор титула выкидывает
+    вместе с прочими командами. В \\hypersetup{pdftitle=…} они вместе:
+    до точки — вид, если это одно-три слова. Нет поля или точки — вида нет.
+    Нужен там, где у одного названия несколько файлов: урок и шпаргалка
+    к нему на вкладке «ИИ» встают одной группой и различаются видом.
+    """
+    try:
+        src = path.read_text(encoding="utf-8", errors="replace")
+    except OSError:
+        return ""
+    m = re.search(r"pdftitle=\{([^{}]*)\}", src)
+    if not m:
+        return ""
+    head, sep, _ = m.group(1).partition(". ")
+    if not sep or len(head.split()) > 3:
+        return ""
+    return head.strip()
+
+
 def tex_order(path):
     """Порядок документа в списке.
 
@@ -396,7 +419,7 @@ def tex_documents():
             day = dates.get(rel_pdf) or dates.get(rel) or ""
             if not day and pdf.exists():
                 day = datetime.fromtimestamp(pdf.stat().st_mtime).strftime("%Y-%m-%d")
-            out.append({
+            doc = {
                 "title": tex_title(tex) or tex.stem,
                 "tex": tex.name,
                 "group": group,
@@ -404,8 +427,145 @@ def tex_documents():
                 "pdf": rel_pdf if pdf.exists() else "",
                 "num": podtema(tex),
                 "date": day,
-            })
+            }
+            vid = tex_vid(tex)
+            if vid:
+                doc["vid"] = vid
+            out.append(doc)
     return out
+
+
+# ── трейлы курса по ИИ ─────────────────────────────────────────────────────
+#
+# С 2026-10-23 задачи курса — не серии листков, а трейлы: длинные списки
+# задач с метками, папка ml/kontest/<трейл>/ в knowledge. Условия трейла —
+# один markdown, usloviya.md, он и так идёт на витрину заметкой по шаблону
+# ml/**/*.md. Отсюда он ещё и разбирается на задачи: вкладка «ИИ» показывает
+# строку на трейл, а по нажатию — сам трейл, как его страница на сайте курса
+# (conduit-admin/vsosh-ii, treyl.html). Разбор — тот же, что в скрипте
+# выкладки того сайта (.claude/meta/push-vsosh-ii.py в knowledge): скрипты
+# выкладки самостоятельные, общего модуля у них нет. Сверку условий
+# с проверкой делает тот скрипт; здесь — только разбор.
+#
+# Новый трейл, задача или метка появляются сами. Файлов задач на витрине нет:
+# они ссылками на сайт курса, его адрес — поле ssylka карточки сайта. Картинка
+# трейла — oblozhka.svg в его папке, копируется в data/thumbs/treyly/.
+
+KONTEST = "ml/kontest"
+KURS_CARD = "web/projects/vsosh-ii.md"
+PUNKTY = {"а": "a", "б": "b", "в": "c", "г": "d"}
+
+
+def parse_usloviya(text, tid):
+    """Условия трейла: заголовок, вступление, разделы до задач, метки и задачи.
+    Задача — «## mat7. Название», под ним строка «Метки: …», текст и пункты
+    «**а)** …» до следующего заголовка."""
+    lines = text.replace("\r\n", "\n").split("\n")
+    blocks, cur = [], {"head": None, "lines": []}
+    for line in lines[1:]:
+        if line.startswith("## "):
+            blocks.append(cur)
+            cur = {"head": line[3:].strip(), "lines": []}
+        else:
+            cur["lines"].append(line)
+    blocks.append(cur)
+    out = {"intro": "\n".join(blocks[0]["lines"]).strip(), "razdely": [],
+           "metki": {}, "zadachi": []}
+    task_re = re.compile(r"%s(\d+)\.\s+(.+)$" % re.escape(tid))
+    for b in blocks[1:]:
+        m = task_re.fullmatch(b["head"])
+        body = "\n".join(b["lines"]).strip()
+        if not m:
+            if b["head"] == "Метки":
+                for item in re.split(r"\n(?=- )", body):
+                    mt = re.match(r"- \*\*(.+?)\*\* — (.+)$", item.strip(), re.S)
+                    if mt:
+                        out["metki"][mt.group(1)] = " ".join(mt.group(2).split())
+            elif not out["zadachi"]:
+                out["razdely"].append({"title": b["head"], "md": body})
+            continue
+        rest = list(b["lines"])
+        while rest and not rest[0].strip():
+            rest.pop(0)
+        tags = []
+        if rest and rest[0].startswith("Метки:"):
+            tags = [t.strip() for t in rest.pop(0)[len("Метки:"):].split(",") if t.strip()]
+        text_lines, parts, part, blank = [], [], None, True
+        for line in rest:
+            mp = re.match(r"\*\*([абвг])\)\*\*\s*(.*)$", line)
+            if mp and blank:
+                part = {"bukva": mp.group(1), "lines": [mp.group(2)]}
+                parts.append(part)
+            elif part is not None:
+                part["lines"].append(line)
+            else:
+                text_lines.append(line)
+            blank = not line.strip()
+        zid = "%s%s" % (tid, m.group(1))
+        out["zadachi"].append({
+            "id": zid, "title": m.group(2).strip(), "metki": tags,
+            "body": "\n".join(text_lines).strip(),
+            "chasti": [{"bukva": p["bukva"], "id": zid + PUNKTY[p["bukva"]],
+                        "md": "\n".join(p["lines"]).strip()} for p in parts]})
+    return out
+
+
+def treyly(seen):
+    """Трейлы: сводка для индекса и полный разбор в data/treyly.json.
+
+    Трейл — папка ml/kontest/<трейл>/ с zadachi.json, где есть поле «treyl»,
+    и usloviya.md, который ушёл на витрину. Не ушёл — трейла на витрине нет:
+    белый список решает и здесь."""
+    root = KNOWLEDGE / KONTEST
+    card = KNOWLEDGE / KURS_CARD
+    kurs = ""
+    if card.is_file():
+        kurs = parse_frontmatter(card.read_text(encoding="utf-8"))[0].get("ssylka", "")
+    pics = THUMBS / "treyly"
+    found, full = [], []
+    for p in sorted(root.iterdir()) if root.is_dir() else []:
+        cfg_path, md = p / "zadachi.json", p / "usloviya.md"
+        if not (p.is_dir() and cfg_path.is_file() and md.is_file()):
+            continue
+        cfg = json.loads(cfg_path.read_text(encoding="utf-8"))
+        rel = md.relative_to(KNOWLEDGE).as_posix()
+        if "treyl" not in cfg or rel not in seen:
+            continue
+        tid = cfg["treyl"]
+        u = parse_usloviya(md.read_text(encoding="utf-8"), tid)
+        used = {}
+        for z in u["zadachi"]:
+            for m in z["metki"]:
+                used[m] = used.get(m, 0) + 1
+            c = cfg["zadachi"].get(z["id"][len(tid):], {})
+            z["forma"] = c.get("tip", "otvet")
+            ddir = p / "dannye" / z["id"]
+            z["files"] = sorted(f.name for f in ddir.iterdir() if f.is_file()) \
+                if ddir.is_dir() else []
+        metki = [{"name": m, "opis": opis, "n": used[m]}
+                 for m, opis in u["metki"].items() if m in used]
+        entry = {"id": tid, "title": cfg["nazvanie"], "path": rel,
+                 "date": file_date(rel, md), "n": len(u["zadachi"]),
+                 "metki": [m["name"] for m in metki]}
+        pic = p / "oblozhka.svg"
+        if pic.is_file():
+            pics.mkdir(parents=True, exist_ok=True)
+            shutil.copyfile(pic, pics / ("%s.svg" % tid))
+            entry["thumb"] = (pics / ("%s.svg" % tid)).relative_to(HERE).as_posix()
+        found.append((cfg.get("poryadok", 99), entry,
+                      dict(entry, intro=u["intro"], razdely=u["razdely"], metki=metki,
+                           zadachi=u["zadachi"])))
+    found.sort(key=lambda x: (x[0], x[1]["id"]))
+    keep = {"%s.svg" % e["id"] for _, e, _ in found}
+    if pics.exists():
+        for old in pics.glob("*.svg"):
+            if old.name not in keep:
+                old.unlink()
+    (HERE / "data" / "treyly.json").write_text(
+        json.dumps({"kurs": kurs, "treyly": [f for _, _, f in found]},
+                   ensure_ascii=False, indent=1),
+        encoding="utf-8", newline="\n")
+    return [e for _, e, _ in found]
 
 
 THUMBS = HERE / "data" / "thumbs"
@@ -653,10 +813,11 @@ def main():
     notes, files, seen = collect()
     tex = tex_documents()
     make_thumbs(tex, files)
+    trails = treyly(seen)
     build = datetime.now().strftime("%Y%m%d%H%M")
 
     (HERE / "data" / "index.json").write_text(
-        json.dumps({"notes": notes, "files": files, "tex": tex},
+        json.dumps({"notes": notes, "files": files, "tex": tex, "treyly": trails},
                    ensure_ascii=False, indent=1),
         encoding="utf-8", newline="\n")
 
@@ -676,8 +837,8 @@ def main():
     stamp_html(build)
 
     linked = sum(len(n["links"]) for n in notes)
-    print("сборка %s: заметок %d, PDF %d, конспектов TeX %d, вики-ссылок %d"
-          % (build, len(notes), len(files), len(tex), linked))
+    print("сборка %s: заметок %d, PDF %d, конспектов TeX %d, трейлов %d, вики-ссылок %d"
+          % (build, len(notes), len(files), len(tex), len(trails), linked))
     if notes and not linked:
         print("связей между заметками нет — обратные ссылки будут пустыми")
 

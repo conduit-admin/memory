@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <!-- Трейл «ML»: матрица ошибок клетками — диагональ густым фиолетовым,
+       ошибки бледнее, две заметные. Таблица и массив разом. Бледно-
+       персиковый круг в два тона — как обложки листков теории. -->
+  <circle cx="50" cy="50" r="50" fill="#FCEFE4"/>
+  <circle cx="50" cy="50" r="42" fill="#F7DFCB"/>
+  <g>
+    <rect x="21.5" y="21.5" width="12" height="12" rx="2.6" fill="#7A45D1"/>
+    <rect x="36.5" y="21.5" width="12" height="12" rx="2.6" fill="#CDBDF2"/>
+    <rect x="51.5" y="21.5" width="12" height="12" rx="2.6" fill="#E9E1FA"/>
+    <rect x="66.5" y="21.5" width="12" height="12" rx="2.6" fill="#E9E1FA"/>
+
+    <rect x="21.5" y="36.5" width="12" height="12" rx="2.6" fill="#CDBDF2"/>
+    <rect x="36.5" y="36.5" width="12" height="12" rx="2.6" fill="#7A45D1"/>
+    <rect x="51.5" y="36.5" width="12" height="12" rx="2.6" fill="#A98AE6"/>
+    <rect x="66.5" y="36.5" width="12" height="12" rx="2.6" fill="#E9E1FA"/>
+
+    <rect x="21.5" y="51.5" width="12" height="12" rx="2.6" fill="#E9E1FA"/>
+    <rect x="36.5" y="51.5" width="12" height="12" rx="2.6" fill="#E9E1FA"/>
+    <rect x="51.5" y="51.5" width="12" height="12" rx="2.6" fill="#7A45D1"/>
+    <rect x="66.5" y="51.5" width="12" height="12" rx="2.6" fill="#CDBDF2"/>
+
+    <rect x="21.5" y="66.5" width="12" height="12" rx="2.6" fill="#E9E1FA"/>
+    <rect x="36.5" y="66.5" width="12" height="12" rx="2.6" fill="#A98AE6"/>
+    <rect x="51.5" y="66.5" width="12" height="12" rx="2.6" fill="#CDBDF2"/>
+    <rect x="66.5" y="66.5" width="12" height="12" rx="2.6" fill="#7A45D1"/>
+  </g>
+</svg>

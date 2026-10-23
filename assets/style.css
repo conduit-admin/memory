@@ -1411,6 +1411,166 @@ body {
   color: var(--ink);
 }
 
+/* ── трейл курса по ИИ ─────────────────────────────────── */
+
+/* Страница трейла, #/t/<трейл>, — тот же вид, что treyl.html на сайте
+   курса (conduit-admin/vsosh-ii), собранный из деталей витрины: пилюли
+   оглавления, раскрывающиеся группы, разбор markdown заметок.
+
+   Пилюли трейлов — оглавление с картинкой трейла кружком в начале,
+   как аватар. Выбранная пилюля — чёрная, и медальон числа в ней
+   белеет: чёрный на чёрном пропал бы. Метки — те же пилюли мельче. */
+.toc-pill[aria-current="page"],
+.toc-pill[aria-pressed="true"] { background: var(--black); color: #FFFFFF; }
+
+.toc-pill[aria-current="page"] .toc-n,
+.toc-pill[aria-pressed="true"] .toc-n { background: #FFFFFF; color: var(--black); }
+
+.toc-pill.with-img { padding-left: 5px; gap: 9px; }
+
+.pill-img {
+  display: block;
+  flex: none;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+}
+
+.toc-pill.sm { min-height: 40px; padding: 0 12px 0 14px; font-size: 15px; }
+.toc-pill.sm .toc-n { min-width: 22px; height: 22px; padding: 0 6px; font-size: 12.5px; }
+
+/* Метки и «Раскрыть все» — одной строкой: метки слева, кнопка у правого
+   края; не хватает места — кнопка уходит под метки, тоже вправо. */
+.trail-tools {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 8px;
+}
+
+.trail-tags { display: flex; flex-wrap: wrap; gap: 8px; flex: 1 1 340px; }
+.trail-toggle { flex: none; margin-left: auto; gap: 9px; padding-right: 15px; }
+.trail-toggle .chev { margin: 0 1px 4px 0; border-color: currentColor; }
+.trail-toggle[aria-expanded="true"] .chev { transform: translateY(3px) rotate(225deg); }
+
+/* Что значит выбранная метка — строкой на белой подложке: текст прямо
+   на муаре читается хуже. */
+.tag-opis {
+  margin: 0;
+  padding: 9px 14px;
+  border-radius: var(--radius-sm);
+  background: rgba(255, 255, 255, 0.92);
+  color: var(--ink-muted);
+  font-size: 15.5px;
+}
+
+.tag-opis strong { color: var(--black); font-weight: 600; }
+.tag-opis[hidden], .zad[hidden] { display: none; }
+
+/* Задача — раскрывающаяся группа: в шапке номер серым, им задача
+   сдаётся, название и метки второй строкой. */
+.zad-top { display: flex; align-items: baseline; gap: 10px; min-width: 0; }
+
+.zad-id {
+  flex: none;
+  min-width: 2.9em;
+  color: var(--ink-muted);
+  font-size: 15.5px;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+.zad .group-sub { font-size: 14px; }
+
+.zad-body {
+  margin: 0 8px;
+  padding: 8px 8px 16px;
+  border-top: 1px solid var(--quiet-on);
+}
+
+.tmd-about { border-top: 0; padding: 4px 4px 10px; margin: 0; }
+.tmd-h { margin: 18px 0 6px; color: var(--black); font-size: 18px; font-weight: 700; }
+.tmd-rows { display: grid; gap: 1px; margin: 0 -8px; }
+
+/* Текст условия — как в заметке, на кегль мельче: карточек на экране много. */
+.tmd p, .tmd li { font-size: 16.5px; line-height: 1.55; }
+.tmd > :first-child { margin-top: 0; }
+.tmd > :last-child { margin-bottom: 0; }
+.tmd ul, .tmd ol { padding-left: 22px; }
+.tmd li { margin: 4px 0; }
+.tmd a { color: inherit; text-decoration-color: var(--border-strong); }
+
+.tmd code {
+  padding: 1px 5px;
+  border-radius: 6px;
+  background: var(--quiet);
+  font-family: var(--font-mono);
+  font-size: 0.9em;
+}
+
+.tmd pre {
+  margin: 0;
+  padding: 11px 14px;
+  border-radius: var(--radius-sm);
+  background: var(--quiet);
+  overflow-x: auto;
+  font-size: 14.5px;
+  line-height: 1.5;
+}
+
+.tmd pre code { padding: 0; background: none; font-size: inherit; }
+.tmd .pre-wrap { margin: 10px 0; }
+.tmd .pre-wrap > .copy { min-height: 34px; padding: 0 12px; font-size: 14px; }
+
+.tmd table { border-collapse: collapse; font-size: 15.5px; font-variant-numeric: tabular-nums; }
+.tmd th, .tmd td { padding: 4px 10px; border-bottom: 1px solid var(--border-strong); text-align: left; white-space: nowrap; }
+.tmd th { border-bottom: 2px solid var(--black); font-weight: 600; }
+.tmd .scroll-x { overflow-x: auto; margin: 10px 0; }
+.tmd .katex { font-size: 1.08em; }
+.tmd .katex-display { margin: 10px 0; padding: 2px 0; overflow-x: auto; overflow-y: hidden; }
+
+/* Пример к программе — ввод и вывод рядом. Подпись встаёт в одну строку
+   с «Копировать» над блоком: кнопка справа, подпись слева. */
+.primer {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  margin: 10px 0;
+}
+
+.primer-col { position: relative; min-width: 0; }
+.primer-label { position: absolute; top: 8px; left: 2px; color: var(--ink-muted); font-size: 14px; font-weight: 600; }
+.primer .pre-wrap { margin: 0; }
+
+/* Пункты — «а)» отдельной колонкой, текст рядом, в конце — серый код
+   пункта, ровно так, как его набирать в kontest.py. */
+.punkty { display: grid; gap: 6px; margin: 10px 0 0; padding: 0; list-style: none; }
+.punkt { display: grid; grid-template-columns: 1.9em minmax(0, 1fr); align-items: baseline; }
+.punkt-bukva { font-weight: 700; }
+.tmd code.sdat { margin-left: 6px; color: var(--ink-muted); font-size: 0.82em; white-space: nowrap; }
+
+/* Файлы задачи — пилюли со скачиванием с сайта курса. */
+.zad-files { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-top: 14px; }
+.zad-files-label { margin-right: 2px; color: var(--ink-muted); font-size: 15px; }
+
+.file-pill {
+  display: inline-flex;
+  align-items: center;
+  min-height: 40px;
+  padding: 0 13px;
+  border: var(--frame-sm);
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--black);
+  font-size: 15px;
+  font-weight: 500;
+  text-decoration: none;
+  overflow-wrap: anywhere;
+}
+
+.file-pill:hover { background: var(--soft); }
+.file-pill:focus-visible { outline: 2px solid var(--black); outline-offset: 2px; }
+
 /* ── движение ──────────────────────────────────────────── */
 
 /* Смена экрана. Содержимое уходит и приходит целиком, одним слоем: и уход, и
