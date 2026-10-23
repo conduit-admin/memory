@@ -70,9 +70,23 @@
    "links": []
   },
   {
+   "path": "ml/kontest/mat/usloviya.md",
+   "folder": "ml/kontest/mat",
+   "title": "Трейл «Математика»",
+   "fm": {},
+   "links": []
+  },
+  {
+   "path": "ml/kontest/ml/usloviya.md",
+   "folder": "ml/kontest/ml",
+   "title": "Трейл «ML»",
+   "fm": {},
+   "links": []
+  },
+  {
    "path": "ml/kontest/README.md",
    "folder": "ml/kontest",
-   "title": "Контест: проверка серий по ИИ",
+   "title": "Контест: проверка задач по ИИ",
    "fm": {},
    "links": []
   },
@@ -609,7 +623,7 @@
     "repo": "conduit-admin/vsosh-ii",
     "ssylka": "https://conduit-admin.github.io/vsosh-ii/",
     "znachok": "assets/web/vsosh-ii.svg",
-    "kratko": "серии задач к ВсОШ по ИИ и проверка к ним"
+    "kratko": "задачи к ВсОШ по ИИ трейлами, теория и проверка к ним"
    },
    "links": [
     "bumaga"
@@ -916,7 +930,7 @@
     "kratko": "теория и мои решения по курсу ВсОШ по ИИ; подсказок нет"
    },
    "links": [],
-   "prompt": "Ты — учитель по ML в курсе подготовки к ВсОШ по ИИ. С тобой я разбираю\nто, что непонятно в теории, и свои решения задач курса.\n\nНачни с того, что я принёс: открой серию в ml/listki/serii/ и листок\nтеории к ней в ml/listki/teoriya/. Как сдаются задачи и что значит\nбалл — ml/kontest/README.md, мои баллы — ml/kontest/seriya-NN/rezultaty.json.\n\n- Задачи курса я решаю сам. Ни подсказок, ни метода, ни оценки сложности,\n  пока не попрошу. Попросил идею — одна фраза, схему — схема без выкладок.\n- Моё решение проверяй придирчиво: в выкладках — знаки, предельные случаи,\n  неявные допущения; в коде — граничные случаи, утечки, подгонку\n  под публичную часть.\n- Письменное решение оценивай так, как оценит жюри: что сформулировано,\n  что доказано, что использовано без доказательства, — и сколько это\n  стоило бы по критериям.\n- Объясняя теорию, не пропускай математику под капотом и говори, где\n  метод ломается.\n- Ответы и эталоны серии лежат в .claude/kurs/serii/seriya-NN/. Открывай\n  их только по задаче, которую я уже сдавал и про которую попросил разбор.\n- Остальное в .claude/kurs/ — план, банки задач, статистика, материалы\n  чужих курсов — не читай: это работа составителя, тебе она только помешает.\n- Нашёл ошибку в серии или неясное место в листке — скажи мне, правит\n  составитель."
+   "prompt": "Ты — учитель по ML в курсе подготовки к ВсОШ по ИИ. С тобой я разбираю\nто, что непонятно в теории, и свои решения задач курса.\n\nНачни с того, что я принёс: открой задачу в условиях её трейла —\nml/kontest/mat/usloviya.md или ml/kontest/ml/usloviya.md, номер вида\nmat7 или ml17 — и листок теории к ней в ml/listki/teoriya/. Как\nсдаются задачи и что значит балл — ml/kontest/README.md, мои баллы —\nml/kontest/<трейл>/rezultaty.json.\n\n- Задачи курса я решаю сам. Ни подсказок, ни метода, ни оценки сложности,\n  пока не попрошу. Попросил идею — одна фраза, схему — схема без выкладок.\n- Моё решение проверяй придирчиво: в выкладках — знаки, предельные случаи,\n  неявные допущения; в коде — граничные случаи, утечки, подгонку\n  под публичную часть.\n- Письменное решение оценивай так, как оценит жюри: что сформулировано,\n  что доказано, что использовано без доказательства, — и сколько это\n  стоило бы по критериям.\n- Объясняя теорию, не пропускай математику под капотом и говори, где\n  метод ломается.\n- Ответы и эталоны задач лежат в .claude/kurs/serii/seriya-NN/otvety.md,\n  в заголовке — номер задачи в трейле. Открывай их только по задаче,\n  которую я уже сдавал и про которую попросил разбор.\n- Остальное в .claude/kurs/ — план, банки задач, статистика, материалы\n  чужих курсов — не читай: это работа составителя, тебе она только помешает.\n- Нашёл ошибку в задаче или неясное место в листке — скажи мне, правит\n  составитель."
   }
  ],
  "files": [
@@ -1195,52 +1209,42 @@
    "date": "2026-09-13"
   },
   {
-   "path": "ml/listki/serii/seriya-01.pdf",
-   "folder": "ml/listki/serii",
-   "title": "seriya-01",
+   "path": "ml/listki/teoriya/massivy-shpargalka.pdf",
+   "folder": "ml/listki/teoriya",
+   "title": "massivy-shpargalka",
    "kind": "pdf",
    "pages": 10,
-   "size": 312800,
-   "date": "2026-10-20",
-   "thumb": "data/thumbs/ml/listki/serii/seriya-01.png"
-  },
-  {
-   "path": "ml/listki/serii/seriya-02.pdf",
-   "folder": "ml/listki/serii",
-   "title": "seriya-02",
-   "kind": "pdf",
-   "pages": 9,
-   "size": 239551,
+   "size": 231472,
    "date": "2026-10-23",
-   "thumb": "data/thumbs/ml/listki/serii/seriya-02.png"
-  },
-  {
-   "path": "ml/listki/serii/seriya-03.pdf",
-   "folder": "ml/listki/serii",
-   "title": "seriya-03",
-   "kind": "pdf",
-   "pages": 7,
-   "size": 233527,
-   "date": "2026-10-23",
-   "thumb": "data/thumbs/ml/listki/serii/seriya-03.png"
+   "thumb": "data/thumbs/ml/listki/teoriya/massivy-shpargalka.png"
   },
   {
    "path": "ml/listki/teoriya/massivy.pdf",
    "folder": "ml/listki/teoriya",
    "title": "massivy",
    "kind": "pdf",
-   "pages": 13,
-   "size": 239618,
+   "pages": 29,
+   "size": 334385,
    "date": "2026-10-23",
    "thumb": "data/thumbs/ml/listki/teoriya/massivy.png"
+  },
+  {
+   "path": "ml/listki/teoriya/tablicy-shpargalka.pdf",
+   "folder": "ml/listki/teoriya",
+   "title": "tablicy-shpargalka",
+   "kind": "pdf",
+   "pages": 12,
+   "size": 234776,
+   "date": "2026-10-23",
+   "thumb": "data/thumbs/ml/listki/teoriya/tablicy-shpargalka.png"
   },
   {
    "path": "ml/listki/teoriya/tablicy.pdf",
    "folder": "ml/listki/teoriya",
    "title": "tablicy",
    "kind": "pdf",
-   "pages": 15,
-   "size": 262117,
+   "pages": 27,
+   "size": 313617,
    "date": "2026-10-23",
    "thumb": "data/thumbs/ml/listki/teoriya/tablicy.png"
   },
@@ -1968,33 +1972,6 @@
    "thumb": "data/thumbs/physics/listki/teoriya/zakony-sohraneniya-teoriya.png"
   },
   {
-   "title": "Школьный этап",
-   "tex": "seriya-01.tex",
-   "group": "ml/listki/serii",
-   "pdf": "ml/listki/serii/seriya-01.pdf",
-   "num": "",
-   "date": "2026-10-20",
-   "thumb": "data/thumbs/ml/listki/serii/seriya-01.png"
-  },
-  {
-   "title": "Таблицы",
-   "tex": "seriya-02.tex",
-   "group": "ml/listki/serii",
-   "pdf": "ml/listki/serii/seriya-02.pdf",
-   "num": "",
-   "date": "2026-10-23",
-   "thumb": "data/thumbs/ml/listki/serii/seriya-02.png"
-  },
-  {
-   "title": "Массивы",
-   "tex": "seriya-03.tex",
-   "group": "ml/listki/serii",
-   "pdf": "ml/listki/serii/seriya-03.pdf",
-   "num": "",
-   "date": "2026-10-23",
-   "thumb": "data/thumbs/ml/listki/serii/seriya-03.png"
-  },
-  {
    "title": "Массивы в numpy",
    "tex": "massivy.tex",
    "group": "ml/listki/teoriya",
@@ -2004,6 +1981,15 @@
    "thumb": "data/thumbs/ml/listki/teoriya/massivy.png"
   },
   {
+   "title": "Массивы в numpy",
+   "tex": "massivy-shpargalka.tex",
+   "group": "ml/listki/teoriya",
+   "pdf": "ml/listki/teoriya/massivy-shpargalka.pdf",
+   "num": "",
+   "date": "2026-10-23",
+   "thumb": "data/thumbs/ml/listki/teoriya/massivy-shpargalka.png"
+  },
+  {
    "title": "Таблицы в pandas",
    "tex": "tablicy.tex",
    "group": "ml/listki/teoriya",
@@ -2011,6 +1997,15 @@
    "num": "",
    "date": "2026-10-23",
    "thumb": "data/thumbs/ml/listki/teoriya/tablicy.png"
+  },
+  {
+   "title": "Таблицы в pandas",
+   "tex": "tablicy-shpargalka.tex",
+   "group": "ml/listki/teoriya",
+   "pdf": "ml/listki/teoriya/tablicy-shpargalka.pdf",
+   "num": "",
+   "date": "2026-10-23",
+   "thumb": "data/thumbs/ml/listki/teoriya/tablicy-shpargalka.png"
   }
  ]
 }

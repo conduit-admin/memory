@@ -57,14 +57,17 @@ Desktop/kurs-materialy/; открывай по ссылке из карточк�
 ## Что читать
 
 - `.claude/kurs/README.md` — вход: решения по курсу, «Где что лежит»,
-  устройство серий и проверки, что ещё не собрано.
+  устройство трейлов и проверки, что ещё не собрано.
 - Банки задач `.claude/kurs/zadachi-*.md`, `tbank.md` (что в курсе Т-Банка),
   `statistika-vsosh.md` (что решают на РЭ и ЗЭ) — по ним строится план.
 - `ml/vsosh-ii-format.md` — формат этапов; `ml/vsosh-ii-istochniki.md` —
   откуда что взято и лицензии.
-- Образец готовой работы — серия 1: `ml/listki/serii/`, `ml/kontest/`,
-  `.claude/kurs/serii/seriya-01/`. Вёрстка листков — `ml/preamble-listok.tex`
-  и `tex/styles/cvetnoy.md`; сайт курса — `web/projects/vsosh-ii.md`.
+- Образец готовой работы — задачи серии 1, теперь в трейлах:
+  условия `ml/kontest/<трейл>/usloviya.md`, проверка `ml/kontest/`,
+  генератор `.claude/kurs/serii/seriya-01/`; как устроены трейлы —
+  `.claude/kurs/README.md`, «Трейлы». Вёрстка листков —
+  `ml/preamble-listok.tex` и `tex/styles/cvetnoy.md`; сайт курса —
+  `web/projects/vsosh-ii.md`.
 
 ## Что не читать
 
