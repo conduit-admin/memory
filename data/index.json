@@ -364,6 +364,17 @@
    ]
   },
   {
+   "path": "manim/kanal/zadachi-kruzhka.md",
+   "folder": "manim/kanal",
+   "title": "Задачи кружка для роликов",
+   "fm": {
+    "type": "plan"
+   },
+   "links": [
+    "idei"
+   ]
+  },
+  {
    "path": "manim/kanal/zvuk/README.md",
    "folder": "manim/kanal/zvuk",
    "title": "Звук кодом",
