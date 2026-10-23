@@ -1,5 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
-<line x1="8" y1="66" x2="92" y2="34" stroke="#141118" stroke-width="6" stroke-linecap="round"/>
-<g fill="#141118"><circle cx="16" cy="40" r="8"/><circle cx="52" cy="32" r="8"/><circle cx="66" cy="16" r="8"/></g>
-<g fill="#7A45D1"><circle cx="34" cy="26" r="8"/><circle cx="32" cy="72" r="8"/><circle cx="48" cy="86" r="8"/><circle cx="68" cy="62" r="8"/><circle cx="84" cy="76" r="8"/></g>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="5 5 90 90">
+<rect x="7" y="7" width="86" height="86" rx="16" fill="#fff" stroke="#141118" stroke-width="3.2"/>
+<g fill="#141118"><rect x="21.5" y="27" width="5" height="46"/><rect x="47.5" y="27" width="5" height="46"/><rect x="73.5" y="27" width="5" height="46"/><rect x="17.5" y="27" width="13" height="2.6"/><rect x="17.5" y="70.4" width="13" height="2.6"/><rect x="43.5" y="27" width="13" height="2.6"/><rect x="43.5" y="70.4" width="13" height="2.6"/><rect x="69.5" y="27" width="13" height="2.6"/><rect x="69.5" y="70.4" width="13" height="2.6"/><polygon points="21.5,73 36,73 52.5,27 38,27"/></g>
+<polygon points="47.5,73 62,73 78.5,27 64,27" fill="#7A45D1"/>
 </svg>
