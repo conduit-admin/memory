@@ -84,6 +84,13 @@
    "links": []
   },
   {
+   "path": "ml/kontest/prog/usloviya.md",
+   "folder": "ml/kontest/prog",
+   "title": "Задачник «Программы»",
+   "fm": {},
+   "links": []
+  },
+  {
    "path": "ml/kontest/README.md",
    "folder": "ml/kontest",
    "title": "Контест: проверка задач по ИИ",
@@ -2090,6 +2097,18 @@
     "без циклов"
    ],
    "thumb": "data/thumbs/treyly/ml.svg"
+  },
+  {
+   "id": "prog",
+   "title": "Программы",
+   "path": "ml/kontest/prog/usloviya.md",
+   "date": "2026-10-23",
+   "n": 12,
+   "metki": [
+    "ряд",
+    "метрики"
+   ],
+   "thumb": "data/thumbs/treyly/prog.svg"
   }
  ]
 }
