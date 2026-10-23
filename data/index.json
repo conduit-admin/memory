@@ -1378,6 +1378,16 @@
    "thumb": "data/thumbs/tutoring/listki/diagnostika-fizika-10.png"
   },
   {
+   "path": "tutoring/listki/diagnostika-oge-9.pdf",
+   "folder": "tutoring/listki",
+   "title": "diagnostika-oge-9",
+   "kind": "pdf",
+   "pages": 5,
+   "size": 153794,
+   "date": "2026-10-23",
+   "thumb": "data/thumbs/tutoring/listki/diagnostika-oge-9.png"
+  },
+  {
    "path": "tutoring/listki/kinematika-razbor.pdf",
    "folder": "tutoring/listki",
    "title": "kinematika-razbor",
@@ -1683,6 +1693,15 @@
    "num": "",
    "date": "2026-10-15",
    "thumb": "data/thumbs/tutoring/listki/diagnostika-fizika-10-razbor.png"
+  },
+  {
+   "title": "ОГЭ по математике",
+   "tex": "diagnostika-oge-9.tex",
+   "group": "tutoring",
+   "pdf": "tutoring/listki/diagnostika-oge-9.pdf",
+   "num": "",
+   "date": "2026-10-23",
+   "thumb": "data/thumbs/tutoring/listki/diagnostika-oge-9.png"
   },
   {
    "title": "Бросок и окружность",
