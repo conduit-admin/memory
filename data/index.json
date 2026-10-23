@@ -1205,14 +1205,24 @@
    "thumb": "data/thumbs/ml/listki/serii/seriya-01.png"
   },
   {
-   "path": "ml/listki/teoriya/csv.pdf",
-   "folder": "ml/listki/teoriya",
-   "title": "csv",
+   "path": "ml/listki/serii/seriya-02.pdf",
+   "folder": "ml/listki/serii",
+   "title": "seriya-02",
    "kind": "pdf",
-   "pages": 26,
-   "size": 310266,
-   "date": "2026-10-22",
-   "thumb": "data/thumbs/ml/listki/teoriya/csv.png"
+   "pages": 9,
+   "size": 239551,
+   "date": "2026-10-23",
+   "thumb": "data/thumbs/ml/listki/serii/seriya-02.png"
+  },
+  {
+   "path": "ml/listki/teoriya/tablicy.pdf",
+   "folder": "ml/listki/teoriya",
+   "title": "tablicy",
+   "kind": "pdf",
+   "pages": 15,
+   "size": 262117,
+   "date": "2026-10-23",
+   "thumb": "data/thumbs/ml/listki/teoriya/tablicy.png"
   },
   {
    "path": "tex/documents/cursor.pdf",
@@ -1947,13 +1957,22 @@
    "thumb": "data/thumbs/ml/listki/serii/seriya-01.png"
   },
   {
-   "title": "Файлы CSV",
-   "tex": "csv.tex",
-   "group": "ml/listki/teoriya",
-   "pdf": "ml/listki/teoriya/csv.pdf",
+   "title": "Таблицы",
+   "tex": "seriya-02.tex",
+   "group": "ml/listki/serii",
+   "pdf": "ml/listki/serii/seriya-02.pdf",
    "num": "",
-   "date": "2026-10-22",
-   "thumb": "data/thumbs/ml/listki/teoriya/csv.png"
+   "date": "2026-10-23",
+   "thumb": "data/thumbs/ml/listki/serii/seriya-02.png"
+  },
+  {
+   "title": "Таблицы в pandas",
+   "tex": "tablicy.tex",
+   "group": "ml/listki/teoriya",
+   "pdf": "ml/listki/teoriya/tablicy.pdf",
+   "num": "",
+   "date": "2026-10-23",
+   "thumb": "data/thumbs/ml/listki/teoriya/tablicy.png"
   }
  ]
 }
