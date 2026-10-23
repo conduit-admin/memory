@@ -1519,6 +1519,15 @@
   }
 
   function viewTrail(main, rest) {
+    /* Трейл — часть вкладки «ИИ»: пришли по ссылке — подсвечена она,
+       и «Назад» ведёт к ней, а не на первую вкладку. */
+    if (VIEW !== "ml") {
+      VIEW = "ml";
+      document.querySelectorAll(".tab").forEach(function (b) {
+        b.setAttribute("aria-selected", String(b.dataset.view === "ml"));
+      });
+      moveThumb();
+    }
     main.appendChild(backButton());
     var host = el("div");
     main.appendChild(host);
@@ -1623,7 +1632,11 @@
       opis.textContent = "";
       if (meta) {
         opis.appendChild(el("strong", null, meta.name));
-        opis.appendChild(document.createTextNode(" — " + meta.opis));
+        /* Описание — строка markdown: в нём бывает код, `.npz`, `for`. */
+        var rest = el("span");
+        if (window.marked) renderInline(" — " + meta.opis, rest);
+        else rest.textContent = " — " + meta.opis;
+        opis.appendChild(rest);
       }
       opis.hidden = !meta;
       t.zadachi.forEach(function (z, i) {

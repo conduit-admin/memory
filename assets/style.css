@@ -1426,6 +1426,7 @@ body {
 .toc-pill[aria-current="page"] .toc-n,
 .toc-pill[aria-pressed="true"] .toc-n { background: #FFFFFF; color: var(--black); }
 
+a.toc-pill { text-decoration: none; }
 .toc-pill.with-img { padding-left: 5px; gap: 9px; }
 
 .pill-img {
@@ -1465,7 +1466,18 @@ body {
 }
 
 .tag-opis strong { color: var(--black); font-weight: 600; }
+
+.tag-opis code {
+  padding: 1px 5px;
+  border-radius: 6px;
+  background: var(--quiet);
+  font-family: var(--font-mono);
+  font-size: 0.9em;
+}
 .tag-opis[hidden], .zad[hidden] { display: none; }
+
+/* Задача по ссылке #/t/ml/ml17 встаёт под полосу вкладок, а не под неё. */
+.zad { scroll-margin-top: 72px; }
 
 /* Задача — раскрывающаяся группа: в шапке номер серым, им задача
    сдаётся, название и метки второй строкой. */
