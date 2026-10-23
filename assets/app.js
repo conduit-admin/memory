@@ -1283,9 +1283,9 @@
   /* ── вкладка «ИИ» ────────────────────────────────────── */
 
   /* Курс подготовки к ВсОШ по ИИ — тот же вид, что на его сайте
-     (conduit-admin/vsosh-ii): наверху трейлы задач, ниже листки теории.
-     С 2026-10-23 задачи живут не сериями, а трейлами — длинными списками
-     с метками; серий больше нет, и их блок снят. Трейлы — из ml/kontest/,
+     (conduit-admin/vsosh-ii): наверху задачники, ниже листки теории.
+     С 2026-10-23 задачи живут не сериями, а задачниками — длинными списками
+     с метками; серий больше нет, и их блок снят. Задачники — из ml/kontest/,
      их разбирает tools/publish.py: сводка — в индексе, задачи — в
      data/treyly.json. Листки — из ml/listki/, блоками по подпапкам:
      «Теория» идёт первой и со своим названием, любая новая подпапка
@@ -1342,13 +1342,13 @@
     });
   }
 
-  /* Трейл на вкладке — строка: картинка трейла, название, число задач
-     и метки. Нажатие открывает сам трейл здесь же, #/t/<трейл>. */
+  /* Задачник на вкладке — строка: картинка задачника, название, число задач
+     и метки. Нажатие открывает сам задачник здесь же, #/t/<задачник>. */
   function mlTrails(main) {
     var trails = DATA.treyly || [];
     if (!trails.length) return;
     var total = trails.reduce(function (n, t) { return n + t.n; }, 0);
-    var body = panel(block(main, "Трейлы", "ans", total));
+    var body = panel(block(main, "Задачники", "ans", total));
     trails.forEach(function (t) {
       row(body, "#/t/" + t.id, t.title, {
         sub: t.n + " " + plural(t.n, "задача", "задачи", "задач") +
@@ -1382,13 +1382,13 @@
     });
   }
 
-  /* ── трейл ───────────────────────────────────────────────
+  /* ── задачник ───────────────────────────────────────────────
 
-     Страница трейла — #/t/<трейл>, как treyl.html на сайте курса: пилюли
-     трейлов, метки-кнопки, задачи раскрывающимися карточками с условием,
+     Страница задачника — #/t/<задачник>, как treyl.html на сайте курса: пилюли
+     задачников, метки-кнопки, задачи раскрывающимися карточками с условием,
      формулами и пунктами. Метка — #/t/ml/pandas, задача раскрыта —
      #/t/ml/ml17. Данные — data/treyly.json: его пишет tools/publish.py
-     из условий трейлов, а здесь он только показывается. Файлов задач
+     из условий задачников, а здесь он только показывается. Файлов задач
      на витрине нет — они ссылками на сайт курса. */
   var TRAILS = null;
 
@@ -1450,7 +1450,7 @@
     head.appendChild(el("span", "chev"));
     box.appendChild(head);
 
-    /* Тело рисуется при первом раскрытии: формулы трейла целиком сразу
+    /* Тело рисуется при первом раскрытии: формулы задачника целиком сразу
        не нужны. */
     var filled = false;
     box.fill = function () {
@@ -1511,7 +1511,7 @@
     if (kurs) {
       row(shelf, kurs + "data/kontest.zip", "Архив с проверкой",
           { sub: "kontest.zip — с сайта курса", color: sectionColor("ml") });
-      row(shelf, kurs + "treyl.html#" + t.id, "Трейл на сайте курса",
+      row(shelf, kurs + "treyl.html#" + t.id, "Задачник на сайте курса",
           { sub: kurs.replace(/^https?:\/\//, "") + "treyl.html", color: sectionColor("ml") });
     }
     text.appendChild(shelf);
@@ -1519,7 +1519,7 @@
   }
 
   function viewTrail(main, rest) {
-    /* Трейл — часть вкладки «ИИ»: пришли по ссылке — подсвечена она,
+    /* Задачник — часть вкладки «ИИ»: пришли по ссылке — подсвечена она,
        и «Назад» ведёт к ней, а не на первую вкладку. */
     if (VIEW !== "ml") {
       VIEW = "ml";
@@ -1541,13 +1541,13 @@
       metals(main);
     }).catch(function () {
       host.innerHTML = "";
-      empty(host, "Трейлы не загрузились.");
+      empty(host, "Задачники не загрузились.");
     });
   }
 
   function fillTrail(host, data, rest) {
     var trails = data.treyly || [];
-    if (!trails.length) { empty(host, "Трейлов пока нет."); return; }
+    if (!trails.length) { empty(host, "Задачников пока нет."); return; }
     var parts = rest.split("/");
     var t = trails.filter(function (x) { return x.id === parts[0]; })[0] || trails[0];
     var more = decodeURIComponent(parts.slice(1).join("/"));
@@ -1555,10 +1555,10 @@
     var known = t.metki.map(function (m) { return m.name; });
     var tag = !task && known.indexOf(more) >= 0 ? more : null;
 
-    /* Пилюли трейлов — оглавление: картинка трейла кружком, название
+    /* Пилюли задачников — оглавление: картинка задачника кружком, название
        и число задач медальоном. Выбранная — чёрная. */
     var nav = el("nav", "toc trail-switch");
-    nav.setAttribute("aria-label", "Трейлы");
+    nav.setAttribute("aria-label", "Задачники");
     trails.forEach(function (x) {
       var a = el("a", "toc-pill");
       a.href = trailHash(x);
@@ -1805,7 +1805,7 @@
   }
 
   function noteHref(n) {
-    /* Условия трейла — заметка, но читают их на странице трейла. */
+    /* Условия задачника — заметка, но читают их на странице задачника. */
     var trail = (DATA.treyly || []).filter(function (t) { return t.path === n.path; })[0];
     if (trail) return "#/t/" + trail.id;
     if (n.fm.vid === "sait" && n.fm.ssylka) return n.fm.ssylka;
@@ -2019,7 +2019,7 @@
      на медленной сети честнее показать каркас, чем держать старый экран. */
   function swap(mode) {
     var path = pendingPath();
-    /* Трейл ждёт так же, как заметка: его задачи — отдельный файл. */
+    /* Задачник ждёт так же, как заметка: его задачи — отдельный файл. */
     var ready = path
       ? Promise.race([loadNote(path).catch(function () {}), after(250)])
       : (isTrail(location.hash)
