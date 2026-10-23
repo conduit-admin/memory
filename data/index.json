@@ -1215,6 +1215,26 @@
    "thumb": "data/thumbs/ml/listki/serii/seriya-02.png"
   },
   {
+   "path": "ml/listki/serii/seriya-03.pdf",
+   "folder": "ml/listki/serii",
+   "title": "seriya-03",
+   "kind": "pdf",
+   "pages": 7,
+   "size": 233527,
+   "date": "2026-10-23",
+   "thumb": "data/thumbs/ml/listki/serii/seriya-03.png"
+  },
+  {
+   "path": "ml/listki/teoriya/massivy.pdf",
+   "folder": "ml/listki/teoriya",
+   "title": "massivy",
+   "kind": "pdf",
+   "pages": 13,
+   "size": 239618,
+   "date": "2026-10-23",
+   "thumb": "data/thumbs/ml/listki/teoriya/massivy.png"
+  },
+  {
    "path": "ml/listki/teoriya/tablicy.pdf",
    "folder": "ml/listki/teoriya",
    "title": "tablicy",
@@ -1964,6 +1984,24 @@
    "num": "",
    "date": "2026-10-23",
    "thumb": "data/thumbs/ml/listki/serii/seriya-02.png"
+  },
+  {
+   "title": "Массивы",
+   "tex": "seriya-03.tex",
+   "group": "ml/listki/serii",
+   "pdf": "ml/listki/serii/seriya-03.pdf",
+   "num": "",
+   "date": "2026-10-23",
+   "thumb": "data/thumbs/ml/listki/serii/seriya-03.png"
+  },
+  {
+   "title": "Массивы в numpy",
+   "tex": "massivy.tex",
+   "group": "ml/listki/teoriya",
+   "pdf": "ml/listki/teoriya/massivy.pdf",
+   "num": "",
+   "date": "2026-10-23",
+   "thumb": "data/thumbs/ml/listki/teoriya/massivy.png"
   },
   {
    "title": "Таблицы в pandas",
