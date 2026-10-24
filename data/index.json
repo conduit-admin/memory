@@ -1239,6 +1239,26 @@
    "thumb": "data/thumbs/ml/listki/teoriya/massivy.png"
   },
   {
+   "path": "ml/listki/teoriya/matricy-shpargalka.pdf",
+   "folder": "ml/listki/teoriya",
+   "title": "matricy-shpargalka",
+   "kind": "pdf",
+   "pages": 6,
+   "size": 224240,
+   "date": "2026-10-25",
+   "thumb": "data/thumbs/ml/listki/teoriya/matricy-shpargalka.png"
+  },
+  {
+   "path": "ml/listki/teoriya/matricy.pdf",
+   "folder": "ml/listki/teoriya",
+   "title": "matricy",
+   "kind": "pdf",
+   "pages": 22,
+   "size": 397909,
+   "date": "2026-10-25",
+   "thumb": "data/thumbs/ml/listki/teoriya/matricy.png"
+  },
+  {
    "path": "ml/listki/teoriya/tablicy-shpargalka.pdf",
    "folder": "ml/listki/teoriya",
    "title": "tablicy-shpargalka",
@@ -2028,6 +2048,26 @@
    "date": "2026-10-23",
    "vid": "Шпаргалка",
    "thumb": "data/thumbs/ml/listki/teoriya/massivy-shpargalka.png"
+  },
+  {
+   "title": "Матрицы как преобразования",
+   "tex": "matricy.tex",
+   "group": "ml/listki/teoriya",
+   "pdf": "ml/listki/teoriya/matricy.pdf",
+   "num": "",
+   "date": "2026-10-25",
+   "vid": "Урок",
+   "thumb": "data/thumbs/ml/listki/teoriya/matricy.png"
+  },
+  {
+   "title": "Матрицы как преобразования",
+   "tex": "matricy-shpargalka.tex",
+   "group": "ml/listki/teoriya",
+   "pdf": "ml/listki/teoriya/matricy-shpargalka.pdf",
+   "num": "",
+   "date": "2026-10-25",
+   "vid": "Шпаргалка",
+   "thumb": "data/thumbs/ml/listki/teoriya/matricy-shpargalka.png"
   },
   {
    "title": "Таблицы в pandas",
