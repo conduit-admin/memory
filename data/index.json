@@ -1287,13 +1287,23 @@
    "thumb": "data/thumbs/ml/listki/teoriya/matricy.png"
   },
   {
+   "path": "ml/listki/teoriya/modeli.pdf",
+   "folder": "ml/listki/teoriya",
+   "title": "modeli",
+   "kind": "pdf",
+   "pages": 32,
+   "size": 494447,
+   "date": "2026-10-26",
+   "thumb": "data/thumbs/ml/listki/teoriya/modeli.png"
+  },
+  {
    "path": "ml/listki/teoriya/tablicy-shpargalka.pdf",
    "folder": "ml/listki/teoriya",
    "title": "tablicy-shpargalka",
    "kind": "pdf",
    "pages": 12,
-   "size": 234776,
-   "date": "2026-10-23",
+   "size": 235641,
+   "date": "2026-10-26",
    "thumb": "data/thumbs/ml/listki/teoriya/tablicy-shpargalka.png"
   },
   {
@@ -1301,9 +1311,9 @@
    "folder": "ml/listki/teoriya",
    "title": "tablicy",
    "kind": "pdf",
-   "pages": 27,
-   "size": 313617,
-   "date": "2026-10-23",
+   "pages": 35,
+   "size": 348458,
+   "date": "2026-10-26",
    "thumb": "data/thumbs/ml/listki/teoriya/tablicy.png"
   },
   {
@@ -2174,12 +2184,22 @@
    "thumb": "data/thumbs/ml/listki/teoriya/matricy-shpargalka.png"
   },
   {
+   "title": "Модели изнутри",
+   "tex": "modeli.tex",
+   "group": "ml/listki/teoriya",
+   "pdf": "ml/listki/teoriya/modeli.pdf",
+   "num": "",
+   "date": "2026-10-26",
+   "vid": "Урок",
+   "thumb": "data/thumbs/ml/listki/teoriya/modeli.png"
+  },
+  {
    "title": "Таблицы в pandas",
    "tex": "tablicy.tex",
    "group": "ml/listki/teoriya",
    "pdf": "ml/listki/teoriya/tablicy.pdf",
    "num": "",
-   "date": "2026-10-23",
+   "date": "2026-10-26",
    "vid": "Урок",
    "thumb": "data/thumbs/ml/listki/teoriya/tablicy.png"
   },
@@ -2189,7 +2209,7 @@
    "group": "ml/listki/teoriya",
    "pdf": "ml/listki/teoriya/tablicy-shpargalka.pdf",
    "num": "",
-   "date": "2026-10-23",
+   "date": "2026-10-26",
    "vid": "Шпаргалка",
    "thumb": "data/thumbs/ml/listki/teoriya/tablicy-shpargalka.png"
   }
