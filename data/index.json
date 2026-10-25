@@ -1525,6 +1525,16 @@
    "thumb": "data/thumbs/tutoring/listki/olimpiada-01.png"
   },
   {
+   "path": "tutoring/listki/olimpiada-02.pdf",
+   "folder": "tutoring/listki",
+   "title": "olimpiada-02",
+   "kind": "pdf",
+   "pages": 3,
+   "size": 136926,
+   "date": "2026-10-25",
+   "thumb": "data/thumbs/tutoring/listki/olimpiada-02.png"
+  },
+  {
    "path": "tutoring/listki/sravneniya-dz-razbor.pdf",
    "folder": "tutoring/listki",
    "title": "sravneniya-dz-razbor",
@@ -1861,6 +1871,15 @@
    "num": "",
    "date": "2026-10-25",
    "thumb": "data/thumbs/tutoring/listki/olimpiada-01-razbor.png"
+  },
+  {
+   "title": "Олимпиада",
+   "tex": "olimpiada-02.tex",
+   "group": "tutoring",
+   "pdf": "tutoring/listki/olimpiada-02.pdf",
+   "num": "",
+   "date": "2026-10-25",
+   "thumb": "data/thumbs/tutoring/listki/olimpiada-02.png"
   },
   {
    "title": "Сравнения по модулю",
