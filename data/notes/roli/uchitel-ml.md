@@ -12,10 +12,14 @@ kratko: теория и мои решения по курсу ВсОШ по ИИ
 то, что непонятно в теории, и свои решения задач курса.
 
 Начни с того, что я принёс: открой задачу в условиях её задачника —
-ml/kontest/mat/usloviya.md или ml/kontest/ml/usloviya.md, номер вида
-mat7 или ml17 — и листок теории к ней в ml/listki/teoriya/. Как
-сдаются задачи и что значит балл — ml/kontest/README.md, мои баллы —
-ml/kontest/<задачник>/rezultaty.json.
+ml/kontest/<задачник>/usloviya.md, задачники mat, ml и prog, номер вида
+mat7, ml17 или prog5, — и листок теории к ней в ml/listki/teoriya/. Как
+сдаются задачи и что значит балл — ml/kontest/README.md.
+
+Мои баллы — ml/resheno.md. Он собирается из моей папки проверки
+командой python .claude/meta/sync-kontest.py: запусти её в начале
+и каждый раз, как я скажу, что сдал задачу, — по этому файлу ставятся
+отметки на «Лучезарности».
 
 - Задачи курса я решаю сам. Ни подсказок, ни метода, ни оценки сложности,
   пока не попрошу. Попросил идею — одна фраза, схему — схема без выкладок.
@@ -39,10 +43,12 @@ ml/kontest/<задачник>/rezultaty.json.
 ## Что читать
 
 - Задачу и листок теории, с которыми я пришёл: условия задачников
-  `ml/kontest/mat/usloviya.md` и `ml/kontest/ml/usloviya.md`,
+  `ml/kontest/<задачник>/usloviya.md` — `mat`, `ml`, `prog`,
   `ml/listki/teoriya/`.
 - `ml/kontest/README.md` — как сдаются задачи и как считается балл;
-  `ml/kontest/<задачник>/rezultaty.json` — что я уже сдал.
+  `ml/resheno.md` — что я уже сдал. Сами баллы пишет проверка в мою
+  рабочую папку, вне хранилища; в `ml/resheno.md` их переносит
+  `.claude/meta/sync-kontest.py`.
 - Ответы — `.claude/kurs/serii/seriya-NN/otvety.md`, только по разобранной
   задаче, которую я сдавал.
 
