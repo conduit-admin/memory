@@ -1561,6 +1561,12 @@ a.toc-pill { text-decoration: none; }
 .punkt-bukva { font-weight: 700; }
 .tmd code.sdat { margin-left: 6px; color: var(--ink-muted); font-size: 0.82em; white-space: nowrap; }
 
+/* Решённое в задачнике (ml/resheno.md): в шапке задачи — кружок, как
+   у задачи серии, справа перед стрелкой; засчитанный пункт — код сдачи
+   фиолетовым. */
+.zad .group-head > .mark { flex: none; }
+.tmd code.sdat.on { color: var(--violet); font-weight: 600; }
+
 /* Файлы задачи — пилюли со скачиванием с сайта курса. */
 .zad-files { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-top: 14px; }
 .zad-files-label { margin-right: 2px; color: var(--ink-muted); font-size: 15px; }

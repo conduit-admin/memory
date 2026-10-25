@@ -1349,11 +1349,21 @@
     if (!trails.length) return;
     var total = trails.reduce(function (n, t) { return n + t.n; }, 0);
     var body = panel(block(main, "Задачники", "ans", total));
-    trails.forEach(function (t) {
-      row(body, "#/t/" + t.id, t.title, {
+    var rows = trails.map(function (t) {
+      return row(body, "#/t/" + t.id, t.title, {
         sub: t.n + " " + plural(t.n, "задача", "задачи", "задач") +
              (t.metki.length ? " · " + t.metki.join(", ") : ""),
         aside: shortDate(t.date), thumb: t.thumb, color: sectionColor("ml")
+      });
+    });
+    /* Сколько решено — дописывается в подпись, когда приедет заметка. */
+    withResheno(function (res) {
+      trails.forEach(function (t, i) {
+        var k = Object.keys(res).filter(function (id) {
+          return id.replace(/\d+$/, "") === t.id && res[id].ok;
+        }).length;
+        var sub = rows[i].querySelector(".row-sub");
+        if (k && sub) sub.textContent += " · решено " + k;
       });
     });
   }
@@ -1487,6 +1497,7 @@
         body.appendChild(files);
       }
       box.appendChild(body);
+      markParts(box);
     };
     box.addEventListener("toggle", function () {
       if (box.open) box.fill();
@@ -1494,6 +1505,48 @@
     });
     if (isOpen("zad:" + z.id)) { box.fill(); box.open = true; }
     return box;
+  }
+
+  /* Что решено в задачниках — заметка ml/resheno.md, таблица «Задача»: её
+     переписывает из баллов проверки .claude/meta/sync-kontest.py
+     в knowledge. Столбцы — задача, название, балл, максимум и засчитанные
+     целиком пункты латиницей, как они сдаются. Нет заметки — задачники
+     без отметок. */
+  var ML_RESHENO = "ml/resheno.md";
+
+  function withResheno(fn) {
+    if (!noteAt(ML_RESHENO)) return;
+    loadNote(ML_RESHENO).then(function (src) {
+      var out = {};
+      mdRows(src, "Задача").forEach(function (r) {
+        out[r[0]] = { ball: r[2], max: r[3], ok: parseFloat(r[2]) >= parseFloat(r[3]),
+                      parts: (r[4] || "").split(/\s+/) };
+      });
+      fn(out);
+    }).catch(function () {});
+  }
+
+  /* Отметка в шапке задачи — кружок, как у задачи серии: решённая —
+     «решена» фиолетовым, начатая — счёт тихой обводкой. Засчитанные
+     пункты — их код сдачи цветом. Тело рисуется при раскрытии, поэтому
+     пункты помечаются и отсюда, и из fill. */
+  function markTask(box, r) {
+    box.resheno = r;
+    var head = box.querySelector(".group-head");
+    head.insertBefore(el("span", "mark" + (r.ok ? " on" : ""),
+      r.ok ? "решена" : r.ball + " из " + r.max), head.querySelector(".chev"));
+    markParts(box);
+  }
+
+  function markParts(box) {
+    var r = box.resheno;
+    if (!r) return;
+    box.querySelectorAll("code.sdat").forEach(function (c) {
+      if (r.parts.indexOf(c.textContent.slice(-1)) >= 0) {
+        c.classList.add("on");
+        c.title = "засчитан";
+      }
+    });
   }
 
   function trailAbout(list, t, kurs) {
@@ -1616,6 +1669,9 @@
 
     var cards = t.zadachi.map(function (z) { return taskCard(t, z, data.kurs); });
     cards.forEach(function (c) { list.appendChild(c); });
+    withResheno(function (res) {
+      t.zadachi.forEach(function (z, i) { if (res[z.id]) markTask(cards[i], res[z.id]); });
+    });
 
     function visible() { return cards.filter(function (c) { return !c.hidden; }); }
 
