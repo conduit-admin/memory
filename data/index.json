@@ -1501,6 +1501,16 @@
    "thumb": "data/thumbs/tutoring/listki/ocenka-i-primer-zanyatie-01.png"
   },
   {
+   "path": "tutoring/listki/olimpiada-01-razbor.pdf",
+   "folder": "tutoring/listki",
+   "title": "olimpiada-01-razbor",
+   "kind": "pdf",
+   "pages": 6,
+   "size": 223182,
+   "date": "2026-10-25",
+   "thumb": "data/thumbs/tutoring/listki/olimpiada-01-razbor.png"
+  },
+  {
    "path": "tutoring/listki/olimpiada-01.pdf",
    "folder": "tutoring/listki",
    "title": "olimpiada-01",
@@ -1818,6 +1828,15 @@
    "num": "",
    "date": "2026-10-20",
    "thumb": "data/thumbs/tutoring/listki/olimpiada-01.png"
+  },
+  {
+   "title": "Олимпиада",
+   "tex": "olimpiada-01-razbor.tex",
+   "group": "tutoring",
+   "pdf": "tutoring/listki/olimpiada-01-razbor.pdf",
+   "num": "",
+   "date": "2026-10-25",
+   "thumb": "data/thumbs/tutoring/listki/olimpiada-01-razbor.png"
   },
   {
    "title": "Сравнения по модулю",
