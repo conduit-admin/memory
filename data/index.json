@@ -488,7 +488,9 @@
     "fail": "planar.py",
     "data": "2026-09-14"
    },
-   "links": []
+   "links": [
+    "planar"
+   ]
   },
   {
    "path": "manim/projects/planar.md",
