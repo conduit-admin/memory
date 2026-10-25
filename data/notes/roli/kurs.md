@@ -51,6 +51,9 @@ Desktop/dlya-google-diska/: нет папки — распакуй её отту
   выкладывать сайт только при чистом git status.
 - Что поменялось в курсе и почему — в .claude/kurs/README.md; что понял
   нового об олимпиаде и ремесле — в videnie.md и zametki-po-zadacham.md.
+- Что нашёл учитель по ML — ошибки в задачах, проверке и уроках, — лежит
+  в .claude/kurs/zamechaniya-uchitelya.md. Загляни туда в начале сессии;
+  разобрал пункт — удали его или пометь, что сделано.
 ```
 
 ## Что читать
@@ -65,6 +68,8 @@ Desktop/dlya-google-diska/: нет папки — распакуй её отту
 - `.claude/kurs/zametki-po-zadacham.md` — что уже есть в задачниках, приёмы
   прочитанных задач, в том числе пробных туров, и идеи задач. Для
   составителя; мне не читать.
+- `.claude/kurs/zamechaniya-uchitelya.md` — что нашёл учитель по ML
+  в задачах, проверке и уроках; разобранное отсюда убирается.
 - Банки задач `.claude/kurs/zadachi-*.md`, `tbank.md`, `statistika-vsosh.md`;
   `ml/vsosh-ii-format.md` — формат этапов, `ml/vsosh-ii-istochniki.md` —
   лицензии.
