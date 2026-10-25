@@ -742,6 +742,7 @@
     "sravneniya-dz-razbor",
     "sravneniya-razbor",
     "stepen-tochki",
+    "stepen-tochki-razbor",
     "trehchlen",
     "trehchlen-dz",
     "trehchlen-razbor",
@@ -1564,6 +1565,16 @@
    "thumb": "data/thumbs/tutoring/listki/sravneniya.png"
   },
   {
+   "path": "tutoring/listki/stepen-tochki-razbor.pdf",
+   "folder": "tutoring/listki",
+   "title": "stepen-tochki-razbor",
+   "kind": "pdf",
+   "pages": 9,
+   "size": 209631,
+   "date": "2026-10-25",
+   "thumb": "data/thumbs/tutoring/listki/stepen-tochki-razbor.png"
+  },
+  {
    "path": "tutoring/listki/stepen-tochki.pdf",
    "folder": "tutoring/listki",
    "title": "stepen-tochki",
@@ -1895,6 +1906,15 @@
    "num": "",
    "date": "2026-10-25",
    "thumb": "data/thumbs/tutoring/listki/stepen-tochki.png"
+  },
+  {
+   "title": "Степень точки",
+   "tex": "stepen-tochki-razbor.tex",
+   "group": "tutoring",
+   "pdf": "tutoring/listki/stepen-tochki-razbor.pdf",
+   "num": "",
+   "date": "2026-10-25",
+   "thumb": "data/thumbs/tutoring/listki/stepen-tochki-razbor.png"
   },
   {
    "title": "Квадратный трёхчлен",
