@@ -523,6 +523,22 @@
    ]
   },
   {
+   "path": "manim/projects/planar-podgonka.md",
+   "folder": "manim/projects",
+   "title": "Раскраска в 5 цветов — подгонка под голос",
+   "fm": {
+    "type": "zametki",
+    "proekt": "planar",
+    "fail": "planar.py",
+    "data": "2026-10-26"
+   },
+   "links": [
+    "broken-stick-podgonka",
+    "ochered",
+    "planar"
+   ]
+  },
+  {
    "path": "manim/projects/planar-udorozhanie.md",
    "folder": "manim/projects",
    "title": "Раскраска в 5 цветов — как удорожить вид",
@@ -547,6 +563,7 @@
     "stadiya": "программируется"
    },
    "links": [
+    "planar-podgonka",
     "planar-udorozhanie"
    ]
   },
