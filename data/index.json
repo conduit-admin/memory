@@ -1287,14 +1287,104 @@
    "thumb": "data/thumbs/ml/listki/teoriya/matricy.png"
   },
   {
-   "path": "ml/listki/teoriya/modeli.pdf",
+   "path": "ml/listki/teoriya/modeli-1-sosedi-shpargalka.pdf",
    "folder": "ml/listki/teoriya",
-   "title": "modeli",
+   "title": "modeli-1-sosedi-shpargalka",
    "kind": "pdf",
-   "pages": 27,
-   "size": 501584,
+   "pages": 5,
+   "size": 284558,
    "date": "2026-10-26",
-   "thumb": "data/thumbs/ml/listki/teoriya/modeli.png"
+   "thumb": "data/thumbs/ml/listki/teoriya/modeli-1-sosedi-shpargalka.png"
+  },
+  {
+   "path": "ml/listki/teoriya/modeli-1-sosedi.pdf",
+   "folder": "ml/listki/teoriya",
+   "title": "modeli-1-sosedi",
+   "kind": "pdf",
+   "pages": 9,
+   "size": 342252,
+   "date": "2026-10-26",
+   "thumb": "data/thumbs/ml/listki/teoriya/modeli-1-sosedi.png"
+  },
+  {
+   "path": "ml/listki/teoriya/modeli-2-derevya-shpargalka.pdf",
+   "folder": "ml/listki/teoriya",
+   "title": "modeli-2-derevya-shpargalka",
+   "kind": "pdf",
+   "pages": 4,
+   "size": 248310,
+   "date": "2026-10-26",
+   "thumb": "data/thumbs/ml/listki/teoriya/modeli-2-derevya-shpargalka.png"
+  },
+  {
+   "path": "ml/listki/teoriya/modeli-2-derevya.pdf",
+   "folder": "ml/listki/teoriya",
+   "title": "modeli-2-derevya",
+   "kind": "pdf",
+   "pages": 8,
+   "size": 324822,
+   "date": "2026-10-26",
+   "thumb": "data/thumbs/ml/listki/teoriya/modeli-2-derevya.png"
+  },
+  {
+   "path": "ml/listki/teoriya/modeli-3-regressiya-shpargalka.pdf",
+   "folder": "ml/listki/teoriya",
+   "title": "modeli-3-regressiya-shpargalka",
+   "kind": "pdf",
+   "pages": 3,
+   "size": 272069,
+   "date": "2026-10-26",
+   "thumb": "data/thumbs/ml/listki/teoriya/modeli-3-regressiya-shpargalka.png"
+  },
+  {
+   "path": "ml/listki/teoriya/modeli-3-regressiya.pdf",
+   "folder": "ml/listki/teoriya",
+   "title": "modeli-3-regressiya",
+   "kind": "pdf",
+   "pages": 6,
+   "size": 280406,
+   "date": "2026-10-26",
+   "thumb": "data/thumbs/ml/listki/teoriya/modeli-3-regressiya.png"
+  },
+  {
+   "path": "ml/listki/teoriya/modeli-4-klassifikatory-shpargalka.pdf",
+   "folder": "ml/listki/teoriya",
+   "title": "modeli-4-klassifikatory-shpargalka",
+   "kind": "pdf",
+   "pages": 3,
+   "size": 274292,
+   "date": "2026-10-26",
+   "thumb": "data/thumbs/ml/listki/teoriya/modeli-4-klassifikatory-shpargalka.png"
+  },
+  {
+   "path": "ml/listki/teoriya/modeli-4-klassifikatory.pdf",
+   "folder": "ml/listki/teoriya",
+   "title": "modeli-4-klassifikatory",
+   "kind": "pdf",
+   "pages": 6,
+   "size": 302943,
+   "date": "2026-10-26",
+   "thumb": "data/thumbs/ml/listki/teoriya/modeli-4-klassifikatory.png"
+  },
+  {
+   "path": "ml/listki/teoriya/modeli-5-k-srednih-shpargalka.pdf",
+   "folder": "ml/listki/teoriya",
+   "title": "modeli-5-k-srednih-shpargalka",
+   "kind": "pdf",
+   "pages": 4,
+   "size": 269224,
+   "date": "2026-10-26",
+   "thumb": "data/thumbs/ml/listki/teoriya/modeli-5-k-srednih-shpargalka.png"
+  },
+  {
+   "path": "ml/listki/teoriya/modeli-5-k-srednih.pdf",
+   "folder": "ml/listki/teoriya",
+   "title": "modeli-5-k-srednih",
+   "kind": "pdf",
+   "pages": 7,
+   "size": 336216,
+   "date": "2026-10-26",
+   "thumb": "data/thumbs/ml/listki/teoriya/modeli-5-k-srednih.png"
   },
   {
    "path": "ml/listki/teoriya/tablicy-shpargalka.pdf",
@@ -2184,14 +2274,104 @@
    "thumb": "data/thumbs/ml/listki/teoriya/matricy-shpargalka.png"
   },
   {
-   "title": "Модели изнутри",
-   "tex": "modeli.tex",
+   "title": "Ближайшие соседи",
+   "tex": "modeli-1-sosedi.tex",
    "group": "ml/listki/teoriya",
-   "pdf": "ml/listki/teoriya/modeli.pdf",
+   "pdf": "ml/listki/teoriya/modeli-1-sosedi.pdf",
    "num": "",
    "date": "2026-10-26",
    "vid": "Урок",
-   "thumb": "data/thumbs/ml/listki/teoriya/modeli.png"
+   "thumb": "data/thumbs/ml/listki/teoriya/modeli-1-sosedi.png"
+  },
+  {
+   "title": "Ближайшие соседи",
+   "tex": "modeli-1-sosedi-shpargalka.tex",
+   "group": "ml/listki/teoriya",
+   "pdf": "ml/listki/teoriya/modeli-1-sosedi-shpargalka.pdf",
+   "num": "",
+   "date": "2026-10-26",
+   "vid": "Шпаргалка",
+   "thumb": "data/thumbs/ml/listki/teoriya/modeli-1-sosedi-shpargalka.png"
+  },
+  {
+   "title": "Решающие деревья",
+   "tex": "modeli-2-derevya.tex",
+   "group": "ml/listki/teoriya",
+   "pdf": "ml/listki/teoriya/modeli-2-derevya.pdf",
+   "num": "",
+   "date": "2026-10-26",
+   "vid": "Урок",
+   "thumb": "data/thumbs/ml/listki/teoriya/modeli-2-derevya.png"
+  },
+  {
+   "title": "Решающие деревья",
+   "tex": "modeli-2-derevya-shpargalka.tex",
+   "group": "ml/listki/teoriya",
+   "pdf": "ml/listki/teoriya/modeli-2-derevya-shpargalka.pdf",
+   "num": "",
+   "date": "2026-10-26",
+   "vid": "Шпаргалка",
+   "thumb": "data/thumbs/ml/listki/teoriya/modeli-2-derevya-shpargalka.png"
+  },
+  {
+   "title": "Линейная регрессия",
+   "tex": "modeli-3-regressiya.tex",
+   "group": "ml/listki/teoriya",
+   "pdf": "ml/listki/teoriya/modeli-3-regressiya.pdf",
+   "num": "",
+   "date": "2026-10-26",
+   "vid": "Урок",
+   "thumb": "data/thumbs/ml/listki/teoriya/modeli-3-regressiya.png"
+  },
+  {
+   "title": "Линейная регрессия",
+   "tex": "modeli-3-regressiya-shpargalka.tex",
+   "group": "ml/listki/teoriya",
+   "pdf": "ml/listki/teoriya/modeli-3-regressiya-shpargalka.pdf",
+   "num": "",
+   "date": "2026-10-26",
+   "vid": "Шпаргалка",
+   "thumb": "data/thumbs/ml/listki/teoriya/modeli-3-regressiya-shpargalka.png"
+  },
+  {
+   "title": "Логистическая регрессия и перцептрон",
+   "tex": "modeli-4-klassifikatory.tex",
+   "group": "ml/listki/teoriya",
+   "pdf": "ml/listki/teoriya/modeli-4-klassifikatory.pdf",
+   "num": "",
+   "date": "2026-10-26",
+   "vid": "Урок",
+   "thumb": "data/thumbs/ml/listki/teoriya/modeli-4-klassifikatory.png"
+  },
+  {
+   "title": "Логистическая регрессия и перцептрон",
+   "tex": "modeli-4-klassifikatory-shpargalka.tex",
+   "group": "ml/listki/teoriya",
+   "pdf": "ml/listki/teoriya/modeli-4-klassifikatory-shpargalka.pdf",
+   "num": "",
+   "date": "2026-10-26",
+   "vid": "Шпаргалка",
+   "thumb": "data/thumbs/ml/listki/teoriya/modeli-4-klassifikatory-shpargalka.png"
+  },
+  {
+   "title": "k-средних",
+   "tex": "modeli-5-k-srednih.tex",
+   "group": "ml/listki/teoriya",
+   "pdf": "ml/listki/teoriya/modeli-5-k-srednih.pdf",
+   "num": "",
+   "date": "2026-10-26",
+   "vid": "Урок",
+   "thumb": "data/thumbs/ml/listki/teoriya/modeli-5-k-srednih.png"
+  },
+  {
+   "title": "k-средних",
+   "tex": "modeli-5-k-srednih-shpargalka.tex",
+   "group": "ml/listki/teoriya",
+   "pdf": "ml/listki/teoriya/modeli-5-k-srednih-shpargalka.pdf",
+   "num": "",
+   "date": "2026-10-26",
+   "vid": "Шпаргалка",
+   "thumb": "data/thumbs/ml/listki/teoriya/modeli-5-k-srednih-shpargalka.png"
   },
   {
    "title": "Таблицы в pandas",
@@ -2231,15 +2411,20 @@
    "id": "ml",
    "title": "ML",
    "path": "ml/kontest/ml/usloviya.md",
-   "date": "2026-10-23",
-   "n": 27,
+   "date": "2026-10-26",
+   "n": 42,
    "metki": [
     "pandas",
     "чистка",
     "группы",
     "numpy",
     "функция",
-    "без циклов"
+    "без циклов",
+    "модели",
+    "соседи",
+    "деревья",
+    "линейные",
+    "кластеры"
    ],
    "thumb": "data/thumbs/treyly/ml.svg"
   },
