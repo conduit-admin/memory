@@ -505,6 +505,20 @@
    ]
   },
   {
+   "path": "manim/projects/planar-udorozhanie.md",
+   "folder": "manim/projects",
+   "title": "Раскраска в 5 цветов — как удорожить вид",
+   "fm": {
+    "type": "zametki",
+    "proekt": "planar",
+    "fail": "planar.py",
+    "data": "2026-10-26"
+   },
+   "links": [
+    "planar"
+   ]
+  },
+  {
    "path": "manim/projects/planar.md",
    "folder": "manim/projects",
    "title": "Раскраска в 5 цветов",
@@ -514,7 +528,9 @@
     "fail": "planar.py",
     "stadiya": "программируется"
    },
-   "links": []
+   "links": [
+    "planar-udorozhanie"
+   ]
   },
   {
    "path": "manim/projects/rotating-liquid-peresborka.md",
