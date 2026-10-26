@@ -308,6 +308,15 @@
    ]
   },
   {
+   "path": "manim/kanal/ozvuchka/planar.md",
+   "folder": "manim/kanal/ozvuchka",
+   "title": "Раскраска в 5 цветов",
+   "fm": {
+    "type": "ozvuchka"
+   },
+   "links": []
+  },
+  {
    "path": "manim/kanal/ozvuchka/rotating_liquid.md",
    "folder": "manim/kanal/ozvuchka",
    "title": "Параболоид жидкости",
