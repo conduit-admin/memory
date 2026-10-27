@@ -334,6 +334,15 @@
    ]
   },
   {
+   "path": "manim/kanal/ozvuchka/squared_rectangle.md",
+   "folder": "manim/kanal/ozvuchka",
+   "title": "Разрезание на квадраты",
+   "fm": {
+    "type": "ozvuchka"
+   },
+   "links": []
+  },
+  {
    "path": "manim/kanal/README.md",
    "folder": "manim/kanal",
    "title": "Канал",
