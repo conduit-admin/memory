@@ -314,7 +314,11 @@
    "fm": {
     "type": "ozvuchka"
    },
-   "links": []
+   "links": [
+    "montazh",
+    "telegram",
+    "youtube"
+   ]
   },
   {
    "path": "manim/kanal/ozvuchka/rotating_liquid.md",
@@ -560,7 +564,7 @@
     "type": "proekt",
     "vid": "animatsiya",
     "fail": "planar.py",
-    "stadiya": "озвучивается и монтируется"
+    "stadiya": "готов"
    },
    "links": [
     "planar-podgonka",
@@ -1507,6 +1511,16 @@
    "thumb": "data/thumbs/tex/documents/kanal/orthocentric.png"
   },
   {
+   "path": "tex/documents/kanal/planar.pdf",
+   "folder": "tex/documents/kanal",
+   "title": "planar",
+   "kind": "pdf",
+   "pages": 6,
+   "size": 255799,
+   "date": "2026-10-27",
+   "thumb": "data/thumbs/tex/documents/kanal/planar.png"
+  },
+  {
    "path": "tex/documents/kanal/rotating-liquid.pdf",
    "folder": "tex/documents/kanal",
    "title": "rotating-liquid",
@@ -1896,6 +1910,15 @@
    "num": "",
    "date": "2026-10-21",
    "thumb": "data/thumbs/tex/documents/kanal/orthocentric.png"
+  },
+  {
+   "title": "Пять красок",
+   "tex": "planar.tex",
+   "group": "kanal",
+   "pdf": "tex/documents/kanal/planar.pdf",
+   "num": "",
+   "date": "2026-10-27",
+   "thumb": "data/thumbs/tex/documents/kanal/planar.png"
   },
   {
    "title": "Вращение жидкости",
