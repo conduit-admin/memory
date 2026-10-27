@@ -1531,6 +1531,16 @@
    "thumb": "data/thumbs/tex/documents/kanal/rotating-liquid.png"
   },
   {
+   "path": "tex/documents/kanal/squared-rectangle.pdf",
+   "folder": "tex/documents/kanal",
+   "title": "squared-rectangle",
+   "kind": "pdf",
+   "pages": 6,
+   "size": 250615,
+   "date": "2026-10-27",
+   "thumb": "data/thumbs/tex/documents/kanal/squared-rectangle.png"
+  },
+  {
    "path": "tex/documents/kolebaniya-zachet.pdf",
    "folder": "tex/documents",
    "title": "kolebaniya-zachet",
@@ -1928,6 +1938,15 @@
    "num": "",
    "date": "2026-10-08",
    "thumb": "data/thumbs/tex/documents/kanal/rotating-liquid.png"
+  },
+  {
+   "title": "Разрезание на квадраты",
+   "tex": "squared-rectangle.tex",
+   "group": "kanal",
+   "pdf": "tex/documents/kanal/squared-rectangle.pdf",
+   "num": "",
+   "date": "2026-10-27",
+   "thumb": "data/thumbs/tex/documents/kanal/squared-rectangle.png"
   },
   {
    "title": "Линейные модели",
