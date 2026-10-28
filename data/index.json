@@ -1135,13 +1135,23 @@
    "thumb": "data/thumbs/physics/listki/serii/seriya-05.png"
   },
   {
+   "path": "physics/listki/serii/seriya-06.pdf",
+   "folder": "physics/listki/serii",
+   "title": "seriya-06",
+   "kind": "pdf",
+   "pages": 4,
+   "size": 203477,
+   "date": "2026-10-29",
+   "thumb": "data/thumbs/physics/listki/serii/seriya-06.png"
+  },
+  {
    "path": "physics/listki/teoriya/elektrostatika-teoriya.pdf",
    "folder": "physics/listki/teoriya",
    "title": "elektrostatika-teoriya",
    "kind": "pdf",
-   "pages": 4,
-   "size": 167673,
-   "date": "2026-10-13",
+   "pages": 5,
+   "size": 177533,
+   "date": "2026-10-29",
    "thumb": "data/thumbs/physics/listki/teoriya/elektrostatika-teoriya.png"
   },
   {
@@ -2317,12 +2327,22 @@
    "thumb": "data/thumbs/physics/listki/serii/seriya-05.png"
   },
   {
+   "title": "Гаусс и суперпозиция",
+   "tex": "seriya-06.tex",
+   "group": "physics/serii",
+   "pdf": "physics/listki/serii/seriya-06.pdf",
+   "num": "",
+   "date": "2026-10-29",
+   "vid": "Серия 6",
+   "thumb": "data/thumbs/physics/listki/serii/seriya-06.png"
+  },
+  {
    "title": "Электростатика",
    "tex": "elektrostatika-teoriya.tex",
    "group": "physics/teoriya",
    "pdf": "physics/listki/teoriya/elektrostatika-teoriya.pdf",
    "num": "",
-   "date": "2026-10-13",
+   "date": "2026-10-29",
    "thumb": "data/thumbs/physics/listki/teoriya/elektrostatika-teoriya.png"
   },
   {
