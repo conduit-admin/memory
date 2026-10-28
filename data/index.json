@@ -1544,9 +1544,9 @@
    "folder": "tex/documents/kanal",
    "title": "squared-rectangle",
    "kind": "pdf",
-   "pages": 6,
-   "size": 250615,
-   "date": "2026-10-27",
+   "pages": 4,
+   "size": 224891,
+   "date": "2026-10-28",
    "thumb": "data/thumbs/tex/documents/kanal/squared-rectangle.png"
   },
   {
@@ -1954,7 +1954,7 @@
    "group": "kanal",
    "pdf": "tex/documents/kanal/squared-rectangle.pdf",
    "num": "",
-   "date": "2026-10-27",
+   "date": "2026-10-28",
    "thumb": "data/thumbs/tex/documents/kanal/squared-rectangle.png"
   },
   {
