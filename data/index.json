@@ -340,7 +340,10 @@
    "fm": {
     "type": "ozvuchka"
    },
-   "links": []
+   "links": [
+    "telegram",
+    "youtube"
+   ]
   },
   {
    "path": "manim/kanal/README.md",
