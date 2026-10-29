@@ -3,7 +3,7 @@ type: proekt
 vid: animatsiya
 fail: squared_rectangle.py
 stadiya: выложен
-video:
+video: https://www.youtube.com/shorts/wU6gZ0JSmUM
 data: 2026-09-18
 ---
 
