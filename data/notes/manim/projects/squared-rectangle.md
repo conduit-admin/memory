@@ -2,7 +2,7 @@
 type: proekt
 vid: animatsiya
 fail: squared_rectangle.py
-stadiya: озвучивается и монтируется
+stadiya: выложен
 video:
 data: 2026-09-18
 ---
