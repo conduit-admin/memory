@@ -1772,6 +1772,16 @@
    "thumb": "data/thumbs/tutoring/listki/olimpiada-02.png"
   },
   {
+   "path": "tutoring/listki/poryadok.pdf",
+   "folder": "tutoring/listki",
+   "title": "poryadok",
+   "kind": "pdf",
+   "pages": 5,
+   "size": 164993,
+   "date": "2026-10-30",
+   "thumb": "data/thumbs/tutoring/listki/poryadok.png"
+  },
+  {
    "path": "tutoring/listki/sravneniya-dz-razbor.pdf",
    "folder": "tutoring/listki",
    "title": "sravneniya-dz-razbor",
@@ -2135,6 +2145,15 @@
    "num": "",
    "date": "2026-10-25",
    "thumb": "data/thumbs/tutoring/listki/olimpiada-02.png"
+  },
+  {
+   "title": "Порядок числа",
+   "tex": "poryadok.tex",
+   "group": "tutoring",
+   "pdf": "tutoring/listki/poryadok.pdf",
+   "num": "",
+   "date": "2026-10-30",
+   "thumb": "data/thumbs/tutoring/listki/poryadok.png"
   },
   {
    "title": "Сравнения по модулю",
