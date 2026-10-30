@@ -1785,6 +1785,16 @@
    "thumb": "data/thumbs/tutoring/listki/poryadok-dz.png"
   },
   {
+   "path": "tutoring/listki/poryadok-razbor.pdf",
+   "folder": "tutoring/listki",
+   "title": "poryadok-razbor",
+   "kind": "pdf",
+   "pages": 9,
+   "size": 245258,
+   "date": "2026-10-30",
+   "thumb": "data/thumbs/tutoring/listki/poryadok-razbor.png"
+  },
+  {
    "path": "tutoring/listki/poryadok.pdf",
    "folder": "tutoring/listki",
    "title": "poryadok",
@@ -2176,6 +2186,15 @@
    "num": "",
    "date": "2026-10-30",
    "thumb": "data/thumbs/tutoring/listki/poryadok-dz.png"
+  },
+  {
+   "title": "Порядок числа",
+   "tex": "poryadok-razbor.tex",
+   "group": "tutoring",
+   "pdf": "tutoring/listki/poryadok-razbor.pdf",
+   "num": "",
+   "date": "2026-10-30",
+   "thumb": "data/thumbs/tutoring/listki/poryadok-razbor.png"
   },
   {
    "title": "Сравнения по модулю",
