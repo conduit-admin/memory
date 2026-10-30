@@ -835,6 +835,8 @@
     "ocenka-i-primer-zanyatie-01-razbor",
     "olimpiada-01",
     "olimpiada-01-razbor",
+    "poryadok",
+    "poryadok-dz",
     "sravneniya",
     "sravneniya-dz",
     "sravneniya-dz-razbor",
@@ -849,6 +851,7 @@
     "tyulenev-stepan-06",
     "tyulenev-stepan-07",
     "tyulenev-stepan-08",
+    "tyulenev-stepan-09",
     "uravneniya-v-celyh",
     "uravneniya-v-celyh-razbor",
     "vpisannost",
@@ -1772,6 +1775,16 @@
    "thumb": "data/thumbs/tutoring/listki/olimpiada-02.png"
   },
   {
+   "path": "tutoring/listki/poryadok-dz.pdf",
+   "folder": "tutoring/listki",
+   "title": "poryadok-dz",
+   "kind": "pdf",
+   "pages": 3,
+   "size": 134231,
+   "date": "2026-10-30",
+   "thumb": "data/thumbs/tutoring/listki/poryadok-dz.png"
+  },
+  {
    "path": "tutoring/listki/poryadok.pdf",
    "folder": "tutoring/listki",
    "title": "poryadok",
@@ -2154,6 +2167,15 @@
    "num": "",
    "date": "2026-10-30",
    "thumb": "data/thumbs/tutoring/listki/poryadok.png"
+  },
+  {
+   "title": "Порядок числа",
+   "tex": "poryadok-dz.tex",
+   "group": "tutoring",
+   "pdf": "tutoring/listki/poryadok-dz.pdf",
+   "num": "",
+   "date": "2026-10-30",
+   "thumb": "data/thumbs/tutoring/listki/poryadok-dz.png"
   },
   {
    "title": "Сравнения по модулю",
