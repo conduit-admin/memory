@@ -288,6 +288,7 @@
    },
    "links": [
     "idei",
+    "isogonal-squares-notes",
     "konvencii",
     "montazh",
     "vertikal"
@@ -520,7 +521,8 @@
     "stadiya": "программируется"
    },
    "links": [
-    "isogonal-squares-notes"
+    "isogonal-squares-notes",
+    "ochered"
    ]
   },
   {
