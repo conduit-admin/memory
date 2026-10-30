@@ -475,6 +475,20 @@
    "links": []
   },
   {
+   "path": "manim/projects/compass-center.md",
+   "folder": "manim/projects",
+   "title": "Центр одним циркулем",
+   "fm": {
+    "type": "proekt",
+    "vid": "animatsiya",
+    "fail": "compass_center.py",
+    "stadiya": "программируется",
+    "video": "",
+    "data": ""
+   },
+   "links": []
+  },
+  {
    "path": "manim/projects/inertia-peresborka.md",
    "folder": "manim/projects",
    "title": "Момент инерции — пересборка",
