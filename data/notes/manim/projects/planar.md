@@ -2,7 +2,8 @@
 type: proekt
 vid: animatsiya
 fail: planar.py
-stadiya: готов
+stadiya: выложен
+video: https://www.youtube.com/shorts/m_0OKht_qv8
 ---
 
 # Раскраска в 5 цветов
