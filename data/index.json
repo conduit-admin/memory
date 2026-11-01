@@ -484,6 +484,20 @@
    "links": []
   },
   {
+   "path": "manim/projects/compass-center-razbor.md",
+   "folder": "manim/projects",
+   "title": "Центр одним циркулем — что происходит в ролике",
+   "fm": {
+    "type": "zametki",
+    "proekt": "compass-center",
+    "fail": "compass_center.py",
+    "data": "2026-11-02"
+   },
+   "links": [
+    "compass-center"
+   ]
+  },
+  {
    "path": "manim/projects/compass-center.md",
    "folder": "manim/projects",
    "title": "Центр одним циркулем",
@@ -495,7 +509,9 @@
     "video": "",
     "data": ""
    },
-   "links": []
+   "links": [
+    "compass-center-razbor"
+   ]
   },
   {
    "path": "manim/projects/inertia-peresborka.md",
