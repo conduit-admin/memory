@@ -747,6 +747,21 @@
    ]
   },
   {
+   "path": "web/projects/problems.md",
+   "folder": "web/projects",
+   "title": "Банки задач",
+   "fm": {
+    "type": "proekt",
+    "vid": "sait",
+    "repo": "conduit-admin/problems",
+    "ssylka": "https://conduit-admin.github.io/problems/",
+    "kratko": "задачи одной темы из многих источников, с источником и ответом"
+   },
+   "links": [
+    "bumaga"
+   ]
+  },
+  {
    "path": "web/projects/vsosh-ii.md",
    "folder": "web/projects",
    "title": "ВсОШ по ИИ",
