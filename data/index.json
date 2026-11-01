@@ -2717,5 +2717,12 @@
    ],
    "thumb": "data/thumbs/treyly/prog.svg"
   }
+ ],
+ "banki": [
+  {
+   "id": "parametr",
+   "title": "Банк задач с параметром",
+   "n": 274
+  }
  ]
 }
