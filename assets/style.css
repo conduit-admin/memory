@@ -1501,6 +1501,47 @@ a.toc-pill { text-decoration: none; }
 }
 
 .tmd-about { border-top: 0; padding: 4px 4px 10px; margin: 0; }
+
+/* Банк задач: источник — заголовком на белой подложке (прямо на муаре
+   текст читается хуже), под ним свёрнутый охват и карточки задач. Карточка —
+   белый лист в чёрной обводке, как группа, но без шеврона: условие видно
+   сразу. Ответ и пара — под тонкой чертой, справка — тихим кеглем внизу. */
+.bz-sec { display: grid; gap: 12px; grid-template-columns: minmax(0, 1fr); }
+.bz-sec[hidden] { display: none; }
+.bz-sec-head {
+  display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between;
+  gap: 2px 12px; margin: 10px 0 0; padding: 9px 14px;
+  border-radius: var(--radius-sm); background: rgba(255, 255, 255, 0.92);
+  color: var(--black); font-size: 21px; font-weight: 700;
+}
+.bz-sec-n { color: var(--ink-muted); font-size: 14.5px; font-weight: 500; font-variant-numeric: tabular-nums; }
+.bz-grp {
+  margin: 4px 0 0; padding: 7px 14px; border-radius: var(--radius-sm);
+  background: rgba(255, 255, 255, 0.92); color: var(--black); font-size: 17.5px; font-weight: 700;
+}
+.bz {
+  display: grid; gap: 10px; grid-template-columns: minmax(0, 1fr);
+  padding: 14px 18px 16px; background: var(--surface);
+  border: var(--frame); border-radius: var(--radius);
+}
+.bz-top { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 12px; }
+.bz-code { color: var(--black); font-size: 17.5px; font-weight: 700; font-variant-numeric: tabular-nums; }
+.bz-src { color: var(--ink-muted); font-size: 15px; }
+.bz-text { overflow-x: auto; overflow-y: hidden; padding-block: 2px; }
+.bz-part { display: grid; gap: 4px; padding-top: 9px; border-top: 1px solid var(--quiet-on); }
+.bz-label { color: var(--black); font-size: 15.5px; font-weight: 600; }
+.bz-meta {
+  display: grid; gap: 4px; margin: 0; padding-top: 9px;
+  border-top: 1px solid var(--quiet-on); font-size: 14.5px; color: var(--ink-2);
+}
+.bz-meta > div { display: grid; grid-template-columns: 9em minmax(0, 1fr); gap: 12px; }
+.bz-meta dt { color: var(--ink-muted); }
+.bz-meta dd { margin: 0; overflow-wrap: anywhere; }
+.bz-meta code { padding: 1px 5px; border-radius: 6px; background: var(--quiet); font-family: var(--font-mono); font-size: 0.88em; }
+@media (max-width: 560px) {
+  .bz { padding: 12px 14px 14px; }
+  .bz-meta > div { grid-template-columns: 1fr; gap: 0; }
+}
 .tmd-h { margin: 18px 0 6px; color: var(--black); font-size: 18px; font-weight: 700; }
 .tmd-rows { display: grid; gap: 1px; margin: 0 -8px; }
 

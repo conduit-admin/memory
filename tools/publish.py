@@ -568,6 +568,116 @@ def treyly(seen):
     return [e for _, e, _ in found]
 
 
+# Банки задач — своя вкладка «Банки» с 2026-11-02 (владелец): задачи одной
+# темы из многих источников, папка tutoring/bank/<тема>/ в knowledge, файл на
+# источник. Markdown репетиторства на витрину не идёт (PRIVATE_MD), поэтому
+# файлы банка не копируются заметками, а разбираются здесь в data/banki.json —
+# так же, как задачники вкладки «ИИ». Файл банка — тот, у кого во фронтматтере
+# type: bank; соседи другого типа (конспекты теории) в банк не входят. Название
+# банка — заголовок README его папки. Запись — «### код», условие, затем поля
+# «- **Поле:** значение» с продолжением строк отступом; формат описан в README
+# банка. Новая тема и новый источник появляются сами.
+
+BANKI = "tutoring/bank"
+BANK_FIELD = re.compile(r"^- \*\*(.+?):\*\*\s?(.*)$")
+BANK_YEAR = re.compile(r"^[^-]+-(\d{4})(?:-|$)")
+BANK_ORDER = ["fiztekh", "lomonosov", "ommo", "pvg", "dvi-mgu", "problems-ru"]
+
+
+def bank_entry(code, raw, group):
+    cond, fields, note, name = [], [], [], None
+    for line in raw:
+        m = BANK_FIELD.match(line)
+        if m and not note:
+            name = m.group(1).strip()
+            fields.append([name, [m.group(2)]])
+        elif name is None:
+            cond.append(line)
+        elif not note and (line.startswith("  ") or not line.strip()):
+            fields[-1][1].append(line[2:] if line.strip() else "")
+        else:
+            note.append(line)
+    pole = [[k, "\n".join(v).strip()] for k, v in fields]
+    pole = [[k, v] for k, v in pole if v and v not in ("—", "-", "–")]
+    y = BANK_YEAR.match(code)
+    return {"code": code, "group": group, "year": int(y.group(1)) if y else 0,
+            "cond": "\n".join(cond).strip(), "pole": pole,
+            "note": "\n".join(note).strip()}
+
+
+def bank_source(path):
+    """Файл банка: шапка до первой записи и записи. Последний «##» перед
+    первой записью, за которым ничего нет, — заголовок группы записей
+    («Задачи» или рубрика сайта), а не раздел шапки."""
+    meta, body = parse_frontmatter(path.read_text(encoding="utf-8"))
+    lines = body.replace("\r\n", "\n").split("\n")
+    first = next((i for i, ln in enumerate(lines) if ln.startswith("### ")), len(lines))
+    head = [ln for ln in lines[:first] if not re.match(r"#\s", ln)]
+    group = ""
+    for i in range(len(head) - 1, -1, -1):
+        if head[i].strip():
+            if head[i].startswith("## "):
+                g = head[i][3:].strip()
+                group = "" if g == "Задачи" else g
+                head = head[:i]
+            break
+    entries, cur = [], None
+    for ln in lines[first:]:
+        if ln.startswith("### "):
+            if cur:
+                entries.append(bank_entry(*cur))
+            cur = (ln[4:].strip(), [], group)
+        elif ln.startswith("## "):
+            if cur:
+                entries.append(bank_entry(*cur))
+                cur = None
+            g = ln[3:].strip()
+            group = "" if g == "Задачи" else g
+        elif cur:
+            cur[1].append(ln)
+    if cur:
+        entries.append(bank_entry(*cur))
+    # в поле «Пара» бывает и два варианта-близнеца: у каждого свой «Ответ»
+    pary = sum(max(1, v.count("Ответ:")) for e in entries for k, v in e["pole"] if k == "Пара")
+    return {"slug": path.stem, "name": meta.get("istochnik", path.stem),
+            "gody": meta.get("gody", ""), "head": "\n".join(head).strip(),
+            "n": len(entries) + pary, "entries": entries}
+
+
+def banki():
+    """Банки задач в data/banki.json; в индекс — сводка: тема и число задач."""
+    root = KNOWLEDGE / BANKI
+    found = []
+    for d in sorted(root.iterdir()) if root.is_dir() else []:
+        if not d.is_dir():
+            continue
+        srcs = []
+        for p in d.glob("*.md"):
+            if p.name == "README.md":
+                continue
+            if parse_frontmatter(p.read_text(encoding="utf-8"))[0].get("type") != "bank":
+                continue
+            s = bank_source(p)
+            if s["entries"]:
+                srcs.append(s)
+        if not srcs:
+            continue
+        srcs.sort(key=lambda s: (BANK_ORDER.index(s["slug"]) if s["slug"] in BANK_ORDER
+                                 else len(BANK_ORDER), s["slug"]))
+        title = d.name
+        readme = d / "README.md"
+        if readme.is_file():
+            h = re.search(r"^#\s+(.+)$", readme.read_text(encoding="utf-8"), re.M)
+            if h:
+                title = h.group(1).strip()
+        found.append({"id": d.name, "title": title,
+                      "n": sum(s["n"] for s in srcs), "sources": srcs})
+    (HERE / "data" / "banki.json").write_text(
+        json.dumps({"banki": found}, ensure_ascii=False, indent=1),
+        encoding="utf-8", newline="\n")
+    return [{"id": b["id"], "title": b["title"], "n": b["n"]} for b in found]
+
+
 THUMBS = HERE / "data" / "thumbs"
 
 # Сторона миниатюры по большему измерению, в пикселях. На карточке рисунок
@@ -814,10 +924,12 @@ def main():
     tex = tex_documents()
     make_thumbs(tex, files)
     trails = treyly(seen)
+    banks = banki()
     build = datetime.now().strftime("%Y%m%d%H%M")
 
     (HERE / "data" / "index.json").write_text(
-        json.dumps({"notes": notes, "files": files, "tex": tex, "treyly": trails},
+        json.dumps({"notes": notes, "files": files, "tex": tex, "treyly": trails,
+                    "banki": banks},
                    ensure_ascii=False, indent=1),
         encoding="utf-8", newline="\n")
 
@@ -837,8 +949,10 @@ def main():
     stamp_html(build)
 
     linked = sum(len(n["links"]) for n in notes)
-    print("сборка %s: заметок %d, PDF %d, конспектов TeX %d, задачников %d, вики-ссылок %d"
-          % (build, len(notes), len(files), len(tex), len(trails), linked))
+    print("сборка %s: заметок %d, PDF %d, конспектов TeX %d, задачников %d, "
+          "задач в банках %d, вики-ссылок %d"
+          % (build, len(notes), len(files), len(tex), len(trails),
+             sum(b["n"] for b in banks), linked))
     if notes and not linked:
         print("связей между заметками нет — обратные ссылки будут пустыми")
 
