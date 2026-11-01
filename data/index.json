@@ -308,6 +308,15 @@
    ]
   },
   {
+   "path": "manim/kanal/ozvuchka/compass_center.md",
+   "folder": "manim/kanal/ozvuchka",
+   "title": "Центр одним циркулем",
+   "fm": {
+    "type": "ozvuchka"
+   },
+   "links": []
+  },
+  {
    "path": "manim/kanal/ozvuchka/orthocentric.md",
    "folder": "manim/kanal/ozvuchka",
    "title": "Ортоцентрические тетраэдры",
