@@ -262,6 +262,7 @@
     "type": "plan"
    },
    "links": [
+    "compass-center",
     "montazh",
     "ochered"
    ]
@@ -510,7 +511,8 @@
     "data": ""
    },
    "links": [
-    "compass-center-razbor"
+    "compass-center-razbor",
+    "konvencii"
    ]
   },
   {
@@ -1722,6 +1724,16 @@
    "thumb": "data/thumbs/tutoring/listki/diagnostika-fizika-10.png"
   },
   {
+   "path": "tutoring/listki/diagnostika-oge-9-razbor.pdf",
+   "folder": "tutoring/listki",
+   "title": "diagnostika-oge-9-razbor",
+   "kind": "pdf",
+   "pages": 17,
+   "size": 272917,
+   "date": "2026-10-23",
+   "thumb": "data/thumbs/tutoring/listki/diagnostika-oge-9-razbor.png"
+  },
+  {
    "path": "tutoring/listki/diagnostika-oge-9.pdf",
    "folder": "tutoring/listki",
    "title": "diagnostika-oge-9",
@@ -2154,6 +2166,15 @@
    "num": "",
    "date": "2026-10-23",
    "thumb": "data/thumbs/tutoring/listki/diagnostika-oge-9.png"
+  },
+  {
+   "title": "ОГЭ по математике",
+   "tex": "diagnostika-oge-9-razbor.tex",
+   "group": "tutoring",
+   "pdf": "tutoring/listki/diagnostika-oge-9-razbor.pdf",
+   "num": "",
+   "date": "2026-10-23",
+   "thumb": "data/thumbs/tutoring/listki/diagnostika-oge-9-razbor.png"
   },
   {
    "title": "Бросок и окружность",
