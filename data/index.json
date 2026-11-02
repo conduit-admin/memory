@@ -315,7 +315,10 @@
    "fm": {
     "type": "ozvuchka"
    },
-   "links": []
+   "links": [
+    "compass-center",
+    "ochered"
+   ]
   },
   {
    "path": "manim/kanal/ozvuchka/orthocentric.md",
