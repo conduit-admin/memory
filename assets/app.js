@@ -752,23 +752,33 @@
 
   /* Репетиторство — по темам. Вид документа и тема читаются из имени файла,
      как их и заводят: `sravneniya`, `sravneniya-dz`, `sravneniya-razbor`,
-     `parametr-dz-01`, `parametr-zanyatie-01-razbor`. Тема — то, что осталось
-     без хвоста; новый урок, домашка или разбор встают в свою тему сами.
+     `parametr-dz-01`, `parametr-zanyatie-01-razbor`. Занятие из двух листков
+     делится хвостом части: `diagnostika-veroyatnost-voprosy` и `-zadachi`
+     (с 2026-11-03; до того каждая часть вставала отдельной темой с тем же
+     названием). Тема — то, что осталось без хвоста; новый урок, домашка
+     или разбор встают в свою тему сами.
 
-     Внутри темы — в порядке цикла: урок, его разбор, занятия, домашки и их
-     разборы. Темы — свежие сверху: открывают обычно последнюю. */
-  var KIND = /^(.*?)(-zanyatie-(\d+))?(-dz(?:-(\d+))?)?(-razbor)?$/;
+     Внутри темы — в порядке цикла: урок или его части, разбор, занятия,
+     домашки и их разборы. Темы — свежие сверху: открывают обычно последнюю. */
+  var KIND = /^(.*?)(-zanyatie-(\d+))?(-dz(?:-(\d+))?)?(-(voprosy|zadachi))?(-razbor)?$/;
+  /* Части листка: порядок на занятии, подпись самой части и её разбора. */
+  var PARTS = { voprosy: [1, "Вопросы", "Разбор вопросов"],
+                zadachi: [2, "Задачи", "Разбор задач"] };
 
   function kindOf(stem) {
     var m = KIND.exec(stem);
-    var razbor = !!m[6], num = +(m[3] || m[5] || 0);
+    var razbor = !!m[8], num = +(m[3] || m[5] || 0), part = PARTS[m[7]];
     var k;
     if (m[2]) k = { label: (razbor ? "Разбор занятия " : "Занятие ") + num, rank: razbor ? 3 : 2 };
     else if (m[4]) k = { label: (razbor ? "Разбор домашки" : "Домашка") + (num ? " " + num : ""),
                          rank: razbor ? 5 : 4 };
+    else if (part) k = { label: part[razbor ? 2 : 1], rank: razbor ? 1 : 0 };
     else k = { label: razbor ? "Разбор урока" : "Урок", rank: razbor ? 1 : 0 };
+    /* У занятия или домашки из двух листков часть — после номера. */
+    if (part && (m[2] || m[4])) k.label += ", " + part[1].toLowerCase();
     k.base = m[1];
     k.num = num;
+    k.part = part ? part[0] : 0;
     /* Цвет точки: урок и занятие — одно, домашка — другое, любой разбор — третье. */
     k.kind = razbor ? "r" : (m[4] ? "d" : "u");
     return k;
@@ -787,7 +797,7 @@
     order.sort(function (a, b) { return latest(b).localeCompare(latest(a)) || a.localeCompare(b); });
     order.forEach(function (base) {
       var items = topics[base].sort(function (x, y) {
-        return x.k.rank - y.k.rank || x.k.num - y.k.num;
+        return x.k.rank - y.k.rank || x.k.num - y.k.num || x.k.part - y.k.part;
       });
       var lesson = items.filter(function (x) { return x.k.rank === 0; })[0] || items[0];
       var day = shortDate(latest(base));
