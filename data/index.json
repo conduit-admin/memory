@@ -1748,14 +1748,24 @@
    "thumb": "data/thumbs/tutoring/listki/diagnostika-oge-9.png"
   },
   {
-   "path": "tutoring/listki/diagnostika-veroyatnost.pdf",
+   "path": "tutoring/listki/diagnostika-veroyatnost-voprosy.pdf",
    "folder": "tutoring/listki",
-   "title": "diagnostika-veroyatnost",
+   "title": "diagnostika-veroyatnost-voprosy",
    "kind": "pdf",
-   "pages": 8,
-   "size": 161659,
+   "pages": 5,
+   "size": 128545,
    "date": "2026-11-03",
-   "thumb": "data/thumbs/tutoring/listki/diagnostika-veroyatnost.png"
+   "thumb": "data/thumbs/tutoring/listki/diagnostika-veroyatnost-voprosy.png"
+  },
+  {
+   "path": "tutoring/listki/diagnostika-veroyatnost-zadachi.pdf",
+   "folder": "tutoring/listki",
+   "title": "diagnostika-veroyatnost-zadachi",
+   "kind": "pdf",
+   "pages": 4,
+   "size": 137144,
+   "date": "2026-11-03",
+   "thumb": "data/thumbs/tutoring/listki/diagnostika-veroyatnost-zadachi.png"
   },
   {
    "path": "tutoring/listki/kinematika-razbor.pdf",
@@ -2202,12 +2212,21 @@
   },
   {
    "title": "Теория вероятностей",
-   "tex": "diagnostika-veroyatnost.tex",
+   "tex": "diagnostika-veroyatnost-voprosy.tex",
    "group": "tutoring",
-   "pdf": "tutoring/listki/diagnostika-veroyatnost.pdf",
+   "pdf": "tutoring/listki/diagnostika-veroyatnost-voprosy.pdf",
    "num": "",
    "date": "2026-11-03",
-   "thumb": "data/thumbs/tutoring/listki/diagnostika-veroyatnost.png"
+   "thumb": "data/thumbs/tutoring/listki/diagnostika-veroyatnost-voprosy.png"
+  },
+  {
+   "title": "Теория вероятностей",
+   "tex": "diagnostika-veroyatnost-zadachi.tex",
+   "group": "tutoring",
+   "pdf": "tutoring/listki/diagnostika-veroyatnost-zadachi.pdf",
+   "num": "",
+   "date": "2026-11-03",
+   "thumb": "data/thumbs/tutoring/listki/diagnostika-veroyatnost-zadachi.png"
   },
   {
    "title": "Бросок и окружность",
