@@ -888,6 +888,7 @@
     "olimpiada-02",
     "poryadok",
     "poryadok-dz",
+    "raznoboy-01",
     "sravneniya",
     "sravneniya-dz",
     "sravneniya-dz-razbor",
@@ -1887,6 +1888,16 @@
    "thumb": "data/thumbs/tutoring/listki/poryadok.png"
   },
   {
+   "path": "tutoring/listki/raznoboy-01.pdf",
+   "folder": "tutoring/listki",
+   "title": "raznoboy-01",
+   "kind": "pdf",
+   "pages": 3,
+   "size": 146199,
+   "date": "2026-11-03",
+   "thumb": "data/thumbs/tutoring/listki/raznoboy-01.png"
+  },
+  {
    "path": "tutoring/listki/sravneniya-dz-razbor.pdf",
    "folder": "tutoring/listki",
    "title": "sravneniya-dz-razbor",
@@ -2304,6 +2315,15 @@
    "num": "",
    "date": "2026-10-30",
    "thumb": "data/thumbs/tutoring/listki/poryadok-razbor.png"
+  },
+  {
+   "title": "Разнобой",
+   "tex": "raznoboy-01.tex",
+   "group": "tutoring",
+   "pdf": "tutoring/listki/raznoboy-01.pdf",
+   "num": "",
+   "date": "2026-11-03",
+   "thumb": "data/thumbs/tutoring/listki/raznoboy-01.png"
   },
   {
    "title": "Сравнения по модулю",
