@@ -2028,6 +2028,16 @@
    "thumb": "data/thumbs/tutoring/listki/uravneniya-v-celyh.png"
   },
   {
+   "path": "tutoring/listki/veroyatnost-sobytiya-dz.pdf",
+   "folder": "tutoring/listki",
+   "title": "veroyatnost-sobytiya-dz",
+   "kind": "pdf",
+   "pages": 8,
+   "size": 219763,
+   "date": "2026-11-04",
+   "thumb": "data/thumbs/tutoring/listki/veroyatnost-sobytiya-dz.png"
+  },
+  {
    "path": "tutoring/listki/vpisannost-dz.pdf",
    "folder": "tutoring/listki",
    "title": "vpisannost-dz",
@@ -2461,6 +2471,15 @@
    "num": "",
    "date": "2026-10-13",
    "thumb": "data/thumbs/tutoring/listki/uravneniya-v-celyh-razbor.png"
+  },
+  {
+   "title": "Вероятность события",
+   "tex": "veroyatnost-sobytiya-dz.tex",
+   "group": "tutoring",
+   "pdf": "tutoring/listki/veroyatnost-sobytiya-dz.pdf",
+   "num": "",
+   "date": "2026-11-04",
+   "thumb": "data/thumbs/tutoring/listki/veroyatnost-sobytiya-dz.png"
   },
   {
    "title": "Четыре точки на окружности",
