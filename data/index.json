@@ -1621,6 +1621,16 @@
    "thumb": "data/thumbs/tex/documents/kanal/broken-stick.png"
   },
   {
+   "path": "tex/documents/kanal/compass-center.pdf",
+   "folder": "tex/documents/kanal",
+   "title": "compass-center",
+   "kind": "pdf",
+   "pages": 7,
+   "size": 231684,
+   "date": "2026-11-05",
+   "thumb": "data/thumbs/tex/documents/kanal/compass-center.png"
+  },
+  {
    "path": "tex/documents/kanal/orthocentric.pdf",
    "folder": "tex/documents/kanal",
    "title": "orthocentric",
@@ -2131,6 +2141,15 @@
    "num": "",
    "date": "2026-10-16",
    "thumb": "data/thumbs/tex/documents/kanal/broken-stick.png"
+  },
+  {
+   "title": "Можно ли найти центр без линейки?",
+   "tex": "compass-center.tex",
+   "group": "kanal",
+   "pdf": "tex/documents/kanal/compass-center.pdf",
+   "num": "",
+   "date": "2026-11-05",
+   "thumb": "data/thumbs/tex/documents/kanal/compass-center.png"
   },
   {
    "title": "Сфера двадцати четырёх точек",
