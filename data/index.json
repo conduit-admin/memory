@@ -317,7 +317,9 @@
    },
    "links": [
     "compass-center",
-    "ochered"
+    "ochered",
+    "telegram",
+    "youtube"
    ]
   },
   {
@@ -509,7 +511,7 @@
     "type": "proekt",
     "vid": "animatsiya",
     "fail": "compass_center.py",
-    "stadiya": "программируется",
+    "stadiya": "смонтирован",
     "video": "",
     "data": ""
    },
