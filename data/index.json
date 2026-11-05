@@ -880,7 +880,6 @@
     "status": "занимается"
    },
    "links": [
-    "municipalnyy-etap-01",
     "neravenstva-zanyatie-01",
     "ocenka-i-primer-zanyatie-01",
     "ocenka-i-primer-zanyatie-01-razbor",
@@ -908,7 +907,6 @@
     "tyulenev-stepan-08",
     "tyulenev-stepan-09",
     "tyulenev-stepan-10",
-    "tyulenev-stepan-11",
     "uravneniya-v-celyh",
     "uravneniya-v-celyh-razbor",
     "vpisannost",
@@ -1802,16 +1800,6 @@
    "thumb": "data/thumbs/tutoring/listki/kinematika.png"
   },
   {
-   "path": "tutoring/listki/municipalnyy-etap-01.pdf",
-   "folder": "tutoring/listki",
-   "title": "municipalnyy-etap-01",
-   "kind": "pdf",
-   "pages": 4,
-   "size": 170784,
-   "date": "2026-11-05",
-   "thumb": "data/thumbs/tutoring/listki/municipalnyy-etap-01.png"
-  },
-  {
    "path": "tutoring/listki/neravenstva-zanyatie-01-razbor.pdf",
    "folder": "tutoring/listki",
    "title": "neravenstva-zanyatie-01-razbor",
@@ -2288,15 +2276,6 @@
    "num": "",
    "date": "2026-10-16",
    "thumb": "data/thumbs/tutoring/listki/kinematika-razbor.png"
-  },
-  {
-   "title": "Муниципальный этап",
-   "tex": "municipalnyy-etap-01.tex",
-   "group": "tutoring",
-   "pdf": "tutoring/listki/municipalnyy-etap-01.pdf",
-   "num": "",
-   "date": "2026-11-05",
-   "thumb": "data/thumbs/tutoring/listki/municipalnyy-etap-01.png"
   },
   {
    "title": "Неравенства",
