@@ -897,6 +897,7 @@
     "sravneniya-razbor",
     "stepen-tochki",
     "stepen-tochki-razbor",
+    "stereometriya",
     "trehchlen",
     "trehchlen-dz",
     "trehchlen-razbor",
@@ -907,6 +908,7 @@
     "tyulenev-stepan-08",
     "tyulenev-stepan-09",
     "tyulenev-stepan-10",
+    "tyulenev-stepan-11",
     "uravneniya-v-celyh",
     "uravneniya-v-celyh-razbor",
     "vpisannost",
@@ -1990,6 +1992,16 @@
    "thumb": "data/thumbs/tutoring/listki/stepen-tochki.png"
   },
   {
+   "path": "tutoring/listki/stereometriya.pdf",
+   "folder": "tutoring/listki",
+   "title": "stereometriya",
+   "kind": "pdf",
+   "pages": 5,
+   "size": 139175,
+   "date": "2026-11-05",
+   "thumb": "data/thumbs/tutoring/listki/stereometriya.png"
+  },
+  {
    "path": "tutoring/listki/trehchlen-dz.pdf",
    "folder": "tutoring/listki",
    "title": "trehchlen-dz",
@@ -2447,6 +2459,15 @@
    "num": "",
    "date": "2026-10-25",
    "thumb": "data/thumbs/tutoring/listki/stepen-tochki-razbor.png"
+  },
+  {
+   "title": "Стереометрия",
+   "tex": "stereometriya.tex",
+   "group": "tutoring",
+   "pdf": "tutoring/listki/stereometriya.pdf",
+   "num": "",
+   "date": "2026-11-05",
+   "thumb": "data/thumbs/tutoring/listki/stereometriya.png"
   },
   {
    "title": "Квадратный трёхчлен",
