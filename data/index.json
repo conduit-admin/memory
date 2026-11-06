@@ -521,6 +521,23 @@
    ]
   },
   {
+   "path": "manim/projects/cursor.md",
+   "folder": "manim/projects",
+   "title": "Задача о курсоре",
+   "fm": {
+    "type": "proekt",
+    "vid": "animatsiya",
+    "fail": "cursor.py",
+    "stadiya": "ресёрч, ждёт сценария",
+    "video": "",
+    "data": ""
+   },
+   "links": [
+    "idei",
+    "konvencii"
+   ]
+  },
+  {
    "path": "manim/projects/inertia-peresborka.md",
    "folder": "manim/projects",
    "title": "Момент инерции — пересборка",
