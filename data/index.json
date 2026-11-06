@@ -2028,6 +2028,16 @@
    "thumb": "data/thumbs/tutoring/listki/stereometriya-baza.png"
   },
   {
+   "path": "tutoring/listki/stereometriya-razbor.pdf",
+   "folder": "tutoring/listki",
+   "title": "stereometriya-razbor",
+   "kind": "pdf",
+   "pages": 10,
+   "size": 211112,
+   "date": "2026-11-06",
+   "thumb": "data/thumbs/tutoring/listki/stereometriya-razbor.png"
+  },
+  {
    "path": "tutoring/listki/stereometriya.pdf",
    "folder": "tutoring/listki",
    "title": "stereometriya",
@@ -2522,6 +2532,15 @@
    "num": "",
    "date": "2026-11-06",
    "thumb": "data/thumbs/tutoring/listki/stereometriya-baza.png"
+  },
+  {
+   "title": "Стереометрия",
+   "tex": "stereometriya-razbor.tex",
+   "group": "tutoring",
+   "pdf": "tutoring/listki/stereometriya-razbor.pdf",
+   "num": "",
+   "date": "2026-11-06",
+   "thumb": "data/thumbs/tutoring/listki/stereometriya-razbor.png"
   },
   {
    "title": "Квадратный трёхчлен",
