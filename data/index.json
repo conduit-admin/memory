@@ -1593,6 +1593,16 @@
    "date": "2026-09-06"
   },
   {
+   "path": "tex/documents/dvoynye-predely.pdf",
+   "folder": "tex/documents",
+   "title": "dvoynye-predely",
+   "kind": "pdf",
+   "pages": 5,
+   "size": 204318,
+   "date": "2026-11-06",
+   "thumb": "data/thumbs/tex/documents/dvoynye-predely.png"
+  },
+  {
    "path": "tex/documents/elektromagnitnye-kolebaniya.pdf",
    "folder": "tex/documents",
    "title": "elektromagnitnye-kolebaniya",
@@ -2100,6 +2110,15 @@
    "pdf": "tex/documents/cursor.pdf",
    "num": "",
    "date": "2026-09-06"
+  },
+  {
+   "title": "Двойные и повторные пределы",
+   "tex": "dvoynye-predely.tex",
+   "group": "",
+   "pdf": "tex/documents/dvoynye-predely.pdf",
+   "num": "",
+   "date": "2026-11-06",
+   "thumb": "data/thumbs/tex/documents/dvoynye-predely.png"
   },
   {
    "title": "Электромагнитные колебания",
