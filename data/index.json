@@ -2002,6 +2002,16 @@
    "thumb": "data/thumbs/tutoring/listki/stepen-tochki.png"
   },
   {
+   "path": "tutoring/listki/stereometriya-baza.pdf",
+   "folder": "tutoring/listki",
+   "title": "stereometriya-baza",
+   "kind": "pdf",
+   "pages": 5,
+   "size": 152062,
+   "date": "2026-11-06",
+   "thumb": "data/thumbs/tutoring/listki/stereometriya-baza.png"
+  },
+  {
    "path": "tutoring/listki/stereometriya.pdf",
    "folder": "tutoring/listki",
    "title": "stereometriya",
@@ -2487,6 +2497,15 @@
    "num": "",
    "date": "2026-11-05",
    "thumb": "data/thumbs/tutoring/listki/stereometriya.png"
+  },
+  {
+   "title": "Основы стереометрии",
+   "tex": "stereometriya-baza.tex",
+   "group": "tutoring",
+   "pdf": "tutoring/listki/stereometriya-baza.pdf",
+   "num": "",
+   "date": "2026-11-06",
+   "thumb": "data/thumbs/tutoring/listki/stereometriya-baza.png"
   },
   {
    "title": "Квадратный трёхчлен",
