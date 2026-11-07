@@ -70,7 +70,9 @@ status: занимается
 2. Вероятность события — [[veroyatnost-sobytiya-dz|домашка]], срок 08.11;
    [[veroyatnost-sobytiya-dz-razbor|разбор]].
 3. 08.11 — условная вероятность: [[uslovnaya-veroyatnost|урок]],
-   [[uslovnaya-veroyatnost-razbor|разбор]].
+   [[uslovnaya-veroyatnost-razbor|разбор]];
+   [[uslovnaya-veroyatnost-dz|домашка]] — и с ней первая теория
+   независимости.
 
 ## Организационное
 

@@ -911,6 +911,7 @@
     "diagnostika-veroyatnost-zadachi",
     "dmitriy-hft-01",
     "uslovnaya-veroyatnost",
+    "uslovnaya-veroyatnost-dz",
     "uslovnaya-veroyatnost-razbor",
     "veroyatnost-sobytiya-dz",
     "veroyatnost-sobytiya-dz-razbor"
@@ -2112,6 +2113,16 @@
    "thumb": "data/thumbs/tutoring/listki/uravneniya-v-celyh.png"
   },
   {
+   "path": "tutoring/listki/uslovnaya-veroyatnost-dz.pdf",
+   "folder": "tutoring/listki",
+   "title": "uslovnaya-veroyatnost-dz",
+   "kind": "pdf",
+   "pages": 5,
+   "size": 186782,
+   "date": "2026-11-07",
+   "thumb": "data/thumbs/tutoring/listki/uslovnaya-veroyatnost-dz.png"
+  },
+  {
    "path": "tutoring/listki/uslovnaya-veroyatnost-razbor.pdf",
    "folder": "tutoring/listki",
    "title": "uslovnaya-veroyatnost-razbor",
@@ -2639,6 +2650,15 @@
    "num": "",
    "date": "2026-11-07",
    "thumb": "data/thumbs/tutoring/listki/uslovnaya-veroyatnost.png"
+  },
+  {
+   "title": "Условная вероятность и независимость",
+   "tex": "uslovnaya-veroyatnost-dz.tex",
+   "group": "tutoring",
+   "pdf": "tutoring/listki/uslovnaya-veroyatnost-dz.pdf",
+   "num": "",
+   "date": "2026-11-07",
+   "thumb": "data/thumbs/tutoring/listki/uslovnaya-veroyatnost-dz.png"
   },
   {
    "title": "Условная вероятность",
