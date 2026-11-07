@@ -912,7 +912,8 @@
     "dmitriy-hft-01",
     "uslovnaya-veroyatnost",
     "uslovnaya-veroyatnost-razbor",
-    "veroyatnost-sobytiya-dz"
+    "veroyatnost-sobytiya-dz",
+    "veroyatnost-sobytiya-dz-razbor"
    ]
   },
   {
@@ -2131,6 +2132,16 @@
    "thumb": "data/thumbs/tutoring/listki/uslovnaya-veroyatnost.png"
   },
   {
+   "path": "tutoring/listki/veroyatnost-sobytiya-dz-razbor.pdf",
+   "folder": "tutoring/listki",
+   "title": "veroyatnost-sobytiya-dz-razbor",
+   "kind": "pdf",
+   "pages": 11,
+   "size": 234811,
+   "date": "2026-11-07",
+   "thumb": "data/thumbs/tutoring/listki/veroyatnost-sobytiya-dz-razbor.png"
+  },
+  {
    "path": "tutoring/listki/veroyatnost-sobytiya-dz.pdf",
    "folder": "tutoring/listki",
    "title": "veroyatnost-sobytiya-dz",
@@ -2646,6 +2657,15 @@
    "num": "",
    "date": "2026-11-04",
    "thumb": "data/thumbs/tutoring/listki/veroyatnost-sobytiya-dz.png"
+  },
+  {
+   "title": "Вероятность события",
+   "tex": "veroyatnost-sobytiya-dz-razbor.tex",
+   "group": "tutoring",
+   "pdf": "tutoring/listki/veroyatnost-sobytiya-dz-razbor.pdf",
+   "num": "",
+   "date": "2026-11-07",
+   "thumb": "data/thumbs/tutoring/listki/veroyatnost-sobytiya-dz-razbor.png"
   },
   {
    "title": "Четыре точки на окружности",

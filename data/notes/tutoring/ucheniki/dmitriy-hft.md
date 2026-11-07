@@ -67,7 +67,8 @@ status: занимается
 
 1. 03.11 — пробное: [[diagnostika-veroyatnost-voprosy|понятия]],
    [[diagnostika-veroyatnost-zadachi|задачи]]; план — [[dmitriy-hft-01]].
-2. Вероятность события — [[veroyatnost-sobytiya-dz|домашка]], срок 08.11.
+2. Вероятность события — [[veroyatnost-sobytiya-dz|домашка]], срок 08.11;
+   [[veroyatnost-sobytiya-dz-razbor|разбор]].
 3. 08.11 — условная вероятность: [[uslovnaya-veroyatnost|урок]],
    [[uslovnaya-veroyatnost-razbor|разбор]].
 
