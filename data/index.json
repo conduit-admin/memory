@@ -910,6 +910,8 @@
     "diagnostika-veroyatnost-voprosy",
     "diagnostika-veroyatnost-zadachi",
     "dmitriy-hft-01",
+    "uslovnaya-veroyatnost",
+    "uslovnaya-veroyatnost-razbor",
     "veroyatnost-sobytiya-dz"
    ]
   },
@@ -2109,6 +2111,26 @@
    "thumb": "data/thumbs/tutoring/listki/uravneniya-v-celyh.png"
   },
   {
+   "path": "tutoring/listki/uslovnaya-veroyatnost-razbor.pdf",
+   "folder": "tutoring/listki",
+   "title": "uslovnaya-veroyatnost-razbor",
+   "kind": "pdf",
+   "pages": 6,
+   "size": 194062,
+   "date": "2026-11-07",
+   "thumb": "data/thumbs/tutoring/listki/uslovnaya-veroyatnost-razbor.png"
+  },
+  {
+   "path": "tutoring/listki/uslovnaya-veroyatnost.pdf",
+   "folder": "tutoring/listki",
+   "title": "uslovnaya-veroyatnost",
+   "kind": "pdf",
+   "pages": 4,
+   "size": 175227,
+   "date": "2026-11-07",
+   "thumb": "data/thumbs/tutoring/listki/uslovnaya-veroyatnost.png"
+  },
+  {
    "path": "tutoring/listki/veroyatnost-sobytiya-dz.pdf",
    "folder": "tutoring/listki",
    "title": "veroyatnost-sobytiya-dz",
@@ -2597,6 +2619,24 @@
    "num": "",
    "date": "2026-10-13",
    "thumb": "data/thumbs/tutoring/listki/uravneniya-v-celyh-razbor.png"
+  },
+  {
+   "title": "Условная вероятность",
+   "tex": "uslovnaya-veroyatnost.tex",
+   "group": "tutoring",
+   "pdf": "tutoring/listki/uslovnaya-veroyatnost.pdf",
+   "num": "",
+   "date": "2026-11-07",
+   "thumb": "data/thumbs/tutoring/listki/uslovnaya-veroyatnost.png"
+  },
+  {
+   "title": "Условная вероятность",
+   "tex": "uslovnaya-veroyatnost-razbor.tex",
+   "group": "tutoring",
+   "pdf": "tutoring/listki/uslovnaya-veroyatnost-razbor.pdf",
+   "num": "",
+   "date": "2026-11-07",
+   "thumb": "data/thumbs/tutoring/listki/uslovnaya-veroyatnost-razbor.png"
   },
   {
    "title": "Вероятность события",
