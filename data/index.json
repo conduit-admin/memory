@@ -891,6 +891,29 @@
    "links": []
   },
   {
+   "path": "tutoring/ucheniki/dmitriy-hft.md",
+   "folder": "tutoring/ucheniki",
+   "title": "Дмитрий",
+   "fm": {
+    "type": "uchenik",
+    "imya": "Дмитрий",
+    "klass": "взрослый",
+    "tsel": "теория вероятностей к собеседованиям в HFT",
+    "srok": "",
+    "format": "",
+    "chasov_v_nedelyu": "",
+    "stavka": "",
+    "nachalo": "2026-11-03",
+    "status": "занимается"
+   },
+   "links": [
+    "diagnostika-veroyatnost-voprosy",
+    "diagnostika-veroyatnost-zadachi",
+    "dmitriy-hft-01",
+    "veroyatnost-sobytiya-dz"
+   ]
+  },
+  {
    "path": "tutoring/ucheniki/tyulenev-stepan.md",
    "folder": "tutoring/ucheniki",
    "title": "Степан Тюленев",
