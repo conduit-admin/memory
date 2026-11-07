@@ -323,6 +323,17 @@
    ]
   },
   {
+   "path": "manim/kanal/ozvuchka/cursor.md",
+   "folder": "manim/kanal/ozvuchka",
+   "title": "Задача о курсоре",
+   "fm": {
+    "type": "ozvuchka"
+   },
+   "links": [
+    "konvencii"
+   ]
+  },
+  {
    "path": "manim/kanal/ozvuchka/orthocentric.md",
    "folder": "manim/kanal/ozvuchka",
    "title": "Ортоцентрические тетраэдры",
