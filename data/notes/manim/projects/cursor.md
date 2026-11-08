@@ -19,7 +19,11 @@ $\mathrm{E}X_n \approx \sqrt{2n/\pi} - \tfrac12$ и $\pi$ из нажатий.
 
 Прислан PDF-файлом: текст ролика по порядку, ремарки в скобках, один
 рисунок от руки. Ниже текст как есть, рисунок — словами. Замечания —
-после текста.
+после текста. Сам PDF в хранилище не лежит: всё из него переписано сюда.
+
+Редакция текста из этого наброска, сделанная по просьбе владельца
+07.11, — в файле озвучки `kanal/ozvuchka/cursor.md`; по нему пишется
+голос, там же — чем редакция отличается от наброска.
 
 > *(На экране появляется окно для ввода текста. Начинает бегать курсор,
 > а именно случайно блуждать)*
@@ -257,6 +261,23 @@ backspace — обслужен, а в пустой очереди обслужи
   к выходу этого ролика наберётся.
 - **Русскоязычный YouTube** — ниже, отдельным разделом.
 
+### Источники
+
+- K. Pearson, The Problem of the Random Walk, Nature 72, 294 (1905);
+  пересказ истории — блог библиотеки LSHTM, «Karl Pearson and Sir Ronald Ross».
+- G. Pólya, Math. Ann. 84 (1921); афоризм Какутани — по Р. Дарретту,
+  «Probability: Theory and Examples».
+- M. Renault, Lost (and Found) in Translation: André's Actual Method and
+  Its Application to the Generalized Ballot Problem, Amer. Math. Monthly (2008).
+- K. Seki, Method of images for one-dimensional discrete random walk under
+  a reflecting barrier, J. Chem. Phys. 163, 024103 (2025), arXiv:2408.00926.
+- A. Comtet, S. N. Majumdar, Precise asymptotics for a random walker's
+  maximum, J. Stat. Mech. (2005) P06013, arXiv:cond-mat/0506195.
+- D. V. Lindley, The theory of queues with a single server, Proc.
+  Cambridge Phil. Soc. 48, 277–289 (1952).
+- Принцип отражения для рекорда: задачник University of Bath, MA20034,
+  лист 5; Г. Житкович, «Stochastic processes», гл. 4.
+
 ## Русскоязычный YouTube о блужданиях, 06.11.2026
 
 Поиск по запросам «случайное блуждание», «… shorts», «задача о пьянице
@@ -439,20 +460,3 @@ $\mathrm{P}\{X_k = 0\} = \binom{k}{\lfloor k/2\rfloor}/2^k$, в ролике
 петли. На бумаге — минута; голос у прошлых роликов выходил длиннее
 плана (Раскраска и Центр одним циркулем — около 1:30), так что запас
 до восьмидесяти секунд из [[konvencii]] небольшой.
-
-### Источники
-
-- K. Pearson, The Problem of the Random Walk, Nature 72, 294 (1905);
-  пересказ истории — блог библиотеки LSHTM, «Karl Pearson and Sir Ronald Ross».
-- G. Pólya, Math. Ann. 84 (1921); афоризм Какутани — по Р. Дарретту,
-  «Probability: Theory and Examples».
-- M. Renault, Lost (and Found) in Translation: André's Actual Method and
-  Its Application to the Generalized Ballot Problem, Amer. Math. Monthly (2008).
-- K. Seki, Method of images for one-dimensional discrete random walk under
-  a reflecting barrier, J. Chem. Phys. 163, 024103 (2025), arXiv:2408.00926.
-- A. Comtet, S. N. Majumdar, Precise asymptotics for a random walker's
-  maximum, J. Stat. Mech. (2005) P06013, arXiv:cond-mat/0506195.
-- D. V. Lindley, The theory of queues with a single server, Proc.
-  Cambridge Phil. Soc. 48, 277–289 (1952).
-- Принцип отражения для рекорда: задачник University of Bath, MA20034,
-  лист 5; Г. Житкович, «Stochastic processes», гл. 4.
