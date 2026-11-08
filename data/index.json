@@ -953,6 +953,7 @@
     "stepen-tochki-razbor",
     "stereometriya",
     "stereometriya-zanyatie-02",
+    "stereometriya-zanyatie-02-razbor",
     "trehchlen",
     "trehchlen-dz",
     "trehchlen-razbor",
@@ -2087,6 +2088,16 @@
    "thumb": "data/thumbs/tutoring/listki/stereometriya-razbor.png"
   },
   {
+   "path": "tutoring/listki/stereometriya-zanyatie-02-razbor.pdf",
+   "folder": "tutoring/listki",
+   "title": "stereometriya-zanyatie-02-razbor",
+   "kind": "pdf",
+   "pages": 10,
+   "size": 226838,
+   "date": "2026-11-08",
+   "thumb": "data/thumbs/tutoring/listki/stereometriya-zanyatie-02-razbor.png"
+  },
+  {
    "path": "tutoring/listki/stereometriya-zanyatie-02.pdf",
    "folder": "tutoring/listki",
    "title": "stereometriya-zanyatie-02",
@@ -2649,6 +2660,15 @@
    "num": "",
    "date": "2026-11-08",
    "thumb": "data/thumbs/tutoring/listki/stereometriya-zanyatie-02.png"
+  },
+  {
+   "title": "Шары и касание",
+   "tex": "stereometriya-zanyatie-02-razbor.tex",
+   "group": "tutoring",
+   "pdf": "tutoring/listki/stereometriya-zanyatie-02-razbor.pdf",
+   "num": "",
+   "date": "2026-11-08",
+   "thumb": "data/thumbs/tutoring/listki/stereometriya-zanyatie-02-razbor.png"
   },
   {
    "title": "Квадратный трёхчлен",
