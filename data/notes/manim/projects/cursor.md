@@ -2,7 +2,7 @@
 type: proekt
 vid: animatsiya
 fail: cursor.py
-stadiya: сценарий владельца, замечания
+stadiya: озвучивается и монтируется
 video:
 data:
 ---
