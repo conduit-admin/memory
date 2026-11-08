@@ -952,6 +952,7 @@
     "stepen-tochki",
     "stepen-tochki-razbor",
     "stereometriya",
+    "stereometriya-zanyatie-02",
     "trehchlen",
     "trehchlen-dz",
     "trehchlen-razbor",
@@ -963,6 +964,7 @@
     "tyulenev-stepan-09",
     "tyulenev-stepan-10",
     "tyulenev-stepan-11",
+    "tyulenev-stepan-12",
     "uravneniya-v-celyh",
     "uravneniya-v-celyh-razbor",
     "vpisannost",
@@ -2085,6 +2087,16 @@
    "thumb": "data/thumbs/tutoring/listki/stereometriya-razbor.png"
   },
   {
+   "path": "tutoring/listki/stereometriya-zanyatie-02.pdf",
+   "folder": "tutoring/listki",
+   "title": "stereometriya-zanyatie-02",
+   "kind": "pdf",
+   "pages": 5,
+   "size": 148554,
+   "date": "2026-11-08",
+   "thumb": "data/thumbs/tutoring/listki/stereometriya-zanyatie-02.png"
+  },
+  {
    "path": "tutoring/listki/stereometriya.pdf",
    "folder": "tutoring/listki",
    "title": "stereometriya",
@@ -2628,6 +2640,15 @@
    "num": "",
    "date": "2026-11-06",
    "thumb": "data/thumbs/tutoring/listki/stereometriya-razbor.png"
+  },
+  {
+   "title": "Шары и касание",
+   "tex": "stereometriya-zanyatie-02.tex",
+   "group": "tutoring",
+   "pdf": "tutoring/listki/stereometriya-zanyatie-02.pdf",
+   "num": "",
+   "date": "2026-11-08",
+   "thumb": "data/thumbs/tutoring/listki/stereometriya-zanyatie-02.png"
   },
   {
    "title": "Квадратный трёхчлен",
