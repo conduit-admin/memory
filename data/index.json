@@ -910,8 +910,13 @@
     "diagnostika-veroyatnost-voprosy",
     "diagnostika-veroyatnost-zadachi",
     "dmitriy-hft-01",
+    "dmitriy-hft-03",
+    "formula-bayesa",
+    "formula-bayesa-dz",
+    "formula-bayesa-razbor",
     "uslovnaya-veroyatnost",
     "uslovnaya-veroyatnost-dz",
+    "uslovnaya-veroyatnost-dz-razbor",
     "uslovnaya-veroyatnost-razbor",
     "veroyatnost-sobytiya-dz",
     "veroyatnost-sobytiya-dz-razbor"
@@ -1858,6 +1863,36 @@
    "thumb": "data/thumbs/tutoring/listki/diagnostika-veroyatnost-zadachi.png"
   },
   {
+   "path": "tutoring/listki/formula-bayesa-dz.pdf",
+   "folder": "tutoring/listki",
+   "title": "formula-bayesa-dz",
+   "kind": "pdf",
+   "pages": 4,
+   "size": 139437,
+   "date": "2026-11-09",
+   "thumb": "data/thumbs/tutoring/listki/formula-bayesa-dz.png"
+  },
+  {
+   "path": "tutoring/listki/formula-bayesa-razbor.pdf",
+   "folder": "tutoring/listki",
+   "title": "formula-bayesa-razbor",
+   "kind": "pdf",
+   "pages": 7,
+   "size": 223061,
+   "date": "2026-11-09",
+   "thumb": "data/thumbs/tutoring/listki/formula-bayesa-razbor.png"
+  },
+  {
+   "path": "tutoring/listki/formula-bayesa.pdf",
+   "folder": "tutoring/listki",
+   "title": "formula-bayesa",
+   "kind": "pdf",
+   "pages": 5,
+   "size": 199619,
+   "date": "2026-11-09",
+   "thumb": "data/thumbs/tutoring/listki/formula-bayesa.png"
+  },
+  {
    "path": "tutoring/listki/kinematika-razbor.pdf",
    "folder": "tutoring/listki",
    "title": "kinematika-razbor",
@@ -2168,6 +2203,16 @@
    "thumb": "data/thumbs/tutoring/listki/uravneniya-v-celyh.png"
   },
   {
+   "path": "tutoring/listki/uslovnaya-veroyatnost-dz-razbor.pdf",
+   "folder": "tutoring/listki",
+   "title": "uslovnaya-veroyatnost-dz-razbor",
+   "kind": "pdf",
+   "pages": 9,
+   "size": 197074,
+   "date": "2026-11-09",
+   "thumb": "data/thumbs/tutoring/listki/uslovnaya-veroyatnost-dz-razbor.png"
+  },
+  {
    "path": "tutoring/listki/uslovnaya-veroyatnost-dz.pdf",
    "folder": "tutoring/listki",
    "title": "uslovnaya-veroyatnost-dz",
@@ -2435,6 +2480,33 @@
    "num": "",
    "date": "2026-11-03",
    "thumb": "data/thumbs/tutoring/listki/diagnostika-veroyatnost-zadachi.png"
+  },
+  {
+   "title": "Формула Байеса",
+   "tex": "formula-bayesa.tex",
+   "group": "tutoring",
+   "pdf": "tutoring/listki/formula-bayesa.pdf",
+   "num": "",
+   "date": "2026-11-09",
+   "thumb": "data/thumbs/tutoring/listki/formula-bayesa.png"
+  },
+  {
+   "title": "Формула Байеса",
+   "tex": "formula-bayesa-dz.tex",
+   "group": "tutoring",
+   "pdf": "tutoring/listki/formula-bayesa-dz.pdf",
+   "num": "",
+   "date": "2026-11-09",
+   "thumb": "data/thumbs/tutoring/listki/formula-bayesa-dz.png"
+  },
+  {
+   "title": "Формула Байеса",
+   "tex": "formula-bayesa-razbor.tex",
+   "group": "tutoring",
+   "pdf": "tutoring/listki/formula-bayesa-razbor.pdf",
+   "num": "",
+   "date": "2026-11-09",
+   "thumb": "data/thumbs/tutoring/listki/formula-bayesa-razbor.png"
   },
   {
    "title": "Бросок и окружность",
@@ -2732,6 +2804,15 @@
    "num": "",
    "date": "2026-11-07",
    "thumb": "data/thumbs/tutoring/listki/uslovnaya-veroyatnost-dz.png"
+  },
+  {
+   "title": "Условная вероятность и независимость",
+   "tex": "uslovnaya-veroyatnost-dz-razbor.tex",
+   "group": "tutoring",
+   "pdf": "tutoring/listki/uslovnaya-veroyatnost-dz-razbor.pdf",
+   "num": "",
+   "date": "2026-11-09",
+   "thumb": "data/thumbs/tutoring/listki/uslovnaya-veroyatnost-dz-razbor.png"
   },
   {
    "title": "Условная вероятность",
