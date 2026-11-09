@@ -907,16 +907,13 @@
     "status": "занимается"
    },
    "links": [
+    "bayes-i-nezavisimost",
+    "bayes-i-nezavisimost-razbor",
     "diagnostika-veroyatnost-voprosy",
     "diagnostika-veroyatnost-zadachi",
     "dmitriy-hft-01",
     "dmitriy-hft-03",
-    "formula-bayesa",
-    "formula-bayesa-dz",
-    "formula-bayesa-razbor",
     "uslovnaya-veroyatnost",
-    "uslovnaya-veroyatnost-dz",
-    "uslovnaya-veroyatnost-dz-razbor",
     "uslovnaya-veroyatnost-razbor",
     "veroyatnost-sobytiya-dz",
     "veroyatnost-sobytiya-dz-razbor"
@@ -1803,6 +1800,26 @@
    "date": "2026-09-10"
   },
   {
+   "path": "tutoring/listki/bayes-i-nezavisimost-razbor.pdf",
+   "folder": "tutoring/listki",
+   "title": "bayes-i-nezavisimost-razbor",
+   "kind": "pdf",
+   "pages": 10,
+   "size": 219533,
+   "date": "2026-11-09",
+   "thumb": "data/thumbs/tutoring/listki/bayes-i-nezavisimost-razbor.png"
+  },
+  {
+   "path": "tutoring/listki/bayes-i-nezavisimost.pdf",
+   "folder": "tutoring/listki",
+   "title": "bayes-i-nezavisimost",
+   "kind": "pdf",
+   "pages": 7,
+   "size": 203039,
+   "date": "2026-11-09",
+   "thumb": "data/thumbs/tutoring/listki/bayes-i-nezavisimost.png"
+  },
+  {
    "path": "tutoring/listki/diagnostika-fizika-10-razbor.pdf",
    "folder": "tutoring/listki",
    "title": "diagnostika-fizika-10-razbor",
@@ -1861,36 +1878,6 @@
    "size": 137144,
    "date": "2026-11-03",
    "thumb": "data/thumbs/tutoring/listki/diagnostika-veroyatnost-zadachi.png"
-  },
-  {
-   "path": "tutoring/listki/formula-bayesa-dz.pdf",
-   "folder": "tutoring/listki",
-   "title": "formula-bayesa-dz",
-   "kind": "pdf",
-   "pages": 4,
-   "size": 139437,
-   "date": "2026-11-09",
-   "thumb": "data/thumbs/tutoring/listki/formula-bayesa-dz.png"
-  },
-  {
-   "path": "tutoring/listki/formula-bayesa-razbor.pdf",
-   "folder": "tutoring/listki",
-   "title": "formula-bayesa-razbor",
-   "kind": "pdf",
-   "pages": 7,
-   "size": 223061,
-   "date": "2026-11-09",
-   "thumb": "data/thumbs/tutoring/listki/formula-bayesa-razbor.png"
-  },
-  {
-   "path": "tutoring/listki/formula-bayesa.pdf",
-   "folder": "tutoring/listki",
-   "title": "formula-bayesa",
-   "kind": "pdf",
-   "pages": 5,
-   "size": 199619,
-   "date": "2026-11-09",
-   "thumb": "data/thumbs/tutoring/listki/formula-bayesa.png"
   },
   {
    "path": "tutoring/listki/kinematika-razbor.pdf",
@@ -2428,6 +2415,24 @@
    "thumb": "data/thumbs/tex/documents/ml/numpy-pandas.png"
   },
   {
+   "title": "Формула Байеса и независимость",
+   "tex": "bayes-i-nezavisimost.tex",
+   "group": "tutoring",
+   "pdf": "tutoring/listki/bayes-i-nezavisimost.pdf",
+   "num": "",
+   "date": "2026-11-09",
+   "thumb": "data/thumbs/tutoring/listki/bayes-i-nezavisimost.png"
+  },
+  {
+   "title": "Формула Байеса и независимость",
+   "tex": "bayes-i-nezavisimost-razbor.tex",
+   "group": "tutoring",
+   "pdf": "tutoring/listki/bayes-i-nezavisimost-razbor.pdf",
+   "num": "",
+   "date": "2026-11-09",
+   "thumb": "data/thumbs/tutoring/listki/bayes-i-nezavisimost-razbor.png"
+  },
+  {
    "title": "Физика",
    "tex": "diagnostika-fizika-10.tex",
    "group": "tutoring",
@@ -2480,33 +2485,6 @@
    "num": "",
    "date": "2026-11-03",
    "thumb": "data/thumbs/tutoring/listki/diagnostika-veroyatnost-zadachi.png"
-  },
-  {
-   "title": "Формула Байеса",
-   "tex": "formula-bayesa.tex",
-   "group": "tutoring",
-   "pdf": "tutoring/listki/formula-bayesa.pdf",
-   "num": "",
-   "date": "2026-11-09",
-   "thumb": "data/thumbs/tutoring/listki/formula-bayesa.png"
-  },
-  {
-   "title": "Формула Байеса",
-   "tex": "formula-bayesa-dz.tex",
-   "group": "tutoring",
-   "pdf": "tutoring/listki/formula-bayesa-dz.pdf",
-   "num": "",
-   "date": "2026-11-09",
-   "thumb": "data/thumbs/tutoring/listki/formula-bayesa-dz.png"
-  },
-  {
-   "title": "Формула Байеса",
-   "tex": "formula-bayesa-razbor.tex",
-   "group": "tutoring",
-   "pdf": "tutoring/listki/formula-bayesa-razbor.pdf",
-   "num": "",
-   "date": "2026-11-09",
-   "thumb": "data/thumbs/tutoring/listki/formula-bayesa-razbor.png"
   },
   {
    "title": "Бросок и окружность",
