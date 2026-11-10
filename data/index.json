@@ -939,6 +939,7 @@
     "status": "занимается"
    },
    "links": [
+    "graficheskiy-metod",
     "neravenstva-zanyatie-01",
     "ocenka-i-primer-zanyatie-01",
     "ocenka-i-primer-zanyatie-01-razbor",
@@ -971,6 +972,7 @@
     "tyulenev-stepan-10",
     "tyulenev-stepan-11",
     "tyulenev-stepan-12",
+    "tyulenev-stepan-13",
     "uravneniya-v-celyh",
     "uravneniya-v-celyh-razbor",
     "vpisannost",
@@ -1893,6 +1895,16 @@
    "thumb": "data/thumbs/tutoring/listki/diagnostika-veroyatnost-zadachi.png"
   },
   {
+   "path": "tutoring/listki/graficheskiy-metod.pdf",
+   "folder": "tutoring/listki",
+   "title": "graficheskiy-metod",
+   "kind": "pdf",
+   "pages": 6,
+   "size": 153298,
+   "date": "2026-11-10",
+   "thumb": "data/thumbs/tutoring/listki/graficheskiy-metod.png"
+  },
+  {
    "path": "tutoring/listki/kinematika-razbor.pdf",
    "folder": "tutoring/listki",
    "title": "kinematika-razbor",
@@ -2498,6 +2510,15 @@
    "num": "",
    "date": "2026-11-03",
    "thumb": "data/thumbs/tutoring/listki/diagnostika-veroyatnost-zadachi.png"
+  },
+  {
+   "title": "Графический метод",
+   "tex": "graficheskiy-metod.tex",
+   "group": "tutoring",
+   "pdf": "tutoring/listki/graficheskiy-metod.pdf",
+   "num": "",
+   "date": "2026-11-10",
+   "thumb": "data/thumbs/tutoring/listki/graficheskiy-metod.png"
   },
   {
    "title": "Бросок и окружность",
