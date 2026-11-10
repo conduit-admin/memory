@@ -940,6 +940,7 @@
    },
    "links": [
     "graficheskiy-metod",
+    "graficheskiy-metod-razbor",
     "neravenstva-zanyatie-01",
     "ocenka-i-primer-zanyatie-01",
     "ocenka-i-primer-zanyatie-01-razbor",
@@ -1895,6 +1896,16 @@
    "thumb": "data/thumbs/tutoring/listki/diagnostika-veroyatnost-zadachi.png"
   },
   {
+   "path": "tutoring/listki/graficheskiy-metod-razbor.pdf",
+   "folder": "tutoring/listki",
+   "title": "graficheskiy-metod-razbor",
+   "kind": "pdf",
+   "pages": 17,
+   "size": 260433,
+   "date": "2026-11-10",
+   "thumb": "data/thumbs/tutoring/listki/graficheskiy-metod-razbor.png"
+  },
+  {
    "path": "tutoring/listki/graficheskiy-metod.pdf",
    "folder": "tutoring/listki",
    "title": "graficheskiy-metod",
@@ -2519,6 +2530,15 @@
    "num": "",
    "date": "2026-11-10",
    "thumb": "data/thumbs/tutoring/listki/graficheskiy-metod.png"
+  },
+  {
+   "title": "Графический метод",
+   "tex": "graficheskiy-metod-razbor.tex",
+   "group": "tutoring",
+   "pdf": "tutoring/listki/graficheskiy-metod-razbor.pdf",
+   "num": "",
+   "date": "2026-11-10",
+   "thumb": "data/thumbs/tutoring/listki/graficheskiy-metod-razbor.png"
   },
   {
    "title": "Бросок и окружность",
