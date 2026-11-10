@@ -1278,16 +1278,6 @@
    "thumb": "data/thumbs/physics/listki/serii/seriya-06.png"
   },
   {
-   "path": "physics/listki/serii/seriya-07.pdf",
-   "folder": "physics/listki/serii",
-   "title": "seriya-07",
-   "kind": "pdf",
-   "pages": 6,
-   "size": 185963,
-   "date": "2026-11-10",
-   "thumb": "data/thumbs/physics/listki/serii/seriya-07.png"
-  },
-  {
    "path": "physics/listki/teoriya/elektrostatika-teoriya.pdf",
    "folder": "physics/listki/teoriya",
    "title": "elektrostatika-teoriya",
@@ -1302,8 +1292,8 @@
    "folder": "physics/listki/teoriya",
    "title": "kolebaniya-teoriya",
    "kind": "pdf",
-   "pages": 5,
-   "size": 147678,
+   "pages": 3,
+   "size": 137455,
    "date": "2026-11-10",
    "thumb": "data/thumbs/physics/listki/teoriya/kolebaniya-teoriya.png"
   },
@@ -2999,16 +2989,6 @@
    "date": "2026-10-29",
    "vid": "Серия 6",
    "thumb": "data/thumbs/physics/listki/serii/seriya-06.png"
-  },
-  {
-   "title": "Системы тел и затухание",
-   "tex": "seriya-07.tex",
-   "group": "physics/serii",
-   "pdf": "physics/listki/serii/seriya-07.pdf",
-   "num": "",
-   "date": "2026-11-10",
-   "vid": "Серия 7",
-   "thumb": "data/thumbs/physics/listki/serii/seriya-07.png"
   },
   {
    "title": "Электростатика",
