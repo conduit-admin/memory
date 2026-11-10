@@ -1054,10 +1054,10 @@
     "type": "rol",
     "poryadok": 14,
     "znachok": "layers",
-    "kratko": "спецкурс по параметрам: набросок плана, подборки, теория на модерацию"
+    "kratko": "спецкурс по параметрам: наброски пополам, подборки, теория"
    },
    "links": [],
-   "prompt": "Ты составитель спецкурса по задачам с параметром: школа партнёра\nи мои одноклассники, цель — перечневые олимпиады. Набросок — план,\nмодули, подборки, черновики теории — составляешь ты. Я модерирую,\nвмешиваюсь по ходу и слежу за определениями и за тем, как работают\nагенты.\n\nНачни с tutoring/kurs-parametr.md — план и решения по датам, потом\ntutoring/kurs-parametr-razmetka.md — какую теорию требуют олимпиады.\nПравила курса подгрузятся сами: .claude/rules/kurs-parametr.md.\n\n- Набросок — по данным, не по оглавлению учебника; порядок учебника\n  помечай «стандартное». Иначе выходит общее место.\n- Определение идёт в курс только с моего «да» и с источником.\n- Приёмы и факты — из книг и задач банка, своих не придумывать.\n- Крупный шаг — и показ мне; решённое — в план, с датой."
+   "prompt": "Мы вдвоём составляем спецкурс по задачам с параметром: школа партнёра\nи мои одноклассники, цель — перечневые олимпиады. Наброски — план,\nмодули, подборки, черновики теории — пятьдесят на пятьдесят: что-то\nнабрасываешь ты, что-то я, и каждый разбирает и правит набросок\nдругого. Ещё я слежу за определениями и за тем, как работают агенты.\n\nНачни с tutoring/kurs-parametr.md — план и решения по датам, потом\ntutoring/kurs-parametr-razmetka.md — какую теорию требуют олимпиады.\nПравила курса подгрузятся сами: .claude/rules/kurs-parametr.md.\n\n- Набросок — по данным, не по оглавлению учебника; порядок учебника\n  помечай «стандартное», и в своём наброске, и в моём. Иначе выходит\n  общее место.\n- Мой набросок проверяй по тем же данным: пробелы, дубли, что\n  олимпиадам не нужно.\n- Определение идёт в курс только с моего «да» и с источником.\n- Приёмы и факты — из книг и задач банка, своих не придумывать.\n- Крупный шаг — и показ мне; решённое — в план, с датой."
   },
   {
    "path": "roli/raznoe.md",
@@ -1278,6 +1278,16 @@
    "thumb": "data/thumbs/physics/listki/serii/seriya-06.png"
   },
   {
+   "path": "physics/listki/serii/seriya-07.pdf",
+   "folder": "physics/listki/serii",
+   "title": "seriya-07",
+   "kind": "pdf",
+   "pages": 6,
+   "size": 182711,
+   "date": "2026-11-10",
+   "thumb": "data/thumbs/physics/listki/serii/seriya-07.png"
+  },
+  {
    "path": "physics/listki/teoriya/elektrostatika-teoriya.pdf",
    "folder": "physics/listki/teoriya",
    "title": "elektrostatika-teoriya",
@@ -1296,6 +1306,16 @@
    "size": 137455,
    "date": "2026-11-10",
    "thumb": "data/thumbs/physics/listki/teoriya/kolebaniya-teoriya.png"
+  },
+  {
+   "path": "physics/listki/teoriya/magnetizm-teoriya.pdf",
+   "folder": "physics/listki/teoriya",
+   "title": "magnetizm-teoriya",
+   "kind": "pdf",
+   "pages": 3,
+   "size": 132681,
+   "date": "2026-11-10",
+   "thumb": "data/thumbs/physics/listki/teoriya/magnetizm-teoriya.png"
   },
   {
    "path": "physics/listki/teoriya/termodinamika-teoriya.pdf",
@@ -2991,6 +3011,16 @@
    "thumb": "data/thumbs/physics/listki/serii/seriya-06.png"
   },
   {
+   "title": "Сила Лоренца",
+   "tex": "seriya-07.tex",
+   "group": "physics/serii",
+   "pdf": "physics/listki/serii/seriya-07.pdf",
+   "num": "",
+   "date": "2026-11-10",
+   "vid": "Серия 7",
+   "thumb": "data/thumbs/physics/listki/serii/seriya-07.png"
+  },
+  {
    "title": "Электростатика",
    "tex": "elektrostatika-teoriya.tex",
    "group": "physics/teoriya",
@@ -3007,6 +3037,15 @@
    "num": "",
    "date": "2026-11-10",
    "thumb": "data/thumbs/physics/listki/teoriya/kolebaniya-teoriya.png"
+  },
+  {
+   "title": "Магнетизм",
+   "tex": "magnetizm-teoriya.tex",
+   "group": "physics/teoriya",
+   "pdf": "physics/listki/teoriya/magnetizm-teoriya.pdf",
+   "num": "",
+   "date": "2026-11-10",
+   "thumb": "data/thumbs/physics/listki/teoriya/magnetizm-teoriya.png"
   },
   {
    "title": "Термодинамика",
