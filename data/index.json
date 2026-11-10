@@ -329,7 +329,12 @@
    "fm": {
     "type": "ozvuchka"
    },
-   "links": []
+   "links": [
+    "konvencii",
+    "ochered",
+    "telegram",
+    "youtube"
+   ]
   },
   {
    "path": "manim/kanal/ozvuchka/orthocentric.md",
