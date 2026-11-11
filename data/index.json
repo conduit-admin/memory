@@ -1946,6 +1946,16 @@
    "thumb": "data/thumbs/tutoring/listki/kinematika.png"
   },
   {
+   "path": "tutoring/listki/matozhidanie.pdf",
+   "folder": "tutoring/listki",
+   "title": "matozhidanie",
+   "kind": "pdf",
+   "pages": 5,
+   "size": 203927,
+   "date": "2026-11-11",
+   "thumb": "data/thumbs/tutoring/listki/matozhidanie.png"
+  },
+  {
    "path": "tutoring/listki/neravenstva-zanyatie-01-razbor.pdf",
    "folder": "tutoring/listki",
    "title": "neravenstva-zanyatie-01-razbor",
@@ -2567,6 +2577,15 @@
    "num": "",
    "date": "2026-10-16",
    "thumb": "data/thumbs/tutoring/listki/kinematika-razbor.png"
+  },
+  {
+   "title": "Матожидание и индикаторы",
+   "tex": "matozhidanie.tex",
+   "group": "tutoring",
+   "pdf": "tutoring/listki/matozhidanie.pdf",
+   "num": "",
+   "date": "2026-11-11",
+   "thumb": "data/thumbs/tutoring/listki/matozhidanie.png"
   },
   {
    "title": "Неравенства",
