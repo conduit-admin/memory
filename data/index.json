@@ -916,6 +916,9 @@
     "diagnostika-veroyatnost-zadachi",
     "dmitriy-hft-01",
     "dmitriy-hft-03",
+    "dmitriy-hft-04",
+    "matozhidanie",
+    "matozhidanie-razbor",
     "uslovnaya-veroyatnost",
     "uslovnaya-veroyatnost-razbor",
     "veroyatnost-sobytiya-dz",
@@ -1946,6 +1949,16 @@
    "thumb": "data/thumbs/tutoring/listki/kinematika.png"
   },
   {
+   "path": "tutoring/listki/matozhidanie-razbor.pdf",
+   "folder": "tutoring/listki",
+   "title": "matozhidanie-razbor",
+   "kind": "pdf",
+   "pages": 8,
+   "size": 238278,
+   "date": "2026-11-11",
+   "thumb": "data/thumbs/tutoring/listki/matozhidanie-razbor.png"
+  },
+  {
    "path": "tutoring/listki/matozhidanie.pdf",
    "folder": "tutoring/listki",
    "title": "matozhidanie",
@@ -2586,6 +2599,15 @@
    "num": "",
    "date": "2026-11-11",
    "thumb": "data/thumbs/tutoring/listki/matozhidanie.png"
+  },
+  {
+   "title": "Матожидание и индикаторы",
+   "tex": "matozhidanie-razbor.tex",
+   "group": "tutoring",
+   "pdf": "tutoring/listki/matozhidanie-razbor.pdf",
+   "num": "",
+   "date": "2026-11-11",
+   "thumb": "data/thumbs/tutoring/listki/matozhidanie-razbor.png"
   },
   {
    "title": "Неравенства",
