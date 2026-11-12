@@ -1681,6 +1681,16 @@
    "thumb": "data/thumbs/ml/listki/teoriya/tablicy.png"
   },
   {
+   "path": "tex/documents/chastnye-proizvodnye.pdf",
+   "folder": "tex/documents",
+   "title": "chastnye-proizvodnye",
+   "kind": "pdf",
+   "pages": 11,
+   "size": 241459,
+   "date": "2026-11-12",
+   "thumb": "data/thumbs/tex/documents/chastnye-proizvodnye.png"
+  },
+  {
    "path": "tex/documents/cursor.pdf",
    "folder": "tex/documents",
    "title": "cursor",
@@ -2350,6 +2360,15 @@
   }
  ],
  "tex": [
+  {
+   "title": "Частные производные",
+   "tex": "chastnye-proizvodnye.tex",
+   "group": "",
+   "pdf": "tex/documents/chastnye-proizvodnye.pdf",
+   "num": "",
+   "date": "2026-11-12",
+   "thumb": "data/thumbs/tex/documents/chastnye-proizvodnye.png"
+  },
   {
    "title": "Задача о курсоре",
    "tex": "cursor.tex",
