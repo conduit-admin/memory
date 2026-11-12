@@ -252,7 +252,9 @@
    "fm": {
     "type": "plan"
    },
-   "links": []
+   "links": [
+    "strategy-stealing"
+   ]
   },
   {
    "path": "manim/kanal/konvencii.md",
@@ -728,6 +730,20 @@
    "links": [
     "montazh"
    ]
+  },
+  {
+   "path": "manim/projects/strategy-stealing.md",
+   "folder": "manim/projects",
+   "title": "Заимствование стратегии",
+   "fm": {
+    "type": "proekt",
+    "vid": "animatsiya",
+    "fail": "",
+    "stadiya": "не начат",
+    "video": "",
+    "data": ""
+   },
+   "links": []
   },
   {
    "path": "manim/README.md",
