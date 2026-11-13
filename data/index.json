@@ -478,6 +478,22 @@
    "links": []
   },
   {
+   "path": "manim/nabroski/README.md",
+   "folder": "manim/nabroski",
+   "title": "Наброски",
+   "fm": {},
+   "links": []
+  },
+  {
+   "path": "manim/nabroski/strategy-stealing.md",
+   "folder": "manim/nabroski",
+   "title": "Заимствование стратегии — наброски",
+   "fm": {},
+   "links": [
+    "strategy-stealing"
+   ]
+  },
+  {
    "path": "manim/projects/broken-stick-podgonka.md",
    "folder": "manim/projects",
    "title": "Палочка на n кусков — подгонка под голос",
