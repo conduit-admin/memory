@@ -487,11 +487,9 @@
   {
    "path": "manim/nabroski/strategy-stealing.md",
    "folder": "manim/nabroski",
-   "title": "Заимствование стратегии — наброски",
+   "title": "Заимствование стратегии",
    "fm": {},
-   "links": [
-    "strategy-stealing"
-   ]
+   "links": []
   },
   {
    "path": "manim/projects/broken-stick-podgonka.md",
