@@ -81,7 +81,7 @@ Desktop/dlya-google-diska/: нет папки — распакуй её отту
 
 ## Что не читать
 
-`physics/`, `math/`, `tutoring/`, `manim/`, `shkola/`, `lichnoe/` — к курсу
+`physics/`, `math/`, `tutoring/`, `manim/`, `shkola/` — к курсу
 не относятся. `Desktop/kurs-materialy/` подряд — там больше миллиона
 токенов текста; только файлы, на которые указала карточка. Ответы
 готовых задач (`.claude/kurs/serii/*/otvety.md`) — только когда правишь
