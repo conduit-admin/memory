@@ -648,3 +648,7 @@ Segoe UI Symbol.
 заметнее: при тусклении за 0,6 с с 3,6 по 6,6 с кадр стоял (`statika.py`
 — 3 с). Черновик — `media/.../nachalo-priz-chernovik-10.mp4`, 9,6 с, без
 звука; `statika.py` чисто.
+
+16.11.2026: та же сцена в `-qp` (владелец) — 1080×1920, 60 к/с,
+576 кадров, `media/videos/strategy_stealing/1920p60/nachalo-priz-pq-1.mp4`;
+`statika.py` чисто.
