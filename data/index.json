@@ -987,6 +987,7 @@
     "poryadok",
     "poryadok-dz",
     "raznoboy-01",
+    "raznoboy-02",
     "sravneniya",
     "sravneniya-dz",
     "sravneniya-dz-razbor",
@@ -1009,6 +1010,7 @@
     "tyulenev-stepan-11",
     "tyulenev-stepan-12",
     "tyulenev-stepan-13",
+    "tyulenev-stepan-14",
     "uravneniya-v-celyh",
     "uravneniya-v-celyh-razbor",
     "vpisannost",
@@ -2127,6 +2129,16 @@
    "thumb": "data/thumbs/tutoring/listki/raznoboy-01.png"
   },
   {
+   "path": "tutoring/listki/raznoboy-02.pdf",
+   "folder": "tutoring/listki",
+   "title": "raznoboy-02",
+   "kind": "pdf",
+   "pages": 2,
+   "size": 119551,
+   "date": "2026-11-15",
+   "thumb": "data/thumbs/tutoring/listki/raznoboy-02.png"
+  },
+  {
    "path": "tutoring/listki/sravneniya-dz-razbor.pdf",
    "folder": "tutoring/listki",
    "title": "sravneniya-dz-razbor",
@@ -2762,6 +2774,15 @@
    "num": "",
    "date": "2026-11-03",
    "thumb": "data/thumbs/tutoring/listki/raznoboy-01.png"
+  },
+  {
+   "title": "Разнобой",
+   "tex": "raznoboy-02.tex",
+   "group": "tutoring",
+   "pdf": "tutoring/listki/raznoboy-02.pdf",
+   "num": "",
+   "date": "2026-11-15",
+   "thumb": "data/thumbs/tutoring/listki/raznoboy-02.png"
   },
   {
    "title": "Сравнения по модулю",
