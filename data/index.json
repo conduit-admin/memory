@@ -391,6 +391,15 @@
    ]
   },
   {
+   "path": "manim/kanal/ozvuchka/strategy_stealing.md",
+   "folder": "manim/kanal/ozvuchka",
+   "title": "Заимствование стратегии",
+   "fm": {
+    "type": "ozvuchka"
+   },
+   "links": []
+  },
+  {
    "path": "manim/kanal/README.md",
    "folder": "manim/kanal",
    "title": "Канал",
@@ -752,7 +761,7 @@
    "fm": {
     "type": "proekt",
     "vid": "animatsiya",
-    "fail": "",
+    "fail": "strategy_stealing.py",
     "stadiya": "не начат",
     "video": "",
     "data": ""

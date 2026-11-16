@@ -1,7 +1,7 @@
 ---
 type: proekt
 vid: animatsiya
-fail:
+fail: strategy_stealing.py
 stadiya: не начат
 video:
 data:
