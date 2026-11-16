@@ -1864,8 +1864,8 @@
    "title": "bayes-i-nezavisimost-razbor",
    "kind": "pdf",
    "pages": 10,
-   "size": 219533,
-   "date": "2026-11-09",
+   "size": 219864,
+   "date": "2026-11-16",
    "thumb": "data/thumbs/tutoring/listki/bayes-i-nezavisimost-razbor.png"
   },
   {
@@ -1874,8 +1874,8 @@
    "title": "bayes-i-nezavisimost",
    "kind": "pdf",
    "pages": 7,
-   "size": 203039,
-   "date": "2026-11-09",
+   "size": 203227,
+   "date": "2026-11-16",
    "thumb": "data/thumbs/tutoring/listki/bayes-i-nezavisimost.png"
   },
   {
@@ -2538,7 +2538,7 @@
    "group": "tutoring",
    "pdf": "tutoring/listki/bayes-i-nezavisimost.pdf",
    "num": "",
-   "date": "2026-11-09",
+   "date": "2026-11-16",
    "thumb": "data/thumbs/tutoring/listki/bayes-i-nezavisimost.png"
   },
   {
@@ -2547,7 +2547,7 @@
    "group": "tutoring",
    "pdf": "tutoring/listki/bayes-i-nezavisimost-razbor.pdf",
    "num": "",
-   "date": "2026-11-09",
+   "date": "2026-11-16",
    "thumb": "data/thumbs/tutoring/listki/bayes-i-nezavisimost-razbor.png"
   },
   {
