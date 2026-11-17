@@ -51,8 +51,8 @@
    "fm": {
     "type": "meta",
     "istochnik": "матцентр",
-    "vsego": 140,
-    "resheno": 101
+    "vsego": 147,
+    "resheno": 105
    },
    "links": []
   },
@@ -1209,9 +1209,9 @@
    "folder": "math/serii",
    "title": "grobariy",
    "kind": "pdf",
-   "pages": 0,
-   "size": 151402,
-   "date": "2026-10-04"
+   "pages": 2,
+   "size": 169423,
+   "date": "2026-11-18"
   },
   {
    "path": "math/serii/seriya-01.pdf",
