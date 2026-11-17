@@ -2099,6 +2099,16 @@
    "thumb": "data/thumbs/tutoring/listki/olimpiada-02.png"
   },
   {
+   "path": "tutoring/listki/polynomials-razbor.pdf",
+   "folder": "tutoring/listki",
+   "title": "polynomials-razbor",
+   "kind": "pdf",
+   "pages": 10,
+   "size": 210992,
+   "date": "2026-11-17",
+   "thumb": "data/thumbs/tutoring/listki/polynomials-razbor.png"
+  },
+  {
    "path": "tutoring/listki/polynomials.pdf",
    "folder": "tutoring/listki",
    "title": "polynomials",
@@ -2767,6 +2777,15 @@
    "num": "",
    "date": "2026-11-17",
    "thumb": "data/thumbs/tutoring/listki/polynomials.png"
+  },
+  {
+   "title": "Многочлены",
+   "tex": "polynomials-razbor.tex",
+   "group": "tutoring",
+   "pdf": "tutoring/listki/polynomials-razbor.pdf",
+   "num": "",
+   "date": "2026-11-17",
+   "thumb": "data/thumbs/tutoring/listki/polynomials-razbor.png"
   },
   {
    "title": "Порядок числа",
