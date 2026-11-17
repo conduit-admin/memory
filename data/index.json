@@ -993,6 +993,7 @@
     "olimpiada-01",
     "olimpiada-01-razbor",
     "olimpiada-02",
+    "polynomials",
     "poryadok",
     "poryadok-dz",
     "raznoboy-01",
@@ -2098,6 +2099,16 @@
    "thumb": "data/thumbs/tutoring/listki/olimpiada-02.png"
   },
   {
+   "path": "tutoring/listki/polynomials.pdf",
+   "folder": "tutoring/listki",
+   "title": "polynomials",
+   "kind": "pdf",
+   "pages": 5,
+   "size": 140026,
+   "date": "2026-11-17",
+   "thumb": "data/thumbs/tutoring/listki/polynomials.png"
+  },
+  {
    "path": "tutoring/listki/poryadok-dz.pdf",
    "folder": "tutoring/listki",
    "title": "poryadok-dz",
@@ -2143,8 +2154,8 @@
    "title": "raznoboy-02",
    "kind": "pdf",
    "pages": 2,
-   "size": 119551,
-   "date": "2026-11-15",
+   "size": 118120,
+   "date": "2026-11-17",
    "thumb": "data/thumbs/tutoring/listki/raznoboy-02.png"
   },
   {
@@ -2749,6 +2760,15 @@
    "thumb": "data/thumbs/tutoring/listki/olimpiada-02.png"
   },
   {
+   "title": "Многочлены",
+   "tex": "polynomials.tex",
+   "group": "tutoring",
+   "pdf": "tutoring/listki/polynomials.pdf",
+   "num": "",
+   "date": "2026-11-17",
+   "thumb": "data/thumbs/tutoring/listki/polynomials.png"
+  },
+  {
    "title": "Порядок числа",
    "tex": "poryadok.tex",
    "group": "tutoring",
@@ -2790,7 +2810,7 @@
    "group": "tutoring",
    "pdf": "tutoring/listki/raznoboy-02.pdf",
    "num": "",
-   "date": "2026-11-15",
+   "date": "2026-11-17",
    "thumb": "data/thumbs/tutoring/listki/raznoboy-02.png"
   },
   {
