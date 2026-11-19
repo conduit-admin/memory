@@ -2143,6 +2143,26 @@
    "thumb": "data/thumbs/tutoring/listki/trehchlen.png"
   },
   {
+   "path": "tutoring/listki/trial-math-physics-10-razbor.pdf",
+   "folder": "tutoring/listki",
+   "title": "trial-math-physics-10-razbor",
+   "kind": "pdf",
+   "pages": 14,
+   "size": 345202,
+   "date": "2026-11-19",
+   "thumb": "data/thumbs/tutoring/listki/trial-math-physics-10-razbor.png"
+  },
+  {
+   "path": "tutoring/listki/trial-math-physics-10.pdf",
+   "folder": "tutoring/listki",
+   "title": "trial-math-physics-10",
+   "kind": "pdf",
+   "pages": 9,
+   "size": 178944,
+   "date": "2026-11-19",
+   "thumb": "data/thumbs/tutoring/listki/trial-math-physics-10.png"
+  },
+  {
    "path": "tutoring/listki/uravneniya-v-celyh-razbor.pdf",
    "folder": "tutoring/listki",
    "title": "uravneniya-v-celyh-razbor",
@@ -2791,6 +2811,24 @@
    "num": "",
    "date": "2026-10-10",
    "thumb": "data/thumbs/tutoring/listki/trehchlen-razbor.png"
+  },
+  {
+   "title": "Математика и физика",
+   "tex": "trial-math-physics-10.tex",
+   "group": "tutoring",
+   "pdf": "tutoring/listki/trial-math-physics-10.pdf",
+   "num": "",
+   "date": "2026-11-19",
+   "thumb": "data/thumbs/tutoring/listki/trial-math-physics-10.png"
+  },
+  {
+   "title": "Математика и физика",
+   "tex": "trial-math-physics-10-razbor.tex",
+   "group": "tutoring",
+   "pdf": "tutoring/listki/trial-math-physics-10-razbor.pdf",
+   "num": "",
+   "date": "2026-11-19",
+   "thumb": "data/thumbs/tutoring/listki/trial-math-physics-10-razbor.png"
   },
   {
    "title": "Уравнения в целых числах",
