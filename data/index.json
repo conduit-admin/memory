@@ -996,6 +996,7 @@
     "olimpiada-01",
     "olimpiada-01-razbor",
     "olimpiada-02",
+    "orthocenter",
     "polynomials",
     "polynomials-razbor",
     "poryadok",
@@ -1025,6 +1026,7 @@
     "tyulenev-stepan-12",
     "tyulenev-stepan-13",
     "tyulenev-stepan-14",
+    "tyulenev-stepan-15",
     "uravneniya-v-celyh",
     "uravneniya-v-celyh-razbor",
     "vpisannost",
@@ -1936,6 +1938,16 @@
    "thumb": "data/thumbs/tutoring/listki/olimpiada-02.png"
   },
   {
+   "path": "tutoring/listki/orthocenter.pdf",
+   "folder": "tutoring/listki",
+   "title": "orthocenter",
+   "kind": "pdf",
+   "pages": 4,
+   "size": 130591,
+   "date": "2026-11-20",
+   "thumb": "data/thumbs/tutoring/listki/orthocenter.png"
+  },
+  {
    "path": "tutoring/listki/polynomials-razbor.pdf",
    "folder": "tutoring/listki",
    "title": "polynomials-razbor",
@@ -2625,6 +2637,15 @@
    "num": "",
    "date": "2026-10-25",
    "thumb": "data/thumbs/tutoring/listki/olimpiada-02.png"
+  },
+  {
+   "title": "Ортоцентр",
+   "tex": "orthocenter.tex",
+   "group": "tutoring",
+   "pdf": "tutoring/listki/orthocenter.pdf",
+   "num": "",
+   "date": "2026-11-20",
+   "thumb": "data/thumbs/tutoring/listki/orthocenter.png"
   },
   {
    "title": "Многочлены",
