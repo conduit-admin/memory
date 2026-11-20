@@ -1788,6 +1788,16 @@
    "thumb": "data/thumbs/tutoring/listki/diagnostika-veroyatnost-zadachi.png"
   },
   {
+   "path": "tutoring/listki/dispersiya-i-kovariaciya.pdf",
+   "folder": "tutoring/listki",
+   "title": "dispersiya-i-kovariaciya",
+   "kind": "pdf",
+   "pages": 6,
+   "size": 226520,
+   "date": "2026-11-20",
+   "thumb": "data/thumbs/tutoring/listki/dispersiya-i-kovariaciya.png"
+  },
+  {
    "path": "tutoring/listki/graficheskiy-metod-razbor.pdf",
    "folder": "tutoring/listki",
    "title": "graficheskiy-metod-razbor",
@@ -2522,6 +2532,15 @@
    "num": "",
    "date": "2026-11-03",
    "thumb": "data/thumbs/tutoring/listki/diagnostika-veroyatnost-zadachi.png"
+  },
+  {
+   "title": "Дисперсия и ковариация",
+   "tex": "dispersiya-i-kovariaciya.tex",
+   "group": "tutoring",
+   "pdf": "tutoring/listki/dispersiya-i-kovariaciya.pdf",
+   "num": "",
+   "date": "2026-11-20",
+   "thumb": "data/thumbs/tutoring/listki/dispersiya-i-kovariaciya.png"
   },
   {
    "title": "Графический метод",
