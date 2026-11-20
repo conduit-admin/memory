@@ -2018,13 +2018,23 @@
    "thumb": "data/thumbs/tutoring/listki/raznoboy-01.png"
   },
   {
+   "path": "tutoring/listki/raznoboy-02-razbor.pdf",
+   "folder": "tutoring/listki",
+   "title": "raznoboy-02-razbor",
+   "kind": "pdf",
+   "pages": 6,
+   "size": 210402,
+   "date": "2026-11-20",
+   "thumb": "data/thumbs/tutoring/listki/raznoboy-02-razbor.png"
+  },
+  {
    "path": "tutoring/listki/raznoboy-02.pdf",
    "folder": "tutoring/listki",
    "title": "raznoboy-02",
    "kind": "pdf",
    "pages": 2,
    "size": 118120,
-   "date": "2026-11-17",
+   "date": "2026-11-20",
    "thumb": "data/thumbs/tutoring/listki/raznoboy-02.png"
   },
   {
@@ -2726,8 +2736,17 @@
    "group": "tutoring",
    "pdf": "tutoring/listki/raznoboy-02.pdf",
    "num": "",
-   "date": "2026-11-17",
+   "date": "2026-11-20",
    "thumb": "data/thumbs/tutoring/listki/raznoboy-02.png"
+  },
+  {
+   "title": "Разнобой",
+   "tex": "raznoboy-02-razbor.tex",
+   "group": "tutoring",
+   "pdf": "tutoring/listki/raznoboy-02-razbor.pdf",
+   "num": "",
+   "date": "2026-11-20",
+   "thumb": "data/thumbs/tutoring/listki/raznoboy-02-razbor.png"
   },
   {
    "title": "Сравнения по модулю",
