@@ -1938,6 +1938,16 @@
    "thumb": "data/thumbs/tutoring/listki/olimpiada-02.png"
   },
   {
+   "path": "tutoring/listki/orthocenter-razbor.pdf",
+   "folder": "tutoring/listki",
+   "title": "orthocenter-razbor",
+   "kind": "pdf",
+   "pages": 11,
+   "size": 229150,
+   "date": "2026-11-20",
+   "thumb": "data/thumbs/tutoring/listki/orthocenter-razbor.png"
+  },
+  {
    "path": "tutoring/listki/orthocenter.pdf",
    "folder": "tutoring/listki",
    "title": "orthocenter",
@@ -2646,6 +2656,15 @@
    "num": "",
    "date": "2026-11-20",
    "thumb": "data/thumbs/tutoring/listki/orthocenter.png"
+  },
+  {
+   "title": "Ортоцентр",
+   "tex": "orthocenter-razbor.tex",
+   "group": "tutoring",
+   "pdf": "tutoring/listki/orthocenter-razbor.pdf",
+   "num": "",
+   "date": "2026-11-20",
+   "thumb": "data/thumbs/tutoring/listki/orthocenter-razbor.png"
   },
   {
    "title": "Многочлены",
