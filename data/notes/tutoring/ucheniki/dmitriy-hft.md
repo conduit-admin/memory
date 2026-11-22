@@ -80,7 +80,8 @@ status: занимается
    [[matozhidanie-razbor|разбор]]; домашки нет, листок дорешивает дома;
    план — [[dmitriy-hft-04]].
 6. 22.11, воскресенье — дисперсия и ковариация:
-   [[dispersiya-i-kovariaciya|урок]]; домашки нет; план — [[dmitriy-hft-05]].
+   [[dispersiya-i-kovariaciya|урок]],
+   [[dispersiya-i-kovariaciya-razbor|разбор]]; домашки нет; план — [[dmitriy-hft-05]].
 
 ## Организационное
 

@@ -959,6 +959,7 @@
     "diagnostika-veroyatnost-voprosy",
     "diagnostika-veroyatnost-zadachi",
     "dispersiya-i-kovariaciya",
+    "dispersiya-i-kovariaciya-razbor",
     "dmitriy-hft-01",
     "dmitriy-hft-03",
     "dmitriy-hft-04",
@@ -1750,16 +1751,6 @@
    "thumb": "data/thumbs/tutoring/listki/diagnostika-fizika-10.png"
   },
   {
-   "path": "tutoring/listki/diagnostika-oge-9-razbor.pdf",
-   "folder": "tutoring/listki",
-   "title": "diagnostika-oge-9-razbor",
-   "kind": "pdf",
-   "pages": 17,
-   "size": 272917,
-   "date": "2026-10-23",
-   "thumb": "data/thumbs/tutoring/listki/diagnostika-oge-9-razbor.png"
-  },
-  {
    "path": "tutoring/listki/diagnostika-oge-9.pdf",
    "folder": "tutoring/listki",
    "title": "diagnostika-oge-9",
@@ -1788,6 +1779,16 @@
    "size": 137144,
    "date": "2026-11-03",
    "thumb": "data/thumbs/tutoring/listki/diagnostika-veroyatnost-zadachi.png"
+  },
+  {
+   "path": "tutoring/listki/dispersiya-i-kovariaciya-razbor.pdf",
+   "folder": "tutoring/listki",
+   "title": "dispersiya-i-kovariaciya-razbor",
+   "kind": "pdf",
+   "pages": 8,
+   "size": 203697,
+   "date": "2026-11-22",
+   "thumb": "data/thumbs/tutoring/listki/dispersiya-i-kovariaciya-razbor.png"
   },
   {
    "path": "tutoring/listki/dispersiya-i-kovariaciya.pdf",
@@ -2509,15 +2510,6 @@
    "thumb": "data/thumbs/tutoring/listki/diagnostika-oge-9.png"
   },
   {
-   "title": "ОГЭ по математике",
-   "tex": "diagnostika-oge-9-razbor.tex",
-   "group": "tutoring",
-   "pdf": "tutoring/listki/diagnostika-oge-9-razbor.pdf",
-   "num": "",
-   "date": "2026-10-23",
-   "thumb": "data/thumbs/tutoring/listki/diagnostika-oge-9-razbor.png"
-  },
-  {
    "title": "Теория вероятностей",
    "tex": "diagnostika-veroyatnost-voprosy.tex",
    "group": "tutoring",
@@ -2543,6 +2535,15 @@
    "num": "",
    "date": "2026-11-20",
    "thumb": "data/thumbs/tutoring/listki/dispersiya-i-kovariaciya.png"
+  },
+  {
+   "title": "Дисперсия и ковариация",
+   "tex": "dispersiya-i-kovariaciya-razbor.tex",
+   "group": "tutoring",
+   "pdf": "tutoring/listki/dispersiya-i-kovariaciya-razbor.pdf",
+   "num": "",
+   "date": "2026-11-22",
+   "thumb": "data/thumbs/tutoring/listki/dispersiya-i-kovariaciya-razbor.png"
   },
   {
    "title": "Графический метод",
