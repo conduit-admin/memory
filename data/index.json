@@ -114,6 +114,13 @@
    ]
   },
   {
+   "path": "ml/listki/municipal/README.md",
+   "folder": "ml/listki/municipal",
+   "title": "Муниципальный этап",
+   "fm": {},
+   "links": []
+  },
+  {
    "path": "ml/notes/jupyter.md",
    "folder": "ml/notes",
    "title": "Jupyter",
