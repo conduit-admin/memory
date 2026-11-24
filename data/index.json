@@ -84,6 +84,13 @@
    "links": []
   },
   {
+   "path": "ml/kontest/mun/usloviya.md",
+   "folder": "ml/kontest/mun",
+   "title": "Задачник «Варианты МЭ»",
+   "fm": {},
+   "links": []
+  },
+  {
    "path": "ml/kontest/prog/usloviya.md",
    "folder": "ml/kontest/prog",
    "title": "Задачник «Программы»",
@@ -973,6 +980,7 @@
     "dmitriy-hft-05",
     "matozhidanie",
     "matozhidanie-razbor",
+    "raznoboy-veroyatnost-dz",
     "uslovnaya-veroyatnost",
     "uslovnaya-veroyatnost-razbor",
     "veroyatnost-sobytiya-dz",
@@ -2058,6 +2066,16 @@
    "thumb": "data/thumbs/tutoring/listki/raznoboy-02.png"
   },
   {
+   "path": "tutoring/listki/raznoboy-veroyatnost-dz.pdf",
+   "folder": "tutoring/listki",
+   "title": "raznoboy-veroyatnost-dz",
+   "kind": "pdf",
+   "pages": 3,
+   "size": 100943,
+   "date": "2026-11-25",
+   "thumb": "data/thumbs/tutoring/listki/raznoboy-veroyatnost-dz.png"
+  },
+  {
    "path": "tutoring/listki/sravneniya-dz-razbor.pdf",
    "folder": "tutoring/listki",
    "title": "sravneniya-dz-razbor",
@@ -2778,6 +2796,15 @@
    "thumb": "data/thumbs/tutoring/listki/raznoboy-02-razbor.png"
   },
   {
+   "title": "Разнобой",
+   "tex": "raznoboy-veroyatnost-dz.tex",
+   "group": "tutoring",
+   "pdf": "tutoring/listki/raznoboy-veroyatnost-dz.pdf",
+   "num": "",
+   "date": "2026-11-25",
+   "thumb": "data/thumbs/tutoring/listki/raznoboy-veroyatnost-dz.png"
+  },
+  {
    "title": "Сравнения по модулю",
    "tex": "sravneniya.tex",
    "group": "tutoring",
@@ -3375,11 +3402,23 @@
    "title": "Программы",
    "path": "ml/kontest/prog/usloviya.md",
    "date": "2026-10-24",
-   "n": 12,
+   "n": 15,
    "metki": [
-    "ряд"
+    "ряд",
+    "строки",
+    "сетка"
    ],
    "thumb": "data/thumbs/treyly/prog.svg"
+  },
+  {
+   "id": "mun",
+   "title": "Варианты МЭ",
+   "path": "ml/kontest/mun/usloviya.md",
+   "date": "2026-11-24",
+   "n": 6,
+   "metki": [
+    "Сириус III"
+   ]
   }
  ]
 }
