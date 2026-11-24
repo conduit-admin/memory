@@ -8,7 +8,7 @@
 
 - [График этапа: разбор 24.11 в 18:00, итоги 30.11](https://olympmo.ru/vos-mun-2026-2027.html)
 
-## Москва, 2025/26 · 17.12.2025
+## Москва, 2025/26 — тот же вариант, что III Сириуса · 17.12.2025
 
 - [Задания](https://vos.olimpiada.ru/upload/files/Arhive_tasks/2025-26/mun/ai/tasks-ai-9-11-mun-msk-25-26.pdf)
 - [Решения](https://vos.olimpiada.ru/upload/files/Arhive_tasks/2025-26/mun/ai/ans-ai-9-11-mun-msk-25-26.pdf)
