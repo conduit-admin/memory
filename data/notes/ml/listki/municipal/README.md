@@ -10,8 +10,8 @@
 
 ## Москва, 2025/26 · 17.12.2025
 
-- [Задания](https://informatikaexpert.ru/wp-content/uploads/2026/01/tasks-ai-9-11-mun-msk-25-26.pdf)
-- [Решения](https://informatikaexpert.ru/wp-content/uploads/2026/01/ans-ai-9-11-mun-msk-25-26.pdf)
+- [Задания](https://vos.olimpiada.ru/upload/files/Arhive_tasks/2025-26/mun/ai/tasks-ai-9-11-mun-msk-25-26.pdf)
+- [Решения](https://vos.olimpiada.ru/upload/files/Arhive_tasks/2025-26/mun/ai/ans-ai-9-11-mun-msk-25-26.pdf)
 
 ## Свердловская область, 2025/26
 
