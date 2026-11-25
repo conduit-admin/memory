@@ -2108,6 +2108,16 @@
    "thumb": "data/thumbs/tutoring/listki/raznoboy-veroyatnost-dz.png"
   },
   {
+   "path": "tutoring/listki/revisit-01-razbor.pdf",
+   "folder": "tutoring/listki",
+   "title": "revisit-01-razbor",
+   "kind": "pdf",
+   "pages": 8,
+   "size": 211622,
+   "date": "2026-11-25",
+   "thumb": "data/thumbs/tutoring/listki/revisit-01-razbor.png"
+  },
+  {
    "path": "tutoring/listki/revisit-01.pdf",
    "folder": "tutoring/listki",
    "title": "revisit-01",
@@ -2863,6 +2873,15 @@
    "num": "",
    "date": "2026-11-25",
    "thumb": "data/thumbs/tutoring/listki/revisit-01.png"
+  },
+  {
+   "title": "Дорешка",
+   "tex": "revisit-01-razbor.tex",
+   "group": "tutoring",
+   "pdf": "tutoring/listki/revisit-01-razbor.pdf",
+   "num": "",
+   "date": "2026-11-25",
+   "thumb": "data/thumbs/tutoring/listki/revisit-01-razbor.png"
   },
   {
    "title": "Сравнения по модулю",
