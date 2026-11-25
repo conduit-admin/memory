@@ -1007,6 +1007,7 @@
     "graficheskiy-metod",
     "graficheskiy-metod-razbor",
     "municipal-mix-dz",
+    "municipal-mix-dz-razbor",
     "neravenstva-zanyatie-01",
     "ocenka-i-primer-zanyatie-01",
     "ocenka-i-primer-zanyatie-01-razbor",
@@ -1890,6 +1891,16 @@
    "thumb": "data/thumbs/tutoring/listki/matozhidanie.png"
   },
   {
+   "path": "tutoring/listki/municipal-mix-dz-razbor.pdf",
+   "folder": "tutoring/listki",
+   "title": "municipal-mix-dz-razbor",
+   "kind": "pdf",
+   "pages": 6,
+   "size": 173010,
+   "date": "2026-11-25",
+   "thumb": "data/thumbs/tutoring/listki/municipal-mix-dz-razbor.png"
+  },
+  {
    "path": "tutoring/listki/municipal-mix-dz.pdf",
    "folder": "tutoring/listki",
    "title": "municipal-mix-dz",
@@ -2686,6 +2697,15 @@
    "num": "",
    "date": "2026-11-25",
    "thumb": "data/thumbs/tutoring/listki/municipal-mix-dz.png"
+  },
+  {
+   "title": "Разнобой к муниципальному этапу",
+   "tex": "municipal-mix-dz-razbor.tex",
+   "group": "tutoring",
+   "pdf": "tutoring/listki/municipal-mix-dz-razbor.pdf",
+   "num": "",
+   "date": "2026-11-25",
+   "thumb": "data/thumbs/tutoring/listki/municipal-mix-dz-razbor.png"
   },
   {
    "title": "Неравенства",
