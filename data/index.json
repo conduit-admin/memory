@@ -1021,6 +1021,7 @@
     "poryadok-dz",
     "raznoboy-01",
     "raznoboy-02",
+    "revisit-01",
     "sravneniya",
     "sravneniya-dz",
     "sravneniya-dz-razbor",
@@ -1045,6 +1046,7 @@
     "tyulenev-stepan-13",
     "tyulenev-stepan-14",
     "tyulenev-stepan-15",
+    "tyulenev-stepan-16",
     "uravneniya-v-celyh",
     "uravneniya-v-celyh-razbor",
     "vpisannost",
@@ -2106,6 +2108,16 @@
    "thumb": "data/thumbs/tutoring/listki/raznoboy-veroyatnost-dz.png"
   },
   {
+   "path": "tutoring/listki/revisit-01.pdf",
+   "folder": "tutoring/listki",
+   "title": "revisit-01",
+   "kind": "pdf",
+   "pages": 3,
+   "size": 140487,
+   "date": "2026-11-25",
+   "thumb": "data/thumbs/tutoring/listki/revisit-01.png"
+  },
+  {
    "path": "tutoring/listki/sravneniya-dz-razbor.pdf",
    "folder": "tutoring/listki",
    "title": "sravneniya-dz-razbor",
@@ -2842,6 +2854,15 @@
    "num": "",
    "date": "2026-11-25",
    "thumb": "data/thumbs/tutoring/listki/raznoboy-veroyatnost-dz.png"
+  },
+  {
+   "title": "Дорешка",
+   "tex": "revisit-01.tex",
+   "group": "tutoring",
+   "pdf": "tutoring/listki/revisit-01.pdf",
+   "num": "",
+   "date": "2026-11-25",
+   "thumb": "data/thumbs/tutoring/listki/revisit-01.png"
   },
   {
    "title": "Сравнения по модулю",
