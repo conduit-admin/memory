@@ -2086,6 +2086,16 @@
    "thumb": "data/thumbs/tutoring/listki/raznoboy-02.png"
   },
   {
+   "path": "tutoring/listki/raznoboy-raskraski-dz.pdf",
+   "folder": "tutoring/listki",
+   "title": "raznoboy-raskraski-dz",
+   "kind": "pdf",
+   "pages": 3,
+   "size": 117612,
+   "date": "2026-11-25",
+   "thumb": "data/thumbs/tutoring/listki/raznoboy-raskraski-dz.png"
+  },
+  {
    "path": "tutoring/listki/raznoboy-veroyatnost-dz.pdf",
    "folder": "tutoring/listki",
    "title": "raznoboy-veroyatnost-dz",
@@ -2817,6 +2827,15 @@
   },
   {
    "title": "Разнобой",
+   "tex": "raznoboy-raskraski-dz.tex",
+   "group": "tutoring",
+   "pdf": "tutoring/listki/raznoboy-raskraski-dz.pdf",
+   "num": "",
+   "date": "2026-11-25",
+   "thumb": "data/thumbs/tutoring/listki/raznoboy-raskraski-dz.png"
+  },
+  {
+   "title": "Разнобой",
    "tex": "raznoboy-veroyatnost-dz.tex",
    "group": "tutoring",
    "pdf": "tutoring/listki/raznoboy-veroyatnost-dz.pdf",
@@ -3221,6 +3240,15 @@
    "num": "",
    "date": "2026-10-17",
    "thumb": "data/thumbs/physics/listki/teoriya/zakony-sohraneniya-teoriya.png"
+  },
+  {
+   "title": "Центральная предельная теорема",
+   "tex": "central-limit-shpargalka.tex",
+   "group": "ml/listki/teoriya",
+   "pdf": "",
+   "num": "",
+   "date": "",
+   "vid": "Шпаргалка"
   },
   {
    "title": "Массивы в numpy",
