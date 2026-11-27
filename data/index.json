@@ -1761,6 +1761,16 @@
    "thumb": "data/thumbs/tutoring/listki/bayes-i-nezavisimost.png"
   },
   {
+   "path": "tutoring/listki/derivatives-olympiad.pdf",
+   "folder": "tutoring/listki",
+   "title": "derivatives-olympiad",
+   "kind": "pdf",
+   "pages": 5,
+   "size": 207713,
+   "date": "2026-11-27",
+   "thumb": "data/thumbs/tutoring/listki/derivatives-olympiad.png"
+  },
+  {
    "path": "tutoring/listki/diagnostika-fizika-10-razbor.pdf",
    "folder": "tutoring/listki",
    "title": "diagnostika-fizika-10-razbor",
@@ -2019,6 +2029,16 @@
    "size": 130591,
    "date": "2026-11-20",
    "thumb": "data/thumbs/tutoring/listki/orthocenter.png"
+  },
+  {
+   "path": "tutoring/listki/polynomials-olympiad.pdf",
+   "folder": "tutoring/listki",
+   "title": "polynomials-olympiad",
+   "kind": "pdf",
+   "pages": 5,
+   "size": 185612,
+   "date": "2026-11-27",
+   "thumb": "data/thumbs/tutoring/listki/polynomials-olympiad.png"
   },
   {
    "path": "tutoring/listki/polynomials-razbor.pdf",
@@ -2571,6 +2591,15 @@
    "num": "",
    "date": "2026-11-16",
    "thumb": "data/thumbs/tutoring/listki/bayes-i-nezavisimost-razbor.png"
+  },
+  {
+   "title": "Производная",
+   "tex": "derivatives-olympiad.tex",
+   "group": "tutoring",
+   "pdf": "tutoring/listki/derivatives-olympiad.pdf",
+   "num": "",
+   "date": "2026-11-27",
+   "thumb": "data/thumbs/tutoring/listki/derivatives-olympiad.png"
   },
   {
    "title": "Физика",
