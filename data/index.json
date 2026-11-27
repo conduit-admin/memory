@@ -121,6 +121,13 @@
    ]
   },
   {
+   "path": "ml/listki/intensive/README.md",
+   "folder": "ml/listki/intensive",
+   "title": "Интенсив к МЭ",
+   "fm": {},
+   "links": []
+  },
+  {
    "path": "ml/listki/municipal/README.md",
    "folder": "ml/listki/municipal",
    "title": "Муниципальный этап",
@@ -1413,16 +1420,6 @@
    "date": "2026-09-13"
   },
   {
-   "path": "ml/listki/teoriya/central-limit-shpargalka.pdf",
-   "folder": "ml/listki/teoriya",
-   "title": "central-limit-shpargalka",
-   "kind": "pdf",
-   "pages": 3,
-   "size": 164372,
-   "date": "2026-11-25",
-   "thumb": "data/thumbs/ml/listki/teoriya/central-limit-shpargalka.png"
-  },
-  {
    "path": "ml/listki/teoriya/massivy-shpargalka.pdf",
    "folder": "ml/listki/teoriya",
    "title": "massivy-shpargalka",
@@ -1461,6 +1458,16 @@
    "size": 397909,
    "date": "2026-10-25",
    "thumb": "data/thumbs/ml/listki/teoriya/matricy.png"
+  },
+  {
+   "path": "ml/listki/teoriya/metrics-shpargalka.pdf",
+   "folder": "ml/listki/teoriya",
+   "title": "metrics-shpargalka",
+   "kind": "pdf",
+   "pages": 4,
+   "size": 227937,
+   "date": "2026-11-27",
+   "thumb": "data/thumbs/ml/listki/teoriya/metrics-shpargalka.png"
   },
   {
    "path": "ml/listki/teoriya/modeli-1-sosedi-shpargalka.pdf",
@@ -1561,6 +1568,16 @@
    "size": 336216,
    "date": "2026-10-26",
    "thumb": "data/thumbs/ml/listki/teoriya/modeli-5-k-srednih.png"
+  },
+  {
+   "path": "ml/listki/teoriya/probability-shpargalka.pdf",
+   "folder": "ml/listki/teoriya",
+   "title": "probability-shpargalka",
+   "kind": "pdf",
+   "pages": 5,
+   "size": 237220,
+   "date": "2026-11-27",
+   "thumb": "data/thumbs/ml/listki/teoriya/probability-shpargalka.png"
   },
   {
    "path": "ml/listki/teoriya/tablicy-shpargalka.pdf",
@@ -3342,16 +3359,6 @@
    "thumb": "data/thumbs/physics/listki/teoriya/zakony-sohraneniya-teoriya.png"
   },
   {
-   "title": "Центральная предельная теорема",
-   "tex": "central-limit-shpargalka.tex",
-   "group": "ml/listki/teoriya",
-   "pdf": "ml/listki/teoriya/central-limit-shpargalka.pdf",
-   "num": "",
-   "date": "2026-11-25",
-   "vid": "Шпаргалка",
-   "thumb": "data/thumbs/ml/listki/teoriya/central-limit-shpargalka.png"
-  },
-  {
    "title": "Массивы в numpy",
    "tex": "massivy.tex",
    "group": "ml/listki/teoriya",
@@ -3390,6 +3397,16 @@
    "date": "2026-10-25",
    "vid": "Шпаргалка",
    "thumb": "data/thumbs/ml/listki/teoriya/matricy-shpargalka.png"
+  },
+  {
+   "title": "Метрики и лучшая константа",
+   "tex": "metrics-shpargalka.tex",
+   "group": "ml/listki/teoriya",
+   "pdf": "ml/listki/teoriya/metrics-shpargalka.pdf",
+   "num": "",
+   "date": "2026-11-27",
+   "vid": "Шпаргалка",
+   "thumb": "data/thumbs/ml/listki/teoriya/metrics-shpargalka.png"
   },
   {
    "title": "Ближайшие соседи",
@@ -3490,6 +3507,16 @@
    "date": "2026-10-26",
    "vid": "Шпаргалка",
    "thumb": "data/thumbs/ml/listki/teoriya/modeli-5-k-srednih-shpargalka.png"
+  },
+  {
+   "title": "Вероятность в задачах ML",
+   "tex": "probability-shpargalka.tex",
+   "group": "ml/listki/teoriya",
+   "pdf": "ml/listki/teoriya/probability-shpargalka.pdf",
+   "num": "",
+   "date": "2026-11-27",
+   "vid": "Шпаргалка",
+   "thumb": "data/thumbs/ml/listki/teoriya/probability-shpargalka.png"
   },
   {
    "title": "Таблицы в pandas",
