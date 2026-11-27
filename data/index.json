@@ -2138,6 +2138,16 @@
    "thumb": "data/thumbs/tutoring/listki/raznoboy-02.png"
   },
   {
+   "path": "tutoring/listki/raznoboy-dz-02.pdf",
+   "folder": "tutoring/listki",
+   "title": "raznoboy-dz-02",
+   "kind": "pdf",
+   "pages": 3,
+   "size": 94965,
+   "date": "2026-11-27",
+   "thumb": "data/thumbs/tutoring/listki/raznoboy-dz-02.png"
+  },
+  {
    "path": "tutoring/listki/raznoboy-raskraski-dz.pdf",
    "folder": "tutoring/listki",
    "title": "raznoboy-raskraski-dz",
@@ -2923,6 +2933,15 @@
    "num": "",
    "date": "2026-11-20",
    "thumb": "data/thumbs/tutoring/listki/raznoboy-02-razbor.png"
+  },
+  {
+   "title": "Разнобой",
+   "tex": "raznoboy-dz-02.tex",
+   "group": "tutoring",
+   "pdf": "tutoring/listki/raznoboy-dz-02.pdf",
+   "num": "",
+   "date": "2026-11-27",
+   "thumb": "data/thumbs/tutoring/listki/raznoboy-dz-02.png"
   },
   {
    "title": "Разнобой",
